@@ -1,0 +1,91 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; 
+    color: #2c3e50; 
+    margin: 0;
+    padding: 0;
+    padding: 20px;
+    text-align: justify;
+}
+header {
+    background-color: #3498db; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #2980b9;
+}
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+h2.title {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #bdc3c7;
+    padding-bottom: 10px;
+}
+p.Read-Time, p.author {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+p.Introduction {
+    font-size: 16px;
+    font-weight: bold;
+}
+ul {
+    list-style-type: disc;
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+ul li {
+    margin-bottom: 10px;
+}
+h3, h4, h5 {
+    color: #2c3e50;
+    margin-top: 30px;
+}
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+blockquote {
+    font-style: italic;
+    color: #555;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-left: 4px solid #3498db;
+}
+img {
+    width: 500px; 
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin-left: 0; 
+}
+.about-author {
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 40px;
+
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    margin-top: 40px;
+    border-top: 4px solid #2980b9;
+}
