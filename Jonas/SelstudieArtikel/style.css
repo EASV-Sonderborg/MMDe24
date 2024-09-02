@@ -19,7 +19,7 @@ img {
 
 p.box-6 {
 
-    
+    padding: 20px;
 text-align: center;
 
 }
@@ -32,6 +32,7 @@ p.box-4 {
     width: 600px;
     height: 150px;
     border: 20px 20px 20px 20px;
+    padding: 20px;
 }
 p.box-1 {
     text-align: center;
@@ -42,6 +43,9 @@ p.box-5 {
     height: 20px 20px 20px 20px;
     width: 600px;
     font-style: oblique;
+    margin: auto;
+    padding: 20px;
+    
 }
 p.box-3 {
     height: 20px;
@@ -50,4 +54,7 @@ p.box-3 {
 
     width: 70%;
     height: 70%;
+  }
+  p.box-8 {
+    font-size: medium;
   }
