@@ -1,0 +1,18 @@
+html {background-color: rgb(32, 31, 39);}
+h1 {color: white;}
+h2 {color: white}
+h3 {color: white;} 
+h4 {color:white;} 
+p {color: white;
+letter-spacing: 3px;
+padding: 5px;
+scroll-padding-block-end: 400px;}
+.article {padding: 10px;
+text-align: left;
+text-size-adjust: 100px;}
+.read-info {border: 10px; border-color: black;}
+img {
+height: 500px;
+
+}
+.quotes {background-color: blue;}
