@@ -1,0 +1,36 @@
+.header{
+    background-color: grey;
+    font-size: large;
+    padding-left: 30px;
+    text-align: left;
+}
+.headerallign{
+display: inline;
+}
+.body{
+    background-color: rgb(240, 247, 255);
+}
+.bulletpoints {
+padding-left: 50px;    
+}
+.quotes {
+font-style: italic;
+}
+.span{
+font-style: normal;
+}
+.Images {
+    width: 800px;
+    border-radius: 15px;
+}
+.author{
+    font-weight: bolder;
+}
+.articleinfo p {
+    display: inline;
+    margin-right: 180px;
+}
+.robert {
+    padding-left: 50px;
+    font-style: italic;
+}
