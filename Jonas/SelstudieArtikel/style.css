@@ -1,0 +1,53 @@
+body {
+    box-sizing: 1250px;
+
+    width: 600px;
+    border: 30px solid rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);
+margin: auto;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1
+)
+
+
+}
+img {
+    width: 400px;
+    height: 480px;
+    top: 50px;
+    left: 750px;
+}
+
+p.box-6 {
+
+    
+text-align: center;
+
+}
+.center p {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+  }
+p.box-4 {
+    width: 600px;
+    height: 150px;
+    border: 20px 20px 20px 20px;
+}
+p.box-1 {
+    text-align: center;
+}
+p.box-5 {
+
+    border: 60px;
+    height: 20px 20px 20px 20px;
+    width: 600px;
+    font-style: oblique;
+}
+p.box-3 {
+    height: 20px;
+}
+  img {
+
+    width: 70%;
+    height: 70%;
+  }
