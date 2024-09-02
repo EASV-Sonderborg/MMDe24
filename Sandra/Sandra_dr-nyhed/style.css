@@ -30,13 +30,14 @@ a {
   font-size: 18px;
   letter-spacing: 1px;
 }
-header {
+.grey {
   color: lightgrey;
   font-size: x-small;
 }
 .red {
   color: #931d27;
   font-weight: bold;
+  font-size: x-small;
 }
 .af {
   color: lightgray;
