@@ -1,0 +1,27 @@
+.intro {
+    background-color: antiquewhite;
+    color:blue;
+}
+.red {
+    color: red;
+}
+a {
+    text-decoration: none;
+}
+.link {
+    display: inline-flex;
+    margin-right: 20px;
+    color: black;
+}
+
+svg {
+    width: 16px;
+    height: 16px;
+    padding-right: 5px;
+}
+
+/* en kommentar */
+/* MÅ IKKE ANVENDES! */
+#start {
+
+}
