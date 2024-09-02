@@ -1,0 +1,28 @@
+.body{
+    background-color: #ffffff;
+    color: #000000;
+}
+.author {
+    font-weight: bold;
+}
+.about {
+    font-size: larger;
+    font-weight: bold;
+}
+.quote {
+    margin-left: 40px;
+}
+.quotetext{
+    font-style: italic;
+}
+.images {
+    display: block;
+    margin: 0 auto;
+}
+.list {
+    padding-left: 40px;
+}
+.articleInfo p {
+    display: inline;
+    margin-right: 300px;
+}
