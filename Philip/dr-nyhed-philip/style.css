@@ -1,0 +1,47 @@
+.headinfo {
+    color: #ff001e;
+}
+
+
+
+body {
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.5);
+}
+
+.article_main   {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    align-items: center;
+    padding: 50px;
+    background-color: #F4F0EE;
+    box-shadow: rgba(0, 0, 0, 0.5);
+    
+
+}
+.links  {  
+    fill: black;
+    display: inline-flex;
+}
+
+svg {
+    fill: #ff001e;
+    width: 20px;
+    display: inline;
+    
+}
+
+.SVG_Box    {
+    color: #ff001e;
+    display: inline-flex;
+}
+
+.Top_Link, .Bot_Link  {
+    color:#ff001e;
+    margin-right: 20px;
+    text-decoration:none;
+    display: inline-flex;
+}   

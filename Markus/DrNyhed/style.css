@@ -1,0 +1,64 @@
+.alt {
+    border: solid;
+    background-color: #f3f0ef;
+    border-color: #f3f0ef;
+    padding: 10px;
+   
+}
+
+.kort {
+    color: red;
+}
+
+.overskrift {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+body {
+    margin: auto;
+    width: 700px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+svg {
+    width: 10px;
+    height: 10px;
+    fill: red;
+}
+
+.forfatter1 {
+
+    color: gray;
+    margin-bottom:-20px;
+    font-size: 10px;
+}
+.forfatter2 {
+    font-weight: bold;
+}
+
+.ordbog {
+
+    color: red;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.meddeler {
+    text-decoration-line: underline;
+}
+
+.time {
+    color: gray;
+}
+
+.maintekst1, .maintekst2, .maintekst3, .maintekst4 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.skibi {
+    color: black;
+    text-decoration: none;
+}
