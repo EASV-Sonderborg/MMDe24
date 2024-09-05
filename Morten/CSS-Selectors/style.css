@@ -1,0 +1,42 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(255, 222, 222);
+}
+
+body{
+    margin: 20px;
+}
+
+h1:hover{
+    font-family: cursive;
+    font-size: 50px;
+}
+
+.author {
+    text-transform: uppercase;
+}
+
+.author:hover {
+    font-size: large;
+    font-weight: bolder;
+    text-decoration: underline;
+    font-family: cursive;
+    text-transform: capitalize;
+}
+
+.input-box{
+    font-family: cursive;
+    height: 20px;
+    width: 600px;
+    background: white;
+}
+
+.input-box:focus{
+    height: 200px;
+}
+
+button:hover{
+    color: pink;
+    background-color: red;
+}
+
