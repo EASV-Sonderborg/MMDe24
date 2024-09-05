@@ -274,7 +274,7 @@ h3  {
     line-height: 1.5;
     font-size: 30px;
     color: #ffffff;
-    padding: 30px;
+    padding: 25px;
     padding-top: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
    display: inline-block;
@@ -294,7 +294,7 @@ h4  {
 
 .container_Gaming {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     text-align: center;
@@ -305,18 +305,16 @@ h4  {
     background-image: url(gaming.png);
     background-size: cover;
     height: 1000px;
-    
-
 }
 
 .content_box2  {
-    padding: 20px 50px;
+    padding: 25px 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     font-size: 150%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: 10px;
-    width: 300px;
+    margin: 25px;
+    width: 350px;
     height: 400px;
     color: white;
 }
