@@ -3,52 +3,50 @@
     font-size: 20px;
 }
 
-
-
 body {
     max-width: 600px;
     margin: 0 auto;
-    box-shadow: rgba(0, 0, 0, 0.5);
+}
+main {
+    background-color: #f4f0ee;
+    padding: 20px;
 }
 
-.article_main   {
+.article_main, main {
     font-family: sans-serif;
     font-size: 16px;
     max-width: 600px;
     margin: 0 auto;
     align-items: center;
     background-color: #F4F0EE;
-    box-shadow: rgba(0, 0, 0, 0.5);
     padding: 20px;
     line-height: 1.5;
     
-
 }
+
+
 .links  {  
     fill: black;
     display: inline-flex;
 }
 
-svg {
-    fill: #ff001e;
-    width: 20px;
-    display: inline;
-    
-}
 
-.SVG_Box    {
-    color: #ff001e;
-    display: inline-flex;
-}
 
-.Top_Link, .Bot_Link  {
+.Top_Link  {
     color:#ff001e;
     margin-right: 20px;
     text-decoration:none;
     display: inline-flex;
+    fill: red;
 }   
+.Bot_Link   {
+    color: black;
+    margin-right: 20px;
+    text-decoration:none;
+    display: inline-flex;
+}
 
-.Icon   {
+.Icons   {
     margin: 0   10px   0    0;
     height: 20px;
     width: auto;
