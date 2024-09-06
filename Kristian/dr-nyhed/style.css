@@ -6,10 +6,12 @@
 
 .day{
     color: rgb(140, 140, 140);
+    font-size: smaller;
 }
 
 .header_nyt{
-    color: red
+    color: red;
+    font-size: smaller
 }
 
 .auther{
