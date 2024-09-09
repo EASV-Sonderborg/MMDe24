@@ -1,0 +1,91 @@
+*{
+    background: rgb(132, 103, 73);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+}
+
+
+
+*:not(ul, li,){
+     padding-right: 400px   
+}
+
+
+
+h1, h3{
+    background-color: rgb(66, 133, 74);
+    padding: 20px;
+    margin: 0px;
+}
+
+
+
+.lorem{
+    background-color: rgb(66, 133, 74);
+    padding: 20px;
+    margin: 0px;
+}
+
+
+
+p#outro{
+    background-color: rgb(66, 133, 74);
+    margin: 0px;
+    padding-left: 20px;
+    padding-bottom: 30px;    
+}
+
+
+
+.shop-text{
+    background-color: rgb(66, 133, 74);
+    margin: 0px;
+    padding-left: 20px  
+}
+
+
+
+
+ul, li{
+    background-color: rgb(66, 133, 74);
+    margin: 0px;
+    
+}
+
+.shop-list{
+    padding-left: 20px  
+}
+
+
+
+
+ul{
+    padding: 20px;
+}
+
+
+
+
+li:hover{
+    padding-left: 7px;
+    font-size: large;
+    color: lightgreen;
+    margin: 0px;
+}
+
+
+
+
+.ted{
+    background-color: rgb(66, 133, 74);
+}
+
+
+
+
+.ted:hover{
+    color: lightgreen;
+}
+
+
+
