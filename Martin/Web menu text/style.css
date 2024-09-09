@@ -1,0 +1,44 @@
+body,
+html {
+    width: 300px;
+    margin: 0 auto;
+    front-size: 1.2rem;
+    
+}
+
+.menu {
+    display: flex;
+    gap: 0.625%;
+}
+
+p{
+    line-height: 1.4;
+}
+
+a {
+outline-color: black;
+}
+
+a:link {
+color: black;
+}
+
+a:visited{
+   color: black; 
+}
+
+a:focus {
+text-decoration: none;
+background: #ffffff00;
+
+}
+
+a:hover {
+text-decoration: none;
+background: #ffffff00;
+}
+
+a:active {
+background: #ffffff00;
+color: #ffffff00;
+}
