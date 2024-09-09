@@ -8,16 +8,19 @@ h1{
     font-size: 2.25rem;
 }
 .cards{
-    display: flex;
-    gap: 1em;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    gap: 1rem;
 }
 .articleBg{
     background-color: #ebebeb;
-    max-width: 350px;
     padding: 30px 30px 100px 30px;
+    display: flex;
+    flex-direction: column;
 }
 p{
     padding-bottom: 30px;
+    flex-grow: 1;
 }
 a.button:link{
     color: white;
