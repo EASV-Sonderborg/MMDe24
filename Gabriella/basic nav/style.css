@@ -1,0 +1,47 @@
+/*fjerner deafult styling af ul */
+.navlist1 {
+    padding: 0;
+    margin-left: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    list-style: none;
+    gap: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    size: 40px;
+}
+
+.DR-icon{
+width: 65px;
+height: 65px;
+
+margin-top: 20px;
+}
+
+
+.navlink{
+    text-decoration: none;
+}
+
+.navlink:visited {
+    color: black;
+}
+.navlink:hover {
+    text-decoration:  underline ;
+    color: black ;
+}
+.navlink:focus {
+   color: black;
+   font-weight: bold;
+   text-decoration: underline;
+   text-decoration-thickness: 3px;
+   
+}
+
+.navlink:active {
+    color: black;
+
+}
+.navlink {
+    
+}

@@ -20,6 +20,11 @@ a:focus
 a:active
 */
 
+/* 
+fdfdfdsfd
+fdsfd vdvfbfv
+vfvfvfd
+*/
 .active:hover:not(.active) {
     color:red;
 }
