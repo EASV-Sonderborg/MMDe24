@@ -1,0 +1,46 @@
+.navList{
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    gap: 2em;
+}
+
+.navLink{
+    text-decoration: none;
+    color: black;
+}
+
+.highlight{
+    font-weight:bolder;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+
+    border-bottom: solid;
+    padding-bottom: 10px;
+    border-width: 4px;
+
+}
+
+a.navLink:link{
+    color:black
+}
+
+.navLink:visited{
+    color:black
+}
+
+a.navLink:hover{
+    color:black
+}
+
+a.navLink:focus{
+    color:black
+}
+
+a.navLink:active{
+}
