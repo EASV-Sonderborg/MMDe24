@@ -36,8 +36,6 @@ a:hover{
 a:focus{
     background-color: rgb(137, 137, 137);
 }
-a:active{
-}
 svg{
     width: 64px;
     height: 64px;
@@ -46,8 +44,9 @@ svg{
     color: white;
     background-color: red;
     padding: 20px 60px;
-    position: relative;
-    left: 300px
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
 }
 .loginButton:hover{
     background-color: rgb(180, 0, 0);
