@@ -41,16 +41,16 @@ h1  {
 .Nav_Bar_Button    {
     border-radius: 10px;
     color: white;
-  text-shadow: #0AD3F8;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 25px;
-  margin: 0 10px;
-  background-color: rgba(0, 0, 0, 0);
- 
+    text-shadow: #0AD3F8;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0 10px;
+    background-color: rgba(0, 0, 0, 0);
 }
+
 .Nav_Bar_Button:hover {
     
     text-shadow: 2px 5px 5px #ffffff6c;
@@ -98,7 +98,7 @@ main    {
     flex-wrap: wrap;
     text-align: center;
     gap: 20px;
-    padding: 20px;
+    padding: 40px;
     max-width: 100%;
     margin: 0 auto;
 
@@ -111,7 +111,7 @@ main    {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     text-align: center;
-    font-size: 150%;
+    font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     position: relative;
     margin: 10px;
@@ -121,10 +121,9 @@ main    {
 }
 .content_box:hover {
     background-color: rgba(39, 212, 255, 0.63);
-    font-size: 200%;
+    font-size: 170%;
     font-weight: bolder;
     box-shadow: 2px 4px 8px rgba(1, 59, 92, 0.8);
-    text-align: center;
     transform: scale(1.2);
 }
 
@@ -145,7 +144,7 @@ main    {
     
 }
 .Basketball {
-    background-image: url(okc_basketball.jpg_large);
+    background-image: url(okc_basketball.jpg);
     background-size: cover;
     
 }
@@ -176,7 +175,6 @@ main    {
     margin: 0 auto;
     font-weight: bold;
     margin-top: 30px;
-    align-items: center;
     justify-content: center;
     height: 100%;
 }   
@@ -229,7 +227,7 @@ h3  {
 }
 
 .Basketball_Page   {
-    background-image: url(okc_basketball.jpg_large);
+    background-image: url(okc_basketball.jpg);
     background-size: cover;
     height: 1000px;
     display: flex;
@@ -278,7 +276,7 @@ h3  {
     padding-top: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
    display: inline-block;
-   border-top: 4px, #0AD3F8;
+   border-top: 4px, solid #F70D1A;
 }
 
 h4  {
@@ -288,7 +286,7 @@ h4  {
     font-weight: bold;
     margin-bottom: 5px;
     margin-top: 10px;
-    border-bottom: 6px solid #0AD3F8;
+    border-bottom: 6px solid #F70D1A;
     margin-right: 50px;
 }
 
@@ -297,7 +295,7 @@ h4  {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    text-align: center;
+    text-align: left;
     gap: 20px;
     padding: 20px;
     max-width: 100%;
@@ -311,11 +309,11 @@ h4  {
     padding: 25px 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    font-size: 150%;
+    font-size: 120%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 25px;
     width: 350px;
-    height: 400px;
+    height: 250px;
     color: white;
 }
 .Rocket_League {
@@ -332,7 +330,6 @@ h4  {
     line-height: 1.5;
     font-size: 30px;
     color: #ffffff;
-    padding: 30px;
     padding-top: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
    display: block;
@@ -346,5 +343,30 @@ h4  {
 
 h5  {
     font-size: 40px;
+    margin: 0px;
+}
+
+.Musik_Box  {
+margin-top: 650px;
+width: 2200px;
+height: 1000px;
+display: flex;
+background-image: url(fl_studio.png);
+    background-size: cover;
+}
+
+
+
+.Musik  {
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+    padding: 35px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-color:rgba(255 ,71 ,0);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);   
+    height: 300px; 
 }
 
