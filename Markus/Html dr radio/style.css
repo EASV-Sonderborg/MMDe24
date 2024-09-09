@@ -1,0 +1,53 @@
+.kapitler {
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    list-style: none;
+    align-items: flex-end;
+}
+
+svg {
+    width: 50px;
+    height: 50px;
+    display: flex;
+        
+}
+
+
+.steder {
+    text-decoration: none;
+    color: black;
+}
+
+.steder:link{
+    color: black;
+}
+
+.steder:visited {
+    color: black;
+}
+
+
+.steder:hover {
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    text-decoration-line: underline;
+    text-decoration-thickness: 5px;
+}
+
+.steder:active {
+    color: black;
+}
+
+
+
+
+.tall {
+    border-bottom: 5px;
+    border-color: black;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    text-decoration-line: underline;
+    text-decoration-thickness: 5px;
+}
