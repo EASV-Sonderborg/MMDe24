@@ -2,15 +2,13 @@
     background-color: #1f1f1f;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 p, h1 {
-    display: inline;
+    max-width: max-content;
     font-size: larger;
     border-bottom-style: solid;
     border-color: white
-}
-p{
-    border-radius: 2px;
 }
 .redText{
     color: red;
@@ -18,7 +16,8 @@ p{
 span{
     border-style: solid;
     border-color: rgb(92, 190, 190);
+    border-radius: 8px;
 }
 div{
-    text-decoration: wavy underline lime
+    text-decoration: wavy underline red
 }
