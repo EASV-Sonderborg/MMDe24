@@ -35,7 +35,9 @@ a.navLink:link{
 }
 
 a.navLink:hover{
-    color:black
+    color:black;
+    text-decoration: underline;
+    
 }
 
 a.navLink:focus{
