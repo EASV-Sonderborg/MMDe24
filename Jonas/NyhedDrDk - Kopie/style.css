@@ -1,0 +1,61 @@
+body {
+    background-color: rgb(252, 252, 252);
+    margin: auto;
+    box-sizing: 1500px;
+    border: 30px;
+    width: 600px;
+}
+
+h3.text {
+margin: 1000px, 1000px;
+background-color: rgb(244, 238, 228);
+width: 900px;
+font-size: medium;
+padding: 15px;
+color: rgb(59, 59, 59);
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+p.author{
+    color: grey;
+    font-size: small;
+}
+p.info {
+    font-size: smaller;
+
+    
+}
+span.red {
+    color: red;
+}
+p.fb {
+    size: 10%;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    font-size: smaller; 
+    margin: left
+ }
+p.kongehuset {
+    text-decoration: none;
+}
+ .trivia {
+    color: red;
+    font-size: smaller;
+    margin-right: 20px;
+    fill: red;
+
+
+ }
+ svg
+ { 
+    width: 20px;
+    height: 20px;
+    fill: red;
+    color: red;
+ }
+ .icon
+ {
+    color: red;
+    text-decoration: none;
+ }
