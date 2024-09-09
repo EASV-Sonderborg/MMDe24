@@ -84,10 +84,13 @@ p{
     padding-bottom: 30px;
 }
 article{
-    /*display: inline-block;*/
-    
+    display: flex;
+    flex-direction: column;
 }
 .articles {
     display: flex;
     gap: 1em;
+}
+.paragraf{
+    flex-grow: 1;
 }
