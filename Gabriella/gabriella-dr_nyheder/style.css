@@ -1,0 +1,21 @@
+.red{
+    color: rgb(220, 16, 16);
+}
+.grey{
+    color: #757575;
+}
+.box{
+    background-color: F4F0EF;
+    padding: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 600;
+    margin: 20px 0 0 20px;
+}
+.svg{
+    width: 20px;
+    height: 20px;
+    
+}
+.redsvg{
+fill: crimson;
+}
