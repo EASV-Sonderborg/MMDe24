@@ -10,4 +10,20 @@
 .navLink {
     text-decoration: none;
 }
+/* Rækkefølgen på styling af links */
 
+/*
+a:link 
+a:visited
+a:hover
+a:focus
+a:active
+*/
+
+.active:hover:not(.active) {
+    color:red;
+}
+.mainNav {
+    display: flex;
+    justify-content: space-between;
+}
