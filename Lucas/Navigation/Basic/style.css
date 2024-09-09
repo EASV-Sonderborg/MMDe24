@@ -1,0 +1,47 @@
+/* Fjerner default styling af ul*/
+.navlist{
+    padding-left:  20px;
+    margin: px;
+    display: flex;  
+    justify-content: left;
+    gap: 3em;
+    list-style: none;
+    font-size: 20px;
+}
+/* display: flex; ændrer menupunkterne til horisontalt*/
+.navLink{
+    text-decoration: none;
+}
+a:link:not(.login){
+}
+a:visited{
+    color: black;
+}
+a:hover{
+    text-decoration: underline;
+}
+a:focus{
+}
+a:active{
+
+}
+.fokus{
+    font-weight: bold;
+    border-bottom: 5px solid black;
+padding: 10px;
+}
+/* Fjerner underline fra aktive class*/
+.fokus:hover{
+    text-decoration: none;
+}
+svg{
+    width: 64px;
+    height: 64px;
+}
+.login{
+    margin-left: 150px;
+    color: white;
+    text-decoration: none;
+    background-color: red;
+    padding: 20px 60px;
+}
