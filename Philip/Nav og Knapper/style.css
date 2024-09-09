@@ -10,6 +10,7 @@
     justify-content: flex-start;
     gap: 2%;
 }
+
 .logo {
 margin-top: 5px;
 margin-left: 25px;
@@ -17,13 +18,12 @@ margin-right: 100px;
 height: 80px;
 width: auto;
 }
+
 .search {
     margin-top: 10px;
     height: 30px;
     width: auto;
     }
-
-
 
 a.Nav   {
     flex: 1;
@@ -41,15 +41,13 @@ text-decoration: none;
  
 a.Nav:hover:not(.highlight){
 text-decoration:underline;
+text-underline-offset: 8px;
 }
 
 .highlight  {
     font-weight: bold;
     border-bottom: 5px solid black;
 }
-
-
-
 
 a.Login  {
     flex: 1;
@@ -62,6 +60,7 @@ a.Login  {
     text-decoration: none;
     margin-left: 350px;
 }
+
 .Login:hover {
 background-color: #dd142b;
 box-shadow: inset   0 0 2px black;
