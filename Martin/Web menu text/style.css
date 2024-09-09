@@ -1,18 +1,26 @@
 body,
 html {
-    width: 300px;
-    margin: 0 auto;
-    front-size: 1.2rem;
+    width: 1500px;
+    padding-top: 0%;
+    border: 20px;
+    margin: 20px;
+   
     
 }
 
-.menu {
+.active{
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navList {
     display: flex;
-    gap: 0.625%;
+    gap: 2%;
 }
 
 p{
     line-height: 1.4;
+
 }
 
 a {
