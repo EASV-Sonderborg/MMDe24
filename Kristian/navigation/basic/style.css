@@ -1,0 +1,36 @@
+/*fjerner default styling af ul */
+.navList{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 2em;
+}
+
+.navLink{
+    text-decoration: none;
+}
+
+a.navLink:link{
+    color: cornflowerblue;
+    background-color: rgb(215, 215, 244);
+}
+
+a.navLink:visited{
+    color: brown;
+}
+
+a.navLink:hover{
+    color:springgreen
+}
+
+a.navLink:focus{
+    color: rgb(255, 99, 37);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+a.navLink:active{
+    color: rgb(186, 30, 30);
+}
