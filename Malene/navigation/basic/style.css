@@ -1,0 +1,13 @@
+/* Fjerner default styling af ul */
+.navList {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    list-style: none;
+}
+.navLink {
+    text-decoration: none;
+}
+

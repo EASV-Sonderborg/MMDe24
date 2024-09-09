@@ -1,0 +1,44 @@
+svg {
+  width: 20;
+  height: 20px;
+}
+
+.text {
+  background-color: rgb(244, 240, 239);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 25px;
+  width: 700px;
+  margin: 20px;
+  text-align: left;
+}
+.italic {
+  font-style: italic;
+}
+.message-from-royal {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.writer {
+  font-size: small;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.article {
+  line-height: 30px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.grey {
+  color: lightgrey;
+  font-size: x-small;
+}
+.red {
+  color: #931d27;
+  font-weight: bold;
+  font-size: x-small;
+}
+.af {
+  color: lightgray;
+}

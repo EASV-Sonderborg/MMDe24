@@ -1,0 +1,350 @@
+body {
+    margin: 0px;
+    width: 100%;
+}
+html { scroll-behavior: smooth;}
+
+.Box   {
+    display: flex;
+    align-items:center;
+    width: 100%;
+    height: 80px;
+    margin: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    top: 0;
+    position:fixed;
+    background-color: rgba(0, 0, 0, 0.705);
+    z-index: 1000;
+    transition: height 0.3s ease;
+    padding: 15px;
+}
+.Box:hover  {
+    padding: 40px;
+    transition: padding 0,5s ease-in-out;
+}
+h1  {
+    margin-left: 50px;
+    margin-top: 30px;
+    font-size: 45px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 5px;
+    -webkit-text-stroke: 1px #0AD3F8;
+    color:rgba(206, 206, 206, 0);
+
+}
+
+.Nav_Bar    {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Nav_Bar_Button    {
+    border-radius: 10px;
+    color: white;
+  text-shadow: #0AD3F8;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 0 10px;
+  background-color: rgba(0, 0, 0, 0);
+ 
+}
+.Nav_Bar_Button:hover {
+    
+    text-shadow: 2px 5px 5px #ffffff6c;
+    font-size: 30px;
+    padding: 10px;
+    border-left: 2px solid #0AD3F8;
+    border-bottom: 2px solid #0AD3F8;
+    
+}
+.Nav_Bar_Button:active  {
+    transform: translateY(4px);
+    box-shadow: 0 5px #6b6b6b;
+}
+
+h2      {
+    font-size: 75px;
+    margin: 0px auto;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 10px;
+    text-decoration: 2px solid white;
+    position: absolute;
+    top: 20%;
+    left: 36%;
+    
+}
+
+main    {
+    align-content: center; 
+}
+.Image_Box  {
+    background-image: url(Jungle_Colorful.jpg);
+    background-size: cover;
+    height: 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+
+}
+
+.content_box {
+    background-color: rgba(25, 39, 97, 0.8);
+    padding: 20px 50px;
+    flex: 1 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 150%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: relative;
+    margin: 10px;
+    width: 150px;
+    height: 100px;
+    overflow: hidden;
+}
+.content_box:hover {
+    background-color: rgba(39, 212, 255, 0.63);
+    font-size: 200%;
+    font-weight: bolder;
+    box-shadow: 2px 4px 8px rgba(1, 59, 92, 0.8);
+    text-align: center;
+    transform: scale(1.2);
+}
+
+
+.gaming {
+    background-image: url(gaming.png);
+    background-size: cover;
+    
+}
+.Music {
+    background-image: url(fl_studio.png);
+    background-size: cover;
+    
+}
+.Design {
+    background-image: url(Design.PNG);
+    background-size: cover;
+    
+}
+.Basketball {
+    background-image: url(okc_basketball.jpg_large);
+    background-size: cover;
+    
+}
+.F1 {
+    background-image: url(f1.png);
+    background-size: cover;
+    
+}
+.overlay    {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(46, 90, 252, 0.596);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+}
+
+.content_box:hover .overlay {
+    background-color: rgba(46, 90, 252, 0.7);
+}
+.content_box p {
+    text-transform: uppercase;
+    color: white;
+    z-index: 1;
+    position: relative;
+    margin: 0 auto;
+    font-weight: bold;
+    margin-top: 30px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}   
+
+.About_Me   {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   background-color:#343434 ; 
+   height: 500px;
+   width: 100%;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+   color: white;
+   align-items: center;
+  
+   
+}
+
+h3  {
+    font-size: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-right: 50px;
+    border-bottom: 6px solid #ffffff;
+    
+}
+
+
+    
+
+.Text_Block_About   {
+    display: inline; 
+    width: 900px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+.Basketball_Page   {
+    background-image: url(okc_basketball.jpg_large);
+    background-size: cover;
+    height: 1000px;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.774);
+}
+
+.Basketball_Page_Text_Box   {
+    margin: 0px auto;
+    width: 900px;
+    height: 400px;
+    background-color: rgba(12, 12, 12, 0.822);
+    margin-top: 400px;
+    border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    font-size: 30px;
+    color: #ffffff;
+    padding: 30px;
+    padding-top: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+   display: inline-block;
+   border-top: 4px, #0AD3F8;
+}
+.Formel1_Page   {
+    background-image: url(f1.png);
+    background-size: cover;
+    height: 1000px;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.774);
+}
+
+.Formel1_Page_Text_Box   {
+    margin: 0px auto;
+    width: 900px;
+    height: 400px;
+    background-color: rgba(12, 12, 12, 0.822);
+    margin-top: 400px;
+    border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    font-size: 30px;
+    color: #ffffff;
+    padding: 25px;
+    padding-top: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+   display: inline-block;
+   border-top: 4px, #0AD3F8;
+}
+
+h4  {
+    font-size: 50px;
+    color: #ffffff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border-bottom: 6px solid #0AD3F8;
+    margin-right: 50px;
+}
+
+.container_Gaming {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-image: url(gaming.png);
+    background-size: cover;
+    height: 1000px;
+}
+
+.content_box2  {
+    padding: 25px 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    font-size: 150%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 25px;
+    width: 350px;
+    height: 400px;
+    color: white;
+}
+.Rocket_League {
+    background-color: rgba(8, 85, 170, 0.8);
+}
+.Text_Rocket_League p, .Text_Valorant p {
+    margin: 0px auto;
+    width: 900px;
+    height: 400px;
+    background-color: rgba(12, 12, 12, 0.822);
+    border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    font-size: 30px;
+    color: #ffffff;
+    padding: 30px;
+    padding-top: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+   display: block;
+   text-align: left; 
+}
+
+.Valorant   {
+    background-color: rgba(236 , 8, 48, 0.8);
+}
+
+
+h5  {
+    font-size: 40px;
+}
+
