@@ -1,0 +1,48 @@
+.body{
+    max-width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+}
+.bodyclass{
+    background-color: f3f0ef
+    ;
+    padding-left: 50px;
+}
+.redtext{
+    color: #c90418;
+    font-weight: bold;
+}
+.redimage{
+    fill: #c90418;
+}
+.link{
+    color: #c90418;
+    display: inline-flex;
+    margin-right: 20px;
+}
+.buttons p {
+    display: inline;
+    padding-left: 20px;
+}
+.underscore{
+    text-decoration: underline;
+}
+.bold{
+    font-weight: bolder;
+}
+.italics{
+    font-style: italic;
+}
+.svg{
+    width: 16px;
+    height: 16px;  
+}
+.link2{
+    color: black;
+    text-decoration: none;
+    
+}
+a:hover{
+    color: #c90418;
+
+}

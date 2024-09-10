@@ -1,14 +1,15 @@
 .kapitler {
     display: flex;
-    justify-content: left;
+    
     gap: 20px;
     list-style: none;
     align-items: flex-end;
+    
 }
 
-svg {
-    width: 50px;
-    height: 50px;
+.png-icon, .brand-logo-dr {
+    width: 70px;
+    height: 70px;
     display: flex;
         
 }
@@ -50,4 +51,63 @@ svg {
     text-underline-offset: 20px;
     text-decoration-line: underline;
     text-decoration-thickness: 5px;
+}
+
+.navi {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logind {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    height: 20px;
+    margin-top: 45px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 40px;
+    vertical-align: bottom;
+    
+
+}
+
+.header__svg-search-icon ,.header__svg-search-icon--nav-icon {
+   width: 30px;
+   height: 30px;
+margin-top: 45px;
+ margin-right: 300px;
+vertical-align: middle;
+
+}
+
+
+.abe {
+    list-style-type: none;
+}
+
+.button {
+    
+
+    min-height: 20px;
+    font-size: 15px;
+    line-height: 1.1rem;
+
+    display: inline-block;
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    text-decoration: none !important;
+    padding: 15px 32px;
+    color: #fff;
+    transition: background .1s;
+    border-radius: 1000px;
+    background-color: #007bc7;
+    border: 1px solid #007bc7;
+    font-family: danske_textregular, Verdana, sans-serif;
+    outline-offset: 4px;
+    
 }
