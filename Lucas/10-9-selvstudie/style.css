@@ -1,0 +1,68 @@
+.h1{
+    text-align: center;
+}
+.mainnav{
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+.navlist{
+    display: contents;
+    justify-content: space-between;
+    list-style: none;
+    font-size: 30px;
+
+}
+.header{
+   /* background-color: grey;*/
+    
+}
+.navlink{
+    text-decoration: none;
+
+}
+
+a:link{
+
+}
+a:visited{
+color: black;
+}
+a:hover{
+text-decoration: underline
+
+}
+a:focus{
+
+}
+a:active{
+
+}
+.art{
+    background-color: aquamarine;
+    width: 300px;
+}
+.article{
+    display: flex;
+    flex-direction: column;
+}
+.articles{
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+.paragraf{
+flex-grow: 1;
+}
+a.button{
+    color: white;
+    text-decoration: none !important;
+    font-family: danske_textregular, Verdana, sans-serif;
+    font-size: 16px;
+    background-color: #a1a3a5;
+border-radius: 8px;
+padding: 15px 32px;
+}
+a.button:hover{
+    background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+}
