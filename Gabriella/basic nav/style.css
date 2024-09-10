@@ -27,15 +27,15 @@ margin-top: 20px;
     color: black;
 }
 .navlink:hover {
-    text-decoration:  underline ;
-    color: black ;
+    */nothing
 }
 .navlink:focus {
    color: black;
    font-weight: bold;
-   text-decoration: underline;
-   text-decoration-thickness: 3px;
-   
+  
+   border-bottom:solid;
+   padding-bottom: 10px;
+   border-width: 4px;
 }
 
 .navlink:active {
@@ -44,4 +44,32 @@ margin-top: 20px;
 }
 .navlink {
     
+}
+
+
+.link{
+    background-color: #1586CC;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 25px;
+    align-items: center;
+    size: 14px;
+   
+}
+.link:visited {
+    background-color: #1586CC;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 25px;
+    align-items: center;
+    size: 14px;
+}
+.link:hover{
+     background-color: #065F97;
+transition  : background-color 0.5s ;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 25px;
+    align-items: center;
+    size: 14px;
 }
