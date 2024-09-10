@@ -1,0 +1,78 @@
+.ul1 {
+
+    display: flex;
+    gap: 300px;
+    list-style: none;
+    justify-content: center;
+    background-color: lightgreen;
+    padding: 50px;
+}
+
+
+.sted {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+.sted:hover {
+    text-decoration: underline;
+}
+
+.sted:active {
+
+    color: darkgreen;
+}
+
+.div1 {
+    text-align: left;
+    border: 5px solid;
+    width: 500px;
+    height: 200px;
+    margin: auto;
+    box-sizing: 50%;
+    padding: 20px;
+
+    
+}
+
+
+body {
+    background-color: lightgray;
+    
+}
+
+img {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    border: blue solid 5px;
+    
+}
+
+footer {
+display: flex;
+    justify-content: center;
+
+    margin-top: 200px;
+    font-size: 15px;
+}
+
+.interface {
+    max-height: 500px;
+    max-width: 250px;
+}
+
+
+
+
+
