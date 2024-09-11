@@ -1,0 +1,117 @@
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background-image: url("Img/Hostimg.jpg");
+}
+header {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    box-sizing: inherit;
+    padding-bottom: 3px;
+    border: 2px solid rgb(189, 189, 189);
+}
+.SmallNav {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 3px 0;
+    border-bottom: 1px solid grey;
+    justify-content: center;    
+    text-decoration: none;
+    gap: 1em;
+    font-size: small;
+    padding-bottom: 10px;
+}
+img {
+    justify-content: left;
+    box-sizing: inherit;
+    width: 64px;
+    height: 64px;
+    align-items: start;
+    margin-right: 20px;
+}
+/** Remove default styling of ul **/
+.Navlist {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    padding-top: 10px;
+    list-style: none;
+    justify-content: left;
+    gap: 3em;
+    font-size: large;
+    text-decoration: none;
+    font-weight: bold;
+    box-sizing: inherit;
+    align-items: center;
+}
+a:link, a:visited, a:hover, a:active, a:focus {
+    text-decoration: none;
+}
+a:link {
+    color: rgb(0, 0, 0);
+}
+a:visited {
+    color: purple;
+}
+a:hover {
+    color:  rgb(0, 0, 0);
+}
+a:active {
+    color: rgb(5, 142, 142);
+    font-weight: bolder;
+}
+a:focus {
+    color: rgb(116, 114, 114);
+}
+.login {
+    margin-left: auto;
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+.log{
+    color: white;
+}
+
+.search-icon{
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    display: inline-block;
+}
+button{
+    border: none;
+    background-color: white;
+    margin-left: auto;
+}
+.login:hover{
+    background-color: rgb(153, 5, 5);
+    text-decoration: none;
+}
+.login a{
+    text-decoration: none;
+}
+.NavLink:focus {
+    font-weight: bold;
+    text-decoration-thickness: 2px;
+
+    border-bottom: solid;
+    padding-bottom: 10px;
+    border-width: 4px;
+}
+.NavLink:active{
+
+}
+
+
+
