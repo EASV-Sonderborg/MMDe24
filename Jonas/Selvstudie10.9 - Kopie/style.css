@@ -1,18 +1,16 @@
 .nav{
     margin-top: auto;
-    height: 130px;
+    height: 80px;
     width: 100%;
     text-align: center;
     font-size: medium;
     padding: 30px;
-    background-color: rgb(211, 248, 255);
+    background-color: rgb(64, 64, 64);
     position: fixed;   
     top: 0;
     overflow: hidden;
     box-shadow: 30px 20px 30px 20px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    align-self: top;
-
+    align-self: left;
 
 }
 .buttons{
@@ -37,8 +35,6 @@
     margin-bottom: auto;
     top: 0;
     background-color: gray;
-
-
 }
 .besk{
     padding: 20px;
@@ -58,8 +54,9 @@
 }
 .body{ 
     margin: auto;
-    box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 30px 30px 30px 30px #0000001a;
     padding: 65px;
+    background-color: darkgrey;
 }
 .home{
     padding: 20px;
@@ -75,8 +72,8 @@
     box-shadow: 30px 20px 30px 20px rgba(0, 0, 0, 0.1);
     padding: 65px 65px 65px;
     border: 70px;
-    box-sizing: 650px;
     width: 650px;
     height: auto;
+    background-color: gray;
 
 }
