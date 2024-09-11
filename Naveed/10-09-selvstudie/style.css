@@ -1,0 +1,93 @@
+*{
+    background-color: #1f1f1f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:white
+}
+header{
+    position: sticky;
+      top: 0;
+    color: #23abf2;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(240, 248, 255, 0.164);
+    border-bottom-width: 1px;
+    text-decoration: none;
+}
+.navList{
+    padding: 12px;
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    font-weight: 400;
+    gap: 4em;
+    font-size: 1.35em;
+}
+.cards{
+    width: 866px;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+}
+.articleBg{
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.flex{
+    flex-grow: 1;
+}
+.flexTop{
+    flex-shrink: 1;
+}
+.focus{
+    font-weight: bold;
+    border-bottom: 2px solid white
+}
+p{
+    max-width: 866px;
+    margin-bottom: 4px;
+    padding-top: 40px;
+
+}
+.darkImg{
+    max-width: 400px;
+    border: solid 2px white;
+    border-radius: 12px;
+}
+.whiteImg{
+    max-width: 400px;
+    border: solid 2px black;
+    border-radius: 12px;
+}
+.description{
+    font-size: 1em;
+    border-bottom: 2px solid white;
+    max-width: 866px;
+}
+.single{
+    padding-left: 200px;
+    text-align: center;
+}
+a:link{
+    text-decoration: none;
+    color: #88d5ff;
+}
+a:visited{
+    color: #88d5ff;
+}
+a:focus{
+    background-color: rgb(137, 137, 137);
+}
+a:hover{
+    background-color: #88d5ff18;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+}
+footer{
+    padding-top: 20px;
+    text-align: center;
+    color: rgba(175, 175, 175, 0.651);
+}

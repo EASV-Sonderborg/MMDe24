@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic styling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">Læringsportfolio 1. semester 10-09</a>
+    </header>
+    <nav>
+        <ul class="navList">
+            <li>
+                <a href="basicStyling.html">Basic styling</a>
+            </li>
+            <li>
+                <a href="drArtikel.html" class="focus">DR Artikel</a>
+            </li>
+            <li>
+                <a href="figma.html">Figma</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <h2 class="description">Denne opgave gik ud på, at kode en artikel fra DR.</h2>
+        <section class="cards">
+            <article class="articleBg">
+                <p class="flex">Artiklen fra DR ser således ud:</p>
+                <img src="images/drArtikel_reference.png" alt="" class="whiteImg">
+            </article>
+            <article class="articleBg">
+                <p class="flex">Og dette er min rekreation af artiklen:</p>
+                <img src="images/drArtikel_product.png" alt="" class="whiteImg">
+            </article>
+        </section>
+        <article class="articleBg">
+            <p>Til denne opgave var der en del vanskeligheder.
+            <br>
+            Først og fremmest var det generelle layout og tekst forholdsvis nem at lave. Det, der skabte en del problemer, var de forskellige ikoner og links inden og før artiklen som "læs op" og "ordbog". De er nemlig SVG filer som skal stå sammen med teksten, hvilket ikke var noget jeg havde prøvet før.<br><br></p>
+        </article>
+        <section class="cards">
+            <article class="articleBg">
+                <p class="flexTop">Jeg startede med at putte det hele under en section.</p>
+                <br>
+                <img src="images/drArtikel_section.png" alt="" class="darkImg">
+            </article>
+            <article class="articleBg">
+                <p class="flexTop">Her har "section" og hvert "a" element en class som er stylet således:</p>
+                <img src="images/drArtikel_sectionCode.png" alt="" class="darkImg">
+            </article>
+        </section>
+        <article class="articleBg">
+            <p>Her er den relevante del "display" elementet som er sat til "inline-flex", hvilket får teksten, linksne og billederne til at være side om side.</p>
+            <img src="images/drArtikel_buttons.png" alt="" class="whiteImg">
+        </article>
+    </main>
+    <footer>© 2024 Naveed Nouri</footer>
+</body>
+</html>
