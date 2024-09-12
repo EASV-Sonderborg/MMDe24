@@ -127,7 +127,7 @@ p:not(.footText), h1{
 }
 
 
-.drNyhed{
+.drNyhed, .CSSimg{
     height: auto;
     width: 775px;
 }
