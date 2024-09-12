@@ -20,7 +20,10 @@ h1 {
     padding: 0;            
     margin: 0;            
 }
-
+.navigation{
+    gap: 1em;
+    display:flex
+}
 .btn {
     text-decoration: none;
 
@@ -43,5 +46,14 @@ a.btn:visited {
 
 a.btn:hover {
     background-color: #9E9E9E;
+   
+}
+div {
+    background-color: rgb(192, 230, 230);
 }
 
+span {
+    color: blue;
+    font-size: 40px;
+    font-weight: bold;
+}
