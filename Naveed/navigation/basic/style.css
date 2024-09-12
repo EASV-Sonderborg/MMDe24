@@ -2,6 +2,11 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px
 }
+.mainNav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 /* Fjerner default styling af ul */
 .navList{
     padding: 0;
@@ -10,6 +15,7 @@
     justify-content: left;
     list-style: none;
     gap: 1em;
+    align-items: center;
 }
 .navLink{
     text-decoration: none;

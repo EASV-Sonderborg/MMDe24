@@ -2,10 +2,10 @@
 *{
     box-sizing: border-box;
 }
-.mainnav{
-    allign-items
+.mainNav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .navlist{
     padding-left:  20px;
@@ -15,6 +15,7 @@
     gap: 3em;
     list-style: none;
     font-size: 20px;
+    align-items: center;
 }
 /* display: flex; ændrer menupunkterne til horisontalt*/
 .navLink{
@@ -46,6 +47,7 @@ padding: 10px;
 svg{
     width: 64px;
     height: 64px;
+    align-items: center
 }
 .login{
     color: white;
