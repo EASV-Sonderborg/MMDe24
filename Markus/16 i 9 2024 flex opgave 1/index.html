@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Flex box nav</h1>
+<section class="nej">
+    <h2>Her viser jeg hvordan mna kan bruge justifiy content til at ændre på hvordan det ser up på x aksen</h2>
+    <nav class="idiot">
+        <ul class="stupid">
+            <li class="hej">
+                <a href="#">HEJ</a>
+            </li>
+            <li class="hej">
+                <a href="#">nooo</a>
+            </li>
+            <li class="hej">
+            <a href="#">jajajo</a>
+            </li>
+            <li class="hej">
+                <a href="#">2200202</a>
+            </li>
+            <li class="hej">
+                    <a href="#">1010jo</a>
+            </li>
+        </ul>
+    </nav>
+    <p>Her bruger jeg justify content til at få all mine flex items til at stå i midten. Det jeg gør er at på ul'en med class stupid, vælger jeg at sige display: flex i mit css for at den ved at det er min flex container over all elementer inde for min ul. Der efter bruger jeg justify content og skriver Center hvilket gør at alle mine elmenter/flex items, bevæger sig hen til midten.</p>
+</section>
+
+
+<section class="nej">
+    <h2>Her viser jeg hvad gap er</h2>
+    <nav class="idiot">
+        <ul class="noob">
+            <li class="hej">
+                <a href="#">HEJ</a>
+            </li>
+            <li class="hej">
+                <a href="#">nooo</a>
+            </li>
+            <li class="hej">
+            <a href="#">jajajo</a>
+            </li>
+            <li class="hej">
+                <a href="#">2200202</a>
+            </li>
+            <li class="hej">
+                    <a href="#">1010jo</a>
+            </li>
+        </ul>
+    </nav>
+    <p>Her bruger jeg igen min ul som flex container for alle mine flex items. Her bruger jeg dog ikke justify content center, og det er derfor de ikke er i midten. Det jeg viser her er gap egneskaben. Gap fungere ved at man inde på css'en for min nye ul med classen noob skriver jeg gap: 20px; hvilket gør at afstanden mellem all mine flex items bliver 20 pixels.</p>
+</section>
+
+<section class="nej">
+    <h2>Her viser jeg havd flex direction er</h2>
+    <nav class="idiot">
+        <ul class="skibidi">
+            <li class="hej">
+                <a href="#">HEJ</a>
+            </li>
+            <li class="hej">
+                <a href="#">nooo</a>
+            </li>
+            <li class="hej">
+                  <a href="#">jajajo</a>
+            </li>
+            <li class="hej">
+                <a href="#">2200202</a>
+            </li>
+            <li class="hej">
+                    <a href="#">1010jo</a>
+            </li>
+        </ul>
+    </nav>
+    <p>Her bruger jeg flex dicretion egenskaben på min ul. flex direction gør at man kan ændre hvilken retning som en flex items skal være opstillet på. I mit eksempel har jeg brugt flex direction: column; til, at få mine flex items til at gå ned langs y aksen istedet for hen langs langs x aksen, man kan også ændre på hvilken side mna vil have dem i med a skrive endten reverse-row eller reverse-column. Jeg har også bruge align-item da mine border boxe vile streche for langt.</p>
+</section>
+    
+
+<section class="no">
+    <h2>Her viser jeg flex-wrap</h2>
+    <nav class="idiot">
+        <ul class="meow">
+            <li class="hej">
+                <a href="#">HEJ</a>
+            </li>
+            <li class="hej">
+                <a href="#">nooo</a>
+            </li>
+            <li class="hej">
+            <a href="#">jajajo</a>
+            </li>
+            <li class="hej">
+                <a href="#">2200202</a>
+            </li>
+            <li class="hej">
+                    <a href="#">1010jo</a>
+            </li>
+        </ul>
+    </nav>
+    <p>I mit eksempel her, har jeg lavede min border på min section mindre, det betyder at mine flex items går udfor boksen, for at fikse det bruger jeg flex-wrap, hvilket gør at når et et element ikke kan passe i boksen, så vil den automatisk gå ned til næste linje.</p>
+</section>
+
+
+<section class="nej">
+    <h2>Her viser jeg hvad align-item er</h2>
+    <nav class="idiot">
+        <ul class="roar">
+            <li class="hej">
+                <a href="#">HEJ</a>
+            </li>
+            <li class="hej">
+                <a href="#">nooo</a>
+            </li>
+            <li class="hej">
+                  <a href="#">jajajo</a>
+            </li>
+            <li class="hej">
+                <a href="#">2200202</a>
+            </li>
+            <li class="hej">
+                    <a href="#">1010jo</a>
+            </li>
+        </ul>
+    </nav>
+    <p>I mit eksempel viser jeg hvordan align-item kan bruges til at rykke på hvor en liste af flex items kan placeres. Det jeg gør er, at min ul/flex container laver jeg til en column ved flex direction egneskaben. Så laver jeg derefter en align itms som jeg sætter til flex-end. Det gør at min liste ikke er i venstre side men istedet i højre side. Det er sådan nogle ting man kan bruge align-item til, at ændre hvor flex items skal ligge i forhold til y aksen.</p>
+</section>
+
+</body>
+</html>
