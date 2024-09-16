@@ -1,0 +1,64 @@
+p{
+   color: rgb(205, 205, 205); 
+   padding: 15px;
+   margin: 0px;
+   margin-top: 10px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size-adjust: unset;
+   letter-spacing: 2px;
+   padding-left: 50px;
+}
+html{
+    background-color: rgb(49, 51, 56);
+}
+
+h5,
+h3{
+    color: rgb(205, 205, 205);
+    padding: 15px;
+   margin: 0%;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size-adjust: unset;
+   letter-spacing: 2px;
+   padding-left: 50px;
+}
+
+h1{
+    color: rgb(205, 205, 205);
+    padding: 15px;
+   margin: 0%;
+   font-size-adjust: unset;
+   letter-spacing: 0px;
+   padding-left: 50px;
+    
+}
+
+.citat{
+    letter-spacing: 2px;
+    padding: 35px;
+    border-left: solid;
+    border-left-color:crimson;
+    border-left-width: 5px;
+    background-color: rgb(46, 47, 52);
+    padding-left: 50px;
+}
+
+ul{
+    color: rgb(205, 205, 205);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size-adjust: unset;
+    letter-spacing: 2px;
+    padding-left: 70px;
+}
+
+img {
+   position:relative;
+   left:50%;
+   transform:translateX(-50%)
+
+    
+}
+
+.section{
+    margin-top: 50px;
+}

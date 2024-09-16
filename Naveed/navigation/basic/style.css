@@ -1,0 +1,54 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px
+}
+/* Fjerner default styling af ul */
+.navList{
+    padding: 0;
+    margin: 12px;
+    display: flex;
+    justify-content: left;
+    list-style: none;
+    gap: 1em;
+}
+.navLink{
+    text-decoration: none;
+}
+.focus{
+    font-weight: bold;
+    border-bottom: 5px solid black
+}
+/* fjern underline fra active site*/
+.focus:hover{
+    text-decoration: none;
+}
+a:link:not(.loginButton){
+    color: rgb(0, 0, 0);
+    padding: 12px;
+}
+a:visited{
+    color: black
+}
+a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
+a:focus{
+    background-color: rgb(137, 137, 137);
+}
+svg{
+    width: 64px;
+    height: 64px;
+}
+.loginButton{
+    color: white;
+    background-color: red;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.loginButton:hover{
+    background-color: rgb(180, 0, 0);
+    text-decoration: none;
+}

@@ -1,0 +1,23 @@
+* {
+    background-color: #1f1f1f;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+p, h1 {
+    max-width: max-content;
+    font-size: larger;
+    border-bottom-style: solid;
+    border-color: white
+}
+.redText{
+    color: red;
+}
+span{
+    border-style: solid;
+    border-color: rgb(92, 190, 190);
+    border-radius: 8px;
+}
+div{
+    text-decoration: wavy underline red
+}

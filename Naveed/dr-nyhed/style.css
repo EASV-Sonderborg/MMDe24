@@ -1,0 +1,48 @@
+.body{
+    background-color: #f3f0ef;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    max-width: 50%;
+    margin: 0 auto
+}
+.redText{
+    color: #c90418;
+    font-weight: bold;
+    font-size: small;
+}
+.link{
+    color: #c90418;
+    text-decoration: none;
+    display: inline-flex;
+    margin-right: 20px;
+}
+.time{
+    color:grey
+}
+.author{
+    font-weight: bold;
+}
+.italics{
+    font-style: italic;
+}
+.underline{
+    text-decoration: underline;
+    font-size: large;
+}
+.svgImage{
+    width: 20px;
+    height: 20px;
+    padding-right: 5px;
+}
+.redImage{
+    color: red;
+    fill: #c90418;
+}
+.footer{
+    font-size: small;
+    font-weight: bold;
+}
+.footerLinks{
+    text-decoration: none;
+    color:black
+}

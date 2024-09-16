@@ -75,7 +75,6 @@ but found out I could have the whole container do it, which made it look way cut
     transform: scale(2.2); /* Effect zoom in!!! */
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Added a harsher shadow to make it pop more */
 }
-
 .polaroid-image {
     width: 100%;
     height: auto;

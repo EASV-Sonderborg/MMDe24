@@ -1,0 +1,84 @@
+a:link {
+    color:rgb(255, 255, 255);
+    text-decoration-color: rgba(241, 241, 241, 0);
+    position: relative;
+    bottom: 70px;
+    left: 500px;
+}
+
+.active {
+    font-weight: bolder;
+    color: grey;
+}
+
+a:visited{
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    color: rgb(81, 81, 81);
+}
+
+.Overskrift {
+    position: relative;
+    left: 250px;
+}
+
+body {
+    background-color: rgb(39, 39, 39);
+}
+
+h1 {
+color: white;
+text-align: left;
+}
+
+h2{
+    color: white;
+    text-align: left;
+}
+
+h3 {
+color: white;
+text-align: left;
+}
+
+h4 {
+    color: grey;
+    text-align: left;
+}
+
+p {
+color: white;
+text-align: left;
+}
+
+.EASV-Logo {
+    position: relative;
+    bottom: 75px;
+}
+
+.forside {
+    nav-left: auto;
+    nav-up: auto;
+}
+
+.Copyright {
+    padding: 10px;
+    border: 20px;
+margin: 5px;
+position: relative;
+top: 400px;
+}
+
+.Boxmodelen {
+    position: relative;
+    left: 980px;
+    width: 200px;
+}
+
+.figma{
+    width: 500px;
+    position: relative;
+    left: 850px;
+}

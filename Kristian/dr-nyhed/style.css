@@ -1,0 +1,63 @@
+.small-under-title{
+    color: red;
+    font-size: small;
+    : 44px;
+}
+
+.day{
+    color: rgb(140, 140, 140);
+    font-size: smaller;
+}
+
+.header_nyt{
+    color: red;
+    font-size: smaller
+}
+
+.auther{
+   text; 
+}
+
+.ab{
+    color: rgb(140, 140, 140);
+}
+
+article{
+background-color: rgb(243, 240, 239);
+width: 700px; 
+margin-left: 2px;  
+padding-bottom: 20px;  
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+padding-top: 20px;
+
+}
+
+
+p,
+h1{
+    margin-bottom: 30px;
+    padding-right: 50px;   
+    padding-bottom: 5px;
+    
+}
+header{
+    padding-left: 40px;   
+
+}
+
+svg{
+    height: 16px;
+    width: 20px;
+}
+
+.auther{
+    margin: 0;
+}
+
+.icons-under-title{
+    fill: red;
+}
+
+.link{
+    color: black;
+}

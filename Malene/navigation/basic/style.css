@@ -1,0 +1,34 @@
+/* Fjerner default styling af ul */
+.navList {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    list-style: none;
+}
+.navLink {
+    text-decoration: none;
+}
+/* Rækkefølgen på styling af links */
+
+/*
+a:link 
+a:visited
+a:hover
+a:focus
+a:active
+*/
+
+/* 
+fdfdfdsfd
+fdsfd vdvfbfv
+vfvfvfd
+*/
+.active:hover:not(.active) {
+    color:red;
+}
+.mainNav {
+    display: flex;
+    justify-content: space-between;
+}

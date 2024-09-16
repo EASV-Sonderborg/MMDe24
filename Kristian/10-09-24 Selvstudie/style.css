@@ -1,0 +1,98 @@
+body{
+    background-color:rgb(21, 26, 32);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1,
+h3,
+p{
+    color:lightgray;
+}
+
+.taskTitle{
+    display: flex;
+    justify-content: center;
+}
+
+header{
+    background-color: rgb(27, 40, 56);
+    padding: 20px;
+    margin: 0px;
+}
+
+
+.navList{
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.navLink{
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    color: azure;
+    border: solid;
+    border-color: rgb(11, 130, 214);
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.highlight{
+    text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    color: azure;
+    border: solid;
+    border-color: rgb(165, 103, 226);
+    border-radius: 6px;
+    padding: 4px;
+
+}
+
+.discordImg{
+    height: 400px;
+    width: 800px;
+}
+
+.drImg{
+    width: 775px;
+    height: 154px;
+}
+
+.drCode{
+    height: auto;
+    width: 775px;
+}
+
+.portfolier{
+    height: auto;
+    width: 1455px;
+    position:relative;
+   left:50%;
+   transform:translateX(-50%);
+}
+
+.portfolierImg{
+    height: auto;
+    width: 800px;
+    position:relative;
+   left:50%;
+   transform:translateX(-50%);
+}
+
+h3{
+    padding-top: 30px;
+}
+
+footer{
+    background-color: rgb(27, 40, 56);
+    padding: 20px;
+    margin: 0px;
+}
+
+.reflektion{
+    padding-bottom: 30px;
+}

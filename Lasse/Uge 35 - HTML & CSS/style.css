@@ -1,0 +1,45 @@
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+body {
+    background-color: #E6E6E6;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+a {
+    color: black;
+    transition: all 500ms ease-in-out;
+}
+a:hover {
+    color: blue;
+}
+
+h1.sdbrspace {
+    position: relative;
+    left: 5%;
+}
+
+h4.sdbrspace {
+    position: relative;
+    left: 5%;
+}
+p {
+    position: relative;
+    left: 5%;
+    max-width: 1200px;
+}
+.litext {
+    position: relative;
+    left: 5%;
+}
