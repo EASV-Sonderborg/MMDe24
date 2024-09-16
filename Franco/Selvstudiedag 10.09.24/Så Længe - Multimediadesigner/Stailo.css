@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(188, 188, 188);
+}
+header{
+    background-color: rgb(207, 217, 217);
+}
+.Navigation {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    gap: 10em;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0;
+}
+.Navigations {
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 20px;
+    padding-bottom: 10px;
+}
+.Navigations2{
+    background-color: rgb(191, 232, 219);
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.Navigations3{
+    background-color: rgb(171, 188, 203);
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    align-items: end;
+    gap: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.Navigations4{
+    background-color: beige;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.Navlist {
+    list-style-type: none;
+}
+.Navlink{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border-bottom: 2px solid black;
+}
+h1{
+    display: flex;
+    justify-content: center;
+}
+.maincontent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+}
