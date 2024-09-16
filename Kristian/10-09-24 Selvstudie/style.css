@@ -143,7 +143,6 @@ p:not(.footText, .cardText), h1{
 
 .cardTitle{
     color:lightgray;
-    padding-top: 20px;
     text-align: center;
 }
 
@@ -153,9 +152,13 @@ p:not(.footText, .cardText), h1{
     margin-left: 30px;
     min-width: 400px;
     flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cardText{
+    justify-self: center;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -177,6 +180,7 @@ p:not(.footText, .cardText), h1{
     border: hidden;
     background-color: rgb(59, 113, 95);
     border-radius: 5px;
-    align-self: flex-start;
+    align-self: center;
+    padding: 10px;
     
 }

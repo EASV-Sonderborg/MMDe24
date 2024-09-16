@@ -1,0 +1,86 @@
+
+.acktive {
+color: red;
+}
+
+ul {
+list-style-type: none;
+}
+
+a:link {
+    color: black;
+}
+
+
+a:hover {
+    color: blue;
+}
+
+.overskrift {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.example1 {
+display:flex;
+flex-direction: row;
+justify-content:center;
+flex-wrap: wrap;
+gap: 5px;
+height: 100px;
+}
+
+.children:nth-child(1) {
+background-color: cyan;
+width: 20px;
+height: 10px;
+border: 1rem;
+padding: 10px;
+margin: 10px;
+}
+
+.children:nth-child(2) {
+    background-color: rgb(0, 255, 0);
+    width: 20px;
+    height: 10px;
+    border: 1rem;
+    padding: 10px;
+    margin: 10px;
+    align-self: flex-end;
+}
+
+.children:nth-child(3) {
+    background-color: rgb(255, 0, 0);
+    width: 20px;
+    height: 10px;
+    border: 1rem;
+    padding: 10px;
+    margin: 10px;
+}
+
+.children:nth-child(4) {
+    background-color: rgb(255, 0, 234);
+    width: 20px;
+    height: 10px;
+    border: 1rem;
+    padding: 10px;
+    margin: 10px;
+}
+
+.children:nth-child(5) {
+    background-color: rgb(255, 225, 0);
+    width: 20px;
+    height: 10px;
+    border: 1rem;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.side1tekst {
+    text-align: center;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}
