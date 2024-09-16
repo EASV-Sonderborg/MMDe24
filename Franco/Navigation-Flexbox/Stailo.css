@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+}
+header{
+    background-color: rgb(136, 155, 155);
+}
+.Navigation {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
+}
+.Navlist {
+    list-style-type: none;
+}
+.Navlink{
+    text-decoration: none;
+}

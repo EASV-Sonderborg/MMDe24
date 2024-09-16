@@ -1,3 +1,7 @@
+body{
+    background-color: #000000dd;
+    color: white;
+}
 .h1{
     text-align: center;
 }
@@ -5,7 +9,9 @@
     display: flex;
     justify-content: center;
     gap: 3em;
+
 }
+
 .navlist{
     display: contents;
     justify-content: space-between;
@@ -14,26 +20,28 @@
 
 }
 .header{
-   /* background-color: grey;*/
-    
+position: sticky;
+top: 0;
+background-color: #000000dd;
+border-bottom: solid 1px rgba(255, 255, 255, 0.717);
 }
 .navlink{
     text-decoration: none;
-
+padding-bottom: 20px;
 }
 
 a:link{
-
+color: white;
+text-decoration: none;
 }
 a:visited{
-color: black;
+color: white;
 }
 a:hover{
 text-decoration: underline
 
 }
 a:focus{
-
 }
 a:active{
 
@@ -65,4 +73,86 @@ padding: 15px 32px;
 }
 a.button:hover{
     background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+}
+
+.ul1{
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+}
+.ul2{
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+.li2{
+    font-size: 24px;
+}
+.nav2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+}
+.login{
+    
+}
+.ul3{
+    list-style: none;
+    gap: 0.5em;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+.li3{
+    font-size: 30px;
+    border: 2px solid white; 
+}
+.ul4{
+    list-style: none;
+    gap: 1em;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.ul5{
+    list-style: none;
+    gap: 1em;
+    display: flex;
+    justify-content: right;
+}
+/* Problemet er opstået fordi billerne har en defineret pixel størrelse, derfor kan artiklerne ikke tilpasses skærmen. 
+Solution er at croppe billederne så de har samme størrelse, inden de ligges ind i Vs, derefter skal de have 100% i størrelse, ikke px*/ 
+img{
+    width: 280px;
+    height: 280px;
+}
+.grid{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    display: grid;
+    gap: 1em;
+}
+.articles{
+    background-color: aquamarine;
+    padding: 30px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+}
+.heading{
+    color: orange;
+    font-weight: bold;
+}
+.knap{
+    color: white;
+    border: 1px black;
+    border-radius: 1em;
+    background-color: orange;
+    padding: 1em;
+    text-decoration: none;
+    font-weight: bold;
+}
+.description{
+    flex-grow: 1;
 }

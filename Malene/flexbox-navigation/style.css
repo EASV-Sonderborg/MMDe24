@@ -1,0 +1,26 @@
+.navExample {
+    height: 80px;
+    width: 600px;
+    margin: 0 auto;
+    padding: 2em;
+    margin-bottom: 1em;
+    display: flex;
+}
+.item {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(231, 231, 14);
+}
+
+.example1 {
+    background-color: antiquewhite;
+    justify-content: space-around;
+}
+.example2 {
+    background-color: rgb(222, 132, 16);
+    justify-content: space-between;
+}
+.example3 {
+    background-color: rgb(153, 105, 42);
+    justify-content: space-evenly;
+}
