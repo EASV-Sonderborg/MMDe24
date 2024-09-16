@@ -1,40 +1,55 @@
-.nav{
+.nav {
     margin-top: auto;
     height: 80px;
     width: 100%;
-    text-align: center;
-    font-size: medium;
     padding: 30px;
-    background-color: rgb(64, 64, 64);
+    background-color: rgb(215, 215, 215);
     position: fixed;   
-    top: 0;
     overflow: hidden;
     box-shadow: 30px 20px 30px 20px rgba(0, 0, 0, 0.1);
-    align-self: left;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    width: 70%;
+    flex-wrap: wrap;
+}
+.li{
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    flex-wrap: wrap;
+}
 
-}
-.buttons{
-    padding: 20px;
-}
 .navtit{
-    text-align: center;
+    justify-content: center;
+    padding: 5px;
     font-size: larger;
-    font-style:initial;
-
-
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
 }
 .img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    flex-wrap: wrap;
 }
 .footer{
     box-sizing: border-box;
     height: 130px;
     width: 100%;
-    padding: 30px;
+    padding: 0px;
     margin-bottom: auto;
     top: 0;
     background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .besk{
     padding: 20px;
@@ -43,6 +58,7 @@
     align-self: center;
     text-decoration: none;
     color: cornflowerblue;
+    flex-wrap: wrap;
 }
 .reflektion {
     padding: 20px;
@@ -51,21 +67,24 @@
     align-self: center;
     text-decoration: none;
     color: cornflowerblue;
+    flex-wrap: wrap;
 }
 .body{ 
-    margin: auto;
+    margin: 0;
     box-shadow: 30px 30px 30px 30px #0000001a;
-    padding: 65px;
+    padding: 0px;
     background-color: darkgrey;
+    flex-wrap: wrap;
+
 }
 .home{
     padding: 20px;
     box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);
     margin: auto;
     align-self: center;
-    -moz-box-align: start;
     text-decoration: none;
     color: cornflowerblue;
+    flex-wrap: wrap;
 }
 .main {
     margin: auto;
@@ -75,5 +94,52 @@
     width: 650px;
     height: auto;
     background-color: gray;
-
+    flex-wrap: wrap;
+    display: flex;
 }
+.selv-text{
+    margin-top: 120px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cards{
+    display: flex;
+    justify-content: center;
+}
+.content{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+    width: 50%;
+    flex-wrap: wrap;
+    background-color: rgb(153, 153, 153);
+    box-shadow: 30px 20px 30px 20px rgba(0, 0, 0, 0.1);
+  }
+  .cards p {
+    margin: 20px;
+    flex-grow: 1;
+    align-content: flex-start;
+  }
+  .cardbutton {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: auto;
+  }
+  .content img{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: auto;
+  }
+  .ltitle{
+    justify-content: center;
+    padding: 10px;
+  }
