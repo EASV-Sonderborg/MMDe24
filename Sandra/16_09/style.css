@@ -1,0 +1,79 @@
+h1,
+h2 {
+  text-align: center;
+}
+
+.list1 {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+/* styling af nav 1 */
+.nr1 {
+  text-decoration: underline;
+  color: black;
+}
+
+.section1 {
+  background-color: rgb(135, 159, 255);
+  border-style: dotted;
+  border-bottom: 20;
+  border-color: blue;
+}
+
+/*styling a nav 2*/
+.section2 {
+  width: 66px;
+  border: 15px;
+  border-style: ridge;
+}
+.list2 {
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  list-style: none;
+  gap: 50px;
+}
+
+.nr2 {
+  color: aliceblue;
+  background-color: black;
+  padding: 5px;
+  border-radius: 50px;
+  border: 2px solid #000000;
+  padding: 10px;
+  width: 150px;
+  height: 100px;
+  text-decoration: none;
+}
+
+/*styling af nav 3*/
+.section3 {
+  text-align: center;
+}
+.list3 {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  list-style: none;
+}
+.nr3 {
+  background-color: #da7d7d;
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid #da7d7d;
+  padding: 10px;
+  width: 150px;
+  height: 100px;
+  text-decoration: none;
+  color: aliceblue;
+  text-decoration: none;
+  margin: 5px;
+  flex-wrap: wrap;
+}
