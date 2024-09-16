@@ -1,5 +1,5 @@
 Body    {
-    background-image: url(background.jpg);
+    background-image: url(Images/background.jpg);
     background-size: cover;
     margin: 0px;
 }
@@ -45,23 +45,34 @@ h1  {
     margin: 50px;
     border-radius: 10px;
     border: 2px solid rgba(0, 0, 0, 0.5);
-    
+
 }
 
-.Wrapper::after {
+.Wrapper::before {
     filter: blur(10px); 
 }
 .Img_Box    {
     display: flex;
     justify-content: center;
 }
-.Placeholder_Img {
+.Img {
     padding: 0px 20px;
-    max-width: 400px;
+    width: 360px;
+    height: auto;
     display: flex;
-    overflow: hidden;
 }
 
+.Text   {
+    color: rgb(255, 255, 255);
+    margin: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+ul  {
+    padding: 0 0 20px 20px;
+}
+li  {
+    font-size: 16px;
+}
 
 h2  {
     padding: 20px 20px 0px;
