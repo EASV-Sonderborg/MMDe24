@@ -9,6 +9,10 @@ p{
     color:lightgray;
 }
 
+p{
+    padding-bottom: 10px;
+}
+
 .taskTitle{
     display: flex;
     justify-content: center;
@@ -22,6 +26,7 @@ header{
 
 
 .navList{
+    padding: 0;
     list-style: none;
     text-decoration: none;
     display: flex;
@@ -40,6 +45,11 @@ header{
     padding: 4px;
 }
 
+.navLink:hover{
+    border-color: rgb(129, 177, 25);
+    background-color: rgba(129, 177, 25, 0.185);
+}
+
 .highlight{
     text-decoration: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -49,6 +59,7 @@ header{
     border-color: rgb(165, 103, 226);
     border-radius: 6px;
     padding: 4px;
+    background-color: rgba(164, 103, 226, 0.225);
 
 }
 
@@ -85,6 +96,7 @@ header{
 
 h3{
     padding-top: 30px;
+    padding-left: 200px;
 }
 
 footer{
@@ -95,4 +107,76 @@ footer{
 
 .reflektion{
     padding-bottom: 30px;
+}
+
+img{
+    border: solid;
+    border-color: rgb(11, 130, 214);
+    border-radius: 6px;
+    border-width: 4px;
+    margin-bottom: 30px;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+
+p:not(.footText, .cardText), h1{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+
+.drNyhed, .CSSimg{
+    height: auto;
+    width: 775px;
+}
+
+
+
+
+
+
+/*------------------------------------------------------------*/
+
+
+
+.cardTitle{
+    color:lightgray;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.card{
+    background-color: rgb(38, 56, 117);
+    width: 400px;
+    margin-left: 30px;
+    min-width: 400px;
+    flex-basis: 100%;
+}
+
+.cardText{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+.all{
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+.brast{
+    width: 300px;
+}
+
+.cardLink{
+    color: aqua;
+    border: hidden;
+    background-color: rgb(59, 113, 95);
+    border-radius: 5px;
+    align-self: flex-start;
+    
 }

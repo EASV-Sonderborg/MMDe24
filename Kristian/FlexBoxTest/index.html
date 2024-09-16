@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBoxTekst</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<h1>FlexBox test</h1>
+
+<p class="intro">
+    I denne opgave skal skulle vi ekspermintere med <code>FlexBox</code> for at sætte forskellige <code>navigations</code> op og lege med de forskellige properties og values. Bland andet Gap, Flex:direction, Justify content, osv.
+</p>
+
+<section class="section1">
+<h2>
+    Version 1
+</h2>
+
+<h3>Justify Content: Space between</h3>
+
+    <nav>
+        <ul class="list1">
+            <li>
+                <a href="#" class="item1">Hey 1</a>
+            </li>
+            <li>
+                <a href="#" class="item1">Hey 2</a>
+            </li>
+            <li>
+                <a href="#" class="item1">Hey 3</a>
+            </li>
+            <li>
+                <a href="#" class="item1">Hey 4</a>
+            </li>
+            <li>
+                <a href="#" class="item1">Hey 5</a>
+            </li>
+        </ul>
+    </nav>
+    <p class="text1">
+        I dette exempel har jeg benyttet justify-content til at sætte alle menuerne op med lige stor afstand mellem hver af dem. Jeg har med justify-content brugt <code>space-around</code> som gør at alle items har lige stort mellemrum mellem dem, og at afstanden til kanten fra første og sidste item er hver har halvdelen af mellemrummet der er mellem andre items.
+    </p>
+</section>
+
+
+
+
+
+
+
+
+
+<section class="section2">
+    <h2>
+        Version 2
+    </h2>
+    <h3>Flex Wrap</h3>
+        <nav>
+            <ul class="list2">
+                <li>
+                    <a href="#" class="item2">Hey 1</a>
+                </li>
+                <li>
+                    <a href="#" class="item2">Hey 2</a>
+                </li>
+                <li>
+                    <a href="#" class="item2">Hey 3</a>
+                </li>
+                <li>
+                    <a href="#" class="item2">Hey 4</a>
+                </li>
+                <li>
+                    <a href="#" class="item2">Hey 5</a>
+                </li>
+            </ul>
+        </nav>
+        <p class="text2">
+            I dette exempel har jeg benyttet <code>Flex: Wrap</code> til at få menuerne til at stå på to rækker, i stedet for én lang række. Med sådan en lille box ville items hoppe ud af den given box.
+        </p>
+    </section>
+
+
+
+
+
+
+
+
+
+    <section class="section3">
+        <h2>
+            Version 3
+        </h2>
+        <h3>
+            Gap
+        </h3>
+            <nav>
+                <ul class="list3">
+                    <li>
+                        <a href="#" class="item3">Hey 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="item3">Hey 2</a>
+                    </li>
+                    <li>
+                        <a href="#" class="item3">Hey 3</a>
+                    </li>
+                    <li>
+                        <a href="#" class="item3">Hey 4</a>
+                    </li>
+                    <li>
+                        <a href="#" class="item3">Hey 5</a>
+                    </li>
+                </ul>
+            </nav>
+            <p class="text3">
+                I dette exempel har jeg benyttet <code>gap</code> elementet til at danne afstanden mellem menuerne. Hvor jeg i eksempel 1 brugte <code>justify-content: space between</code> til at danne mellemrum, har jeg brugt <code>justify-content: center</code> og så derefter ændre gap mellem items.
+            </p>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+        <section class="section4">
+            <h2>
+                Version 4
+            </h2>
+            <h3>
+                Space evenly
+            </h3>
+                <nav>
+                    <ul class="list4">
+                        <li>
+                            <a href="#" class="item4">Hey 1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="item4">Hey 2</a>
+                        </li>
+                        <li>
+                            <a href="#" class="item4">Hey 3</a>
+                        </li>
+                        <li>
+                            <a href="#" class="item4">Hey 4</a>
+                        </li>
+                        <li>
+                            <a href="#" class="item4">Hey 5</a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="text4">
+                    I dette exempel har jeg benyttet <code>code>justify-content: space evenly</code>. Det er næsten det samme som <code>space-between</code>, men der er samme afstand mellem alt, også fra kant til første og sidste item.
+                </p>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <section class="section5">
+                <h2>
+                    Version 5
+                </h2>
+                <h3>
+                    Flex-direction & align-content
+                </h3>
+                    <nav>
+                        <ul class="list5">
+                            <li>
+                                <a href="#" class="item5">Hey 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item5">Hey 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item5">Hey 3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item5">Hey 4</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item5">Hey 5</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <p class="text5">
+                        I dette exempel har jeg benyttet <code>flex-direction: column</code> til at få menuerne til at stå på række ned ad. Derefter har jeg brugt <code>align-items: center</code> til at få alle items til at stå i midten. Man kan også benytte direction til at ændre rækkefølgen, så den sidste item står først. Align-items kan også få items til at stå andre steder, som højre og venstre.
+                    </p>
+                </section>
+
+
+
+
+
+</body>
+</html>
