@@ -109,8 +109,7 @@ a.button:hover{
 }
 .li3{
     font-size: 30px;
-    border: 2px solid white;
-    
+    border: 2px solid white; 
 }
 .ul4{
     list-style: none;
@@ -129,16 +128,15 @@ img{
     height: 280px;
 }
 .grid{
-    display: flex;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display: grid;
     gap: 1em;
 }
 .articles{
     background-color: aquamarine;
-    width: 280px;
     padding: 30px 30px 30px 30px;
     display: flex;
     flex-direction: column;
-
 }
 .heading{
     color: orange;
@@ -152,5 +150,7 @@ img{
     padding: 1em;
     text-decoration: none;
     font-weight: bold;
-
+}
+.description{
+    flex-grow: 1;
 }
