@@ -1,4 +1,6 @@
-
+.Icon   {
+    width: 10px;
+}
 
 body    {
     margin: 0;
@@ -22,8 +24,9 @@ body    {
     margin: 0 auto;
     list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 50px;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 750px;
 }
 
 
@@ -35,12 +38,20 @@ body    {
     text-decoration: none;
     font-family: "raleway", sans-serif;
     font-size: 16px;
+    max-width: max-content;
+    
 }
 .btn:hover  {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    
+    background: linear-gradient(to right, rgb(0, 85, 255), red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     transition: background-color .4s ease-out, color .4s ease-out;
+    background: white;
 }
+
+
 
 .highlight  {
     border: 2px solid white;
@@ -49,7 +60,7 @@ body    {
 main    {
     padding-top: 50px;
     width: 1200px;
-    height: 700px;
+    height: calc(max-content+20px);
     margin: 0 auto;
     background-color: rgb(27, 27, 27);
     box-shadow: 0  0   8px  black;
@@ -78,7 +89,6 @@ main    {
 .Double {
     display: flex;
     justify-content: center;
-    flex-direction: row;
 
 }
 .gammelt   {
@@ -98,8 +108,54 @@ article {
     border-radius: 20px;
     box-shadow: 0  0   8px  black;
     padding-bottom: 50px;
-    height: 650px;
+    height: max-content;
 }
+
+.NavEks {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-shadow: 0  0   8px  black;
+}
+.NavEks ul  {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 750px;
+}
+.NavEks2 {
+    width: 100%;
+    box-shadow: 0  0   8px  black;
+    flex-direction: column;
+    padding: 10px 0;
+}
+.NavEks2 ul  {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.NavEks3 {
+    width: 100%;
+    box-shadow: 0  0   8px  black;
+    padding: 10px 0;
+}
+.NavEks3 ul  {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 100px;
+}
+
+.Eksempel_Text  {
+    color: white;
+    display: flex;
+    padding: 20px;
+}
+
 
 .Text_Box  {
     width: 550px;
@@ -142,12 +198,76 @@ h1  {
 }
 
 h3  {
-    padding-top: 10px;
+    padding-top:10px;
     margin: 0;
     font-size: 24px;
 }
+.Card_Main  {
+    width: 660px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.Card_Main2  {
+    width: 660px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-content: center;
+}
 
-.Foot  {
+.Cards  {
+    width: 320px;
+    background-color:rgb(27, 27, 27);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.LaFerrari  {
+    margin-right: auto;
+}
+
+
+.Cards a    {
+    display: flex;
+    margin: 20px;
+}
+.Cards p    {
+    display: flex;
+    margin: 0 20px;
+    flex-grow: 1;
+}
+
+.Cards .btn {
+    margin: 20px auto;
+    padding: 10px 20px;
+    width: 150px;
+    border: 3px solid white;
+}
+
+.Cards .btn:hover   {
+    background-color: white;
+}
+
+
+.Cards h3   {
+margin: 10px 20px 0px;
+font-size: 20px;
+display: flex;
+align-items: center;
+}
+
+.Biler  {
+    width: 280px;
+    height: 150px;
+    margin: 20px;
+}
+
+Footer  {
     padding-top: 50px;
     margin: 0 auto;
     display: flex;

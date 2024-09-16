@@ -121,7 +121,7 @@ img{
 }
 
 
-p:not(.footText), h1{
+p:not(.footText, .cardText), h1{
     margin-left: 200px;
     margin-right: 200px;
 }
@@ -130,4 +130,57 @@ p:not(.footText), h1{
 .drNyhed, .CSSimg{
     height: auto;
     width: 775px;
+}
+
+
+
+
+
+
+/*------------------------------------------------------------*/
+
+
+
+.cardTitle{
+    color:lightgray;
+    text-align: center;
+}
+
+.card{
+    background-color: rgb(38, 56, 117);
+    width: 400px;
+    margin-left: 30px;
+    min-width: 400px;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cardText{
+    justify-self: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+.all{
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+.brast{
+    width: 300px;
+}
+
+.cardLink{
+    color: aqua;
+    border: hidden;
+    background-color: rgb(59, 113, 95);
+    border-radius: 5px;
+    align-self: center;
+    padding: 10px;
+    
 }

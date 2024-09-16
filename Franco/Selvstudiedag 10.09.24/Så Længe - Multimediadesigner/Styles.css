@@ -1,0 +1,76 @@
+
+body {
+    background-color: beige;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.main-content {
+    background-color: #fff;
+    width: 80%;
+    max-width: 900px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+nav {
+    background-color: white;
+    padding: 10px 0;
+    border-bottom: 2px solid grey;
+}
+.polaroid{
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    border-radius: 8px; /* Rounded corners for cuter look */
+}
+.polaroid:hover {
+    transform: scale(1.1); /* Effect zoom in!!! */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Added a harsher shadow to make it pop more */
+}
+.Navlist {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+.Navlink {
+    text-decoration: none;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+}
+.polaroid-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+span{
+    font-weight: bold;
+}
+.This{
+    color: red;
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
