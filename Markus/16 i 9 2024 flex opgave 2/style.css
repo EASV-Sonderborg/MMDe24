@@ -1,0 +1,119 @@
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.FlexBoxcontainerCat {
+    border: blue solid 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 100%;
+    padding: 50px;
+    margin: 10px;
+    background-color: white;
+}
+
+.FlexBoxcontainerMom {
+    border: red solid 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 100%;
+    padding: 50px;
+    margin: 10px;
+    background-color: white;
+}
+
+.FlexBoxcontainerSJ {
+    border: yellow solid 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 100%;
+    padding: 50px;
+    margin: 10px;
+    background-color: white;
+}
+
+
+.head1 {
+    align-self: flex-start;
+    color: orange;
+    font-family:cursive;
+    
+}
+
+.head2 {
+    align-self: flex-start;
+    color: orange;
+    font-family:cursive;
+}
+
+.head3 {
+    align-self: flex-start;
+    color: orange;
+    font-family:cursive;
+}
+
+
+.cat1 {
+    align-self: center;
+}
+
+.cat2 {
+    align-self: center;
+}
+
+.cat3 { 
+    align-self: center;
+}
+
+
+.link1 {
+    align-self: flex-start;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border: orange solid 10px;
+    border-radius: 10px;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 5px 5px 10px 2px rgba(149, 148, 148, 0.8);
+}
+
+.link2 {
+    align-self: flex-start;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border: orange solid 10px;
+    border-radius: 10px;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 5px 5px 10px 2px rgba(149, 148, 148, 0.8);
+}
+
+.link3 {
+    align-self: flex-start;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border: orange solid 10px;
+    border-radius: 10px;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 5px 5px 10px 2px rgba(149, 148, 148, 0.8);
+}
+
+.bigbox {
+    display: flex;
+    flex-direction: row;
+    background-color: gray;
+}
+
+p {
+    flex-grow: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}

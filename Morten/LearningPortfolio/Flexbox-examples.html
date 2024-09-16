@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Forside</title>
+</head>
+<body>
+    <header>
+        <a href="Home.html" class="identity">Morten Holst</a>
+            <nav>
+                <ul>
+                    <li class="nav"><a href="FigmaProjekt.html" class="menu">Figma</a></li>
+                    <li class="nav"><a href="DrArtikel.html" class="menu">Nyhedsartikel</a></li>
+                    <li class="nav"><a href="CssUdvikling.html" class="menu">CSS Selectors</a></li>
+                    <li class="nav"><a href="Flexbox-examples.html" class="selected">Navigation</a></li>
+                </ul>
+            </nav>
+    </header>   
+    <main>
+        <img src="flexbox.webp" alt="Flexbox stock billede" class="headerImg">
+        <article>
+            <h1>Flexbox Navigation</h1>
+            <section class="navExample bgNav">
+                <h2>Navigation ved brug af Space-between</h2>
+                <nav>
+                    <ul class="navList oneNav">
+                        <li class="item">
+                            <a href="#">Hjem</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Arbejde</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Koncepter</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Kontakt</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Om Os</a>
+                        </li>
+                    </ul>
+                </nav>
+                <p>Her bruger vi <code>justify-content: space-between;</code> på navigationen. Her der er navigationsbaren centret, med lige mellemrum mellem hver item, hvor at på en linje starter item 1 ved venstre side og item 2 ved højre sider også alle andre items er midt imellem "spaced between"</p>
+            </section>
+
+            <section class="navExample bgNav">
+                <h2>Navigation ved brug af center & gap</h2>
+                <nav>
+                    <ul class="navList twoNav">
+                        <li class="item">
+                            <a href="#">Hjem</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Arbejde</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Koncepter</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Kontakt</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Om Os</a>
+                        </li>
+                    </ul>
+                </nav>
+                <p>Her bruger vi <code>justify-content: center; gap: 4em;</code> på navigationen. Her får vi navigationsbaren til at være centret med en valgfri gap.</p>
+            </section>
+
+            <section class="navExample bgNav">
+                <h2>Navigation ved brug af flex-wrap</h2>
+                <nav>
+                    <ul class="navList threeNav">
+                        <li class="item">
+                            <a href="#">Hjem</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Arbejde</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Koncepter</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Kontakt</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Om Os</a>
+                        </li>
+                    </ul>
+                </nav>
+                <p>Her bruger vi <code>justify-content: center; gap: 1em 20em; <b>flex-wrap: wrap;</b></code> på navigationen. I dette eksempel gør det at hvis der overskrides en</p>
+            </section>
+
+            <section class="navExample bgNav">
+                <h2>Navigation ved brug af flex-direction</h2>
+                <nav>
+                    <ul class="navList fourNav">
+                        <li class="item">
+                            <a href="#">Hjem</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Arbejde</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Koncepter</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Kontakt</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Om Os</a>
+                        </li>
+                    </ul>
+                </nav>
+                <p>Her bruger vi <code>align-items: center; <b>flex-direction: column;</b></code> på navigationen. Dette gør at vores navigationsbar er vertikal og centreret</p>
+            </section>
+
+            <section class="navExample bgNav">
+                <h2>Navigation ved brug af Space-around</h2>
+                <nav>
+                    <ul class="navList fiveNav">
+                        <li class="item">
+                            <a href="#">Hjem</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Arbejde</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Koncepter</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Kontakt</a>
+                        </li>
+                        <li class="item">
+                            <a href="#">Om Os</a>
+                        </li>
+                    </ul>
+                </nav>
+                <p>Her bruger vi <code>justify-content: space-around;</code> på navigationen. Dette gør at vores navigationsbar er har lige meget mellemrum mellem tingende</p>
+            </section>
+        </article>
+    </main>
+
+    <footer><p>© Morten Holst 2024</p></footer>
+</body>
+</html>
