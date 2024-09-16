@@ -36,7 +36,6 @@ header{
 }
 .listItems{
     background-color: #23abf2;
-    display: flex;
     border: 2px solid rgb(1, 86, 129);
     text-decoration: none;
     border-radius: 5px;
@@ -181,7 +180,7 @@ footer{
     color: rgba(175, 175, 175, 0.651);
 }
 .fruits{
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     display: grid;
     gap: 1em;
 }
