@@ -1,4 +1,6 @@
-
+.Icon   {
+    width: 10px;
+}
 
 body    {
     margin: 0;
@@ -29,7 +31,6 @@ body    {
 
 
 
-
 .btn    {
     padding: 10px 30px;
     color: white;
@@ -38,12 +39,19 @@ body    {
     font-family: "raleway", sans-serif;
     font-size: 16px;
     max-width: max-content;
+    
 }
 .btn:hover  {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    
+    background: linear-gradient(to right, rgb(0, 85, 255), red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     transition: background-color .4s ease-out, color .4s ease-out;
+    background: white;
 }
+
+
 
 .highlight  {
     border: 2px solid white;
@@ -190,44 +198,76 @@ h1  {
 }
 
 h3  {
-    padding-top: 10px;
+    padding-top:10px;
     margin: 0;
     font-size: 24px;
 }
 .Card_Main  {
-    width: 700px;
+    width: 660px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 20px;
+}
+.Card_Main2  {
+    width: 660px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-content: center;
 }
 
-.Card_Box   {
-    display: flex;
-}
 .Cards  {
-    width: 200px;
-    height: 400px;
-    flex-grow: 1;
-    align-self: flex-start;
+    width: 320px;
     background-color:rgb(27, 27, 27);
-    padding: 20px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
 }
+
+.LaFerrari  {
+    margin-right: auto;
+}
+
+
 .Cards a    {
     display: flex;
-    align-content: flex-end;
+    margin: 20px;
 }
-.Cards p{
+.Cards p    {
     display: flex;
-    flex-grow: 2;
-    align-content: flex-end;
+    margin: 0 20px;
+    flex-grow: 1;
+}
+
+.Cards .btn {
+    margin: 20px auto;
+    padding: 10px 20px;
+    width: 150px;
+    border: 3px solid white;
+}
+
+.Cards .btn:hover   {
+    background-color: white;
+}
+
+
+.Cards h3   {
+margin: 10px 20px 0px;
+font-size: 20px;
+display: flex;
+align-items: center;
 }
 
 .Biler  {
-    height: 100px;
+    width: 250px;
+    height: 150px;
+    margin: 20px;
 }
 
-.Foot  {
+Footer  {
     padding-top: 50px;
     margin: 0 auto;
     display: flex;
