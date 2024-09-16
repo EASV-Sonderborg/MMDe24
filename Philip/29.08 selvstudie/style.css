@@ -58,8 +58,11 @@ h2, h3 {
     
 }
 
-.section    {
-    padding: 50px;
+.Left    {
+    text-align: left;
+}
+.Text_Left  {
+    width: 50px;
 }
 
 h4  { 
@@ -83,7 +86,6 @@ blockquote {
 
 .container {
    flex: 1;
-   margin: 0 10px;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -94,6 +96,11 @@ blockquote {
 .container img  {
     width: 100%;
     height: auto;
+}
+
+.Second_Heading {
+    padding-bottom: 0px;
+    padding-top: 100px;
 }
 
 
