@@ -19,11 +19,6 @@
 .time{
     color:grey
 }
-.buttons p {
-    display: inline;
-    font-weight: bold;
-    pad: 0 15 0 7;
-}
 .author{
     font-weight: bold;
 }

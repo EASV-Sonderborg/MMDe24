@@ -1,0 +1,117 @@
+
+body {
+    background-color: beige;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-content {
+    background-color: #fff; 
+    width: 80%;
+    max-width: 900px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+nav {
+    background-color: white;
+    padding: 10px 0;
+    border-bottom: 2px solid grey;
+}
+
+.Navlist {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+.Navlink {
+    text-decoration: none;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+}
+
+
+
+main h1, main h2 {
+    color: #333;
+}
+
+
+.polaroid-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.polaroid {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    width: 180px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    border-radius: 8px; /* Rounded corners for cuter look */
+}
+
+/* Added a hover effect to the whole polaroid container. I added the hover only to the image prior to this, but it looked kinda awkward
+so I decided to have the whole container do it, which made it look way cuter */
+.polaroid:hover {
+    transform: scale(1.1); /* Effect zoom in!!! */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Added a harsher shadow to make it pop more */
+}
+
+.polaroid-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; 
+    border-radius: 8px; 
+}
+.polaroid-caption {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+}
+
+blockquote {
+    background-color: #f9f9f9; 
+    border-left: 4px solid #ccc; 
+    margin: 20px auto; 
+    padding: 15px 20px;
+    font-style: italic; 
+    color: #555; 
+    width: 80%; 
+    max-width: 800px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}

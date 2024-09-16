@@ -1,0 +1,79 @@
+.nav{
+    margin-top: auto;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    font-size: medium;
+    padding: 30px;
+    background-color: rgb(64, 64, 64);
+    position: fixed;   
+    top: 0;
+    overflow: hidden;
+    box-shadow: 30px 20px 30px 20px rgba(0, 0, 0, 0.1);
+    align-self: left;
+
+}
+.buttons{
+    padding: 20px;
+}
+.navtit{
+    text-align: center;
+    font-size: larger;
+    font-style:initial;
+
+
+}
+.img {
+    width: 100%;
+    height: 100%;
+}
+.footer{
+    box-sizing: border-box;
+    height: 130px;
+    width: 100%;
+    padding: 30px;
+    margin-bottom: auto;
+    top: 0;
+    background-color: gray;
+}
+.besk{
+    padding: 20px;
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    align-self: center;
+    text-decoration: none;
+    color: cornflowerblue;
+}
+.reflektion {
+    padding: 20px;
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    align-self: center;
+    text-decoration: none;
+    color: cornflowerblue;
+}
+.body{ 
+    margin: auto;
+    box-shadow: 30px 30px 30px 30px #0000001a;
+    padding: 65px;
+    background-color: darkgrey;
+}
+.home{
+    padding: 20px;
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    align-self: center;
+    -moz-box-align: start;
+    text-decoration: none;
+    color: cornflowerblue;
+}
+.main {
+    margin: auto;
+    box-shadow: 30px 20px 30px 20px rgba(0, 0, 0, 0.1);
+    padding: 65px 65px 65px;
+    border: 70px;
+    width: 650px;
+    height: auto;
+    background-color: gray;
+
+}

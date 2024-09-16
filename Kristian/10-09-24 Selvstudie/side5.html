@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navsite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="taskTitle">Læringsportfolio</h1>
+        <nav class="mainNav">
+            <ul class="navList">
+                <li>
+                    <a href="side1.html" class="navLink">Første Artikel</a>
+                </li>
+                <li>
+                    <a href="side2.html" class="navLink">DR Header</a>
+                </li>
+                <li>
+                    <a href="side3.html" class="navLink">Hobby Portfolio</a>  
+                </li>
+                <li>
+                    <a href="side4.html" class="navLink">CSS Selectors</a>  
+                </li>
+                <li>
+                    <a href="side5.html" class="highlight">DR Nyhed</a>  
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <h1>
+            DR Nyhed
+        </h1>
+
+        <p>
+            I denne opgave skulle vi prøve at genopbygge en nyhedsartikel fra dr.dk så godt som muligt, så den lignede originalen. 
+        </p>
+            
+        <p>
+            Det meste af det er simpelt. Der er nogle paragrapher som vi satte ind ved hjælp af 'p' elementet (ligesom denne tekst), noget tekst større end andet (brug af h1 og 3), noget er med fed (bold), noget rødt og noget sort (color i CSS) osv. Boksen rundt om teksten er bare et 'article' element hvor jeg har ændret baggrundsfarven. Der var dog nogle få ting der drillede lidt.
+        </p>
+
+        <p>
+            Nederst på siden er der to links, som begge har et ikon til venstre for dem. Den ene fører til dr's Facebook side, den anden (officelt set) kopiere linket til artiklen, men det har jeg ikke implementeret. Ikonerne er SVG filer vi fik tildelt, som er skaleret ned til at passe i størrelse.
+        </p>
+        
+        <p>
+            Det er det samme med de røde tekster mellem titlen og paragrapherne, forskellen er bare at der er tilføjet farve både til teksten og SVG'erne.
+        </p>
+
+        <p>
+            Den mest tricky del af opgaven var at få teksten helt oppe i venstre hjørne, "kort nyt | I dag kl 10:23" til have have forskellige farver. Resultatet endte med at tilføje en span til hver tekste mellem "|", give dem hver en class for sig selv og ændre farverne med span classene.
+        </p>
+
+       <p>Resultat og kode ses her:</p>
+        <img src="images/DRNyhedsImg.PNG" alt="Billede af resultatet" class="drNyhed">
+        <img src="images/DRNyhedsHTML.PNG" alt="billede af opgavens HTML" class="drNyhed">
+        <img src="images/DRNyhedsCSS.PNG" alt="billede af opgavens CSS" class="drNyhed">
+
+        <p>
+            Med denne opgave fandt jeg ud af hvad en SVG er og nogenlunde hvordan den kan bruges, i hvertfald på et basis niveu.
+        </p>
+        <p>
+            Jeg havde lidt svært ved hvordan man lige skulle sætte det hele op, men ellers var resten meget lige til.
+        </p>
+
+    </main>
+
+
+
+    <footer>
+        <p class="footText">
+            Copyright: Kristian Frederichsen. 03-09-2024 to 10-09-2024
+        </p>
+    </footer>
+
+
+</body>

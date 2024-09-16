@@ -1,0 +1,58 @@
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    background-color: #D1E0EC;
+    padding: 10px;
+}
+
+.navref {
+        padding: 0;
+    margin-left: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    gap: 1em;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px; 
+    list-style: none;
+}
+.navref a {
+    color: black; 
+    text-decoration: none; 
+}
+
+.navref a:visited {
+    color: black; 
+}
+
+.navref a:hover {
+    color: black; 
+
+    border-bottom: solid;
+    padding-bottom: 10px;
+    border-width: 4px;
+}
+.svg {
+    width: 20px;
+    height: 20px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+footer {
+    color: #9E9E9E;
+}
