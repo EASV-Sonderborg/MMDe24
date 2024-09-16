@@ -1,0 +1,73 @@
+
+h1 {
+    display: flex;
+    justify-content: center;
+    
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.nej {
+    border: solid blue 10px;
+}
+
+.stupid {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+   
+    
+}
+
+
+
+.hej {
+    list-style: none;
+    align-self: auto;
+    border: solid 10px;
+    padding: 20px;
+    
+}
+
+
+
+.noob {
+    display: flex;
+    gap: 30px;
+    padding: 0;
+
+}
+
+.skibidi {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: flex-start;
+}
+
+.meow {
+    display: flex;
+    padding: 0;
+    
+    flex-wrap: wrap;
+}
+
+.no {
+    border: solid blue 10px;
+    width: 400px;
+}
+
+p {
+    border: solid gray 5px;
+    padding: 10px;
+}
+
+.roar {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-end;
+}
