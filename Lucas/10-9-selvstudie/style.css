@@ -124,7 +124,7 @@ a.button:hover{
     justify-content: right;
 }
 /* Problemet er opstået fordi billerne har en defineret pixel størrelse, derfor kan artiklerne ikke tilpasses skærmen. 
-Solution er at croppe billederne så de har samme størrelse, inden de ligges ind i Vs, derefter skal de have 100% i størrelse, ikke px*/
+Solution er at croppe billederne så de har samme størrelse, inden de ligges ind i Vs, derefter skal de have 100% i størrelse, ikke px*/ 
 img{
     width: 280px;
     height: 280px;
