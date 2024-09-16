@@ -1,25 +1,37 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    margin: 10px 0;
+    margin: 0 0;
     padding: 0;
 }
-
+/* Navigations bar til siden */
 ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
+header{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+header ul{
+    display: flex;
+}
+
+header.nav{
+    justify-content: space-between;
+}
+
 .nav{
     margin: 10px;
     padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .identity{
     margin-right: auto;
+    padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     border-radius: 50px;
@@ -33,6 +45,7 @@ ul{
     margin-left: 10px;
     padding: 5px 10px;
     border-radius: 50px;
+    box-shadow: 0, 0, 18px, 0;
     transition: background-color 0.3s, border 0.3s;
 }
 
@@ -50,7 +63,13 @@ a.selected{
     transition: background-color 0.3s, border 0.3s
 }
 
+footer{
+    background-color: rgb(205, 205, 205) ;
+    padding: 5px;
+    text-align: center;
+}
 
+/* Projekt side */
 .headerImg{
     height: 500px;
     width: 100vw;
@@ -86,4 +105,62 @@ article h1{
 
 .hello{
     margin: 20px;
+}
+
+code{
+    background-color: rgb(218, 218, 218);
+    padding: 5px;
+}
+
+/* Flexbox-examples.html delen*/
+
+.navExample{
+    line-height: 30px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.navList{
+    padding: 0;
+    display: flex;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+}
+
+.bgNav{
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+/* Første eksempel */
+.oneNav{
+    justify-content: space-between;
+}
+
+/* Andet eksempel */
+.twoNav{
+    justify-content: center;
+    gap: 4em;
+}
+
+/* Tredje eksempel */
+.threeNav{
+    justify-content: center;
+    gap: 1em 20em;
+    flex-wrap: wrap;
+}
+
+/* Fjerde eksempel */
+.fourNav{
+    align-items: center;
+    flex-direction: column;
+}
+ 
+/* Femte eksempel */
+
+.fiveNav{
+   justify-content: space-around;
 }
