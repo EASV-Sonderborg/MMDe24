@@ -1,0 +1,20 @@
+nav ul {
+    display: flex;
+} 
+nav li {
+    flex: auto;
+}
+nav a {
+    border: 2px solid rgb(1, 86, 129);
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: rgb(96 139 168 / 0.2);
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+li{
+    text-decoration: none;
+    list-style: none;
+}
