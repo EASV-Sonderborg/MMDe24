@@ -1,0 +1,84 @@
+
+h1 {
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 40px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.EmneSection {
+    border: solid lightblue 10px;
+    margin-bottom: 40px;
+    background-color: rgb(229, 225, 225);
+    padding: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.FlexContainerForJustifyContent {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.FlexItemElemnter {
+    list-style: none;
+    align-self: auto;
+    border: solid 10px;
+    padding: 20px;
+    
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.FlexContainerForGap {
+    display: flex;
+    gap: 30px;
+    padding: 0;
+}
+
+.FlexContainerForFlexDirection {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: flex-start;
+}
+
+.FlexContainerForFlexWrap {
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.EmneSectionFlexWrap {
+    border: solid lightblue 10px;
+    width: 400px;
+    margin-bottom: 40px;
+    background-color: rgb(229, 225, 225);
+    padding: 10px;
+    margin-left: 35%;
+}
+
+p {
+    border: solid gray 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.FlexContainerForAlignItem {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-end;
+}

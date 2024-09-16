@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    
 }
 
 .main-content {
@@ -45,7 +45,7 @@ nav {
 
 
 
-main h1, main h2 {
+h1, h2 {
     color: #333;
 }
 
@@ -54,7 +54,6 @@ main h1, main h2 {
     display: flex;
     justify-content: center;
     gap: 1em;
-    flex-wrap: wrap;
     margin-bottom: 20px;
 }
 
@@ -71,12 +70,11 @@ main h1, main h2 {
 }
 
 /* Added a hover effect to the whole polaroid container. I added the hover only to the image prior to this, but it looked kinda awkward
-so I decided to have the whole container do it, which made it look way cuter */
+but found out I could have the whole container do it, which made it look way cuter */
 .polaroid:hover {
-    transform: scale(1.1); /* Effect zoom in!!! */
+    transform: scale(2.2); /* Effect zoom in!!! */
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Added a harsher shadow to make it pop more */
 }
-
 .polaroid-image {
     width: 100%;
     height: auto;
