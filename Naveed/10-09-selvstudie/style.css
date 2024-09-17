@@ -1,3 +1,4 @@
+/* Læringsportfolio (10-09) */
 body{
     background-color: #1f1f1f;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,8 +15,9 @@ header{
     border-bottom: solid 1px rgba(240, 248, 255, 0.164);
     text-decoration: none;
 }
-.navList{
-    padding: 12px;
+/* Main navigation menu */
+.navList{ 
+    padding: 0;
     margin: 12px;
     display: flex;
     justify-content: center;
@@ -24,6 +26,80 @@ header{
     gap: 4em;
     font-size: 1.35em;
 }
+/* Description for each assignment */
+.description{
+    font-size: 1em;
+    border-bottom: 2px solid white;
+    display: flex;
+    justify-content: center;
+    max-width: 866px;
+}
+/* Define card layout */
+.cards{
+    width: 866px;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+}
+.articleBg{
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.flex{
+    flex-grow: 1;
+}
+.flexTop{
+    flex-shrink: 1;
+}
+.focus{
+    font-weight: bold;
+    border-bottom: 2px solid white;
+}
+ul{
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+p:not(.flexExamples, .sectionText, .fruitDescription){
+    max-width: 866px;
+    margin-bottom: 4px;
+    padding-top: 20px;
+}
+/* white outline for dark images */
+.darkImg{ 
+    max-width: 400px;
+    border: solid 2px white;
+    border-radius: 12px;
+}
+/* black outline for white images */
+.whiteImg{ 
+    max-width: 400px;
+    border: solid 2px black;
+    border-radius: 12px;
+}
+a:link:not(.fruitButton){
+    text-decoration: none;
+    color: #88d5ff;
+}
+a:visited{
+    color: #88d5ff;
+}
+a:focus{
+    background-color: rgb(137, 137, 137);
+}
+a:hover:not(.fruitButton){
+    background-color: #88d5ff18;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+}
+footer{
+    padding-top: 20px;
+    text-align: center;
+    color: rgba(175, 175, 175, 0.651);
+}
+/* Flexbox Examples (16-09)*/
 .subNavList{
     margin: auto;
     display: flex;
@@ -34,12 +110,11 @@ header{
     font-size: 1em; 
     margin-bottom: 20px;
 }
-.listItems{
-    background-color: #23abf2;
-    border: 2px solid rgb(1, 86, 129);
-    text-decoration: none;
-    border-radius: 5px;
-    background-color: rgb(96 139 168 / 0.2);
+.description2{
+    font-size: 1em;
+    border-bottom: 2px solid white;
+    display: flex;
+    justify-content: center;
 }
 .gapStyle1{
     display: flex;
@@ -48,6 +123,13 @@ header{
 .gapStyle2{
     display: flex;
     gap: 4em;
+}
+.listItems{
+    background-color: #23abf2;
+    border: 2px solid rgb(1, 86, 129);
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: rgb(96 139 168 / 0.2);
 }
 .justifyCenter{
     display: flex;
@@ -77,11 +159,11 @@ header{
     gap: 2em;
     justify-content: center;
 }
-.bottomBorder{
-    border-bottom: 2px solid white;
-}
 .sectionBorder{
     border: 2px solid rgb(255, 0, 0);
+}
+.bottomBorder{
+    border-bottom: 2px solid white;
 }
 .flexWrap1{
     width: 100px;
@@ -99,37 +181,6 @@ header{
 .flexShrink{
     flex-shrink: 1;
 }
-.cards{
-    width: 866px;
-    grid-template-columns: 1fr 1fr 1fr;
-    display: grid;
-}
-.articleBg{
-    padding: 0px 20px;
-    display: flex;
-    flex-direction: column;
-}
-.flex{
-    flex-grow: 1;
-}
-.flexTop{
-    flex-shrink: 1;
-}
-.focus{
-    font-weight: bold;
-    border-bottom: 2px solid white;
-}
-ul{
-    padding: 0;
-}
-li{
-    list-style: none;
-}
-p:not(.flexExamples, .sectionText, .fruitDescription){
-    max-width: 866px;
-    margin-bottom: 4px;
-    padding-top: 40px;
-}
 .flexExamples{
     padding-left: 40px;
 }
@@ -138,47 +189,7 @@ p:not(.flexExamples, .sectionText, .fruitDescription){
     margin-top: 0;
     padding-top: 20px;
 }
-.darkImg{
-    max-width: 400px;
-    border: solid 2px white;
-    border-radius: 12px;
-}
-.whiteImg{
-    max-width: 400px;
-    border: solid 2px black;
-    border-radius: 12px;
-}
-.description{
-    font-size: 1em;
-    border-bottom: 2px solid white;
-    display: flex;
-    justify-content: center;
-}
-.single{
-    padding-left: 200px;
-    text-align: center;
-}
-a:link:not(.fruitButton){
-    text-decoration: none;
-    color: #88d5ff;
-}
-a:visited{
-    color: #88d5ff;
-}
-a:focus{
-    background-color: rgb(137, 137, 137);
-}
-a:hover:not(.fruitButton){
-    background-color: #88d5ff18;
-    border-style: solid;
-    border-color: white;
-    border-width: 2px;
-}
-footer{
-    padding-top: 20px;
-    text-align: center;
-    color: rgba(175, 175, 175, 0.651);
-}
+/* flex items */
 .fruits{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     display: grid;
