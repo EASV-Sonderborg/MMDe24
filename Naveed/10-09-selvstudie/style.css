@@ -1,9 +1,10 @@
-/* Læringsportfolio (10-09) */
+/* Common properties */
 body{
     background-color: #1f1f1f;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color:white
 }
+/* Stick the header to the top of the site */
 header{
     background-color: #1f1f1f;
     position: sticky;
@@ -11,6 +12,7 @@ header{
     text-align: center;
     border-bottom: solid 1px rgba(240, 248, 255, 0.164);
 }
+/* Header title */
 .titleCard{
     color: #23abf2;
     font-size: 2em;
@@ -53,13 +55,16 @@ header{
 .flexTop{
     flex-shrink: 1;
 }
+/* Defines special properties for the active site */
 .focus{
     font-weight: bold;
     border-bottom: 2px solid white;
 }
+/* Remove default padding on <ul> elements */
 ul{
     padding: 0;
 }
+/* Remove default style on <li> elements */
 li{
     list-style: none;
 }
@@ -80,6 +85,7 @@ p:not(.flexExamples, .sectionText, .fruitDescription){
     border: solid 2px black;
     border-radius: 12px;
 }
+/* Link styles */
 a:link:not(.fruitButton){
     text-decoration: none;
     color: #88d5ff;
@@ -101,6 +107,7 @@ footer{
     text-align: center;
     color: rgba(175, 175, 175, 0.651);
 }
+
 /* Flexbox Examples (16-09)*/
 .subNavList{
     margin: 12px 0px 12px 0px;
@@ -111,6 +118,14 @@ footer{
     gap: 4em;
     font-size: 1em; 
 }
+/* Common style for items */
+.itemStyle{
+    border: 2px solid white;
+    background-color: #23aaf219;
+    border-radius: 8px;
+    padding: 4px;
+}
+/* Different gap styles */
 .gapStyle1{
     display: flex;
     gap: 1em;
@@ -119,22 +134,12 @@ footer{
     display: flex;
     gap: 4em;
 }
-.listItems{
-    background-color: #23abf2;
-    border: 2px solid rgb(1, 86, 129);
-    text-decoration: none;
-    border-radius: 5px;
-    background-color: rgb(96 139 168 / 0.2);
-}
+/* Different justify-content values*/
 .justifyCenter{
     display: flex;
     flex-direction: row;
     gap: 2em;
     justify-content: center;
-}
-.justifyContent{
-    border: 2px solid white;
-    background-color: #23aaf219;
 }
 .justifySpace{
     display: flex;
@@ -142,6 +147,7 @@ footer{
     gap: 2em;
     justify-content: space-between;
 }
+/* Different flex-direction values*/
 .flexDirection1{
     display: flex;
     flex-direction: column;
@@ -154,12 +160,15 @@ footer{
     gap: 2em;
     justify-content: center;
 }
-.sectionBorder{
+/* Border for flex-wrap items */
+.wrapBorder{
     border: 2px solid rgb(255, 0, 0);
 }
-.bottomBorder{
+/* Border below each section */
+.sectionBorder{
     border-bottom: 2px solid white;
 }
+/* Different flex-wrap values */
 .flexWrap1{
     width: 100px;
     display: flex;
@@ -167,9 +176,9 @@ footer{
 }
 .flexWrap2{
     width: 100px;
-    display: flex;
     flex-wrap: wrap;
 }
+/* flex-grow and flex-shrink */
 .flexGrow{
     flex-grow: 1;
 }
@@ -184,6 +193,7 @@ footer{
     margin-top: 0;
     padding-top: 20px;
 }
+
 /* flex items */
 .fruits{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
