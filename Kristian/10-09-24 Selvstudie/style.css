@@ -1,5 +1,5 @@
 
-/* Opbygning af selve layout, inspireret af Steam  */
+/* Opbygning af selve layout af hjemmesiden, inspireret af Steam  */
 
 body{
     background-color:rgb(21, 26, 32);
@@ -151,10 +151,6 @@ p:not(.footText, .cardText), h1{
 }
 
 
-
-
-
-
 /*------------------------------------------------------------*/
 /* Cards opgave */
 
@@ -175,6 +171,8 @@ p:not(.footText, .cardText), h1{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-self: flex-start;
+    padding-bottom: 50px;
 }
 
 .cardText{
@@ -190,13 +188,6 @@ p:not(.footText, .cardText), h1{
     margin-bottom: 40px;
 }
 
-
-/* Individuelle cards */
-
-.brast{
-    width: 300px;
-}
-
 .cardLink{
     color: aqua;
     border: hidden;
@@ -206,3 +197,11 @@ p:not(.footText, .cardText), h1{
     padding: 10px;
     
 }
+
+
+/* Individuelle cards */
+
+.brast{
+    width: 300px;
+}
+
