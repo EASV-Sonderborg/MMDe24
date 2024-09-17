@@ -8,10 +8,13 @@ header{
     background-color: #1f1f1f;
     position: sticky;
     top: 0;
+    text-align: center;
+    border-bottom: solid 1px rgba(240, 248, 255, 0.164);
+}
+.titleCard{
     color: #23abf2;
     font-size: 2em;
     font-weight: bold;
-    text-align: center;
     border-bottom: solid 1px rgba(240, 248, 255, 0.164);
     text-decoration: none;
 }
@@ -24,14 +27,13 @@ header{
     list-style: none;
     font-weight: 400;
     gap: 4em;
-    font-size: 1.35em;
+    font-size: 1.5em;
 }
 /* Description for each assignment */
 .description{
     font-size: 1em;
     border-bottom: 2px solid white;
     display: flex;
-    justify-content: center;
     max-width: 866px;
 }
 /* Define card layout */
@@ -101,20 +103,13 @@ footer{
 }
 /* Flexbox Examples (16-09)*/
 .subNavList{
-    margin: auto;
+    margin: 12px 0px 12px 0px;
     display: flex;
     justify-content: center;
     list-style: none;
     font-weight: 400;
     gap: 4em;
     font-size: 1em; 
-    margin-bottom: 20px;
-}
-.description2{
-    font-size: 1em;
-    border-bottom: 2px solid white;
-    display: flex;
-    justify-content: center;
 }
 .gapStyle1{
     display: flex;
