@@ -1,108 +1,47 @@
+/* Common properties */
 body{
     background-color: #1f1f1f;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color:white
 }
+/* Stick the header to the top of the site */
 header{
     background-color: #1f1f1f;
     position: sticky;
     top: 0;
+    text-align: center;
+    border-bottom: solid 1px rgba(240, 248, 255, 0.164);
+}
+/* Header title */
+.titleCard{
     color: #23abf2;
     font-size: 2em;
     font-weight: bold;
-    text-align: center;
     border-bottom: solid 1px rgba(240, 248, 255, 0.164);
     text-decoration: none;
 }
-.navList{
-    padding: 12px;
+/* Main navigation menu */
+.navList{ 
+    padding: 0;
     margin: 12px;
     display: flex;
     justify-content: center;
     list-style: none;
     font-weight: 400;
     gap: 4em;
-    font-size: 1.35em;
+    font-size: 1.5em;
 }
-.subNavList{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    font-weight: 400;
-    gap: 4em;
-    font-size: 1em; 
-    margin-bottom: 20px;
-}
-.listItems{
-    background-color: #23abf2;
-    display: flex;
-    border: 2px solid rgb(1, 86, 129);
-    text-decoration: none;
-    border-radius: 5px;
-    background-color: rgb(96 139 168 / 0.2);
-}
-.gapStyle1{
-    display: flex;
-    gap: 1em;
-}
-.gapStyle2{
-    display: flex;
-    gap: 4em;
-}
-.justifyCenter{
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-    justify-content: center;
-}
-.justifyContent{
-    border: 2px solid white;
-    background-color: #23aaf219;
-}
-.justifySpace{
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-    justify-content: space-between;
-}
-.flexDirection1{
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    justify-content: center;
-}
-.flexDirection2{
-    display: flex;
-    flex-direction: row;
-    gap: 2em;
-    justify-content: center;
-}
-.bottomBorder{
+/* Description for each assignment */
+.description{
+    font-size: 1em;
     border-bottom: 2px solid white;
-}
-.sectionBorder{
-    border: 2px solid rgb(255, 0, 0);
-}
-.flexWrap1{
-    width: 100px;
     display: flex;
-    flex-wrap: nowrap;
+    max-width: 866px;
 }
-.flexWrap2{
-    width: 100px;
-    display: flex;
-    flex-wrap: wrap;
-}
-.flexGrow{
-    flex-grow: 1;
-}
-.flexShrink{
-    flex-shrink: 1;
-}
+/* Define card layout */
 .cards{
     width: 866px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     display: grid;
 }
 .articleBg{
@@ -116,49 +55,37 @@ header{
 .flexTop{
     flex-shrink: 1;
 }
+/* Defines special properties for the active site */
 .focus{
     font-weight: bold;
     border-bottom: 2px solid white;
 }
+/* Remove default padding on <ul> elements */
 ul{
     padding: 0;
 }
+/* Remove default style on <li> elements */
 li{
     list-style: none;
 }
 p:not(.flexExamples, .sectionText, .fruitDescription){
     max-width: 866px;
     margin-bottom: 4px;
-    padding-top: 40px;
-}
-.flexExamples{
-    padding-left: 40px;
-}
-.flexGrowText{
-    padding-left: 20px;
-    margin-top: 0;
     padding-top: 20px;
 }
-.darkImg{
+/* white outline for dark images */
+.darkImg{ 
     max-width: 400px;
     border: solid 2px white;
     border-radius: 12px;
 }
-.whiteImg{
+/* black outline for white images */
+.whiteImg{ 
     max-width: 400px;
     border: solid 2px black;
     border-radius: 12px;
 }
-.description{
-    font-size: 1em;
-    border-bottom: 2px solid white;
-    display: flex;
-    justify-content: center;
-}
-.single{
-    padding-left: 200px;
-    text-align: center;
-}
+/* Link styles */
 a:link:not(.fruitButton){
     text-decoration: none;
     color: #88d5ff;
@@ -180,8 +107,96 @@ footer{
     text-align: center;
     color: rgba(175, 175, 175, 0.651);
 }
+
+/* Flexbox Examples (16-09)*/
+.subNavList{
+    margin: 12px 0px 12px 0px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    font-weight: 400;
+    gap: 4em;
+    font-size: 1em; 
+}
+/* Common style for items */
+.itemStyle{
+    border: 2px solid white;
+    background-color: #23aaf219;
+    border-radius: 8px;
+    padding: 4px;
+}
+/* Different gap styles */
+.gapStyle1{
+    display: flex;
+    gap: 1em;
+}
+.gapStyle2{
+    display: flex;
+    gap: 4em;
+}
+/* Different justify-content values*/
+.justifyCenter{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content: center;
+}
+.justifySpace{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content: space-between;
+}
+/* Different flex-direction values*/
+.flexDirection1{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+}
+.flexDirection2{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content: center;
+}
+/* Border for flex-wrap items */
+.wrapBorder{
+    border: 2px solid rgb(255, 0, 0);
+}
+/* Border below each section */
+.sectionBorder{
+    border-bottom: 2px solid white;
+}
+/* Different flex-wrap values */
+.flexWrap1{
+    width: 100px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.flexWrap2{
+    width: 100px;
+    flex-wrap: wrap;
+}
+/* flex-grow and flex-shrink */
+.flexGrow{
+    flex-grow: 1;
+}
+.flexShrink{
+    flex-shrink: 1;
+}
+.flexExamples{
+    padding-left: 40px;
+}
+.flexGrowText{
+    padding-left: 20px;
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+/* flex items */
 .fruits{
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     display: grid;
     gap: 1em;
 }
