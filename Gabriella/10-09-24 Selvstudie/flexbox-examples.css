@@ -34,7 +34,7 @@ ul {
 
 /*Second example*/
 .homenav2 {
-  padding: 10;
+  padding: 10px;
   background-color: #fbee7b;
   display: flex;
   flex-wrap: wrap;
@@ -95,7 +95,7 @@ ul {
 
 /*second wrap*/
 .homewrap {
-  padding: 10;
+  padding: 10px;
   background-color: #c0e6ff;
   display: flex;
 
