@@ -1,0 +1,51 @@
+
+
+/*card layout*/
+.businessCard{
+    background-color: rgb(0, 166, 255);
+    display: grid;
+    grid-auto-flow: column;
+    width: 730px;
+    height: 310px;
+    padding: 0px 20px;
+    border-left: solid rgb(86, 196, 255);
+    border-top: solid rgb(86, 196, 255);
+    border-right: solid rgb(64, 148, 194);
+    border-bottom: solid rgb(64, 148, 194);
+    border-width: 20px;
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    gap: 20px;
+}
+
+
+.businessCard__photo{
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 500px;
+    border: solid 5px rgb(0, 251, 255);
+}
+
+
+/*The text*/
+
+.businessCard__info{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 30px
+}
+
+.businessCard__title{
+    border-bottom: solid;
+    padding-bottom: 25px;
+    margin: 0;
+}
+
+
+.businessCard__details:not(.businessCard__title){
+    border-bottom: solid 2px;
+    margin: 0;
+    gap: 20px;
+}
