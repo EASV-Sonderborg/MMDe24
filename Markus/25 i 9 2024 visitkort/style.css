@@ -1,0 +1,56 @@
+.container {
+    display: grid;
+    border: solid gray;
+    padding: 10px;
+    grid-auto-flow: column;
+    max-width: 600px;
+    background-color: sandybrown;
+    box-shadow: 12px 12px 12px rgba(1,1,1,1.1);
+}
+
+
+.myCard {
+   
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.myCard__Head {
+
+    text-decoration: underline gray;
+    text-underline-offset: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.myCard__City {
+   
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.myCard__Adress {
+  
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.myCard__Phone {
+   
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.myCard__Mail {
+ 
+
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    
+    
+    border-radius: 80%;
+}
