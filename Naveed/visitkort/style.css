@@ -1,0 +1,33 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.businessCards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+.businessCard{
+    background-color: #f8d5a7;
+    padding: 1em;
+    box-shadow: 5px 5px 5px;
+}
+.__profileImage{
+    border-radius: 100px;
+    width: 140px;
+    height: 150px;
+    float: left;
+    box-shadow: 2px 2px 2px black;
+}
+.businessCard .__name{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: end;
+}
+.businessCard .__contact{
+    font-style: normal;
+    text-align: end;
+}
+a{
+    text-decoration: underline;
+    color: black;
+}
