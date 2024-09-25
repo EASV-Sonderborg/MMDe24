@@ -5,7 +5,8 @@
     background-color: rgb(0, 166, 255);
     display: grid;
     grid-auto-flow: column;
-    width: fit-content;
+    width: 730px;
+    height: 310px;
     padding: 0px 20px;
     border-left: solid rgb(86, 196, 255);
     border-top: solid rgb(86, 196, 255);
@@ -21,24 +22,30 @@
 .businessCard__photo{
     width: 300px;
     height: 300px;
-    display: grid;
-    justify-content: start;
+    margin: 0 auto;
     border-radius: 500px;
     border: solid 5px rgb(0, 251, 255);
 }
 
 
 /*The text*/
+
+.businessCard__info{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 30px
+}
+
 .businessCard__title{
     border-bottom: solid;
     padding-bottom: 25px;
+    margin: 0;
 }
 
 
 .businessCard__details:not(.businessCard__title){
     border-bottom: solid 2px;
-}
-
-.businessCard__details{
-       margin-bottom: 30px;
+    margin: 0;
+    gap: 20px;
 }
