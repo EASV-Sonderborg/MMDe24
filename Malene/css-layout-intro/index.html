@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS layout examples</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>CSS layout</h1>
+    <p>En samling af eksempler og forklaringer omkring CSS layout.</p>
+    <nav>
+        <a href="#">display</a>
+        <a href="#">the box model</a>
+        <a href="#">float</a>
+        <a href="#">margin: 0 auto</a>
+        <a href="#fix">position</a>
+        <a href="#">flexbox</a>
+        <a href="#">grid</a>
+    </nav>
+    <main><!-- grid container -->
+        <article class="display-property">
+            <h2>The <span class="css">display</span> property</h2>
+            <p>Der er to typer af elementer i HTML:</p>
+            <ul>
+                <li>inline elementer</li>
+                <li>block level elementer</li>
+            </ul>
+
+            <h3>Inline elementer - eksempler</h3>
+            <code>&lt;img&gt;</code>
+            <code>&lt;a&gt;</code>
+            <code>&lt;span&gt;</code>
+            <img src="images/colored_stones.jpeg" alt="">
+            <img src="images/orange_stones.jpeg" alt="">
+            <img src="images/stones_by_water.jpeg" alt="">
+
+            <h3>Block level elementer - eksempler</h3>
+            <code>&lt;h1&gt;</code>
+            <code>&lt;h2&gt;</code>
+            <code>&lt;p&gt;</code>
+            <code>&lt;header&gt;</code>
+            <code>&lt;footer&gt;</code>
+            <code>&lt;nav&gt;</code>
+            <code>&lt;ul&gt;</code>
+            <code>&lt;li&gt;</code>
+            <code>&lt;section&gt;</code>
+            <code>&lt;article&gt;</code>
+            <code>&lt;aside&gt;</code>
+            <code>&lt;main&gt;</code>
+            <p>...og der er flere endnu.</p>
+        </article>
+
+        <article>
+            <h2>The box model</h2>
+            <p>Nedenfor er en section med 'Noget tekst'. Der er tilføjet padding, border og margin i CSS.</p>
+            <section class="box first">
+                Noget tekst
+            </section>
+            <section class="box orange">
+                Noget tekst
+            </section>
+            <section class="box red">
+                Noget tekst
+            </section>
+        </article>
+
+        <article class="float-property">
+            <h2>The <span class="css">float</span> property</h2>
+            <a href="https://cssgridgarden.com/">
+                <img class="float" src="images/rock.jpeg" alt="">
+            </a>
+            <p>Floats bruges kun til at få f.eks. tekst til at wrappe rundt om et billede som her.</p>
+            <p>Tidligere (ca. 2005-2012) da anvendte man float til at opbygge en hjemmesides layout. Det var en slags
+                hack, da der endnu ikke var nemme layout løsninger, som vi har i dag med Flexbox og Grid.</p>
+        </article>
+
+        <article>
+            <h2 class="clear">The trick with <span class="css">margin: 0 auto</span></h2>
+            <p>Nedenfor er et eksempel med en section som får defineret en vidde og dernæst bliver den centreret på
+                siden med margin: 0 auto. Se mere i stylesheetet. </p>
+            <section class="center">En section her som er centreret med margin: 0 auto; </section>
+        </article>
+
+        <article>
+            <h2 id="fix">The <span class="css">position</span> property</h2>
+            <p>Med positioning kan du flytte elementer rundt i forhold til hvor de normalt vil sidde. Det anvendes ikke
+                til layout, men i stedet mere til fine-tuning af specifikke elementers placering. Se eksempler nedenfor:
+            </p>
+
+            <section class="fixed">
+                <p>Her et en section som har fået postion: fixed</p>
+            </section>
+        </article>
+
+        <article>
+            <h2>The <span class="css">Flexbox</span> layout</h2>
+            <p>CSS Flexbox layout (Module) anvendes til dele af et layout som f.eks. skal fordeles ens i en retning. Det
+                kan f.eks. være i navigationen af en hjemmeside. Se den øverste navigation. Der har
+                <code>&lt;nav&gt;</code> elementet fået display: flex.
+            </p>
+        </article>
+
+        <article>
+            <h2>The <span class="css">Grid</span> layout</h2>
+            <p>CSS Grid layout (Module) anvendes til hele layoutet eller dele af layoutet for en hjemmeside. Det skiller
+                sig ud fra Flexbox ved at man kan arbejde med layoutet i to akser - altså både vertikalt og horisontalt.
+            </p>
+        </article>
+    </main>
+</body>
+
+</html>

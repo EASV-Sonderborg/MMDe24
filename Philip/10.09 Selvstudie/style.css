@@ -11,12 +11,13 @@ body    {
 
 .Container  {
     display: flex;
-    background-color: rgba(0, 0, 0,);
+    background-color: rgb(27, 27, 27);
     padding-bottom: 25px;
     padding-top: 25px;
     position: fixed;
     width: 100%;
     box-shadow: 0  0   8px  black;
+    z-index: 10;
 }
 
 .Container ul  {
@@ -41,14 +42,15 @@ body    {
     max-width: max-content;
     
 }
+
+
+
 .btn:hover  {
-    
     background: linear-gradient(to right, rgb(0, 85, 255), red);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: background-color .4s ease-out, color .4s ease-out;
-    background: white;
 }
 
 
@@ -202,11 +204,11 @@ h3  {
     font-size: 24px;
 }
 .Card_Main  {
-    width: 660px;
+    width: 620px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 20px 40px;
 }
 .Card_Main2  {
     width: 660px;
@@ -218,12 +220,12 @@ h3  {
 }
 
 .Cards  {
-    width: 320px;
+    width: 300px;
     background-color:rgb(27, 27, 27);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    margin: 15px 0;
+    margin: 10px 0;
     
 }
 
@@ -231,6 +233,9 @@ h3  {
     margin-right: auto;
 }
 
+.Cards:hover    {
+transform: scale(1.05);
+}
 
 .Cards a    {
     display: flex;
@@ -262,7 +267,7 @@ align-items: center;
 }
 
 .Biler  {
-    width: 280px;
+    width: 250px;
     height: 150px;
     margin: 20px;
 }
