@@ -21,24 +21,29 @@
 .businessCard__photo{
     width: 300px;
     height: 300px;
-    display: grid;
-    justify-content: start;
     border-radius: 500px;
     border: solid 5px rgb(0, 251, 255);
 }
 
 
 /*The text*/
+
+.businessCard__info{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 30px
+}
+
 .businessCard__title{
     border-bottom: solid;
     padding-bottom: 25px;
+    margin: 0;
 }
 
 
 .businessCard__details:not(.businessCard__title){
     border-bottom: solid 2px;
-}
-
-.businessCard__details{
-       margin-bottom: 30px;
+    margin: 0;
+    gap: 20px;
 }
