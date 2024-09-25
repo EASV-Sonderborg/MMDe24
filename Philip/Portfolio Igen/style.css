@@ -1,6 +1,6 @@
 header {
     width: 100%;
-    background: #006aff;
+    background-image: linear-gradient(to left, rgb(53, 184, 245) 0%, #006aff 80%);
     margin: 0;
     padding: 10px;
 }
@@ -93,7 +93,7 @@ div a:hover   {
 .Transition_Background  {
     width: 100%;
     height: 500px;
-    background-image: linear-gradient(to bottom, white 0%, #006aff 100%);
+    background-image: linear-gradient(to bottom, white 0%, #006aff 80%);
 }
 
 
@@ -101,7 +101,7 @@ div a:hover   {
     width: 100%;
     height: 500px;
     margin: 0;
-    background-color: #006AFF;
+    background-image: linear-gradient(to Top, rgb(53, 184, 245) 0%, #006aff 80%);
     display: flex;
     justify-content: center;
 }
@@ -131,27 +131,38 @@ p   {
 }
 
 .Examples_Container {
-    width: 900px;
-    height: 500px;
+    width: 600px;
+    height: 4500px;
     display: flex;
-    justify-content:center;
     margin: 0 auto;
+    border-radius: 20px ;
+    margin-top: 250px;
+    background-image: linear-gradient(to Top, rgb(53, 184, 245) 0%, #006aff 100%);
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 .Examples   {
-    width: 600px;
-    height: 200px;
-    border-radius: 20px;
     display: flex;
-    justify-content: center;
-    overflow: hidden;
-    flex-grow: 1 1;
-    
+    height: 200px;
 }
 
-.Ex1    {
-    width: 420px;
+.Examples  img  {
+    height: 150px;
+    width: 300px;
+    justify-content: flex-start;
+
 }
-.Ex2    {
-    width: 420px;
+
+
+.Text_Box2   {
+    width: auto;
+    height: 200px;
+    color: white;
+    margin: 0;
+    padding-top: 10px;
 }
+.Text_Box2 p    {
+    padding: 0 20px;
+}
+
