@@ -1,0 +1,148 @@
+/* 
+THE DISPLAY PROPERTY:
+- Artikel: https://learnlayout.com/display 
+- Video (4min): https://youtu.be/Qf-wVa9y9V4?si=EkzNgx3UuQQIxc7P
+- Video (16min) mere forklaring og et eksempel med navigation: https://youtu.be/naTAFo2Gyus?si=GBHX4nVjdAEMXTrM
+
+Du skal kende:
+- display: block
+- display: inline
+- display: flex
+- display: grid (den starter vi på i dag)
+
+*/
+
+img {
+    max-width: 100%;
+    width: 20%;
+    border-radius: 100%;
+    /*display: block;*/
+}
+
+/* 
+THE BOX MODEL:
+- Artikel: https://learnlayout.com/box-model
+- Video Learn CSS Box Model In 8 Minutes (8min): https://youtu.be/rIO5326FgPE?si=2lke6Tn9D-vR3e26 
+
+Du skal kende:
+- padding
+- border
+- margin
+- box-sizing: border-box
+*/
+
+.box {
+    background-color: beige;
+    border-bottom: 50px solid darkgray;
+    padding: 1rem;
+    margin: 2rem;
+}
+.first {
+    border-bottom: 20px dashed yellow;
+}
+.orange {
+    border-color: orange;
+    border-bottom-style: dotted;
+}
+
+/* 
+THE FLOAT AND CLEAR PROPERTY:
+- Artikel: https://developer.mozilla.org/en-US/docs/Web/CSS/float
+- Video (13min): https://youtu.be/QkvFxXqElQ4?si=xnoOZ5oIsO95-2ga 
+
+Du skal vide hvad float anvendes til, samt at det ikke længere anvendes til layout.
+*/
+
+.float {
+    float: right;
+    
+}
+.clear {
+    clear: both;
+}
+
+/* 
+THE MARGIN: 0 AUTO:
+- Artikel: https://developer.mozilla.org/en-US/docs/Web/CSS/margin
+- Video (4min): https://youtu.be/2ZlVV0MM1a0?si=VdEdg9Fmm_gds_ga 
+*/
+
+.center {
+    background-color: beige;
+    width: 30%;
+    margin: 0 auto;
+}
+
+/* 
+POSITIONING TECHNIQUES:
+- Artikel: https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction#positioning_techniques
+- Video (9min): https://youtu.be/jx5jmI0UlXU?si=9ymlrmS2aIPCukVs
+
+Du skal blot vide at der findes positioning. Det anvendes ikke særligt ofte og slet ikke som grundlæggende layout til en hjemmeside.
+*/
+
+.fixed {
+    position: fixed;
+    bottom: 30px;
+    right: 0;
+    background-color: rgba(114, 114, 241, 0.7);
+}
+
+/* 
+FLEXBOX LAYOUT:
+- Artikel: https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction#flexbox
+- Video (8min) OBS: en lidt avanceret video: https://youtu.be/phWxA89Dy94?si=qFw1pSkunUDOGLZ1
+*/
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+/* 
+GRID LAYOUT:
+- Artikel: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout
+- Video: Get started with grid WITHOUT being overwhelmed (9min): https://youtu.be/8QSqwbSztnA?si=NcM_TyQpW65Xw072
+- Video (20min) OBS: lidt avanceret video: https://youtu.be/9zBsdzdE4sM?si=W2bo2-_-pm9ugakp 
+- Interaktiv guide til at forstå grid: https://www.joshwcomeau.com/css/interactive-guide-to-grid/
+*/
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    gap: 1rem;
+}
+article {
+    background-color: rgb(236, 211, 193);
+}
+.display-property {
+    /*grid-column: span 2;*/
+    grid-column: 1 / 3;
+}
+.float-property {
+    grid-row: 2 / 4;
+}
+
+/* styling text  */
+.css {
+    font-family: 'Courier New', Courier, monospace;
+    color: purple;
+    padding: 0 1rem;
+}
+
+nav a {
+    color: beige;
+    background-color: burlywood;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+/* pseudo class eksempel */
+nav a:nth-child(3) {
+    background-color: rgb(99, 159, 228);
+}
+/* styling af links, feks hover */
+nav a:hover {
+    background-color: rgb(234, 142, 22);
+}

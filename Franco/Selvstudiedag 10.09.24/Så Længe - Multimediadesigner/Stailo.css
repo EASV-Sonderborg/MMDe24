@@ -1,135 +1,138 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-color: rgb(244, 234, 203);
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(244, 234, 203);
 }
-header{
-    background-color: rgb(207, 217, 217);
+header {
+  background-color: rgb(207, 217, 217);
 }
-nav{
-    outline: auto;
+nav {
+  outline: auto;
 }
-ul{
-    outline: auto;
+ul {
+  outline: auto;
 }
 
 .Navigation {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-    gap: 10em;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin: 0;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  gap: 10em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0;
 }
 .Navigations {
-    background-color: blanchedalmond;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    gap: 20px;
-    padding-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 20px;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.Navigations2{
-    background-color: rgb(191, 232, 219);
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.Navigations2 {
+  background-color: rgb(191, 232, 219);
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.Navigations3{
-    background-color: rgb(171, 188, 203);
-    display: flex;
-    justify-content: end;
-    flex-direction: column;
-    align-items: end;
-    gap: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.Navigations3 {
+  background-color: rgb(171, 188, 203);
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  align-items: end;
+  gap: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.Navigations4{
-    background-color: beige;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    gap: 10em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.Navigations4 {
+  background-color: beige;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 10em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-img{
-    height: 300px;
+img {
+  height: 300px;
 }
-h2{
-    color:orange;
-    text-shadow: #FC0 1px 0 10px;
+h2 {
+  color: orange;
+  text-shadow: #fc0 1px 0 10px;
 }
 .Navlist {
-    list-style-type: none;
+  list-style-type: none;
 }
-.Navlink{
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    border-bottom: 2px solid black;
+.Navlink {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  border-bottom: 2px solid black;
 }
-h1{
-    display: flex;
-    justify-content: center;
+h1 {
+  text-align: center;
 }
 .maincontent {
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
 }
 /* Display General */
-.Options{
-    display: flex;
-    justify-content: center;
-    gap: 2em;
+.Options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
 }
 /* Option Box layout General Styling */
-.Optionbox{
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    margin: 10px;
-    padding: 20px;
-    width: 450px;
+.Optionbox {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 10px;
+  padding: 20px;
+  width: 450px;
 }
 
-.title{
-    display: flex;
-    justify-content: left;
-    height: 20px;
+.title {
+  display: flex;
+  justify-content: left;
+  height: 20px;
 }
-.p{
-    display: flex;
-    justify-content: left;
-    align-items: start;
-    flex-wrap: wrap;
-    text-justify: auto;
-    padding-bottom: 70px;
+.p {
+  display: flex;
+  justify-content: left;
+  align-items: start;
+  flex-wrap: wrap;
+  text-justify: auto;
+  padding-bottom: 70px;
+  flex-grow: 1;
 }
-.Button{
-    background-color: rgb(216, 244, 174);
-    align-items: end;
-    border-radius: 8px;
-    margin: 0 auto;
-    padding: 10px;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.Button {
+  background-color: rgb(216, 244, 174);
+  align-items: end;
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 10px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.Fourth{
+    margin-right: auto;
+    
 }
