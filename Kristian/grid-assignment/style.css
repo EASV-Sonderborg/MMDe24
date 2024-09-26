@@ -1,0 +1,103 @@
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    padding: 20px 15%;
+    background-color: #eae2b7;
+    font-family: 'PT Serif', serif;
+}
+
+h1,
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+section:not(.blogHeader__section) {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+}
+
+#capetown {
+    background-color: #fcbf49;;
+}
+
+#capetown p {
+    font-size: 
+}
+
+#london {
+    background-color: #f77f00;
+}
+
+#newyork {
+    background-color: #fcbf49
+}
+
+#paris {
+    background-color: #fcbf49;;
+}
+
+#hanoi {
+    background-color: #f77f00;
+}
+
+#blans{
+    background-color: #f77f00;
+}
+
+footer p {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+
+/* Styling navigation */
+
+.blogHeader{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-bottom: 40px;
+}
+
+.blogHeader__nav{
+    grid-column: span 2;
+    justify-self: center;
+}
+
+.blogHeader__headline{
+    grid-column: span 2;
+}
+
+.blogHeader__image{
+    /*grid-column: 2 / 3;
+    grid-row: 3 / 5*/
+}
+
+/* Styling the city cards */
+
+.blogMain{
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.blogMain section:nth-child(2){
+    grid-column: span 2;
+}
+
+.blogMain section:nth-child(3){
+    grid-column: span 2;
+}
+
+.blogMain section:nth-child(6){
+    grid-column: span 2;
+}
+
+.blogMain section:nth-child(7){
+    grid-column: span 2;
+}
