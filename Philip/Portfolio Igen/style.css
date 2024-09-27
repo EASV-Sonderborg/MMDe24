@@ -1,0 +1,168 @@
+header {
+    width: 100%;
+    background-image: linear-gradient(to left, rgb(53, 184, 245) 0%, #006aff 80%);
+    margin: 0;
+    padding: 10px;
+}
+
+nav ul  {
+    display: flex;
+    justify-content: center;
+    gap: 6%;
+    list-style: none;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+
+nav a   {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+.Hero   {
+margin: 0 auto;
+width: 600px;
+display: flex;
+align-items: center;
+flex-direction: column;
+padding: 50px 50px;
+border-bottom: solid #006AFF 5px;
+}
+
+
+body    {
+    width: 100%;
+    margin: 0;
+}
+
+
+h1  {
+    color: #006aff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 66px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 100px 20px 0px;
+    margin: 0;
+    letter-spacing: 4px;
+}
+
+h4  {
+    display: flex;
+    color: #006aff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px ;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0px 20px 20px;
+    font-weight: 500;
+    margin: 0;
+}
+.Contact    {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px 0px;
+}
+
+div a   {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    width: 160px;
+    height: 25px;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: #006AFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div a:hover   {
+    background-color: white;
+    border: solid #006AFF 2px;
+    color: #006AFF;
+}
+
+
+.Transition_Background  {
+    width: 100%;
+    height: 500px;
+    background-image: linear-gradient(to bottom, white 0%, #006aff 80%);
+}
+
+
+.Info_Container  {
+    width: 100%;
+    height: 500px;
+    margin: 0;
+    background-image: linear-gradient(to Top, rgb(53, 184, 245) 0%, #006aff 80%);
+    display: flex;
+    justify-content: center;
+}
+.Text_Box   {
+    width: 600px;
+    padding-top: 100px;
+}
+
+.Text   {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 20px;
+}
+
+h3  {
+    margin: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 20px;
+    font-size: 32px;
+}
+
+p   {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+
+.Examples_Container {
+    width: 600px;
+    height: 4500px;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 20px ;
+    margin-top: 250px;
+    background-image: linear-gradient(to Top, rgb(53, 184, 245) 0%, #006aff 100%);
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.Examples   {
+    display: flex;
+    height: 200px;
+}
+
+.Examples  img  {
+    height: 150px;
+    width: 300px;
+    justify-content: flex-start;
+
+}
+
+
+.Text_Box2   {
+    width: auto;
+    height: 200px;
+    color: white;
+    margin: 0;
+    padding-top: 10px;
+}
+.Text_Box2 p    {
+    padding: 0 20px;
+}
+

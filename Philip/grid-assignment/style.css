@@ -1,0 +1,166 @@
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+
+body {
+margin: 0;
+background: linear-gradient(rgb(80, 176, 255), lightblue);
+}
+
+header {
+    background-image: url(images/travel.jpeg);
+    background-size: cover;
+    margin-bottom: 80px;
+    padding-bottom: 50px;
+}
+nav {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 1200px;
+}
+nav a   {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: rgba(27, 27, 27, 0.411);
+    border-radius: 20px;
+    box-shadow: 0 0 4px rgb(0, 0, 0);
+}
+
+nav a:hover {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+nav a:nth-child(1):hover    {
+    border: 2px solid rgb(98, 238, 110);  
+    color: rgb(98, 238, 110);
+    box-shadow: 0 0 8px rgb(98, 238, 110);
+}
+nav a:nth-child(2):hover    {
+    border: 2px solid greenyellow;  
+    color: greenyellow;
+    box-shadow: 0 0 8px greenyellow;
+}
+nav a:nth-child(3):hover    {
+    border: 2px solid rgb(130, 168, 238);  
+    color: rgb(130, 168, 238);
+    box-shadow: 0 0 8px rgb(130, 168, 238);
+}
+nav a:nth-child(4):hover    {
+    border: 2px solid violet;  
+    color: violet;
+    box-shadow: 0 0 8px violet;
+}
+nav a:nth-child(5):hover    {
+    border: 2px solid orange;  
+    color: orange;
+    box-shadow: 0 0 8px orange;
+}
+
+
+
+.Header_Text    {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+    margin-top: 100px;
+    background-color: rgba(27, 27, 27, 0.7);
+    border-radius: 20px;
+
+}
+main    {
+    margin: 0 auto;
+    max-width: 1200px;
+    font-family: 'PT Serif', serif;
+    
+}
+h1, h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+.cards  {
+    container-type: inline-size;
+    container-name: Cardtainer;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+
+
+.card   {
+    display: grid;
+    border-radius: 20px;
+    box-shadow: 0 0 8px black;
+    max-width: 600px;
+    
+}
+h2  {
+    padding: 40px 20px 20px;
+    margin: 0;
+    color: white;
+    font-size: 28px;
+    
+}
+.card p{
+    color: white;
+    padding: 0px 20px;
+    font-size: 20px;
+}
+
+.Card_Text  {
+    height: 100px;
+}
+
+
+
+#capetown {
+    background-color: lightgreen;
+}
+
+#london {
+    background-color: rgb(130, 168, 238);
+}
+
+#newyork {
+    background-color: violet;
+}
+
+#paris {
+    background-color: orange;
+}
+
+#hanoi {
+    background-color: greenyellow;
+}
+
+footer p {
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+
+
+@Container Cardtainer (max-width: 800px) {
+    .card {
+        grid-column: 1 / span 3;
+        width: 300px;
+        margin: 20px auto;
+    }
+   
+}
