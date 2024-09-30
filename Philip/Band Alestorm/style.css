@@ -1,0 +1,125 @@
+body    {
+    margin: 0;
+    background: #212121;
+}
+
+header  {
+    background-color: #085048b0;
+    width: 100vw;
+    height: 80px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    justify-content: space-around;
+    align-items: center;
+}
+header  img {
+    height: 50px;
+}
+
+
+ul  {
+    display: flex;
+    gap: 4vw;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+li {
+    list-style: none;
+    
+}
+
+li a {
+    color: #D4FF00;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+    
+}
+
+li a:hover  {
+    border-bottom: 2px solid #D4FF00; 
+    box-shadow: 0px 15px 20px -15px rgba(212,255,0,1);
+}
+li  a:active    {
+    border: 0px;
+    background-color: #D4FF00;
+    color: #085048;
+
+}
+
+.Hero   {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: inherit;
+    
+}
+video   {
+    width: 100%;
+    height: auto;
+    margin-top: 0px;
+    filter: brightness(0.4);
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.Hero img   {
+    z-index: 2;
+    margin-top: 15vw;
+    height: 15vw;
+}
+
+.Feature__Container {
+    
+}
+
+.Feature__Release   {
+    max-width:  fit-content;
+    min-width: min-content;
+    background-color: #085048;
+    display: flex;
+    flex-direction: column;
+    margin: 500px auto;
+    box-shadow: inset 0 2px 4px rgb(0, 0, 0);
+    border-radius: 20px;
+    
+}
+
+.Feature__Heading   {
+    padding: 0px 25px;
+    margin: 0 auto;
+    width: ;
+    
+}
+
+.Feature__Release iframe    {
+    padding: 0px 20px;
+    width: 30vw;
+    min-height: min-content;
+    min-width: min-content;
+    margin: 0 auto;
+}
+h2  {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Feature__Icons {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 20px 20px;
+    
+}
