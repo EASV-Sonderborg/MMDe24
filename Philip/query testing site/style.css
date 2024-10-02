@@ -1,0 +1,61 @@
+body    {
+    margin: 0;
+    container-type: inline-size;
+    container-name: Box;
+}
+
+.Container  {
+    display: flex;
+    justify-content: center;
+    margin: 20px 100px;
+}
+
+.Content_Box    {
+    color: white;
+    font-size: 100%;
+    background: linear-gradient(to bottom,rgba(9,9,121,1) 0%, blue 100%);
+    border-radius: 20px;
+    display: flex;
+    margin: 20px;
+    box-shadow: 0 4px 16px black;
+}
+
+.Content_Box   img {
+margin: 0 auto;
+border-radius: 0 20px 20px 0;
+width: 300px;
+height: auto;
+aspect-ratio: 16 / 9;
+}
+
+.Text_Box   {
+flex-direction: column;
+margin: 20px;
+display: flex;
+flex-grow: 1;
+min-width: 300px;
+}
+h2  {
+    margin-bottom: 0;
+}
+
+@Container Box  (max-width: 1200px) {
+.Content_Box    {
+    background: none;
+    background-color: white;
+    color: blue;
+    font-size: 75%;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+.Container  {
+    flex-direction: column;
+    align-items: center;
+}
+.Content_Box   img {
+    border-radius: 0 0 20px 20px;
+    aspect-ratio: 16 / 9;
+    }
+}
+
