@@ -15,16 +15,16 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#">MERCHANDISE</a>
+                    <a href="#">Sailor's Swag</a>
                 </li>
                 <li>
                     <a href="#">GALLERY</a>
                 </li>
                 <li>
-                    <a href="#">TOUR DATES</a>
+                    <a href="#">Upcoming Voyages</a>
                 </li>
                 <li>
-                    <a href="#">CONTACT US</a>
+                    <a href="#">Crew Call</a>
                 </li>
             </ul>
         </nav>
@@ -188,6 +188,86 @@
                 </section>
             </section>
     </section>
+
+
+
+    <Section class=Band__Interactive__Container>
+        <h2>Interactive Map Of The Band</h2>
+        <section class="Band__Interactive__Box">
+            <img src="Media/Band__Map__Bass.png" alt="Gareth Murdock" class="Gareth_Murdock" onclick="showText('Bass')">
+            <img src="Media/Band__Map__Keyboard.png" alt="Elliot Vernon" class="Elliot_Vernon " onclick="showText('Keyboard')">
+            <img src="Media/Band__Map__Guitar.png" alt="Máté Bodor" class="Máté_Bodor" onclick="showText('Guitar')">
+            <img src="Media/Band__Map__Duck.png" alt="Duckie" class="Duckie" onclick="showText('Duckie')">
+            <img src="Media/Band__Map__Trommer.png" alt="Peter Alcorn" class="Peter_Alcorn" onclick="showText('Trommer')">
+            <img src="Media/Band__Map__Keytar.png" alt="Christopher Bowes" class="Christopher_Bowes" onclick="showText('Keytar')">
+            
+            <div class="Band__Info__Box" id="Bass">
+                <h4>Gareth Murdock</h4>
+                <p>Since joinin' the crew in 2008, Gareth Murdock has kept Alestorm steady on their wild voyages with his deep, thunderous bass lines. His rumblin’ low-end sound is the very keel of the band’s ship, keepin’ everything in balance.</p>
+                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Bass')">
+            </div>
+            <div class="Band__Info__Box" id="Keyboard">
+                <h4>Elliot Vernon</h4>
+                <p>Elliot Vernon be the one who strikes the keys and lets loose the beast within with his thunderous growls. His harsh vocals and melodious keys create a stormy mix of metal madness and pirate mischief.</p>
+                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Keyboard')">
+            </div>
+            <div class="Band__Info__Box" id="Guitar">
+                <h4>Máté Bodor</h4>
+                <p>Máté Bodor joined this fearsome crew in 2015, bringin’ his razor-sharp riffs and solos to the frontlines. His guitar be like a cutlass in a pirate’s hand, slicin’ through the stormy waves of metal with deadly precision.</p>
+                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Guitar')">
+            </div>
+            <div class="Band__Info__Box" id="Duckie">
+                <h4>Duckie</h4>
+                <p>Duckie be a symbol of all that Alestorm holds dear: fun, absurdity, and a bit o’ madness. The crew unleashes this colossal rubber duck during their raucous live shows, lettin’ him float above the sea o’ metalheads while the band sings their sea shanties.</p>
+                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Duckie')">
+            </div>
+            <div class="Band__Info__Box" id="Trommer">
+                <h4>Peter Alcorn</h4>
+                <p>Peter Alcorn joined the crew in 2010, and since then, his booming beats have been the wind in Alestorm’s sails. With every mighty blow to the drums, he sends ripples through the sea and keeps the ship sailin’ straight.</p>
+                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Trommer')">
+            </div>
+            <div class="Band__Info__Box" id="Keytar">
+                <h4>Christopher Bowes</h4>
+                <p>As the bold captain of this pirate crew, it’s Cap’n Bowes who steers the ship with his mighty keytar and rum-soaked shanties. His plunderin’ lyrics and rowdy tunes set the course for Alestorm’s adventures on the high seas o’ metal.</p>
+                <img src="Media/close_icon.png" alt="Close" class="close__icon"onclick="hideText('Keytar')">
+            </div>
+        </section>
+    </Section>
+    
+    <script>
+        function showText(textId) {
+            // Hide all text boxes first
+            var textBoxes = document.getElementsByClassName("Band__Info__Box");
+            for (var i = 0; i < textBoxes.length; i++) {
+                textBoxes[i].style.display = "none";
+            }
+    
+            // Show the selected text box
+            var textBox = document.getElementById(textId);
+            if (textBox) {
+                textBox.style.display = "block";
+    
+                // Add event listener to the entire document
+                document.addEventListener('click', function(event) {
+                    // Check if the click is outside the text box
+                    var isClickInsideBox = textBox.contains(event.target);
+                    var isClickOnBandImage = event.target.closest('.Band__Interactive__Box img');
+    
+                    if (!isClickInsideBox && !isClickOnBandImage) {
+                        hideText(textId);
+                    }
+                }, { once: true });  // Ensure the event listener is removed after one click
+            }
+        }
+    
+        function hideText(textId) {
+            // Hide the selected text box
+            var textBox = document.getElementById(textId);
+            if (textBox) {
+                textBox.style.display = "none";
+            }
+        }
+    </script>
     
 </body>
 </html>
