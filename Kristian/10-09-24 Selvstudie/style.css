@@ -1,3 +1,6 @@
+
+/* Opbygning af selve layout af hjemmesiden, inspireret af Steam  */
+
 body{
     background-color:rgb(21, 26, 32);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -17,6 +20,8 @@ p{
     display: flex;
     justify-content: center;
 }
+
+/* Syling af headeren og dens knapper  */
 
 header{
     background-color: rgb(27, 40, 56);
@@ -63,6 +68,9 @@ header{
 
 }
 
+
+/* styling af billeder  */
+
 .discordImg{
     height: 400px;
     width: 800px;
@@ -94,10 +102,16 @@ header{
    transform:translateX(-50%);
 }
 
-h3{
+/* Styling af h3 */
+
+h3:not(.FlexExample){
     padding-top: 30px;
     padding-left: 200px;
 }
+
+
+/* Styling af footer */
+
 
 footer{
     background-color: rgb(27, 40, 56);
@@ -105,23 +119,24 @@ footer{
     margin: 0px;
 }
 
+/* reflektion i Portfolier opgaven */
+
 .reflektion{
     padding-bottom: 30px;
 }
 
-img{
+/* ekstra stylings */
+
+img:not(.discordSection){
     border: solid;
     border-color: rgb(11, 130, 214);
     border-radius: 6px;
     border-width: 4px;
     margin-bottom: 30px;
-    position:relative;
-    left:50%;
-    transform:translateX(-50%);
 }
 
 
-p:not(.footText), h1{
+p:not(.footText, .cardText, .text2), h1{
     margin-left: 200px;
     margin-right: 200px;
 }
@@ -130,4 +145,308 @@ p:not(.footText), h1{
 .drNyhed, .CSSimg{
     height: auto;
     width: 775px;
+}
+
+.cssPics{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.drNews{
+    display: flex;
+    align-items: center;
+    flex-direction: column;  
+}
+
+
+
+/*------------------------------------------------------------*/
+/* Flexbox opgave */
+
+
+.flexTitle{
+    color: rgb(206, 206, 206);;
+}
+
+.section1, .section2, .section3, .section4{
+    margin-bottom: 20px;
+}
+
+code{
+    background-color: rgb(36, 52, 98);
+    border:hidden;
+    border-radius: 3px;
+    color: rgb(206, 206, 206);
+    font-weight: lighter;
+}
+
+
+.intro{
+    font-size: large;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+
+/*----------------------------------------------------------------------*/
+
+.flexTask, .flexTitle, .flexExample, .text1, .text2, .text3, .text4 .text5{
+    text-align: center;
+}
+
+
+.text1{
+    font-size: larger;
+}
+
+.list1 {
+    padding: 0;
+    display: flex;
+    justify-content:space-around;
+    list-style: none;
+    gap: 10px;
+}
+
+.item1{
+    font-size: larger;
+    text-decoration: none;
+    font-weight: bold;
+    color: darkturquoise;
+}
+
+
+.section1{
+    border: solid;
+    border-width: 10px;
+    border-color: dodgerblue;
+    background-color: rgb(41, 79, 142);
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+
+
+
+
+/*----------------------------------------------------------------------*/
+
+
+.section2{
+    border: solid;
+    border-width: 10px;
+    border-color: dodgerblue;
+    background-color: rgb(41, 79, 142);
+    width: 300px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
+}
+
+
+.list2 {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    flex-wrap:wrap;
+}
+
+.item2{
+    font-size: larger;
+    text-decoration: none;
+    font-weight: bold;
+    color: darkturquoise;
+}
+
+
+/*----------------------------------------------------------------------*/
+
+
+
+.section3{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
+}
+
+
+
+
+.list3 {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 60px;
+}
+
+.item3{
+    font-size: larger;
+    text-decoration: none;
+    font-weight: bold;
+    color: darkturquoise;
+}
+
+
+.section3{
+    border: solid;
+    border-width: 10px;
+    border-color: dodgerblue;
+    background-color: rgb(41, 79, 142);
+}
+
+
+
+
+/*----------------------------------------------------------------------*/
+
+.section4{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+
+
+.list4 {
+    padding: 0;
+    display: flex;
+    justify-content:space-evenly;
+    list-style: none;
+    gap: 10px;
+}
+
+.item4{
+    font-size: larger;
+    text-decoration: none;
+    font-weight: bold;
+    color: darkturquoise;
+}
+
+
+.section4{
+    border: solid;
+    border-width: 10px;
+    border-color: dodgerblue;
+    background-color: rgb(41, 79, 142);
+}
+
+
+/*----------------------------------------------------------------------*/
+
+
+.section5{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
+}
+
+.list5{
+    padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item5{
+    font-size: larger;
+    text-decoration: none;
+    font-weight: bold;
+    color: darkturquoise;
+}
+
+
+.section5{
+    border: solid;
+    border-width: 10px;
+    border-color: dodgerblue;
+    background-color: rgb(41, 79, 142);
+}
+
+
+/*------------------------------------------------------------*/
+/* Cards opgave */
+
+
+/* Alle cards */
+
+.cardTitle{
+    color:lightgray;
+    text-align: center;
+    text-shadow: 0px 0px 10px rgb(4, 120, 208);
+}
+
+.card{
+    background-color: rgb(38, 56, 117);
+    width: 400px;
+    margin-left: 30px;
+    min-width: 400px;
+    flex-basis: 100%;
+    display: flex;
+    min-height: 650px;
+    max-height: 600px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-start;
+    padding-bottom: 50px;
+}
+
+.cardText{
+    justify-self: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: auto;
+}
+
+
+.all{
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.cardLink{
+    color: rgb(37, 255, 74);
+    border: solid rgba(37, 255, 73, 0.608);
+    background-color: rgba(58, 118, 69, 0.799);
+    border-radius: 5px;
+    align-self: center;
+    padding: 10px;
+    margin-top: auto;
+    
+}
+
+.cardLink:hover{
+    border-color: rgb(165, 103, 226);
+    color: rgb(233, 216, 251);
+    background-color: rgba(164, 103, 226, 0.225);
+}
+
+.cardLink:active{
+    border-color: rgb(65, 30, 101);
+    color: rgb(136, 131, 142);
+    background-color: rgba(81, 51, 111, 0.225);
+}
+
+
+
+/* Individuelle cards */
+
+.brast{
+    width: 250px;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.portal, .mech{
+    height: 250px;
+    width: 250px;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.car, .monster{
+    width: 350px;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
 }

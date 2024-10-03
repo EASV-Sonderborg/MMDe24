@@ -1,0 +1,120 @@
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #383d5a;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #383d5a;
+}
+
+ul {
+  text-decoration: none;
+}
+
+/*First example*/
+.homenav1 {
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: row;
+
+  gap: 1rem;
+  list-style: none;
+}
+
+.homenav1 a {
+  color: black;
+  text-decoration: none;
+}
+
+/*Second example*/
+.homenav2 {
+  padding: 10px;
+  background-color: #fbee7b;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  list-style: none;
+}
+
+.homenav2 a {
+  color: black;
+}
+
+/*Third example*/
+.homenav3 {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column-reverse;
+  list-style: none;
+}
+
+.homenav3 a {
+  border-bottom: 10px;
+  border-color: black;
+}
+
+/*Fourth example*/
+.homenav4 {
+  padding: 0;
+  display: flex;
+  flex: start;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: none;
+  text-decoration: none;
+}
+
+.listitem3 {
+  background-color: #e1bee7;
+  padding: 10px;
+  border-radius: 10px;
+}
+.listitem3:hover {
+  background-color: #ce93d8;
+}
+
+/*Fifth example*/
+.homenav5 {
+  padding: 10;
+  background-color: #c0e6ff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  list-style: none;
+}
+
+/*second wrap*/
+.homewrap {
+  padding: 10px;
+  background-color: #c0e6ff;
+  display: flex;
+
+  justify-content: space-between;
+
+  list-style: none;
+}
+.homewrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.listitem5 {
+  background-color: #81afce;
+  color: white;
+  padding: 40px;
+  flex: 1 1 150px;
+  text-align: center;
+}

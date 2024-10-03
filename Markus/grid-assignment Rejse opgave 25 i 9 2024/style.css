@@ -1,0 +1,232 @@
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    padding: 20px 15%;
+    background-color: lightgray;
+    font-family: 'PT Serif', serif;
+}
+
+h1,
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+section {
+    background-color: white;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+#capetown {
+    background-color: lightgreen;
+    box-shadow: 5px 5px 5px rgba(32, 168, 192, 0.2);
+}
+
+
+
+#london {
+    background-color: yellow;
+    box-shadow: 5px 5px 5px rgba(32, 168, 192, 0.2);
+}
+
+#newyork {
+    background-color: violet;
+    box-shadow: 5px 5px 5px rgba(32, 168, 192, 0.2);
+}
+
+#paris {
+    background-color: orange;
+    box-shadow: 5px 5px 5px rgba(32, 168, 192, 0.2);
+}
+
+#hanoi {
+    background-color: greenyellow;
+    box-shadow: 5px 5px 5px rgba(32, 168, 192, 0.2);
+}
+
+footer p {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+
+/* Styling navigation */
+
+
+/* Styling the city cards */
+
+.intro {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+}
+
+.tabs {
+    position: fixed;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    justify-self: center;
+    gap: 200px;
+    background-color: aqua;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: brown;
+}
+
+
+.title1 {
+    grid-column: 1/3;
+    grid-row: 1/2;
+    font-size: 50px;
+    justify-self: center;
+    border: solid skyblue;
+    background-color: aqua;
+    padding: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.opening2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.thumbnail {
+    box-shadow: 10px 10px 10px rgba(31, 133, 211, 0.6);
+}
+
+img {
+    box-shadow: 10px 10px 10px rgba(31, 133, 211, 0.6);
+}
+
+
+/*Capetown css*/
+
+.cardCapeTown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.title2 {
+    font-size: 90px;
+    align-self: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.opening3 {
+    grid-column: 1/3;
+    font-size: 20px;
+}
+
+/*Hanoi css*/
+
+.cardHanoi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+
+.title3 {
+    font-size: 90px;
+    align-self: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.opening4 {
+   grid-column: 1/3;
+   font-size: 20px;
+}
+
+.hanoiPicture {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+
+/*London css*/
+
+.cardLondon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.title4 {
+    font-size: 90px;
+    align-self: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.opening5 {
+    grid-column: 1/3;
+    font-size: 20px;
+}
+
+/*New York css*/
+
+.cardNewYork {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.title5 {
+    font-size: 90px;
+    align-self: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.opening6 {
+    grid-column: 1/3;
+    font-size: 20px;
+}
+
+.newYorkPicture {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+
+/*Paris*/
+
+.cardParis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.title6 {
+    font-size: 90px;
+    align-self: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.opening7 {
+    grid-column: 1/3;
+    font-size: 20px;
+}
+
+
+/*Footer*/
+
+.footerInfo {
+    background-color: aqua;
+    border: solid skyblue;
+    margin-top: 40px;
+}

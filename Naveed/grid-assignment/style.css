@@ -1,0 +1,104 @@
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    background-color: lightgray;
+    padding: 20px 15%;
+    font-family: 'PT Serif', serif;
+}
+
+h1,
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+section {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+#capetown {
+    background-color: lightgreen;
+}
+
+#capetown p {
+    font-size: 1.5em;
+}
+
+#london {
+    background-color: yellow;
+}
+
+#newyork {
+    background-color: violet;
+}
+
+#paris {
+    background-color: orange;
+}
+
+#hanoi {
+    background-color: greenyellow;
+}
+
+footer p {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+
+/* Styling navigation */
+.menu{
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Change colors as needed /
+    height: 100vh; / Example height */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    display: grid;
+    font-size: 24px;
+    gap: 1em;
+    padding: 10px;
+
+}
+.intro{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.411);
+}
+h1{
+text-align: center;
+font-size: 38px;
+}
+a{
+text-decoration: none;
+color: black;
+border: solid;
+box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.427);
+}
+a:hover{
+background:#feb47b;
+}
+
+/* Styling the city blog */
+.blog{
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    gap: 1em;
+}
+.blog__post{
+    padding: 1em;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.427);
+}
+.cardsParis{
+    grid-column: span 2;
+}
+img{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.427);
+}
