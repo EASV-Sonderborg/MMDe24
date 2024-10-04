@@ -1,0 +1,5 @@
+body{
+    background-image: url('images/alestormBackgroundImg.png');
+    background-size: cover;
+    background-attachment: scroll;
+}
