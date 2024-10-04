@@ -1,5 +1,32 @@
 body{
+    max-width: 1440px;
     background-image: url('images/alestormBackgroundImg.png');
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: auto;
     background-attachment: scroll;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+.header__logo{
+    position: absolute;
+    top: 550px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    z-index: 1; 
+}
+.introText{
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5em;
+    color: white;
+    position: absolute;
+    top: 750px;
+    left: 90%;
+    transform: translateX(-90%);
+    width: 600px;
+    z-index: 1; 
 }
