@@ -28,10 +28,18 @@
     animation: 3s ease-in 0s infinite alternate roll;
 }
 @keyframes roll {
-    from {
+    0% {
         translate: 0px;
+        background: lightpink;
     }
-    to {
+    30% {
+        background: blue;
+    }
+    50% {
+        translate: 200px -100px;
+    }
+    100% {
         translate: 400px;
+        background: lightsalmon;
     }
 }
