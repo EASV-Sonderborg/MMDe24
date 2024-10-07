@@ -1,0 +1,55 @@
+.box{
+    width: 300px;
+    height: 300px;
+    background: greenyellow;
+    transition-duration: 500ms;
+    transition-property: background, color, transform;
+    transition-timing-function: ease-out;
+    transition-delay: 500ms;
+}
+
+.box:hover{
+    background: green;
+    color: white;
+    transform: scale(2) rotate(45deg);
+}
+
+.box:active{
+    transform: translate(100%) rotate(75deg);
+}
+
+
+
+.circle{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background: red;
+    animation: 5000ms ease-in-out 0s infinite alternate roll;
+}
+
+@keyframes roll {
+    0%{
+        translate: (0px)
+        }
+    20%{
+        background: rgb(222, 115, 0);
+    }
+
+    40%{
+        background: rgb(255, 225, 0);
+    }
+
+    60%{
+        background: rgb(0, 195, 0);
+    }
+
+    80%{
+        background: rgb(0, 140, 255);
+    }
+
+    100%{
+        translate: 1000px;
+        background: rgb(204, 0, 204);
+    }
+}
