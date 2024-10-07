@@ -1,0 +1,31 @@
+main {
+  background-color: mediumspringgreen;
+  justify-content: center;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 1.5fr;
+  width: 550px;
+}
+
+img {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 100%;
+  width: 130;
+  border-radius: 100%;
+  border-style: dotted;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2;
+  grid-row: 1;
+  justify-content: center;
+}
+.businessCard--text {
+  align-content: center;
+  gap: 15px;
+}

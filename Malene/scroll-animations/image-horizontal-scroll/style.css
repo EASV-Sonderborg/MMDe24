@@ -1,0 +1,40 @@
+.imageSlider {
+    display: flex;
+    gap: 1rem;
+    overflow-x: scroll;
+}
+
+.imageSlider__img {
+    width: 70%;
+    animation: highlight linear both;
+    animation-timeline: view(x);
+    animation-range: cover 0% cover 100%;
+}
+/* Tilføj denne styling, hvis I ønsker det første billede centreret i sectionen */
+.imageSlider__img--first {
+    /*margin-left: 15%; */ 
+    /* Udregningen er: 100% - 70% / 2 = 15%, hvor de 70% er billedet bredde */
+}
+@keyframes highlight {
+    entry 0%  {
+		opacity: 0; 
+        transform: scale(0.7);
+	}
+    entry 30% {
+        opacity: 1;
+    }
+	entry 100%  {
+		 transform: scale(1);
+	}
+
+	exit 0% {
+		transform: scale(1);
+	}
+    exit 70% {
+        opacity: 1;
+    }
+	exit 100% {
+		opacity: 0; 
+        transform: scale(0.7);
+	}
+}
