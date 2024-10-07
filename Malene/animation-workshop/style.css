@@ -25,17 +25,20 @@
         left: 0;
         top: 50px;
         scale: 1;
+        rotate: 0deg;
     }
     30% {
-        left: 80%;
+        left: calc(100% - 200px);
         top: calc(30% - 150px);
     }
     50% {
         scale: 2;
+        rotate: 50deg;
     }
     70% {
         left: 0;
         top: calc(70% - 200px);
+        rotate: 180deg;
     }
 	100% { 
         left: calc(100% - 200px);
