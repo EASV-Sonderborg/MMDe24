@@ -1,0 +1,125 @@
+/* Just some layout */
+.examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.footer {
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* The duck - example with scroll-driven animation - 'animation-timeline: scroll' */
+.duck {
+    position: fixed;
+    z-index: 1; /* for at få the duck ovenpå audio playeren */
+    width:200px;
+    animation: move-duck linear;
+	animation-timeline: scroll(block root);
+}
+@keyframes move-duck {
+	0% { 
+        left: 0;
+        top: 50px;
+        scale: 1;
+        rotate: 0deg;
+    }
+    30% {
+        left: calc(100% - 200px);
+        top: calc(30% - 150px);
+    }
+    50% {
+        scale: 2;
+        rotate: 50deg;
+    }
+    70% {
+        left: 0;
+        top: calc(70% - 200px);
+        rotate: 180deg;
+    }
+	100% { 
+        left: calc(100% - 200px);
+        top: calc(100% - 200px);
+        scale: 1;
+    }
+}
+
+/* Styling the audio player*/
+.audioPlayer {
+    background-image: url(wood.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: rgba(255,0,0,0.2) !important;
+  color: #a0276e;
+}
+
+audio::-webkit-media-controls-play-button {
+    color: black;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    background: lightblue;
+    color: black;
+    /*
+    transition-duration: 1300ms;
+    transition-property: background, color, rotate, translate;
+    transition-delay: 1s;
+    */
+    transition: 1300ms background 1s, 1300ms color 1s, 1300ms rotate 1s, 1300ms translate 1s;
+}
+
+.box:hover {
+    background: darkblue;
+    color: white;
+    /*transform: translate(300px) rotate(45deg);*/
+    /* Ny måde at skrive egenskaberne på: */
+    rotate: 45deg;
+    translate: 300px;
+}
+
+.circle {
+    width:300px;
+    height: 300px;
+    border-radius: 100%;
+    background: lightpink;
+    animation: 3s ease-in 0s infinite alternate roll;
+}
+@keyframes roll {
+    0% {
+        translate: 0px;
+        background: lightpink;
+    }
+    30% {
+        background: blue;
+    }
+    50% {
+        translate: 200px -100px;
+    }
+    100% {
+        translate: 400px;
+        background: lightsalmon;
+    }
+}
+.oval {
+    width:300px;
+    height: 100px;
+    border-radius: 100%;
+    background: lightgray;
+    animation: 5s ease-in show;
+}
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,35 @@
+.businessCardBox {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  width: 900px;
+  margin: 0 auto;
+  border-width: thick;
+  background-color: rgb(255, 255, 255);
+  padding: 10px 10px;
+  max-width: 600px;
+  border: 10px solid rgb(174, 174, 174);
+  border-style: solid;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 150px;
+}
+.businessCard__profileImage {
+  max-width: 100%;
+  width: 200px;
+  height: 200px;
+  border-radius: 1470px;
+  justify-self: center;
+  align-self: center;
+}
+.businessCard__title {
+  padding-right: 20px;
+  font-size: big;
+  border-bottom: 1px solid black;
+}
+
+p {
+  padding-right: 30px;
+  text-align: justify;
+  line-height: 25px;
+  justify-self: left;
+  align-self: left;
+}
