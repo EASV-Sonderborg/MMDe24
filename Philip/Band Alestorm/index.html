@@ -10,8 +10,9 @@
     
 <header>
         <div class="Head__Content">
+            <a href="#">
         <img src="Media/Alestorm__Logo.png" alt="Alestorm Logo">
-
+    </a>
         <nav>
             <ul>
                 <li>
@@ -51,7 +52,78 @@
      
     </section>
 
-    
+    <section class="MusVid_Container">
+        <section class="MusVid_Box Drink">
+            <a href="https://www.youtube.com/watch?v=f55CqLc6IR0&ab_channel=NapalmRecords" target="_blank">
+              <img src="Media/ALESTORM_Drink.png" alt="Music Video Alestorm">
+            </a>
+              <div class="MusVid_Text">
+                <h3>
+                    DRINK
+                </h3>
+                <p>
+                    ALESTORM
+                </p>
+              </div>
+            
+        </section>
+        <section class="MusVid_Box Fucked_With_An_Anchor">
+            <a href="https://www.youtube.com/watch?v=T-gbJvrOnUE&ab_channel=NapalmRecords" target="_blank">
+                <img src="Media/ALESTORM_Fucked_With_An_Anchor.png" alt="Music Video Alestorm">
+            </a>
+                <div class="MusVid_Text">
+                    <h3>
+                        FUCKED WITH AN ANCHOR
+                    </h3>
+                    <p>
+                        ALESTORM
+                    </p>
+                  </div>
+           
+        </section>
+        <section class="MusVid_Box Mexico">
+            <a href="https://www.youtube.com/watch?v=-r8jlHDBMsw&ab_channel=NapalmRecords" target="_blank">
+                <img src="Media/ALESTORM_Mexico.png" alt="Music Video Alestorm">
+            </a>
+                <div class="MusVid_Text">
+                    <h3>
+                        MEXICO
+                    </h3>
+                    <p>
+                        ALESTORM
+                    </p>
+                  </div>
+            
+        </section>
+        <section class="MusVid_Box Shipwrecked">
+            <a href="https://www.youtube.com/watch?v=ggyC0FOzqHM&ab_channel=NapalmRecords" target="_blank">
+                <img src="Media/ALESTORM_Shipwrecked.png" alt="Music Video Alestorm">
+                </a>
+                <div class="MusVid_Text">
+                    <h3>
+                        SHIPWRECKED
+                    </h3>
+                    <p>
+                        ALESTORM
+                    </p>
+                  </div>
+          
+        </section>
+        <section class="MusVid_Box Alestorm">
+            <a href="https://www.youtube.com/watch?v=hJ_eVIZkjZE&ab_channel=NapalmRecords" target="_blank">
+                <img src="Media/ALESTORM_Alestorm.png" alt="Music Video Alestorm">
+            </a>
+                <div class="MusVid_Text">
+                    <h3>
+                        ALESTORM
+                    </h3>
+                    <p>
+                        ALESTORM
+                    </p>
+                  </div>
+           
+        </section>
+    </section>
 
     <section class="Tour__Container">
         <h2>TOUR DATES</h2>
@@ -189,17 +261,15 @@
             </section>
     </section>
 
-
-
     <Section class=Band__Interactive__Container>
         <h2>Interactive Map Of The Band</h2>
         <section class="Band__Interactive__Box">
-            <img src="Media/Band__Map__Bass.png" alt="Gareth Murdock" class="Gareth_Murdock" onclick="showText('Bass')">
-            <img src="Media/Band__Map__Keyboard.png" alt="Elliot Vernon" class="Elliot_Vernon " onclick="showText('Keyboard')">
-            <img src="Media/Band__Map__Guitar.png" alt="Máté Bodor" class="Máté_Bodor" onclick="showText('Guitar')">
-            <img src="Media/Band__Map__Duck.png" alt="Duckie" class="Duckie" onclick="showText('Duckie')">
-            <img src="Media/Band__Map__Trommer.png" alt="Peter Alcorn" class="Peter_Alcorn" onclick="showText('Trommer')">
-            <img src="Media/Band__Map__Keytar.png" alt="Christopher Bowes" class="Christopher_Bowes" onclick="showText('Keytar')">
+            <img src="Media/Band__Map__Bass.png" alt="Gareth Murdock" class="Member Gareth_Murdock" onclick="showText('Bass')">
+            <img src="Media/Band__Map__Keyboard.png" alt="Elliot Vernon" class="Member Elliot_Vernon " onclick="showText('Keyboard')">
+            <img src="Media/Band__Map__Guitar.png" alt="Máté Bodor" class="Member Máté_Bodor" onclick="showText('Guitar')">
+            <img src="Media/Band__Map__Duck.png" alt="Duckie" class="Member Duckie" onclick="showText('Duckie')">
+            <img src="Media/Band__Map__Trommer.png" alt="Peter Alcorn" class="Member Peter_Alcorn" onclick="showText('Trommer')">
+            <img src="Media/Band__Map__Keytar.png" alt="Christopher Bowes" class="Member Christopher_Bowes" onclick="showText('Keytar')">
             
             <div class="Band__Info__Box" id="Bass">
                 <h4>Gareth Murdock</h4>
@@ -233,6 +303,28 @@
             </div>
         </section>
     </Section>
+
+    <section class="Contact_Container">
+        <h2>
+            Contact THE Band
+        </h2>
+        <section class="Contact_Form">
+            <form action="/supmit-form">
+                <label for="name"></label>
+                <input type="text" id="Input_Name" placeholder="Enter your name..." required>
+
+                <label for="email"></label>
+                <input type="email" id="Input_Mail" placeholder="Enter your email address..." required>
+
+                <div class="Message_Container">
+                <label for="message"></label>
+                    <textarea id="Input_Message" placeholder="Enter your message..." required oninput="updateCharacterCount()"></textarea>
+           
+                    <span id="charCount">0 characters</span> <!-- Character counter -->
+                </div>
+            </form>
+        </section>
+    </section>
     
     <script>
         function showText(textId) {
@@ -267,6 +359,18 @@
                 textBox.style.display = "none";
             }
         }
+
+
+        function updateCharacterCount() {
+        const messageInput = document.getElementById("Input_Message");
+        const charCountDisplay = document.getElementById("charCount");
+        
+        // Get the length of the input value
+        const currentLength = messageInput.value.length;
+
+        // Update the character count display
+        charCountDisplay.textContent = `${currentLength} characters`;
+    }
     </script>
     
 </body>
