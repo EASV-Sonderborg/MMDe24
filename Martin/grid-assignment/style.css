@@ -1,0 +1,93 @@
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+}
+
+.LinkShortCut{
+
+}
+
+.ØnskePlan{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.ØnskePlanTekst {
+    grid-column: 1/3;
+}
+
+.ImageTravel {
+    grid-column: 2/3;
+    grid-row: 3/5;
+}
+
+
+body {
+    padding: 20px 15%;
+    background-color: lightgray;
+    font-family: 'PT Serif', serif;
+}
+
+.Body {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 1em;
+}
+
+.Capetown {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.Hanoi {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+h2 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+section {
+    background-color: white;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+#capetown {
+    background-color: lightgreen;
+}
+
+#capetown p {
+    font-size: 1.5em;
+}
+
+#london {
+    background-color: yellow;
+}
+
+#newyork {
+    background-color: violet;
+}
+
+#paris {
+    background-color: orange;
+}
+
+#hanoi {
+    background-color: greenyellow;
+}
+
+footer p {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+
+/* Styling navigation */
+
+
+/* Styling the city cards */
