@@ -28,6 +28,7 @@ body{
     width: 600px;
     z-index: 1; 
     text-shadow: black 2px 2px;
+    transform: rotate(9deg);
 }
 .stickyContainer{
     height: 1500px;
@@ -38,9 +39,68 @@ body{
     left: 25%;
     width: 300px;
     transition: position 400ms ease;
+    transform: rotate(-18deg);
 } 
 /* Class added when scrolling, see script.js */
-.sticky {
+.sticky{
     position: sticky;
     top: 0;
+}
+/* .vinylContainer{
+    transform: translateX(50%);
+    width: 700px;
+    background-color: rgba(128, 128, 128, 0.241);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.--disc:hover{
+    animation: 500ms ease-in 0s slidein;
+}
+@keyframes slidein {
+    from {
+      transform: translateX(0%);
+    }
+  
+    to {
+      transform: translateX(100%);
+    }
+} */
+.vinylAlbums{
+    display: grid;
+    gap: 4rem;
+    margin: 4rem;
+}
+.__album{
+    position: relative;
+}
+.albumCover{
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 10px #8c421b, 0 0 20px #8c421b,
+    0 0 40px #51ca0b, 0 0 50px #8c421b;
+}
+.disc{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    box-shadow:
+    0 0 2px #fff,
+    0 0 10px #fff,
+    0 0 10px #8c421b,
+    0 0 20px #8c421b,
+    0 0 40px #8c421b,
+    0 0 50px #8c421b;
+    border-radius: 100%;
+}
+.__album:hover > .disc{
+    animation: slidein 1s forwards;
+}
+@keyframes slidein {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(220px);
+    }
 }

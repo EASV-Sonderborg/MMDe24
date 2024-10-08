@@ -7,4 +7,3 @@ window.onscroll = function() {
       image.classList.remove('sticky');
     }
 };
-  
