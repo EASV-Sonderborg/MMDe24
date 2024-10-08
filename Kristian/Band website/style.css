@@ -17,12 +17,12 @@ img{
 }
 
 /* creating background and border for text */
-p{
+.journey__narration{
     color: #e1e1e1;
 
     background-color: rgb(0, 0, 0);
     font-family: "Island Moments";  
-    font-size: 96px;
+    font-size: 90px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
@@ -30,11 +30,14 @@ display: flex;
 padding: 10px 30px;
 position: absolute;
 margin-bottom: 500px;
+margin-left: 10px;
+margin-right: 10px;
+margin-top: 30px;
 border: solid white;
 }
 
 /* Creating background and border for anchors */
-a{
+.choice{
 
     animation: 4000ms ease-in-out 0s  Starter;
 text-decoration: none;
@@ -73,7 +76,7 @@ border: solid white;
 
 
 /* have text in the overlap image */
-section{
+.journey{
     display: flex;
     padding: 10px 30px;
     align-items:center;
@@ -98,9 +101,9 @@ to {
 }
 
 /* position for choices/paths */
-.path1{
+.choice__path1{
     translate: -400px 200px;
 }
-.path2{
+.choice__path2{
     translate: 400px 200px;
 }
