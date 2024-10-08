@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Plex Film og Serier</title>
+</head>
+<body>
+    <h1>Mine Film og Serier fra Plex</h1>
+    <div id="movies"></div>
+    <div id="shows"></div>
+
+    <script>
+        // Plex-serveroplysninger
+        const plexServer = 'http://10.0.1.49:32400'; // Din lokale Plex-server-IP
+        const plexToken = 'toE5_zthL7AomJg63Ev4'; // Dit Plex-token
+
+        // Section ID'er
+        const movieSections = ['2']; // Film sektioner
+        const showSections = ['3'];       // Serie sektion
+
+        // Hent filmene fra flere filmsektioner
+        function fetchMovies() {
+            let movieHTML = '';
+            movieSections.forEach(sectionID => {
+                fetch(`${plexServer}/library/sections/${sectionID}/all?X-Plex-Token=${plexToken}`)
+                    .then(response => response.text())
+                    .then(xmlString => {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+                        const movies = xmlDoc.getElementsByTagName('Video');
+
+                        for (let i = 0; i < movies.length; i++) {
+                            const movieTitle = movies[i].getAttribute('title');
+                            const movieKey = movies[i].getAttribute('key');
+                            
+                            fetch(`${plexServer}/library/metadata/${movieKey}?X-Plex-Token=${plexToken}`)
+                                .then(response => response.text())
+                                .then(metadataString => {
+                                    const metadataDoc = parser.parseFromString(metadataString, 'text/xml');
+                                    const mediaPart = metadataDoc.getElementsByTagName('Part')[0];
+                                    const fileURL = `${plexServer}${mediaPart.getAttribute('key')}?X-Plex-Token=${plexToken}`;
+
+                                    movieHTML += `
+                                        <div>
+                                            <h2>${movieTitle}</h2>
+                                            <video width="600" controls>
+                                                <source src="${fileURL}" type="video/mp4">
+                                                Din browser understøtter ikke videoafspilning.
+                                            </video>
+                                        </div>
+                                    `;
+                                    document.getElementById('movies').innerHTML = movieHTML;
+                                })
+                                .catch(error => console.log('Fejl ved hentning af metadata:', error));
+                        }
+                    })
+                    .catch(error => console.log('Fejl ved hentning af film:', error));
+            });
+        }
+
+        // Hent serierne fra serie-sektionen
+        function fetchShows() {
+            let showHTML = '';
+            showSections.forEach(sectionID => {
+                fetch(`${plexServer}/library/sections/${sectionID}/all?X-Plex-Token=${plexToken}`)
+                    .then(response => response.text())
+                    .then(xmlString => {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+                        const shows = xmlDoc.getElementsByTagName('Directory');
+
+                        for (let i = 0; i < shows.length; i++) {
+                            const showTitle = shows[i].getAttribute('title');
+                            const showKey = shows[i].getAttribute('key');
+
+                            showHTML += `
+                                <div>
+                                    <h2>${showTitle}</h2>
+                                    <!-- Du kan tilføje en videospiller for specifikke episoder her -->
+                                </div>
+                            `;
+                        }
+                        document.getElementById('shows').innerHTML = showHTML;
+                    })
+                    .catch(error => console.log('Fejl ved hentning af serier:', error));
+            });
+        }
+
+        // Kald funktionerne for at hente film og serier
+        fetchMovies();
+        fetchShows();
+    </script>
+</body>
+</html>

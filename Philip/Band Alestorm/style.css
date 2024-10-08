@@ -28,7 +28,6 @@ header  img {
     max-width: 900px;
 }
 
-
 ul  {
     display: flex;
     gap: 4cqw;
@@ -36,8 +35,6 @@ ul  {
     font-family: Arial, Helvetica, sans-serif;
     
 }
-
-
 
 li {
     list-style: none;
@@ -57,12 +54,27 @@ li a:hover  {
     border-bottom: 2px solid #D4FF00; 
     box-shadow: 0px 15px 20px -15px rgba(212,255,0,1);
 }
+
 li  a:active    {
     border: 0px;
     background-color: #D4FF00;
     color: #085048;
 
 }
+
+@Container Nav (max-width: 800px){
+    ul  {
+        gap: 20px;
+    }
+    li a {
+        padding: 10px 10px;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 20px; 
+        text-transform: uppercase;
+    }
+}
+
 
 .Hero   {
     display: flex;
@@ -72,6 +84,7 @@ li  a:active    {
     flex-grow: 1;
     
 }
+
 video   {
     width: 100%;
     object-fit: fill;
@@ -93,13 +106,13 @@ video   {
 
 
 .Feature__Release   {
-    width: 45vw;
+    width: 65vw;
     min-width: min-content;
     background-color: #085048;
     display: flex;
     flex-direction: column;
     margin: 200px auto;
-    box-shadow: inset 0 2px 4px rgb(0, 0, 0);
+    box-shadow: 0 2px 12px rgb(0, 0, 0);
     border-radius: 20px;
 
 }
@@ -117,102 +130,130 @@ video   {
     min-width: min-content;
     margin: 0 auto;
 }
+
+
 h2  {
     color: white;
     text-transform: uppercase;
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 p   {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.Product__Container {
-    background-color: #085048;
-    margin: 100px auto;
-    width: 65vw; 
-    height: auto;
-    border-radius: 20px;
-    padding: 20px 20px;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
-    
-}
 
-.Product__Feature   {
-    
+.MusVid_Container   {
+    width: 100%;
     display: grid;
-    grid-gap: 20px;
-    grid-auto-flow: column;
-    grid-auto-columns: 12vw;
-    grid-gap: 4%;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0px 0 200px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 12px black;
+}
+
+.MusVid_Box {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    animation: infiniteScroll  10s infinite linear;
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
 }
 
-.Product__Feature--inner {
-    display: contents;
+.MusVid_Box img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
-
-/* @keyframes infiniteScroll {
-    0% { 
-        transform: translateX(0);
-    }
-	100% { 
-        transform: translateX(-70%);
-    }
-}
-   */
-/* .Product__Feature :first-child  {
-    padding-left: 20px;
-} */
-.Product__Feature :last-child   {
-    padding-right: 20px;
-}
-
-
-
-.Product__Card  {
-    width: 12vw;
+.MusVid_Text    {
+    position: absolute;
+    top: 50%;
+    color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.Product__Card img  {
-    align-items: flex-start;
-    width: 80%;
-    margin: 0 10px;
-}
-
-
-.Product__Card h3   {
-    color: #D4FF00;
+    text-shadow: 0 4px 10px black;
+    max-width: 15vw;
     margin: 0 auto;
-    text-transform: uppercase;
-    font-size: 14px;
     text-align: center;
+    opacity: 0;
+    transition: transform 0.5s ease;
 }
-.Product__Card p    {
-    color: white;
-    vertical-align: auto;
 
+.MusVid_Text p{
+    margin: 0 auto;
+}
+
+.MusVid_Text h3 {
+    margin: 10px auto;
+    font-size: 20px;
+}
+
+.MusVid_Container .MusVid_Box {
+    filter: grayscale(1);
+    transition: 0.5s ease;
+}
+
+.MusVid_Container:hover .MusVid_Box {
+    filter: grayscale(1) blur(2px);
+    transition: 0.5s ease;
+}
+
+.MusVid_Container:hover .MusVid_Box:hover   {
+    filter: none;
+    transition: 0.5s ease;
+    box-shadow: 0 0 4px black;
+    .MusVid_Text    {
+        opacity: 1;
+        transform: translate(0%, -50%) scale(1);
+        
+        
+    }
+}
+
+@media (min-width: 1100px) {
+    .MusVid_Box img {
+        height: 300px;
+        object-position: 20% 0%;
+        .MusVid_Box {
+            height: 200px;
+        }
+    }
     
 }
 
-@Container Nav (max-width: 800px){
-    ul  {
-        gap: 20px;
-    }
-    li a {
-        padding: 10px 10px;
-        font-size: 12px;
-        font-weight: bold;
-        border-radius: 20px; 
-        text-transform: uppercase;
+@media (min-width: 900px) {
+    .MusVid_Box img {
+        height: 300px;
+        object-position: 20% 0%;
     }
 }
+    
+@media (max-width: 900px) {
+    .MusVid_Box img {
+        height: 300px;
+        object-position: 10% 0%;
+    }
+    .MusVid_Text  h3  {
+        font-size: 12px;
+    }
+    .MusVid_Text    {
+        font-size: 10px;
+        top: 200px;
+    }
+}
+
+@media (max-width: 700px) {
+    .MusVid_Box img {
+        height: 300px;
+        object-position: 10% 0%;
+    }
+    
+}
+
 
 .Tour__Container    {
     width: 65vw;
@@ -228,11 +269,13 @@ p   {
     container: Tourtainer / inline-size;
     border: 4px solid #085048;
     border-radius: 20px;
-    padding: 20px;
     padding-bottom: 50px;
+    box-shadow: 0 0 12px black;
 }
+
 .Tour__Container h2 {
     grid-column: 1 / span 3;
+    padding-left: 20px;
 }
 
 .Tour__Container  svg  {
@@ -251,11 +294,14 @@ p   {
     align-items: center;
     margin: 0;
     max-width: 500px;
+    padding: 20px;
 }
+
 .Dates  {
     font-style: italic;
     
 }
+
 .Date_Flag  {
     background-color: #085048;
     display: flex;
@@ -265,17 +311,17 @@ p   {
     height: 30px;
     width: 160px;
 }
+
 .Tour__Location {
     color: #ffffff;
     padding: 5px 10px;
     max-width: 200px;
         
 }
+
 b   {
     text-transform: uppercase;
 }
-
-
 
 @Container Tourtainer  (Max-width: 880px) {
     .Date_Flag{
@@ -290,6 +336,7 @@ b   {
         width: 50px;
     }
 }
+
 @Container Tourtainer  (Max-width: 800px) {
     .Date_Flag{
         height: auto;
@@ -304,6 +351,7 @@ b   {
     }
    
 }
+
 @Container Tourtainer  (Max-width: 580px) {
     .Tour__Setlist  {
         grid-column: 1 / 3;
@@ -317,6 +365,7 @@ b   {
     }
     
 }
+
 @Container Tourtainer  (Max-width: 500px) {
     
     .Date_Flag  {
@@ -327,6 +376,7 @@ b   {
     }
     
 }
+
 @Container Tourtainer  (Max-width: 450px) {
     .Date_Flag  {
         width: 150px;
@@ -336,6 +386,7 @@ b   {
     }
     
 }
+
 @Container Tourtainer  (Max-width: 400px) {
     .Date_Flag  {
         width: 100px;
@@ -345,6 +396,7 @@ b   {
         width: 40px;
     }   
 }
+
 @Container Tourtainer  (Max-width: 350px) {
     .Date_Flag  {
         width: 70px;
@@ -356,13 +408,88 @@ b   {
 }
 
 
+.Product__Container {
+    background-color: #085048;
+    margin: 100px auto;
+    width: 65vw; 
+    height: auto;
+    border-radius: 20px;
+    padding: 20px 0px;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    box-shadow: 0 0 12px black;
+    
+}
+
+.Product__Feature   {
+    
+    display: grid;
+    grid-gap: 20px;
+    grid-auto-flow: column;
+    grid-auto-columns: 12vw;
+    grid-gap: 4%;
+    align-items: center;
+    animation: infiniteScroll  10s infinite linear;
+}
+
+.Product__Feature--inner {
+    display: contents;
+}
+
+/* @keyframes infiniteScroll {
+    0% { 
+        transform: translateX(0);
+    }
+	100% { 
+        transform: translateX(-70%);
+    }
+}
+   */
+/* .Product__Feature :first-child  {
+    padding-left: 20px;
+} */
+
+.Product__Feature :last-child   {
+    padding-right: 20px;
+}
+
+.Product__Card  {
+    width: 12vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Product__Card img  {
+    align-items: flex-start;
+    width: 80%;
+    margin: 0 10px;
+}
+
+.Product__Card h3   {
+    color: #D4FF00;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+}
+
+.Product__Card p    {
+    color: white;
+    vertical-align: auto;
+
+    
+}
+
+
 .Band__Interactive__Container   {
     border-radius: 20px;
     border: 4px solid #085048;
-    padding: 20px 20px 40px;
-    box-shadow: inset 4px -4px 12px #085048;
+    box-shadow: 0 0 12px black;
     margin: 100px 0px;
     width: 65vw;
+    overflow: hidden;
+    background-color: #085048;
    
 }
 
@@ -372,55 +499,72 @@ b   {
 
 .Band__Interactive__Box {
     background-image: url(Media/Band__Map__BG.png);
-    background-size: cover;
+    background-size: 100% 100%;
     display: flex;
-    height: 500px;
+    min-width: none;
+    max-height: 400px;
+    height: 40vw;
+    width: 100%;
     overflow: hidden;
     position: relative;
 }
 
 .Gareth_Murdock   {
     position: absolute;
-    left: 400px;
+    left: 35%;
     top: 0px;
     width: auto;
-    height: 400px;
+    height: 20vw;
+    z-index: 2;
 }
+
 .Elliot_Vernon   {
     position: absolute;
-    left: 20px;
-    top: 60px;
-    height: 450px;
+    left: 3%;
+    bottom: 0%;
+    height: 15vw;
+    z-index: 2;
 }
+
 .Máté_Bodor   {
     position: absolute;
-    left: 220px;
-    top: 150px;
-    height: 500px; 
+    bottom: -35%;
+    left: 20%;
+    height: 25vw; 
     rotate: 15deg;
+    z-index: 3;
 }
+
 .Duckie   {
     position: absolute;
-    left: 10px;
-    top: 260px;
-    height: 100px;
+    top: 30%;
+    height: 10vh;
+    z-index: 2;
 }
+
 .Peter_Alcorn   {
     position: absolute;
-    left: 800px;
-    top: 200px;
-    height: 300px;
+    right: -2%;
+    bottom: 10%;
+    height: 30vh;
+    z-index: 2;
 }
+
 .Christopher_Bowes   {
     position: absolute;
-    left: 550px;
-    top: 150px;
-    height: 400px;
+    left: 45%;
+    bottom: -20%;
+    height: 40vh;
     rotate: -10deg;
+    z-index: 3;
 }
 
 .Band__Interactive__Box>img:hover   {
     transform: scale(1.2);
+}
+
+.Band__Interactive__Box:hover .member:not(:hover) {
+    filter: grayscale(1) blur(10px);
 }
 
 .Band__Info__Box {
@@ -432,7 +576,7 @@ b   {
     border-radius: 20px;
     padding: 20px 20px;
     z-index: 1;
-    width: 300px;
+    width: 30%;
     height: max-content;
     
     
@@ -455,6 +599,7 @@ b   {
     left: 250px;
     top: 10px;
 }
+
 #Guitar {
     left: 100px;
     top: 300px;
@@ -464,10 +609,12 @@ b   {
    left: 120px;
    top: 250px; 
 }
+
 #Trommer    {
     left: 850px;
     top: 10px;
 }
+
 #Keytar {
     left: 600px;
     top: 300px;
@@ -482,3 +629,135 @@ b   {
     cursor: pointer;
     margin: 10px;
 }
+
+
+.Contact_Container  {
+    width: 65vw;
+    background-color:#085048;
+    border-radius: 20px;
+    height: fit-content;
+    padding: 20px 0px;
+    margin: 100px 0px 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Contact_Form form  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-row-gap: 20px;
+    margin-right: 20px;
+}
+
+.Contact_Container h2    {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    border-bottom: 4px solid #ffffff;
+    width: max-content;
+}
+
+#Input_Name,
+#Input_Mail {
+    width: auto;
+    padding: 10px;
+    border: 2px solid #212121;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 20px;
+    box-shadow: 0 0 4px black;
+}
+
+.Message_Container {
+    position: relative;
+    grid-row: 1 / span 2; 
+    grid-column: 2 / 3;
+    margin-right: 20px;
+}
+
+textarea    {
+    resize: none;
+}
+
+#Input_Message {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #212121;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin: 0 20px;
+    padding: 10px;
+    box-shadow: 0 0 4px black;
+}
+
+#charCount {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #757575;
+    font-size: 14px;
+}
+
+#Input_Name {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+#Input_Mail {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2; 
+}
+
+.Contact_Container button   {
+    padding: 10px 50px;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid white;
+    color: white;
+    margin: 0px 20px 20px;
+    box-shadow: 0 0 4px black;
+    font-weight: bold;
+    font-size: 18px ;
+}
+
+.Contact_Container button:hover {
+    background-color: white;
+    color: #085048;
+    border-color: #212121;
+}
+
+@media (max-width: 700px) {
+
+    .Contact_Form form  {
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+
+    }
+    .Message_Container {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #616161;
+  }
+  
+  
+  ::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    box-shadow: 0 0 12px black;
+    cursor: pointer;
+  }
+  
+ 
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D4FF00;
+  }
