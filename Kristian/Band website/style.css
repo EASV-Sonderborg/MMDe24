@@ -37,7 +37,7 @@ border: solid white;
 }
 
 /* Creating background and border for anchors */
-.choice{
+.journey__choice{
 
     animation: 4000ms ease-in-out 0s  Starter;
 text-decoration: none;
@@ -85,7 +85,7 @@ border: solid white;
 
 
 /* animation for the start of every page */
-.begin{
+.journey{
     animation: 2000ms ease-in-out 0s  Starting;
 }
 
