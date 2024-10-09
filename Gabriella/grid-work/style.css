@@ -1,0 +1,26 @@
+svg {
+  width: 40px;
+  height: 40px;
+}
+
+.homeText {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.homeHeader {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.subHeader {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid-even-columns {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (min-width: 40em) {
+  .grid-even-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
