@@ -1,0 +1,192 @@
+body {
+  background-image: url(imagesMap/homepage_image.png);
+  background-size: contain;
+  background-color: black;
+  background-position: center; /* Centrerer billedet */
+  background-repeat: no-repeat; /* Undgår gentagninger */
+  margin: 0;
+}
+
+/* Section og label styling */
+.homepageTutorial {
+  position: absolute;
+  top: 500px;
+  left: 150px;
+  width: auto; /* Justerer baseret på content inden i */
+  height: auto; /* Justerer baseret på content inden i */
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.homepageTutorial_label {
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent baggrund */
+  padding: 20px;
+  color: white;
+  border-radius: 50px;
+  width: 300px;
+  height: 125px;
+}
+
+.homepageTutorial_label_text {
+  margin-top: 1.5em;
+  font-size: 20px;
+  font-family: "Germania One", system-ui;
+  text-align: center;
+  color: rgb(rgb(0, 0, 0));
+}
+
+.lottieDiv {
+  /*Position til JSON animation LOTTIE*/
+  position: absolute;
+  left: -70px;
+  bottom: 50px;
+  width: auto;
+  height: auto;
+}
+
+.dragonSection {
+  position: absolute;
+  left: 500px;
+  top: 300px;
+}
+.crowSection {
+  position: absolute;
+  left: 880px;
+  top: 120px;
+}
+.witchSection {
+  position: absolute;
+  left: 900px;
+  top: 270px;
+}
+.batSection {
+  position: absolute;
+  left: 910px;
+  top: 540px;
+}
+.dragonSection_label {
+  list-style: none;
+}
+.crowSection_label {
+  list-style: none;
+}
+.witchSection_label {
+  list-style: none;
+}
+.batSection_label {
+  list-style: none;
+}
+.dragonAnchor {
+  text-decoration: none;
+  font-family: "Germania One", system-ui;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 10px #f5f5f5;
+  color: white;
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  position: relative; /* undgår at layout bliver påvirket*/
+  transition: transform 0.3s ease, background-color 0.3s ease; /* til transition */
+}
+.crowAnchor {
+  text-decoration: none;
+  font-family: "Germania One", system-ui;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 10px #f5f5f5;
+  color: white;
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  position: relative; /* undgår at layout bliver påvirket*/
+  transition: transform 0.3s ease, background-color 0.3s ease; /* til transition */
+}
+.witchAnchor {
+  text-decoration: none;
+  font-family: "Germania One", system-ui;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 10px #f5f5f5;
+  color: white;
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  position: relative; /* undgår at layout bliver påvirket*/
+  transition: transform 0.3s ease, background-color 0.3s ease; /* til transition */
+}
+.batAnchor {
+  text-decoration: none;
+  font-family: "Germania One", system-ui;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 10px #f5f5f5;
+  color: white;
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  position: relative; /* undgår at layout bliver påvirket*/
+  transition: transform 0.3s ease, background-color 0.3s ease; /* til transition */
+}
+
+.dragonAnchor:focus {
+  color: #9c3804;
+}
+.crowAnchor:focus {
+  color: #9c3804;
+}
+.witchAnchor:focus {
+  color: #9c3804;
+}
+.batAnchor:focus {
+  color: #9c3804;
+}
+
+.dragonAnchor:hover {
+  transform: translate(50px) rotate(35deg);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.crowAnchor:hover {
+  transform: translate(50px) rotate(35deg);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.witchAnchor:hover {
+  transform: translate(-45px) rotate(-35deg);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.batAnchor:hover {
+  transform: translate(50px) rotate(35deg);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.footer {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Germania One", system-ui;
+}
