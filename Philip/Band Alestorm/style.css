@@ -44,7 +44,7 @@ li {
 }
 
 .Head__Content    li a {
-    color: #D4FF00;
+    color: white;
     text-decoration: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -54,13 +54,13 @@ li {
 }
 
 li a:hover  {
-    border-bottom: 2px solid #D4FF00; 
-    box-shadow: 0px 15px 20px -15px rgba(212,255,0,1);
+    border-bottom: 2px solid #04CC67; 
+    box-shadow: 0px 15px 20px 15px rgba(212, 255, 0, 0.1)
 }
 
 li  a:active    {
     border: 0px;
-    background-color: #D4FF00;
+    background-color: #04CC67;
     color: #085048;
 
 }
@@ -108,30 +108,137 @@ video   {
 }
 
 
-.Feature__Release   {
+.Flipbook_Container {
+    position: relative;
     width: 65vw;
-    min-width: min-content;
-    background-color: #085048;
-    display: flex;
-    flex-direction: column;
-    margin: 200px auto 200px;
-    box-shadow: 0 0 20px rgb(21, 21, 21);
+    height: 30vw;
+    perspective: 1000px;
+    overflow: hidden;
+    border: 2px solid black;
+    box-shadow: 0 0 4px black;
+    border-radius: 20px;
+    margin: 100px auto 0;
+}
+
+.click-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15vw;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+.click-area.left {
+    left: 0;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 20%, transparent 80%);
+}
+
+.click-area.right {
+    right: 0;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8) 20%, transparent 80%);
+}
+.click-area.click-area.left:hover  {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 40%, transparent 100%);
+    transition: all 0.2s linear ease-in;
+}
+.click-area.right:hover {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8) 40%, transparent 100%);
+}
+
+
+.Page   {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+.Page > *:not(.click-area)  {
+    margin: 20px 10%;
+}
+audio   {
+    width: 60%;
+}
+
+audio::-webkit-media-controls {
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
 }
 
-.Feature__Heading   {
-    padding: 0px 25px;
-    margin: 0 auto;
-    
+audio::-webkit-media-controls-enclosure {
+    border-radius: 20px;
 }
 
-.Feature__Release iframe    {
-    padding: 0px 20px;
-    width: 30vw;
-    min-height: min-content;
-    min-width: min-content;
-    margin: 0 auto;
+.Page.active    {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    opacity: 1;
+    background-size: cover;
 }
+
+.Page   h2  {
+    margin: 0;
+    text-shadow: 0 0 12px black;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.Page h4    {
+    color: white;
+    text-shadow: 0 0 12px black;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+#Page1  {
+    background-image: url(Media/Mexico_Flipbook.png); 
+    background-position: 0 30%;
+}
+
+#Page2  {
+    background-image: url(Media/Anchor_Flipbook.png);
+}
+#Page3  {
+    background-image: url(Media/Keelhauled_Flipbook.png);
+    background-position: 0 70%;
+}
+#Page4  {
+    background-image: url(Media/Hangover_Flipbook.png);  
+    background-position: 0 70%;
+}
+
+.Flipbook_Button    {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10vw;
+    margin: 20px 0 100px;
+}
+.Flipbook_Button button {
+    background-color: transparent;
+    border: none;
+}
+.Flipbook_Button img    {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+.Flipbook_Button button:nth-of-type(2) img {
+    rotate: 180deg;
+}
+
+.Flipbook_Button img:hover  {
+    scale: 1.4;
+    transition: all 0.3s linear ease-in-out;
+}
+
+
 
 
 h2  {
@@ -293,9 +400,8 @@ p   {
     grid-row-gap: 2auto;
     height: auto;
     container: Tourtainer / inline-size;
-    /* border: 4px solid #ffffff; */
     border-radius: 20px;
-    padding: 40px 20px 50px;
+    padding: 40px 0px 50px;
     box-shadow: 0 0 20px rgb(21, 21, 21);
     background-color: #212121;
 }
@@ -456,7 +562,11 @@ b   {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 0 20px rgb(21, 21, 21);
-    background-color: #06302b;
+    background-color: #181818;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr;
+
 }
 
 .Shop_Wrapper h2    {
@@ -470,10 +580,8 @@ b   {
     width: 65vw; 
     height: auto;
     padding: 20px 0px;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
     box-shadow: 0 0 20px rgb(21, 21, 21);
-    
+    grid-area: 3 / 1 / 5 / 3;
 }
 
 .Product__Feature   {
@@ -481,38 +589,27 @@ b   {
     display: grid;
     grid-gap: 20px;
     grid-auto-flow: column;
-    grid-auto-columns: 12vw;
-    grid-gap: 4%;
+    grid-gap: auto;
     align-items: center;
-    animation: infiniteScroll  10s infinite linear;
+    margin: 0 20px;
 }
 
-.Product__Feature--inner {
-    display: contents;
-}
-
-/* @keyframes infiniteScroll {
-    0% { 
-        transform: translateX(0);
-    }
-	100% { 
-        transform: translateX(-70%);
-    }
-}
-   */
-/* .Product__Feature :first-child  {
-    padding-left: 20px;
-} */
-
-.Product__Feature :last-child   {
-    padding-right: 20px;
-}
-
-.Product__Card  {
+.Product__Card {
     width: 12vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-right: 20px;
+}
+.Product__Card:not(:nth-child(4))  {
+    border-right: 2px solid #212121;
+}
+.Product__Card:nth-child(1){
+    padding-left: 30px;
+}
+
+.Shop_Wrapper h2  {
+    text-shadow: 0 0 4px black;
 }
 
 .Product__Card img  {
@@ -522,167 +619,37 @@ b   {
 }
 
 .Product__Card h3   {
-    color: #D4FF00;
-    margin: 0 auto;
+    color: #04CC67;
+    margin: 20px auto 0;
     text-transform: uppercase;
     font-size: 14px;
     text-align: center;
+    text-shadow: 0 0 20px #04CC67;
 }
 
-.Product__Card p    {
+.Product__Card p, .Merch_Link a    {
     color: white;
     vertical-align: auto;
-
-    
+    text-shadow: 0 0 4px black;
 }
 
-
-.Band__Interactive__Container   {
-    border-radius: 20px;
-    border: 4px solid #085048;
-    box-shadow: 0 0 20px rgb(21, 21, 21);
-    margin: 100px 0px;
-    width: 65vw;
-    overflow: hidden;
-    background-color: #085048;
-   
+.Shop_Top  img{
+width: 50px;
 }
 
-.Band__Interactive__Container h2    {
-    padding-left: 20px;
+.Shop_Top {
+grid-column: 1 / span 2;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin: 20px;
+gap: 20px;
+width: auto;
 }
 
-.Band__Interactive__Box {
-    background-image: url(Media/Band__Map__BG.png);
-    background-size: 100% 100%;
-    display: flex;
-    min-width: none;
-    max-height: 400px;
-    height: 40vw;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.Gareth_Murdock   {
-    position: absolute;
-    left: 35%;
-    top: 0px;
-    width: auto;
-    height: 20vw;
-    z-index: 2;
-}
-
-.Elliot_Vernon   {
-    position: absolute;
-    left: 3%;
-    bottom: 0%;
-    height: 15vw;
-    z-index: 2;
-}
-
-.Máté_Bodor   {
-    position: absolute;
-    bottom: -35%;
-    left: 20%;
-    height: 25vw; 
-    rotate: 15deg;
-    z-index: 3;
-}
-
-.Duckie   {
-    position: absolute;
-    top: 30%;
-    height: 10vh;
-    z-index: 2;
-}
-
-.Peter_Alcorn   {
-    position: absolute;
-    right: -2%;
-    bottom: 10%;
-    height: 30vh;
-    z-index: 2;
-}
-
-.Christopher_Bowes   {
-    position: absolute;
-    left: 45%;
-    bottom: -20%;
-    height: 40vh;
-    rotate: -10deg;
-    z-index: 3;
-}
-
-.Band__Interactive__Box>img:hover   {
-    transform: scale(1.2);
-}
-
-.Band__Interactive__Box:hover .member:not(:hover) {
-    filter: grayscale(1) blur(10px);
-}
-
-.Band__Info__Box {
-    position: relative;
-    display: none;
-    background-color: white;
-    border: 2px solid #085048;
-    color: #085048;
-    border-radius: 20px;
-    padding: 20px 20px;
-    z-index: 1;
-    width: 30%;
-    height: max-content;
-    
-    
-}
-
-.Band__Info__Box h4{
-    margin-top: 0;
-}
-
-.Band__Info__Box p{
-    margin: 0;
-}
-
-#Bass   {
-    left: 650px;
-    top: 10px;
-}
-
-#Keyboard   {
-    left: 250px;
-    top: 10px;
-}
-
-#Guitar {
-    left: 100px;
-    top: 300px;
-}
-
-#Duckie {
-   left: 120px;
-   top: 250px; 
-}
-
-#Trommer    {
-    left: 850px;
-    top: 10px;
-}
-
-#Keytar {
-    left: 600px;
-    top: 300px;
-}
-
-.close__icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px;
-    height: auto;
-    cursor: pointer;
-    margin: 10px;
+.Shop_Top a   {
+    text-decoration: none;
+    color: white;
 }
 
 .Band_Wrapper   {
@@ -752,7 +719,7 @@ b   {
     text-transform: uppercase;
 }
 
-input {
+.Band_Container > input {
     display: none;
 }
 
@@ -1087,5 +1054,5 @@ textarea    {
   
  
   ::-webkit-scrollbar-thumb:hover {
-    background: #06302b;
+    background: #04CC67;
   }
