@@ -69,7 +69,7 @@ footer p {
     padding: 10px;
 
 }
-.para{
+.intro{
     border-bottom: 1px solid rgba(128, 128, 128, 0.411);
 }
 h1{
@@ -86,15 +86,13 @@ a:hover{
 background:#feb47b;
 }
 
-/* Styling the city cards */
-.cards{
+/* Styling the city blog */
+.blog{
     grid-template-columns: 1fr 1fr;
     display: grid;
     gap: 1em;
 }
-.card{
-    display: flex;
-    flex-direction: column;
+.blog__post{
     padding: 1em;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.427);
 }
