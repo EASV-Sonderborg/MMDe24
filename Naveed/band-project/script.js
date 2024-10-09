@@ -10,8 +10,8 @@
 // };
 
 // Hover to play music
-const hoverElement = document.querySelector('.vinyl');
-const audio = document.getElementById('hover-sound');
+const hoverElement = document.querySelector('.vinyl--1');
+const audio = document.getElementById('hoverSound');
 
 // Play the audio when the mouse enters the element
 hoverElement.addEventListener('mouseenter', () => {
