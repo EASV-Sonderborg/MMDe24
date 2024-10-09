@@ -1,0 +1,114 @@
+.header {
+    min-height: 60vh;
+    display: grid;
+    align-items: center;
+}
+.header__title {
+    font-size: clamp(3.5rem, 12vw + 1rem, 12rem);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: white;
+}
+.header__title--highlight {
+    display: block;
+}
+
+@keyframes move-background {
+    from {
+      background-position: 50% 0%;
+    }
+    to {
+      background-position: 50% 100%;
+    }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('images/mountains.jpeg');
+    background-repeat: no-repeat;
+    animation: move-background linear;
+    animation-timeline: scroll(root block);
+    animation-duration: auto;
+}
+.articles {
+    display: grid;
+    gap: 1.3rem;
+    background-color: #B7D7F6;
+    padding: 1.3rem;
+    color: #161C31;
+    margin-bottom: 4rem;
+}
+
+.article {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 5px 5px 5px #aaa;
+}
+
+.article__heading {
+    margin: 0 0 1rem;
+}
+
+.article__image {
+    max-width: 100%;
+}
+
+.article__description {
+    line-height: 1.4;
+}
+
+.article__button,
+.article__button:link,
+.article__button:visited {
+    color: white;
+    text-decoration: none;
+    background-color: #405884;
+    padding: 1rem 2rem;
+    display: block;
+    box-shadow: 7px 5px 5px #ccc;
+    /* X Y blur farve */
+}
+
+.article__button:hover {
+    background-color: darkblue;
+    text-decoration: underline;
+    transition: transform 2s, background-color 2s;
+}
+
+/* two columns */
+@media screen and (min-width: 700px) {
+    .articles {
+        grid-template-columns: 1fr 1fr;
+    }
+    .article {
+        display: flex; /* anvende display: flex for at kunne give flex-grow til <p> nedenfor */
+        flex-direction: column;
+    }
+    .article__description {
+        flex-grow: 1; /* her får jeg paragraffen til at fylde eventuel overskydende plads ud - hvilket gÃ¸r at den efterfÃ¸lgende button bliver rykket ned i bunden */
+    }
+}
+/* three columns */
+@media screen and (min-width: 900px) {
+    .articles {
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 1000px;
+        margin-inline: auto;
+    }
+    .header__title--highlight {
+        animation: change-font linear;
+        animation-timeline: view();
+        animation-range: contain 0 exit-crossing 100%;    
+        font-size: 5rem;
+    }
+
+    @keyframes change-font {
+        0% {
+            color: white;
+        }
+        100% {
+            font-size: 12rem;  
+            color: #161C31;
+        }
+    }
+}
