@@ -1,0 +1,178 @@
+*{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body{
+    background: black;
+}
+
+
+
+/*making background image*/
+img{
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* creating background and border for text */
+.journey__narration{
+    color: #e1e1e1;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    font-family: "Island Moments";  
+    font-size: 90px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+display: flex;
+padding: 10px 30px;
+position: absolute;
+margin-bottom: 500px;
+margin-left: 10px;
+margin-right: 10px;
+margin-top: 30px;
+border: solid white;
+}
+
+/* Creating background and border for anchors */
+.journey__choice{
+
+opacity: 0;
+transform: scale(1);
+transition: opacity 4s ease-in-out;
+animation: fadeIn 4s forwards, pulse 4s ease-in-out infinite 2s;
+
+text-decoration: none;
+color: black;
+background-color: #aaaaaa9a;
+font-family: "Island Moments";
+font-size: 85px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+display: flex;
+padding: 10px 30px;
+align-items:center;
+justify-content: center;
+position: absolute;
+border: solid rgb(0, 0, 0);
+transition: transform 0.2s ease-in-out;
+box-shadow: 7px 6px 7px rgb(23, 23, 23);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+        scale: 0.9;
+        }
+
+    50%{
+        opacity: 0%;
+        scale: 0.9;
+    }
+    
+    100% {
+        opacity: 100%;
+        scale: 1;
+    }
+  }
+
+  /* Keyframes for pulsing effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+/* animation keyframes for anchors */
+@keyframes Starter {
+
+
+}
+
+.journey__choice:hover{
+    scale: 1.05;
+    transition: scale(2);
+    border: solid rgb(7, 225, 232);
+    color: rgb(0, 199, 244);
+    box-shadow: 0px 0px 50px rgb(0, 127, 136);
+    background-color: #7e7e7ef3;
+}
+
+
+
+
+
+/* have text in the overlap image */
+.journey{
+    display: flex;
+    padding: 10px 30px;
+    align-items:center;
+    justify-content: center;
+}
+
+
+/* animation for the start of every page */
+.journey{
+    animation: 2000ms ease-in-out 0s  Starting;
+}
+
+@keyframes Starting {
+
+from {
+    opacity: 0%;
+    }
+
+to {
+    opacity: 100%
+    }
+}
+
+/* position for choices/paths */
+.choice__path1{
+    translate: -400px 200px;
+}
+.choice__path2{
+    translate: 400px 200px;
+}
+
+
+.choice__riddle1{
+    translate: -400px 0;   
+}
+
+.choice__riddle2{
+    translate: 400px 0px;
+}
+
+.choice__riddle3{
+    translate: -400px 200px;
+}
+
+.choice__riddle4{
+    translate: 400px 200px;
+}
+
+
+
+.choice__raven1 {
+    translate: 0 -80px;
+}
+
+.choice__raven2 {
+    translate: 0 60px
+}
+
+.choice__raven3 {
+    translate: 0 200px;
+}
