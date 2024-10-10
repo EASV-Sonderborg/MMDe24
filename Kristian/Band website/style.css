@@ -162,3 +162,17 @@ to {
 .choice__riddle4{
     translate: 400px 200px;
 }
+
+
+
+.choice__raven1 {
+    translate: 0 -80px;
+}
+
+.choice__raven2 {
+    translate: 0 60px
+}
+
+.choice__raven3 {
+    translate: 0 200px;
+}
