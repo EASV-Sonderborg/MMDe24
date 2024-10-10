@@ -21,6 +21,7 @@ header  {
     align-items: center;
     container: Nav / inline-size;
 }
+
 header  img {
     height: 50px;
 }
@@ -32,7 +33,7 @@ header  img {
 
 ul  {
     display: flex;
-    gap: auto;
+    gap: 2vw;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     
@@ -155,8 +156,8 @@ video   {
 }
 
 .click-area.left:hover  {
+    transition: all 0.2s ease-in;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 40%, transparent 100%);
-    transition: all 0.2s linear ease-in;
 }
 
 .click-area.left:hover p    {
@@ -168,6 +169,7 @@ video   {
 }
 
 .click-area.right:hover {
+    transition: all 0.2s ease-in;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8) 40%, transparent 100%);
 }
 
@@ -210,9 +212,9 @@ audio::-webkit-media-controls-enclosure {
 
 .Page   h2  {
     margin: 0;
-    text-shadow: 0 0 12px black;
-    font-size: 30px;
-    letter-spacing: 2px;
+    text-shadow: 0 0 20px black;
+    font-size: 40px;
+    letter-spacing: 8px;
 }
 
 .Page h4    {
@@ -238,7 +240,7 @@ audio::-webkit-media-controls-enclosure {
 
 #Page4  {
     background-image: url(Media/Hangover_Flipbook.png);  
-    background-position: 0 70%;
+    background-position: 0 54%;
 }
 
 .Flipbook_Button    {
@@ -260,12 +262,12 @@ audio::-webkit-media-controls-enclosure {
 }
 
 .Flipbook_Button button:nth-of-type(2) img {
-    rotate: 180deg;
+    transform: rotate(180deg);
 }
 
 .Flipbook_Button img:hover  {
-    scale: 1.4;
-    transition: all 0.3s linear ease-in-out;
+    transform: scale(1.4);
+    transition: all 0.3s ease-in-out;
 }
 
 
@@ -346,18 +348,20 @@ p   {
     transition: 0.5s ease;
 }
 
-.MusVid_Container:hover .MusVid_Box:hover   {
+.MusVid_Container:hover .MusVid_Box:hover {
     filter: none;
     transition: 0.3s ease-in;
     box-shadow: inset 0 -8px 12px rgb(255, 255, 255);
-    .MusVid_Text    {
-        opacity: 1;
-        transform: translate(0%, -50%) scale(1.1); 
-        transition: 0.5s ease-in-out;
-    }
-    .MusVid_Text p{
-        letter-spacing: 2px;
-    }
+}
+
+.MusVid_Container:hover .MusVid_Box:hover .MusVid_Text {
+    opacity: 1;
+    transform: translate(0%, -50%) scale(1.1); 
+    transition: 0.6s ease-in-out;
+}
+
+.MusVid_Container:hover .MusVid_Box:hover .MusVid_Text p {
+    letter-spacing: 2px;
 }
 
 @media (min-width: 1100px) {
@@ -617,7 +621,7 @@ b   {
     display: grid;
     grid-gap: 20px;
     grid-auto-flow: column;
-    grid-gap: auto;
+    grid-gap: 2vw;
     align-items: center;
     margin: 0 20px;
 }
@@ -633,7 +637,7 @@ b   {
     border-right: 2px solid #212121;
 }
 .Product__Card:nth-child(1){
-    padding-left: 30px;
+    padding-left: 20px;
 }
 
 .Shop_Wrapper h2  {
@@ -657,7 +661,7 @@ b   {
 
 .Product__Card p, .Merch_Link a    {
     color: white;
-    vertical-align: auto;
+    vertical-align: center;
     text-shadow: 0 0 4px black;
 }
 
