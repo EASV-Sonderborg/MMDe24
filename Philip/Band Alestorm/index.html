@@ -45,16 +45,48 @@
         </video>
     </section>
 
-    <section class="Feature__Release"  id="Shanties">
-        <div class="Feature__Heading">
-            <h2>Featured Release</h2>
-        </div>
-
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6xEcJi5tmXFhaT0m62VZd9?utm_source=generator"  frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-        </iframe>
-
-     
+    <section class="Flipbook_Container">
+        <section class="Page active" id="Page1">
+            <div class="click-area left" onclick="prevPage()"><p>Previous Page</p></div>
+            <h2>Mexico</h2>
+            <h4>Alestorm</h4>
+            <audio controls id="Song1">
+                <source src="Media/Alestorm - Mexico.mp3" type="audio/mpeg">
+            </audio>
+            <div class="click-area right" onclick="nextPage()"><p>Next Page</p></div>
+        </section>
+        <section class="Page" id="Page2">
+            <div class="click-area left" onclick="prevPage()"><p>Previous Page</p></div>
+            <h2>Fucked With An Anchor</h2>
+            <h4>Alestorm</h4>
+            <audio controls id="Song2">
+                <source src="Media/Alestorm - P.A.R.T.Y.mp3" type="audio/mpeg">
+            </audio>
+            <div class="click-area right" onclick="nextPage()"><p>Next Page</p></div>
+        </section>
+        <section class="Page" id="Page3">
+            <div class="click-area left" onclick="prevPage()"><p>Previous Page</p></div>
+            <h2>Keelhauled</h2>
+            <h4>Alestorm</h4>
+            <audio controls id="Song3">
+                <source src="Media/Alestorm - Keelhauled.mp3" type="audio/mpeg">
+            </audio>
+            <div class="click-area right" onclick="nextPage()"><p>Next Page</p></div>
+        </section>
+        <section class="Page" id="Page4">
+            <div class="click-area left" onclick="prevPage()"><p>Previous Page</p></div>
+            <h2>Hangover</h2>
+            <h4>Alestorm</h4>
+            <audio controls id="Song4">
+                <source src="Media/Alestorm - Hangover.mp3" type="audio/mpeg">
+            </audio>
+            <div class="click-area right" onclick="nextPage()"><p>Next Page</p></div>
+        </section>
     </section>
+    <div class="Flipbook_Button">
+        <button onclick="prevPage()"><img src="Media/Pil 1 Hvid.png" alt="Chevron Icon"></button>
+        <button onclick="nextPage()"><img src="Media/Pil 1 Hvid.png" alt="Chevron Icon"></button>
+    </div>
 
     <section class="MusVid_Container">
         <section class="MusVid_Box Drink">
@@ -239,17 +271,16 @@
     
     
     <section class="Shop_Wrapper" id="Shop">
-        <h2 >Featured Sailor Swag</h2>
+        <div class="Shop_Top">
+            <h2 >Featured Sailor Swag</h2>
+            <a href="https://merch.alestorm.net" target="_blank"><p>View More</p></a>
+            <a href="https://merch.alestorm.net"><img src="Media/alestormMerchLink.png" alt="Merch Icon"></a>
+        </div>
         <section class="Product__Container">
             <section class="Product__Feature">
                     <section class="Product__Card">
                         <img src="Media/Alestorm__Product--Bananaduck.png" alt="Banana Duck T shirt">
                         <h3>Bananaduck T-Shirt</h3>
-                        <p>€25.99</p>
-                    </section>
-                    <section class="Product__Card">
-                        <img src="Media/Alestorm__Product--Waveshirt.png" alt="Waves Black T-Shirt">
-                        <h3>Waves Black T-Shirt</h3>
                         <p>€25.99</p>
                     </section>
                     <section class="Product__Card">
@@ -267,52 +298,9 @@
                         <h3>Waves White T-Shirt</h3>
                         <p>€25.99</p>
                     </section>
-                </section>
+            </section>
         </section>
     </section>
-
-    <Section class=Band__Interactive__Container id="MeetnGreet">
-        <h2>Interactive Map Of The Band</h2>
-        <section class="Band__Interactive__Box">
-            <img src="Media/Band__Map__Bass.png" alt="Gareth Murdock" class="Member Gareth_Murdock" onclick="showText('Bass')">
-            <img src="Media/Band__Map__Keyboard.png" alt="Elliot Vernon" class="Member Elliot_Vernon " onclick="showText('Keyboard')">
-            <img src="Media/Band__Map__Guitar.png" alt="Máté Bodor" class="Member Máté_Bodor" onclick="showText('Guitar')">
-            <img src="Media/Band__Map__Duck.png" alt="Duckie" class="Member Duckie" onclick="showText('Duckie')">
-            <img src="Media/Band__Map__Trommer.png" alt="Peter Alcorn" class="Member Peter_Alcorn" onclick="showText('Trommer')">
-            <img src="Media/Band__Map__Keytar.png" alt="Christopher Bowes" class="Member Christopher_Bowes" onclick="showText('Keytar')">
-            
-            <div class="Band__Info__Box" id="Bass">
-                <h4>Gareth Murdock</h4>
-                <p>Since joinin' the crew in 2008, Gareth Murdock has kept Alestorm steady on their wild voyages with his deep, thunderous bass lines. His rumblin’ low-end sound is the very keel of the band’s ship, keepin’ everything in balance.</p>
-                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Bass')">
-            </div>
-            <div class="Band__Info__Box" id="Keyboard">
-                <h4>Elliot Vernon</h4>
-                <p>Elliot Vernon be the one who strikes the keys and lets loose the beast within with his thunderous growls. His harsh vocals and melodious keys create a stormy mix of metal madness and pirate mischief.</p>
-                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Keyboard')">
-            </div>
-            <div class="Band__Info__Box" id="Guitar">
-                <h4>Máté Bodor</h4>
-                <p>Máté Bodor joined this fearsome crew in 2015, bringin’ his razor-sharp riffs and solos to the frontlines. His guitar be like a cutlass in a pirate’s hand, slicin’ through the stormy waves of metal with deadly precision.</p>
-                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Guitar')">
-            </div>
-            <div class="Band__Info__Box" id="Duckie">
-                <h4>Duckie</h4>
-                <p>Duckie be a symbol of all that Alestorm holds dear: fun, absurdity, and a bit o’ madness. The crew unleashes this colossal rubber duck during their raucous live shows, lettin’ him float above the sea o’ metalheads while the band sings their sea shanties.</p>
-                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Duckie')">
-            </div>
-            <div class="Band__Info__Box" id="Trommer">
-                <h4>Peter Alcorn</h4>
-                <p>Peter Alcorn joined the crew in 2010, and since then, his booming beats have been the wind in Alestorm’s sails. With every mighty blow to the drums, he sends ripples through the sea and keeps the ship sailin’ straight.</p>
-                <img src="Media/close_icon.png" alt="Close" class="close__icon" onclick="hideText('Trommer')">
-            </div>
-            <div class="Band__Info__Box" id="Keytar">
-                <h4>Christopher Bowes</h4>
-                <p>As the bold captain of this pirate crew, it’s Cap’n Bowes who steers the ship with his mighty keytar and rum-soaked shanties. His plunderin’ lyrics and rowdy tunes set the course for Alestorm’s adventures on the high seas o’ metal.</p>
-                <img src="Media/close_icon.png" alt="Close" class="close__icon"onclick="hideText('Keytar')">
-            </div>
-        </section>
-    </Section>
 
     <section class="Band_Wrapper">
         <section class="Band_Container">
@@ -476,41 +464,8 @@
             </section>
         </section>
     </Footer>
+
     <script>
-        function showText(textId) {
-            // Hide all text boxes first
-            var textBoxes = document.getElementsByClassName("Band__Info__Box");
-            for (var i = 0; i < textBoxes.length; i++) {
-                textBoxes[i].style.display = "none";
-            }
-    
-            // Show the selected text box
-            var textBox = document.getElementById(textId);
-            if (textBox) {
-                textBox.style.display = "block";
-    
-                // Add event listener to the entire document
-                document.addEventListener('click', function(event) {
-                    // Check if the click is outside the text box
-                    var isClickInsideBox = textBox.contains(event.target);
-                    var isClickOnBandImage = event.target.closest('.Band__Interactive__Box img');
-    
-                    if (!isClickInsideBox && !isClickOnBandImage) {
-                        hideText(textId);
-                    }
-                }, { once: true });  // Ensure the event listener is removed after one click
-            }
-        }
-    
-        function hideText(textId) {
-            // Hide the selected text box
-            var textBox = document.getElementById(textId);
-            if (textBox) {
-                textBox.style.display = "none";
-            }
-        }
-
-
         function updateCharacterCount() {
         const messageInput = document.getElementById("Input_Message");
         const charCountDisplay = document.getElementById("charCount");
@@ -521,11 +476,54 @@
         // Update the character count display
         charCountDisplay.textContent = `${currentLength} characters`;
     }
-    ddocument.querySelector('#Contact_Dropdown').addEventListener('click', function() {
+    document.querySelector('#Contact_Dropdown').addEventListener('click', function() {
     this.parentNode.classList.toggle('open');
 });
 
 
+var currentPage = 1; // Defineret her for global adgang
+        var totalPages = 4; // Antal sider
+
+        function showPage(pageNum) {
+            console.log("Viser side: " + pageNum); // Debugging output
+
+            // Stop musikken, før vi skifter til den nye side
+            for (let i = 1; i <= totalPages; i++) {
+                var audio = document.getElementById(`Song${i}`);
+                if (audio) {
+                    audio.pause(); // Stop sangen
+                    audio.currentTime = 0; // Nulstil sangen
+                }
+                
+                document.getElementById(`Page${i}`).classList.remove("active");
+            }
+
+            // Vis den nye side
+            document.getElementById(`Page${pageNum}`).classList.add("active");
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                console.log("Skifter til side: " + currentPage);
+                showPage(currentPage);
+            } else {
+                console.log("Allerede på sidste side."); // Feedback til brugeren
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                console.log("Skifter til side: " + currentPage);
+                showPage(currentPage);
+            } else {
+                console.log("Allerede på første side."); // Feedback til brugeren
+            }
+        }
+
+        // Start med at vise den første side
+        showPage(currentPage);
     </script>
     
 </body>
