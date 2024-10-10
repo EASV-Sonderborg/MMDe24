@@ -13,23 +13,58 @@
     width: 100%;
     height: 100%;
 }
+html {
+    scroll-behavior: smooth;
+}
 .invHeader {
     width: 100%;
     height: 5px;
 
 }
 
-.iconImg {
-    width: 70%;
-    overflow: hidden;
 
-}
 .icon {
     display: flex;
     justify-content: center;
-    margin-top: 230px;
+    margin-top: 180px;
     padding: 10px;
 }
+.jeffIcon{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+
+}
+.profileIcon {
+    display: flex;
+    justify-content: flex-start;
+    height: 200px;
+    position: relative;
+}
+
+
+.theNumber2 {
+    height: 200px;
+    width: 180px;
+    position: absolute;
+
+}
+
+
+.theNumber2 {
+    animation: 2s infinite linear roll;
+}
+
+@keyframes roll {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
 .title{
     display: flex;
     align-items: center;
@@ -61,10 +96,12 @@
     list-style: none;
     text-decoration: none;
     padding: 0;
-    flex-wrap: wrap;
     display: flex;
     justify-content: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+.invHeaderMusic{
+    margin-top: 200px;
 }
 .musicCardPage{
     width: 100%;
@@ -147,8 +184,8 @@
 }
 .vaporCardMerch {
 
-    width: 772px;
-    height: 354px;
+    width: 800px;
+    height: 350px;
     flex-shrink: 0;
     background: rgba(255, 251, 251, 0.50);
     backdrop-filter: blur(1px);
@@ -156,16 +193,18 @@
     margin-bottom: 300px;
 
 }
-.vaporCardTitMerch {
+.jeffBookingTit {
     color: #513D8E;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: auto;
-    padding: 10px;
     height: 50px;
     width: auto;
     font-size: xx-large;
-
+    display: flex;
+    justify-content: center;
+    position: absolute;
 }
+
 .vaporCardInfo {
     width: 772px;
     height: 354px;

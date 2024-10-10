@@ -17,7 +17,12 @@ body{
     font-family: "Pirata One", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: 1.5em;
+    font-size: 1.7em;
+    line-height: 1.5;
+    padding: 20px;
+    background-image: url(images/pexels-pixabay-301378.jpg);
+    background-size: cover; /* Adjust texture to fit the box */
+    border: 3px solid #7c652a;
     color: white;
     position: absolute;
     top: 750px;
@@ -25,7 +30,6 @@ body{
     width: 600px;
     z-index: 1; 
     text-shadow: black 2px 2px;
-    transform: rotate(9deg);
 }
 .navDuck{
     position: fixed;
