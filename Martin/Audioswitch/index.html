@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hjemmeside med Musikafspiller</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar with links to different pages -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Hjem</a></li>
+      <li><a href="page1.html">Om os</a></li>
+      <li><a href="page2.html">Musik</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div id="content">
+    <h1>Velkommen til Hjemmesiden</h1>
+    <p>Dette er din landing side.</p>
+  </div>
+
+  <!-- iframe for persistent music player -->
+  <iframe id="music-frame" src="iframe.html" style="width: 100%; height: 80px; position: fixed; bottom: 0; border: none;"></iframe>
+
+  <script>
+    // On page load, send a message to the iframe to play the specific song

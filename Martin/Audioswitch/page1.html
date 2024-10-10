@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <iframe id="music-frame" src="iframe.html" style="width: 100%; height: 80px; position: fixed; bottom: 0;"></iframe>
+
+  <div id="content">
+    <h1>Side 1</h1>
+    <p>Velkommen til side 1.</p>
+  </div>
+
+  <script>
+    // When the page loads, send a message to the iframe to switch the song
+    window.onload = function() {
+      const musicFrame = document.getElementById('music-frame').contentWindow;
+      musicFrame.postMessage({ song: 'The Hand of Merlin.mp3' }, '*'); // Automatically play song 1 on this page
+    };
+  </script>
+</body>
+</html>
