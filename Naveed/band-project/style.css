@@ -15,8 +15,6 @@ body{
 }
 .introText{
     font-family: "Pirata One", system-ui;
-    font-weight: 400;
-    font-style: normal;
     font-size: 1.7em;
     line-height: 1.5;
     padding: 20px;
@@ -85,6 +83,9 @@ body{
 .vinyl:nth-child(2){
     background: linear-gradient(to right, #55bec282, #55bec22b);
 }
+.vinyl:nth-child(3){
+    background: linear-gradient(to right, #30101182, #dfc45665);
+}
 .vinyl__cover{
     position: relative;
     z-index: 2;
@@ -110,6 +111,15 @@ body{
     0 0 40px #55bec2, 
     0 0 50px #55bec2;
 }
+.vinyl__cover--3{
+    box-shadow: 
+    0 0 0 #fff,
+    0 0 10px #fff, 
+    0 0 10px #6a4543,
+    0 0 20px #6a4543,
+    0 0 40px #6a4543, 
+    0 0 50px #6a4543;
+}
 .vinyl__disc{
     position: absolute;
     top: 40px;
@@ -133,6 +143,13 @@ body{
     0 0 10px #55bec2,
     0 0 20px #55bec2;
 }
+.vinyl__disc--3{
+    box-shadow:
+    0 0 0 #fff,
+    0 0 10px #fff,
+    0 0 10px #6a4543,
+    0 0 20px #6a4543;
+}
 .vinyl:hover > .vinyl__disc{
     animation: slidein 1500ms cubic-bezier(0.22, 0.61, 0.36, 1) 0s 1 forwards;
 }
@@ -143,4 +160,16 @@ body{
       to {
         transform: translateX(65%);
       }
+}
+.albumCaption{
+    margin: px;
+    color: white;
+    font-family: "Pirata One", system-ui;
+    font-weight: 400;
+    font-size: 1.7em;
+    line-height: 1.5;
+    text-shadow: black 2px 2px;
+}
+audio::-webkit-media-controls-panel {
+    background: linear-gradient(to right, #3a9696, #004d89)
 }
