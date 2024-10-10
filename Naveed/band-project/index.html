@@ -13,12 +13,9 @@
     />
   </head>
   <body>
-    <header class="header">
+    <header>
       <img
-        src="images/alestormLogo.png"
-        alt="Logo for the band Alestorm"
-        class="header__logo"
-      />
+        src="images/alestormLogo.png" alt="Logo for the band Alestorm" class="header__logo"/>
     </header>
     <main>
       <p class="introText">
@@ -30,7 +27,8 @@
         <br /><br />
         After a decade lost at sea! it’s time for a pirate P.A.R.T.Y.
       </p>
-      <!-- Temporary linear gradient across the entire site, might get removed -->
+      <img src="images/duck.png" alt="Rubber duck" class="navDuck">
+      <!-- linear gradient across the entire site, might get removed -->
       <!-- <svg xmlns="http://www.w3.org/2000/svg" width="1513" height="3355" viewBox="0 0 1513 3355" fill="none" class="gradientShade">
             <path d="M0 0.5H1440V3357.5H0V0.5Z" fill="url(#paint0_linear_106_2)"/>
             <defs>
@@ -42,22 +40,24 @@
             </defs>
         </svg> -->
     </main>
-    <section class="vinylAlbum">
-        <img id="stickyImage" src="images/duck.png" alt="Rubber duck" class="stickyDuck">
-    </section>
-    <section class="vinylAlbums">
-        <article class="__album">
-            <img src="images/alestormVinyl__seventhRum--cover.png" alt="" class="albumCover albumCover--1">
-            <img src="images/alestormVinyl__seventhRum--disc.png" alt="" class="disc disc--1">
+    <section class="albums">
+        <article class="vinyl vinyl--1">
+            <img src="images/seventhRum--cover.png" alt="" class="vinyl__cover vinyl__cover--1">
+            <img src="images/seventhRum--disc.png" alt="" class="vinyl__disc vinyl__disc--1">
+            <audio id="hoverSound" src="music/Alestorm - P.A.R.T.Y.mp3" preload="auto"></audio>
         </article>
+        <article class="vinyl vinyl--2">
+          <img src="images/nograve--cover.png" alt="" class="vinyl__cover vinyl__cover--2">
+          <img src="images/seventhRum--disc.png" alt="" class="vinyl__disc vinyl__disc--2">
+          <audio id="hoverSound" src="music/Alestorm - Mexico.mp3" preload="auto"></audio>
+      </article>
     </section>
-    <script src="script.js"></script>
-
-    <audio autoplay loop>
+    <!-- Temporarily disabled music -->
+    <!-- <audio autoplay loop>
       <source
-        src="BackgroundMusic/Captain Gangplank  Login Screen - League of Legends.mp3"
-        type="audio/mpeg"
-      />
-    </audio>
+        src="music/Captain Gangplank  Login Screen - League of Legends.mp3"
+        type="audio/mpeg"/>
+    </audio> -->
+    <script src="script.js"></script>
   </body>
 </html>

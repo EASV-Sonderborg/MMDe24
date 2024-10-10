@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 body{
@@ -20,7 +21,7 @@ img{
 .journey__narration{
     color: #e1e1e1;
 
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.6);
     font-family: "Island Moments";  
     font-size: 90px;
 font-style: normal;
@@ -39,12 +40,16 @@ border: solid white;
 /* Creating background and border for anchors */
 .journey__choice{
 
-    animation: 4000ms ease-in-out 0s  Starter;
+opacity: 0;
+transform: scale(1);
+transition: opacity 4s ease-in-out;
+animation: fadeIn 4s forwards, pulse 4s ease-in-out infinite 2s;
+
 text-decoration: none;
-color: #e1e1e1;
-background-color: rgb(14, 14, 14);
+color: black;
+background-color: #aaaaaa7a;
 font-family: "Island Moments";
-font-size: 96px;
+font-size: 85px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
@@ -53,14 +58,15 @@ padding: 10px 30px;
 align-items:center;
 justify-content: center;
 position: absolute;
-border: solid white;
+border: solid rgb(0, 0, 0);
+transition: transform 0.2s ease-in-out;
+box-shadow: 7px 6px 7px rgb(23, 23, 23);
 }
 
-
-/* animation keyframes for anchors */
-@keyframes Starter {
+@keyframes fadeIn {
     0% {
         opacity: 0%;
+        scale: 0.9;
         }
 
     50%{
@@ -72,7 +78,38 @@ border: solid white;
         opacity: 100%;
         scale: 1;
     }
+  }
+
+  /* Keyframes for pulsing effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+/* animation keyframes for anchors */
+@keyframes Starter {
+
+
 }
+
+.journey__choice:hover{
+    scale: 1.05;
+    transition: scale(2);
+    border: solid rgb(232, 202, 7);
+    color: rgb(178, 154, 0);
+    box-shadow: 0px 0px 50px rgb(136, 118, 0);
+}
+
+
+
 
 
 /* have text in the overlap image */
@@ -105,5 +142,22 @@ to {
     translate: -400px 200px;
 }
 .choice__path2{
+    translate: 400px 200px;
+}
+
+
+.choice__riddle1{
+    translate: -400px 0;   
+}
+
+.choice__riddle2{
+    translate: 400px 0px;
+}
+
+.choice__riddle3{
+    translate: -400px 200px;
+}
+
+.choice__riddle4{
     translate: 400px 200px;
 }
