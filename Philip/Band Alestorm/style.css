@@ -129,24 +129,47 @@ video   {
     cursor: pointer;
 }
 
+.click-area p   {
+    position: absolute;
+    top: 50%;
+    color: white;
+    opacity: 0;
+}
 
 .click-area.left {
     left: 0;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 20%, transparent 80%);
 }
 
+.click-area.left p  {
+    left: 20px;
+}
+
 .click-area.right {
     right: 0;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8) 20%, transparent 80%);
 }
-.click-area.click-area.left:hover  {
+
+.click-area.right p  {
+    right: 20px
+}
+
+.click-area.left:hover  {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 40%, transparent 100%);
     transition: all 0.2s linear ease-in;
 }
+
+.click-area.left:hover p    {
+    opacity: 1;
+}
+
+.click-area.right:hover p    {
+    opacity: 1;
+}
+
 .click-area.right:hover {
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0.8) 40%, transparent 100%);
 }
-
 
 .Page   {
     display: none;
@@ -157,17 +180,19 @@ video   {
     transition: opacity 0.5s ease;
 }
 
-
 .Page > *:not(.click-area)  {
     margin: 20px 10%;
 }
+
 audio   {
     width: 60%;
+    z-index: 5;
 }
 
 audio::-webkit-media-controls {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
+    opacity: 0.7;
 }
 
 audio::-webkit-media-controls-enclosure {
@@ -205,10 +230,12 @@ audio::-webkit-media-controls-enclosure {
 #Page2  {
     background-image: url(Media/Anchor_Flipbook.png);
 }
+
 #Page3  {
     background-image: url(Media/Keelhauled_Flipbook.png);
     background-position: 0 70%;
 }
+
 #Page4  {
     background-image: url(Media/Hangover_Flipbook.png);  
     background-position: 0 70%;
@@ -220,15 +247,18 @@ audio::-webkit-media-controls-enclosure {
     gap: 10vw;
     margin: 20px 0 100px;
 }
+
 .Flipbook_Button button {
     background-color: transparent;
     border: none;
 }
+
 .Flipbook_Button img    {
     width: 30px;
     height: auto;
     cursor: pointer;
 }
+
 .Flipbook_Button button:nth-of-type(2) img {
     rotate: 180deg;
 }
@@ -237,8 +267,6 @@ audio::-webkit-media-controls-enclosure {
     scale: 1.4;
     transition: all 0.3s linear ease-in-out;
 }
-
-
 
 
 h2  {
@@ -746,18 +774,22 @@ input:checked + label .description {
     background-image: url(Media/Christopher_Bowes.png);
     background-position: 50% 0%;
 }
+
 .card[for="c2"] {
     background-image: url(Media/Gareth_Murdock.png);
     background-position: 35% 0%;
 }
+
 .card[for="c3"] {
     background-image: url(Media/Mate_Bodor.png);
     background-position: 65% 0%;
 }
+
 .card[for="c4"] {
     background-image: url(Media/Peter_Alcorn.png);
     background-position: 80% 0%;
 }
+
 .card[for="c5"] {
     background-image: url(Media/Elliot_Vernon.png);
     background-position: 35% 0%;
@@ -1043,15 +1075,13 @@ textarea    {
   ::-webkit-scrollbar-track {
     background: #085048;
     border-top: 4px solid #06302b;
-  }
-  
+  }  
   
   ::-webkit-scrollbar-thumb {
     background: #ffffff;
     box-shadow: 0 0 12px black;
     cursor: pointer;
   }
-  
  
   ::-webkit-scrollbar-thumb:hover {
     background: #04CC67;
