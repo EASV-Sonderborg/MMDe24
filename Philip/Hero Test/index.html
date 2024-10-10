@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Services</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="hero">
+        <video autoplay muted loop class="background-video">
+            <source src="Hero.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1 class="animate-text">PHILIP BRINCK</h1>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = document.querySelector('.animate-text');
+            const textContent = text.textContent;
+            text.innerHTML = ''; // Tømmer den oprindelige tekst
+
+            // Splitter teksten op i bogstaver og sætter dem ind som spans
+            textContent.split('').forEach((char, index) => {
+                const span = document.createElement('span');
+                span.textContent = char === ' ' ? '\u00A0' : char; // Håndterer mellemrum
+                span.style.setProperty('--char-index', index);
+                span.style.setProperty('--char-count', textContent.length);
+                text.appendChild(span);
+            });
+
+            // Når teksten er færdigskrevet, vent 5 sekunder, og fade derefter ud i omvendt rækkefølge
+            setTimeout(() => {
+                text.classList.add('reverse');
+            }, (textContent.length * 100) + 5000); // Tid til at skrive + 5 sekunder pause
+
+            // Gentag hele animationen (skrive, pause, fade-out) hver cyklus
+            setInterval(() => {
+                text.classList.remove('reverse'); // Start skrivemaskine-effekt igen
+                setTimeout(() => {
+                    text.classList.add('reverse'); // Fade ud efter 5s pause
+                }, (textContent.length * 100) + 5000); // Tid for skrivemaskine-effekt + pause
+            }, (textContent.length * 100) + 6000); // Tid for hele animationen + pause
+        });
+    </script>
+</body>
+</html>

@@ -10,7 +10,7 @@
 /* Section og label styling */
 .homepageTutorial {
   position: absolute;
-  top: 500px;
+  top: 480px;
   left: 150px;
   width: auto; /* Justerer baseret på content inden i */
   height: auto; /* Justerer baseret på content inden i */
@@ -19,7 +19,7 @@
 }
 
 .homepageTutorial_label {
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent baggrund */
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent baggrund */
   position: absolute;
   left: -80px;
   top: 100px;
@@ -62,14 +62,6 @@ nav {
   height: auto;
 }
 
-.footer {
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Germania One", system-ui;
-}
-
 .dragonContainer {
   position: absolute;
   left: 530px;
@@ -99,8 +91,9 @@ nav {
   height: 200px;
 }
 .dragonContainer_text {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  opacity: 0%;
   font-family: "Germania One", system-ui;
   font-size: 20px;
   margin: 0px;
@@ -110,10 +103,15 @@ nav {
   position: absolute;
   left: 120px;
   bottom: -20px;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-delay: 0.5ms;
+  transition: 0.3s all 0.3s;
 }
 .crowContainer_text {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  opacity: 0%;
   font-family: "Germania One", system-ui;
   font-size: 20px;
   padding: 4px;
@@ -122,10 +120,15 @@ nav {
   position: absolute;
   left: 100px;
   top: 50px;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-delay: 0.5ms;
+  transition: 0.3s all 0.3s;
 }
 .witchContainer_text {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  opacity: 0%;
   font-family: "Germania One", system-ui;
   font-size: 20px;
   padding: 4px;
@@ -134,10 +137,15 @@ nav {
   position: absolute;
   left: 120px;
   top: 50px;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-delay: 0.5ms;
+  transition: 0.3s all 0.3s;
 }
 .batContainer_text {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  opacity: 0%;
   font-family: "Germania One", system-ui;
   font-size: 20px;
   padding: 4px;
@@ -146,6 +154,34 @@ nav {
   position: absolute;
   left: -55px;
   top: 75px;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-delay: 0.5ms;
+  transition: 0.3s all 0.3s;
+}
+.dragonContainer_text:hover {
+  opacity: 100%;
+}
+.crowContainer_text:hover {
+  opacity: 100%;
+}
+.witchContainer_text:hover {
+  opacity: 100%;
+}
+.batContainer_text:hover {
+  opacity: 100%;
+}
+.dragonContainer_text:focus {
+  color: #9d3a06;
+}
+.crowContainer_text:focus {
+  color: #9d3a06;
+}
+.witchContainer_text:focus {
+  color: #9d3a06;
+}
+.batContainer_text:focus {
+  color: #9d3a06;
 }
 .dragonImg {
   width: 150px;
@@ -162,6 +198,19 @@ nav {
 .batImg {
   width: 150px;
   height: auto;
+}
+.dragonImg:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5ms;
+}
+.crowImg:hover {
+  transform: scale(1.1);
+}
+.witchImg:hover {
+  transform: scale(1.1);
+}
+.batImg:hover {
+  transform: scale(1.1);
 }
 
 a {
