@@ -12,55 +12,238 @@
       rel="stylesheet"
     />
   </head>
+
+  <div class="rain-container"></div>
+
   <body>
+    <audio autoplay>
+      <source
+        src="music/Untitled video - Made with Clipchamp.mp3"
+        type="audio/mp3"
+      />
+    </audio>
+
+    <audio  id="backgroundAudio" autoplay loop>
+      <source
+        src="music/Captain Gangplank  Login Screen - League of Legends.mp3"
+        type="audio/mp3"
+      />
+    </audio>
+
+    <img src="images/AdobeStock_525423708.png" alt="Floating Duck" id="floatingDuck" />
+    <audio id="duckSound" src="music/Quack Sound Effect [ ezmp3.cc ].mp3" preload="auto"></audio>
+
     <header>
       <img
-        src="images/alestormLogo.png" alt="Logo for the band Alestorm" class="header__logo"/>
+        src="images/alestormLogo.png"
+        alt="Logo for the band Alestorm"
+        class="header__logo"
+      />
     </header>
+
     <main>
-      <p class="introText">
-        Ahoy, ye scallywags!!
-        <br /><br />
-        Hoist the colors and mark yer maps and grab yer horns o’ ale (and toss
-        aside them landlubberly cans), and prepare to set sail on the wildest,
-        most metal journey o’ yer life! Arrr!
-        <br /><br />
-        After a decade lost at sea! it’s time for a pirate P.A.R.T.Y.
-      </p>
-      <img src="images/duck.png" alt="Rubber duck" class="navDuck">
+      <div class="introContainer">
+        <img
+          src="images/d4ac9e8e-2047-4dc9-9cde-bfc0fd72b80b.png"
+          alt="Talking Skeleton"
+          class="skeleton"
+        />
+        <p class="introText">
+          Ahoy, ye scallywags!! <br /><br />
+          Hoist the colors and mark yer maps and grab yer horns o’ ale (and toss
+          aside them landlubberly cans), and prepare to set sail on the wildest,
+          most metal journey o’ yer life! Arrr! <br /><br />
+          After a decade lost at sea! it’s time for a pirate P.A.R.T.Y.
+          <br /><br />
+          Check out arr map to learn 'bout us yeee
+        </p>
+      </div>
+
+     
+
+      </div>
     </main>
+
+    <section class="treasure-map">
+      <img
+        src="images/AdobeStock_775025009.jpeg"
+        alt="Pirate Treasure Map"
+        class="map"
+      />
+      <div
+        class="map-marker1"
+        style="top: 20%; left: 35%"
+        data-title="'is here a damn to the depths shipwreck ey! what ye doin' 'ere?"
+      ><audio id="clickSound" src="music/Ship Creaking  Free Sound Effect.mp3"></audio></div>
+      <div 
+      class="map-marker2" 
+      style="top: 48%; left: 70%"
+      data-title="TRESSSURRRR"
+      ><audio id="clickSound" src=""></audio></div>
+      <div 
+      class="map-marker3" 
+      style="top: 50%; left: 10%"
+      data-title="Ready yer resources arr, matey"
+      ><audio id="clickSound" src="music/Bird Sounds  Nature Birds Noises  Royalty Free Sound Effect.mp3"></audio></div>
+    </section>
+
+
+    <h1>Arr smashing Songs</h1>
     <section class="albums">
-        <article class="vinyl vinyl--1">
-            <img src="images/seventhRum--cover.png" alt="" class="vinyl__cover vinyl__cover--1">
-            <img src="images/seventhRum--disc.png" alt="" class="vinyl__disc vinyl__disc--1">
-            <figure>
-              <figcaption class="albumCaption">Listen to a snippet:</figcaption>
-              <audio controls src="music/Alestorm - P.A.R.T.Y.mp3"></audio>
-            </figure>
-        </article>
-        <article class="vinyl vinyl--2">
-          <img src="images/nograve--cover.png" alt="" class="vinyl__cover vinyl__cover--2">
-          <img src="images/seventhRum--disc.png" alt="" class="vinyl__disc vinyl__disc--2">
-          <figure>
-            <figcaption class="albumCaption">Listen to a snippet:</figcaption>
-            <audio controls src="music/Alestorm - Mexico.mp3"></audio>
-          </figure>
+      <article class="vinyl vinyl--1">
+        <img
+          src="images/seventhRum--cover.png"
+          alt=""
+          class="vinyl__cover vinyl__cover--1"
+        />
+        <img
+          src="images/seventhRum--disc.png"
+          alt=""
+          class="vinyl__disc vinyl__disc--1"
+        />
+        <audio
+          class="hoverSound"
+          src="music/Alestorm - P.A.R.T.Y.mp3"
+          preload="auto"
+        ></audio>
+      </article>
+      <article class="vinyl vinyl--2">
+        <img
+          src="images/nograve--cover.png"
+          alt=""
+          class="vinyl__cover vinyl__cover--2"
+        />
+        <img
+          src="images/seventhRum--disc.png"
+          alt=""
+          class="vinyl__disc vinyl__disc--2"
+        />
+        <audio
+          class="hoverSound"
+          src="music/Alestorm - Mexico.mp3"
+          preload="auto"
+        ></audio>
       </article>
       <article class="vinyl vinyl--3">
         <img src="images/sunset--cover.png" alt="" class="vinyl__cover vinyl__cover--3">
         <img src="images/seventhRum--disc.png" alt="" class="vinyl__disc vinyl__disc--3">
-        <figure>
-          <figcaption class="albumCaption">Listen to a snippet:</figcaption>
-          <audio controls src="music/Alestorm - Drink.mp3"></audio>
-        </figure>
-    </article>
+          <audio class="hoverSound" src="music/Alestorm - Drink.mp3"></audio>
     </section>
-    <!-- Temporarily disabled music -->
-    <!-- <audio autoplay loop>
-      <source
-        src="music/Captain Gangplank  Login Screen - League of Legends.mp3"
-        type="audio/mpeg"/>
-    </audio> -->
-    <script src="script.js"></script>
+
+    <section class="wanted-poster-section">
+      <div class="poster">
+        <img src="images/1.jpg" alt="Wanted Poster 1" />
+      </div>
+      <div class="poster">
+        <img src="images/2.jpg" alt="Wanted Poster 2" />
+      </div>
+      <div class="poster">
+        <img src="images/3.jpg" alt="Wanted Poster 3" />
+      </div>
+      <div class="poster">
+        <img src="images/4.jpg" alt="Wanted Poster 4" />
+      </div>
+      <div class="poster">
+        <img src="images/5.jpg" alt="Wanted Poster 5" />
+      </div>
+    </section>
+    <div class="algae-container">
+    <img src="images/2277824_8a518.gif" alt="Algae 1" class="algae" id="algae1" />
+    <img src="images/2628349_19e58.gif" alt="Algae 2" class="algae" id="algae2" />
+    <img src="images/2628349_19e58.gif" alt="Algae 3" class="algae" id="algae3" />
+    <img src="images/2628349_19e58.gif" alt="Algae 4" class="algae" id="algae4" />
+    <img src="images/2628349_19e58.gif" alt="Algae 5" class="algae" id="algae5" />
+  </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const backgroundAudio = document.getElementById("backgroundAudio");
+  if (backgroundAudio) {
+    backgroundAudio.volume = 0.6; // Set volume to 10%
+  }
+});
+
+      document.addEventListener("DOMContentLoaded", () => {
+  const rainContainer = document.querySelector('.rain-container');
+
+  // Number of raindrops you want to create
+  const numberOfRaindrops = 100; 
+
+  for (let i = 0; i < numberOfRaindrops; i++) {
+    const raindrop = document.createElement('div');
+    raindrop.classList.add('raindrop');
+    
+    // Randomize the starting horizontal position and animation duration
+    raindrop.style.left = `${Math.random() * 100}vw`; // Random position across width
+    raindrop.style.animationDuration = `${Math.random() * 1 + 0.5}s`; // Vary falling speed
+    
+    // Append the raindrop to the container
+    rainContainer.appendChild(raindrop);
+  }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  
+  // Hover to play music
+const vinyls = document.querySelectorAll('.vinyl');
+
+vinyls.forEach(vinyl => {
+  const audio = vinyl.querySelector('.hoverSound'); // Find the audio inside each vinyl
+
+  // Play the audio when the mouse enters the vinyl
+  vinyl.addEventListener('mouseenter', () => {
+    audio.currentTime = 0; // Restart the audio from the beginning
+    audio.play();
+  });
+
+  // Pause the audio when the mouse leaves the vinyl
+  vinyl.addEventListener('mouseleave', () => {
+    audio.pause();
+  });
+});
+
+  const marker = document.querySelector(".map-marker1"); // Select the specific marker
+  const audio = document.getElementById("clickSound"); // Select the associated audio element
+
+
+  if (marker && audio) {
+    // Play the audio when hovering over the marker
+    marker.addEventListener("mouseenter", () => {
+      audio.currentTime = 0; // Restart the audio from the beginning
+      audio.play();
+    });
+
+    // Pause the audio when leaving the marker
+    marker.addEventListener("mouseleave", () => {
+      audio.pause();
+    });
+  }
+});
+// Select the Duck Image and the Audio Element
+const floatingDuck = document.getElementById("floatingDuck");
+const duckSound = document.getElementById("duckSound");
+
+// Play the sound when the duck image is clicked
+floatingDuck.addEventListener("click", () => {
+  duckSound.currentTime = 0; // Restart the audio
+  duckSound.play();
+});
+
+window.addEventListener("scroll", () => {
+  const algaeElements = document.querySelectorAll(".algae");
+  const bottomPoint = document.body.offsetHeight * 0.9;
+
+  if (window.innerHeight + window.scrollY >= bottomPoint) {
+    algaeElements.forEach((algae) => {
+      algae.classList.add("visible");
+      algae.classList.remove("exit"); // Remove exit animation if reappearing
+    });
+  } else {
+    algaeElements.forEach((algae) => {
+      algae.classList.remove("visible"); // Remove the visible class
+      algae.classList.add("exit"); // Add exit animation class
+    });
+  }
+});
+    </script>
   </body>
 </html>
