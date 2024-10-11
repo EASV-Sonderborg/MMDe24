@@ -1,46 +1,434 @@
-body{
+body {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  background-color: black;
+  background-image: url("images/alestormBackgroundImg.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: scroll;
+  min-height: 100vh;
+}
+.header__logo {
+  grid-row: 2;
+  text-align: center;
+  height: 200px;
+  width: 500px;
+}
+main {
+  /* Second row */
+  display: flex;
+  grid-row: 2;
+  flex-direction: row;
+  align-items: start;
+  padding: 50px 20px;
+}
+.rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  pointer-events: none; /* This allows for the animation to be just visual, and no intervention to clicking*/
+  z-index: 999; /* I am not taking any chances, max value so its raining over EVERYTHING*/
+  overflow: hidden;
+}
+
+/* Let's try Raindrops!!! */
+.raindrop {
+  position: absolute;
+  bottom: 100%; /* I think this makes it so its start animation is off-screen */
+  width: 1px; /* Thin property for a raindrop, we dont want bricks */
+  height: 80px; /* Length of the raindrop */
+  background: rgba(255, 255, 255, 0.5); /* Color of the raindrop!! */
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  to {
+    transform: translateY(100vh); /* Trajectory - from top to bottom */
+  }
+}
+.introContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Two columns: Skeleton (1fr), Text (2fr) */
+  align-items: center; 
+  gap: 20px; /* Space between skeleton and text */
+  margin: 50px auto; /* Center the entire container */
+  width: 50%; /* Limit container width, it also helped centering in the damned grid*/
+}
+.skeleton {
+  width: 250px; /* Adjust width as needed */
+  height: auto;
+  grid-column: 1; /* Place in the first column */
+  justify-self: center; /* Center the skeleton within its cell */
+  animation: talk 1s infinite alternate; /* Optional animation for talking effect */
+}
+@keyframes talk {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+.introText {
+  display: inline-block;
+  transform-origin: top-left;
+  font-family: "Pirata One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.7em;
+  line-height: 1.5;
+  padding: 20px;
+  background-image: url(images/pexels-pixabay-301378.jpg);
+  background-size: cover; /* Adjust texture to fit the box */
+  border: 3px solid #7c652a;
+  color: white;
+  top: 750px;
+  left: 750px;
+  width: 600px;
+  z-index: 1;
+  text-shadow: black 2px 2px;
+  animation: Hinge 2s ease-in-out forwards;
+  animation: slightHinge 2s ease-in-out forwards, sway 3s ease-in-out infinite;
+}
+@keyframes slightHinge {
+  0% {
+    transform: rotate(0deg); /* No rotation initially */
+  }
+  50% {
+    transform: rotate(-3deg); /* Slight rotation to the left */
+  }
+  100% {
+    transform: rotate(-2deg); /* A small, consistent hinge effect */
+  }
+}
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-2deg) translateY(0px); /* Initial position */
+  }
+  50% {
+    transform: rotate(-2deg) translateY(-5px); /* Move up slightly */
+  }
+}
+.treasure-map {
+  display: flex;
+  justify-self: center;
+  grid-row: 3;
+  grid-column: 1;
+  position: relative;
+  width: auto; /* Take full width of the section */
+  height: auto; /* Define the height of the map section */
+  overflow: hidden; /* Hide overflow to keep map neat */
+  border: 5px solid #7c652a;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  margin: 50px 0; /* Add space around the section */
+}
+.map {
+  width: 100%; /* Cover the entire width */
+  height: 100%; /* Cover the entire height */
+}
+.map-marker1 {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: url("images/shipwreck-575907_1280.png") no-repeat center;
+  background-size: contain;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+  z-index: 5;
+  display: flex; /* Use flex to center tooltip within marker */
+  align-items: center;
+  justify-content: center;
+  animation: pop 1s infinite alternate;
+}
+.map-marker2 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: url("images/pngtree-treasure-chest-illustration-png-image_9243267.png")
+    no-repeat center;
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+  background-size: contain;
+  cursor: pointer;
+  z-index: 5;
+  animation: pop 1s infinite alternate;
+}
+.map-marker3 {
+  position: absolute;
+  width: 350px; /* Increase width */
+  height: 350px; /* Increase height */
+  background: url("images/Island.png") no-repeat center;
+  background-size: contain;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+  cursor: pointer;
+  z-index: 5;
+  animation: pop 1s infinite alternate;
+}
+@keyframes pop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+.map-marker1::after,
+.map-marker2::after,
+.map-marker3::after {
+  content: attr(data-title); /* Use the custom attribute for tooltip text */
+  position: absolute;
+  top: -40px; /* Position tooltip above the marker */
+  left: 50%; /* Center the tooltip horizontally */
+  transform: translateX(-50%) translateY(10px); /* Offset to appear above */
+  background: rgba(0, 0, 0, 0.75); /* Dark semi-transparent background */
+  color: #fff; /* White text color */
+  padding: 5px 12px; /* Space inside tooltip */
+  border-radius: 8px; /* Rounded corners */
+  white-space: nowrap;
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* Prevent blocking interactions */
+  z-index: 10; /* Ensure it appears above other elements */
+  transition: all 0.3s ease-in-out; /* Smooth fade-in */
+}
+
+/* Tooltip Hover Effect for Each Marker */
+.map-marker1:hover::after,
+.map-marker2:hover::after,
+.map-marker3:hover::after {
+  opacity: 1; /* Show tooltip on hover */
+  transform: translateX(-50%) translateY(0); /* Move to position */
+}
+#floatingDuck {
+  position: fixed; /* Fixes the duck image to a specific position */
+  bottom: 20px; /* Position from the bottom */
+  right: 20px; /* Position from the right */
+  height: 80px; /* Small size */
+  width: auto; /* Maintain aspect ratio */
+  cursor: pointer; /* Change cursor to indicate it's clickable */
+  z-index: 999; /* Ensure it appears on top of other elements */
+
+  /* Bobbing Animation */
+  animation: bob 1.5s infinite ease-in-out; /* Animation name, duration, and loop */
+}
+
+/* Define the Bobbing Animation */
+@keyframes bob {
+  0%, 100% {
+    transform: translateY(0); /* Starting and ending position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move the image up slightly */
+  }
+}
+.navDuck {
+  position: fixed;
+  z-index: 2;
+  animation: move-duck linear;
+  animation-timeline: scroll(block root);
+}
+@keyframes move-duck {
+  0% {
+    left: calc(0% + 500px);
+    top: calc(0% + 750px);
+    scale: 1;
+    rotate: -25deg;
+  }
+  30% {
+    right: 500px;
+    top: 40%;
+  }
+  50% {
+    scale: 2;
+    rotate: 50deg;
+  }
+  70% {
+    left: 0;
+    top: calc(70% - 200px);
+    rotate: 180deg;
+  }
+  100% {
+    left: calc(100% - 200px);
+    top: calc(100% - 200px);
+    scale: 1;
+  }
+}
+h1 {
+  grid-row: 4; /* Place it in the second grid row, above the albums */
+  grid-column: 1 / span 2;/* Span across all columns */
+  text-align: center; /* Center text horizontally */
+  color: #2980b9;
+  margin-top: 50px;
+  width: auto;
+  font-family: "Pirata One", system-ui;
+  padding-top: 20px;
+  margin: 0 auto;
+  height: 0 auto;
+  text-shadow: white 2px 2px;
+  font-size: 4em;
+}
+.albums {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-self: center;
+  align-self: center;
+  transform: scale(0.6);
+  background-image: url(images/360_F_267112986_Pm82f8DJQXtyETYqmZd2dnSicXiGKxYa.jpg);
+  background-size: cover;
+  grid-row: 4;
+  grid-column: 1 / span 2; /* Span across both columns */
+  margin-top: 100px;
+  gap: 15rem;
+  margin: 0;
+  padding: 20px; /* Add some padding to adjust spacing */
+  border: 15px solid rgb(183, 40, 40);
+}
+.vinyl {
+  position: relative;
+  border-radius: 50px;
+  padding: 2rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.vinyl:hover {
+  background-color: #2980b9;
+}
+.vinyl:nth-child(1) {
+  background: linear-gradient(to right, #8c431b86, #8c431b3d);
+}
+.vinyl:nth-child(2) {
+  background: linear-gradient(to right, #55bec282, #55bec22b);
+}
+.vinyl:nth-child(3){
+  background: linear-gradient(to right, #30101182, #dfc45665);
+}
+.vinyl:nth-child(4){
+  background: linear-gradient(to right, #5736a182, #5736a165);
+}
+.vinyl__cover {
+  position: relative;
+  z-index: 2;
+  width: 500px;
+
+  border-radius: 8px;
+}
+.vinyl__cover--1 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #8c421b, 0 0 20px #8c421b,
+    0 0 40px #8c421b, 0 0 50px #8c421b;
+}
+.vinyl__cover--2 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #55bec2, 0 0 20px #55bec2,
+    0 0 40px #55bec2, 0 0 50px #55bec2;
+}
+.vinyl__cover--3 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #55bec2, 0 0 20px #55bec2,
+    0 0 40px #55bec2, 0 0 50px #55bec2;
+}
+.vinyl__cover--4 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #5736a1, 0 0 20px #5736a1,
+    0 0 40px #5736a1, 0 0 50px #5736a1;
+}
+.vinyl__disc {
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  z-index: 1;
+  overflow: hidden;
+  width: 500px;
+  border-radius: 50%;
+}
+.vinyl__disc--1 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #8c421b, 0 0 20px #8c421b;
+}
+.vinyl__disc--2 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #55bec2, 0 0 20px #55bec2;
+}
+.vinyl__disc--3 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #55bec2, 0 0 20px #55bec2;
+}
+.vinyl__disc--4 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #5736a1, 0 0 20px #5736a1;
+}
+.vinyl:hover > .vinyl__disc {
+  animation: slidein 1500ms cubic-bezier(0.22, 0.61, 0.36, 1) 0s 1 forwards;
+}
+@keyframes slidein {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(65%);
+  }
+}
+.wanted-poster-section {
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url(images/pexels-pixabay-301378.jpg);
+    background-size: cover;
+    border: 3px solid #7c652a;
+    grid-row: 3;
+    grid-column: 2;
+    justify-self: center;
+    align-self: flex-start;
+    gap: 20px;
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .poster {
+    text-align: center;
+    margin: 10px;
+    border: 2px solid #222;
+    padding: 10px;
+    background-image: url(images/Rustic\ Poster\ back.jpg);
+    background-size: cover;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .poster img {
+    width: 150px;
+    height: 200px;
+    border: 5px solid #222;
+  }
+  .poster:hover {
+    transform: scale(1.3) rotate(-8deg); /* Increase size and rotation */
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 215, 0, 1),
+      0 0 60px rgba(255, 165, 0, 0.9); /* Stronger shadow and glow */
+    background-color: #ffe4b2; /* Change to a bright, eye-catching background */
+    border-color: #ffcc00; /* Bright yellow border */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+      background-color 0.2s; /* Smooth hover animation */
+    z-index: 5; /* Bring hovered element to the very front */
+  }
+  .algae-container {
+    position: relative;
     width: 100%;
-    max-width: 1440px;
-    background-image: url('images/alestormBackgroundImg.png');
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: auto;
-    background-attachment: scroll;
-    min-height: 100vh;
+    height: 300px; /* Set a height for algae container */
+  }
+  .algae {
+    position: fixed;
+    bottom: -100px;
+    height: 200px;
+    width: auto;
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+    z-index: 999;
+  }
+  #algae1 { left: 10%; }
+  #algae2 { left: 80%; }
+  #algae3 { left: 20%; }
+  #algae4 { left: 40%; }
+  #algae5 { left: 60%; }
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateY(100px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
-.header__logo{
-    position: absolute;
-    top: 550px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    z-index: 1; 
-}
-.introText{
-    font-family: "Pirata One", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.5em;
-    color: white;
-    position: absolute;
-    top: 750px;
-    left: 750px;
-    width: 600px;
-    z-index: 1; 
-    text-shadow: black 2px 2px;
-}
-.stickyContainer{
-    height: 1500px;
-}
-.stickyDuck{
-    position: absolute;
-    top: 750px;
-    left: 25%;
-    width: 300px;
-    transition: position 400ms ease;
-} 
-/* Class added when scrolling, see script.js */
-.sticky {
-    position: sticky;
-    top: 0;
+
+.algae.visible {
+  animation: slideIn 1s ease-out forwards;
 }

@@ -1,0 +1,218 @@
+.homepage-body {
+  background-image: url(images/map/home_image.png);
+  background-size: 1700px;
+  background-color: black;
+  background-position: right; /* Centrerer billedet */
+  background-repeat: no-repeat; /* Undgår gentagninger */
+  margin: 0;
+}
+
+/* Section og label styling */
+.homepage-tutorial {
+  position: absolute;
+  top: 480px;
+  left: 150px;
+  width: auto; /* Justerer baseret på content inden i */
+  height: auto; /* Justerer baseret på content inden i */
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.homepage-tutorial__label {
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent baggrund */
+  position: absolute;
+  left: -80px;
+  top: 100px;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+  width: 350px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage-tutorial__label__text {
+  font-size: 20px;
+  font-family: "Germania One", system-ui;
+  text-align: left;
+  color: rgb(rgb(0, 0, 0));
+}
+/* Logo */
+nav {
+  position: absolute;
+  z-index: 4;
+  top: 20px;
+  left: 20px;
+}
+
+.logo {
+  height: 90px;
+  width: auto;
+}
+
+.lottie-div {
+  /*Position til JSON animation LOTTIE*/
+  position: absolute;
+  left: -70px;
+  bottom: 0px;
+  width: auto;
+  height: auto;
+}
+
+.dragon-container {
+  position: absolute;
+  left: 530px;
+  top: 110px;
+  width: 300px;
+  height: 200px;
+}
+.crow-container {
+  position: absolute;
+  left: 900px;
+  top: 80px;
+  width: 200px;
+  height: 200px;
+}
+.witch-container {
+  position: absolute;
+  left: 1200px;
+  top: 160px;
+  width: 250px;
+  height: 200px;
+}
+.bat-container {
+  position: absolute;
+  left: 1000px;
+  top: 400px;
+  width: 200px;
+  height: 200px;
+}
+.dragon-container__text {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  opacity: 0%;
+  font-family: "Germania One", system-ui;
+  font-size: 20px;
+  margin: 0px;
+  padding: 4px;
+  width: fit-content;
+  border-radius: 5px;
+  position: absolute;
+  left: 120px;
+  bottom: -20px;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-delay: 0.5ms;
+  transition: 0.3s all 0.3s;
+}
+.crow-container__text {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  opacity: 0%;
+  font-family: "Germania One", system-ui;
+  font-size: 20px;
+  padding: 4px;
+  width: fit-content;
+  border-radius: 5px;
+  position: absolute;
+  left: 100px;
+  top: 50px;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-delay: 0.5ms;
+  transition: 0.3s all 0.3s;
+}
+.witch-container__text {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  opacity: 0%;
+  font-family: "Germania One", system-ui;
+  font-size: 20px;
+  padding: 4px;
+  width: fit-content;
+  border-radius: 5px;
+  position: absolute;
+  left: 120px;
+  top: 50px;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-delay: 0.5ms;
+  transition: 0.3s all 0.3s;
+}
+.bat-container__text {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  opacity: 0%;
+  font-family: "Germania One", system-ui;
+  font-size: 20px;
+  padding: 4px;
+  width: fit-content;
+  border-radius: 5px;
+  position: absolute;
+  left: -55px;
+  top: 75px;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-delay: 0.5ms;
+  transition: 0.3s all 0.3s;
+}
+.dragon-container__text:hover {
+  opacity: 100%;
+}
+.crow-container__text:hover {
+  opacity: 100%;
+}
+.witch-container__text:hover {
+  opacity: 100%;
+}
+.bat-container__text:hover {
+  opacity: 100%;
+}
+.dragon-container__text:focus {
+  color: #9d3a06;
+}
+.crow-container__text:focus {
+  color: #9d3a06;
+}
+.witch-container__text:focus {
+  color: #9d3a06;
+}
+.bat-container__text:focus {
+  color: #9d3a06;
+}
+.dragon-img {
+  width: 150px;
+  height: auto;
+}
+.crow-img {
+  width: 120px;
+  height: auto;
+}
+.witch-img {
+  width: 150px;
+  height: auto;
+}
+.bat-img {
+  width: 150px;
+  height: auto;
+}
+.dragon-img:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5ms;
+}
+.crow-img:hover {
+  transform: scale(1.1);
+}
+.witch-img:hover {
+  transform: scale(1.1);
+}
+.bat-img:hover {
+  transform: scale(1.1);
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
+}

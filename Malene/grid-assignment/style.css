@@ -1,11 +1,25 @@
 html {
     scroll-behavior: smooth;
 }
+header{
+    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1f 1fr 1fr;
+    justify-content: end;
+}
+nav{
+
+    background-color: beige;
+    border-bottom: 2px solid rgb(148, 148, 138);
+    height: 20px;
+    justify-self: center;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
 
 img {
     max-width: 100%;
 }
-
 body {
     padding: 20px 15%;
     background-color: lightgray;

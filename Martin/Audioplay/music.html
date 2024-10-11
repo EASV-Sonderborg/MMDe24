@@ -1,0 +1,47 @@
+<!-- Background music element -->
+<audio id="background-music" autoplay loop>
+    <source src="The Battle of Roncevaux Pass.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  
+  <script>
+    // Get the audio element
+    const audio = document.getElementById('background-music');
+  
+    // Function to pause music on certain pages
+    function shouldPauseMusic() {
+      const pagesToPause = ['/page2.html']; // Add pages where you want to pause the music
+      const currentPath = window.location.pathname;
+      return pagesToPause.includes(currentPath);
+    }
+  
+    // Load and restore the playback state
+    window.addEventListener('load', () => {
+      const savedTime = localStorage.getItem('audioTime');
+      const isPlaying = localStorage.getItem('isPlaying') === 'true';
+  
+      // Restore the saved time if available
+      if (savedTime) {
+        audio.currentTime = savedTime;
+      }
+  
+      // Check if the music should be paused on this page
+      if (shouldPauseMusic()) {
+        audio.pause();
+        localStorage.setItem('isPlaying', 'false');  // Save the paused state
+      } else {
+        if (isPlaying) {
+          audio.play(); // Resume the music if it was playing on the previous page
+        } else {
+          audio.pause(); // Keep it paused if it was paused before navigation
+        }
+      }
+    });
+  
+    // Save the audio state (time and playing status) before the page is unloaded
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem('audioTime', audio.currentTime);
+      localStorage.setItem('isPlaying', !audio.paused);
+    });
+  </script>
+  
