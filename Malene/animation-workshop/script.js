@@ -1,4 +1,4 @@
-const playButton = document.querySelector('.playButton');
+/* const playButton = document.querySelector('.playButton');
 const pauseButton = document.querySelector('.pauseButton');
 const audioElement = new Audio('file.mp3');
 
@@ -8,4 +8,6 @@ playButton.addEventListener('click', (evt) => {
 
 pauseButton.addEventListener('click', (evt) => {
     audioElement.pause();
-});
+});*/
+
+// afspiller mp3-fil on load af siden:
