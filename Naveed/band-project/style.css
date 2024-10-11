@@ -303,6 +303,9 @@ h1 {
 .vinyl:nth-child(3){
   background: linear-gradient(to right, #30101182, #dfc45665);
 }
+.vinyl:nth-child(4){
+  background: linear-gradient(to right, #5736a182, #5736a165);
+}
 .vinyl__cover {
   position: relative;
   z-index: 2;
@@ -322,6 +325,10 @@ h1 {
   box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #55bec2, 0 0 20px #55bec2,
     0 0 40px #55bec2, 0 0 50px #55bec2;
 }
+.vinyl__cover--4 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #5736a1, 0 0 20px #5736a1,
+    0 0 40px #5736a1, 0 0 50px #5736a1;
+}
 .vinyl__disc {
   position: absolute;
   top: 40px;
@@ -339,6 +346,9 @@ h1 {
 }
 .vinyl__disc--3 {
   box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #55bec2, 0 0 20px #55bec2;
+}
+.vinyl__disc--4 {
+  box-shadow: 0 0 0 #fff, 0 0 10px #fff, 0 0 10px #5736a1, 0 0 20px #5736a1;
 }
 .vinyl:hover > .vinyl__disc {
   animation: slidein 1500ms cubic-bezier(0.22, 0.61, 0.36, 1) 0s 1 forwards;
