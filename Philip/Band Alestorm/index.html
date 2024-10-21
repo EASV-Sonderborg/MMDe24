@@ -81,6 +81,7 @@
             <div class="click-area right" onclick="nextPage()"><p>Next Page</p></div>
         </section>
     </section>
+
     <div class="Flipbook_Button">
         <button onclick="prevPage()"><img src="Media/Pil_Hvid.png" alt="Chevron Icon"></button>
         <button onclick="nextPage()"><img src="Media/Pil_Hvid.png" alt="Chevron Icon"></button>
@@ -266,8 +267,7 @@
             </div>
         </section>
     </section>
-    
-    
+     
     <section class="Shop_Wrapper" id="Shop">
         <div class="Shop_Top">
             <h2 >Featured Sailor Swag</h2>
@@ -299,7 +299,7 @@
             </section>
         </section>
     </section>
-
+ 
     <section class="Band_Wrapper">
         <section class="Band_Container">
             <input type="radio" name="slide" id="c1" checked>
@@ -360,6 +360,7 @@
                         <form action="/supmit-form">
                             <label for="Input_Name"></label>
                             <input type="text" id="Input_Name" placeholder="Enter your name..." required maxlength="50">
+                            <label for="Input_Surname"></label>
                             <input type="text" id="Input_Surname" placeholder="Enter your name..." required maxlength="50">
 
                             <label for="Input_Mail"></label>
@@ -367,7 +368,7 @@
                             <div class="Dropdown_Container">
                                 <label for="Contact_Dropdown">Why are u contacting us?</label>
                                     <select id="Contact_Dropdown">
-                                        <option value="Select_Default" selected>-- Select Topic --</option>
+                                        <option value="Select_Default" selected disabled>-- Select Topic --</option>
                                         <option value="Fan Mail">Fan Mail</option>
                                         <option value="Booking">Booking</option>
                                         <option value="Product Information">Product Information</option>
@@ -519,6 +520,7 @@ function prevPage() {
 showPage(currentPage);
 
     </script>
-    
+  
+  
 </body>
 </html>
