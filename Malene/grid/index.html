@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            box-sizing: border-box; 
+        }
+        section {
+            padding: 2rem;
+            border: 2px solid green;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 7rem;
+            column-gap: 2rem;
+            height: 100vh;
+        }
+        p {
+            grid-column: span 2;
+            text-align: center;
+            border: 5px solid red;
+            padding: 2rem;
+            width: 80%;
+            justify-self: center;
+        }
+        a {
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid black;
+            width: 50%;
+        }
+        .linkOne {
+            justify-self: end;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis aperiam soluta doloribus sunt nemo excepturi tenetur eligendi voluptatem et dicta!</p>
+        <a href="#" class="linkOne">Vej 1</a>
+        <a href="#">Vej 2</a>
+    </section>
+</body>
+</html>
