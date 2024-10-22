@@ -2,13 +2,12 @@
     padding: 0;
     margin: 0;
     overflow: hidden;
+    /* removes schrolling */
 }
 
 body{
     background: black;
 }
-
-
 
 /*making background image*/
 img{
@@ -44,7 +43,6 @@ opacity: 0;
 transform: scale(1);
 transition: opacity 4s ease-in-out;
 animation: fadeIn 4s forwards, pulse 4s ease-in-out infinite 2s;
-
 text-decoration: none;
 color: black;
 background-color: #aaaaaa9a;
@@ -61,6 +59,7 @@ position: absolute;
 border: solid rgb(0, 0, 0);
 transition: transform 0.2s ease-in-out;
 box-shadow: 7px 6px 7px rgb(23, 23, 23);
+border-radius: 20px;
 }
 
 @keyframes fadeIn {
