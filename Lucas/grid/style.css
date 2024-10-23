@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box; 
+}
+body{
+    background-color: black;
+}
+section{
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30rem;
+    column-gap: 2rem;
+    height: 100vh;
+    background-image: url(images/dragonCastle22.png); /* Add your image here */
+    background-size: cover; /* Scale the image to cover the whole section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    
+}
+p {
+    grid-column: span 2;
+    text-align: center;
+    border: solid white;
+    padding: 1rem;
+    width: 90%;
+    height: fit-content;
+    justify-self: center;
+    color: #e1e1e1;
+    background-color: rgba(0, 0, 0, 0.6); 
+    font-size: 90px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+font-family: "Island Moments";
+}
+
+a {
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid black;
+    width: 60%;
+    height: fit-content;
+}
+
+.journey__Choice{ 
+transform: scale(1);
+animation: fadeIn 4s forwards, pulse 4s ease-in-out infinite 2s;
+text-decoration: none;
+color: black;
+background-color: #aaaaaa9a;
+font-family: "Island Moments";
+font-size: 85px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+transition: transform 0.2s ease-in-out;
+box-shadow: 7px 6px 7px rgb(23, 23, 23);
+border-radius: 20px;
+
+}
+.journey__Choice:hover{
+    scale: 1.05;
+    transition: scale(2);
+    border: solid rgb(7, 225, 232);
+    color: rgb(0, 199, 244);
+    box-shadow: 0px 0px 50px rgb(0, 127, 136);
+    background-color: #7e7e7ef3;
+}
+
+.choice__path1 {
+    justify-self: end;
+}
+
+img {
+    position: relative;
+    z-index: -1;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+        scale: 0.9;
+        }
+
+    50%{
+        opacity: 0%;
+        scale: 0.9;
+    }
+    
+    100% {
+        opacity: 100%;
+        scale: 1;
+    }
+  }
+
+  /* Keyframes for pulsing effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+/* animation keyframes for anchors */
+@keyframes Starter {
+}
+
+@keyframes Starting {
+
+    from {
+        opacity: 0%;
+        }
+    
+    to {
+        opacity: 100%
+        }
+    }
