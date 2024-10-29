@@ -1,17 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .start{
     
 }
 
 .navBar{
+    background-color: #363636;
+}
 
+.navBar__logo{
+    align-self: center;
+    justify-self: center;
 }
 
 .navBar__items{
-
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    padding: 15px 16px;
+    align-items: center;
+    gap: 10px;
+    color: #D8D8D8;
 }
 
 .navBar__item{
+    font-family: "Inria Serif";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
+.navBar__link{
+    text-decoration: none;
+    color: #D8D8D8;
 }
 
 .hero{
