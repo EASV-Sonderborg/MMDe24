@@ -17,24 +17,32 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    gap: 20px;
+    padding: 5px 20px;
 }
 
 .menu {
     display: flex;
     flex-grow: 1;
     color: white;
-    gap: 110px;
+    gap: 0px;
+    justify-content: flex-start;
 }
 
 .menu__item {
     list-style-type: none;
+    flex: 1;
+    text-align: center;
+  }
+
+  .menu__item:nth-child(3) {
+    margin-left: auto;
+    margin-right: auto;
   }
 
 .menu__link {
     color: white;
     text-decoration: none;
+    position: relative;
 }
 
 .menu__link:link, .menu__link:visited {
@@ -43,8 +51,9 @@ body {
 }
 
 .menu__link:hover {
-    text-decoration: underline;
-    text-underline-offset: 10px
+    color: white;
+    border-bottom: 1px solid rgb(211, 171, 84);
+    padding-bottom: 3px;
 }
 
 .logo__image {
@@ -97,9 +106,9 @@ body {
 .hero__highlight__heading {
     font-size: 2rem;
     margin: 0;
-    letter-spacing: 2px;
     border-bottom: 1px solid rgba(255, 255, 255, 255);
     padding-bottom: 10px;
+    font-weight: normal;
 }
 
 .hero__highlight__contentText {
@@ -110,3 +119,52 @@ body {
 }
 
 /* Introduction Page */
+.introPage {
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgb(27, 27, 27);
+}
+
+.introPage__headingOne {
+    font-size: 3.5rem;
+    margin: 0;
+    margin-bottom: 0px;
+    color: rgb(239, 62, 53);
+    font-weight: normal;
+}
+
+.introPage__headingTwo {
+    font-size: 2.3rem;
+    margin: 40px 0 0 0;
+    color: white;
+    font-weight: normal;
+}
+
+.introPage__headingThree {
+    position: relative;
+    font-size: 1.2rem;
+    color: rgb(211, 171, 84);
+    font-weight: normal;
+}
+
+.introPage__headingThree::before {
+    content: "";
+    display: block;
+    width: 26%;
+    height: 2px;
+    background-color: rgb(211, 171, 84);
+    margin: 30px auto 46px;
+}
+
+.introPage__contentText {
+    color: white;
+    line-height: 1.5rem;
+    margin: 16px 500px;
+}
+
+.introPage__contentTextAlternate {
+    color: rgb(211, 171, 84);
+    margin-bottom: 40px;
+}
