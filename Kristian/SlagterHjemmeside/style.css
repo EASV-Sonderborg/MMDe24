@@ -9,6 +9,9 @@
 
 .navBar{
     background-color: #363636;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navBar__logo{
@@ -18,7 +21,7 @@
 
 .navBar__items{
     list-style: none;
-    display: flex;
+    flex-direction: row;
     justify-content: end;
     padding: 15px 16px;
     align-items: center;
