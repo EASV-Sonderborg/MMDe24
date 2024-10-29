@@ -1,0 +1,549 @@
+.body {
+    margin: 0px;
+    width: 100%;
+    scroll-snap-align: center;
+}
+.bodyBackGround{
+    background-image: url("images/Vaporbackground.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+.invHeader {
+    width: 100%;
+    height: 5px;
+
+}
+
+.profileIcon {
+    display: flex;
+    justify-content: flex-start;
+    height: 100px;
+    width: 100px;
+    position: relative;
+}
+
+
+.theNumber2 {
+    height: 100px;
+    width: 90px;
+    position: absolute;
+    
+}
+
+
+.theNumber2 {
+    animation: 2s infinite linear roll;
+}
+
+@keyframes roll {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+  h1 {
+    font-size: 80px;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+
+.iconImg {
+    width: 70%;
+    overflow: hidden;
+
+}
+.icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 230px;
+    padding: 10px;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 500%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #513D8E;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    padding: 20px;
+}
+.navBar{
+    display: flex;
+    justify-content: space-between ;
+    color: #513D8E;
+    align-items: center;
+    padding: 0;
+    width: 700px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+
+}
+.navBarItems{
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+
+.musicCards {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    
+}
+.musicCard{
+
+    
+    width: 800px;
+    height: 300px; 
+    backdrop-filter: blur(1px);
+    background: rgba(255, 251, 251, 0.50); 
+    margin: auto;
+    
+    
+    
+}
+.musicCardTitle {
+    padding-top: 20px;
+    padding-left: 20px;
+    
+    color: #513D8E;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    
+}
+
+
+.musicCardImg {
+    width: 100px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+
+.vaporwaveA1 {
+    margin-top: 20px;
+    height: 240px;
+    width: 775px;
+    margin-left: 20px;
+}
+
+.vaporwaveA2 {
+    margin-top: 20px;
+    height: 240px;
+    width: 775px;
+    margin-left: 10px;
+}
+
+
+.vaporwaveA3 {
+    margin-left: 25px;
+}
+
+.vaporwaveA4 {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+
+
+
+
+#slider {
+    margin: 0 auto;
+    width: 800px;
+    max-width: 100%;
+
+ }
+ #slider input[type=radio] {
+    display: none;
+ }
+ #slider label {
+    cursor:pointer;
+    text-decoration: none;
+ }
+ 
+ #overflow {
+    width: 100%;
+    overflow: hidden;
+ }
+ #slide1:checked ~ #slides .inner {
+    margin-left: 0;
+ }
+ #slide2:checked ~ #slides .inner {
+    margin-left: -100%;
+ }
+ #slide3:checked ~ #slides .inner {
+    margin-left: -200%;
+ }
+ #slide4:checked ~ #slides .inner {
+    margin-left: -300%;
+ }
+ #slides .inner {
+    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    width: 400%;
+    line-height: 0;
+    height: 300px;
+ }
+ #slides .slide {
+    width: 25%;
+    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+ }
+ 
+ #controls {
+    margin: -180px 0 0 0;
+    width: 100%;
+    height: 50px;
+    z-index: 3;
+    
+ }
+ #controls label {
+    transition: opacity 0.2s ease-out;
+    display: none;
+    width: 50px;
+    height: 50px;
+    opacity: .4;
+   
+ }
+ #controls label:hover {
+    opacity: 1;
+ }
+ #slide1:checked ~ #controls label:nth-child(2),
+ #slide2:checked ~ #controls label:nth-child(3),
+ #slide3:checked ~ #controls label:nth-child(4),
+ #slide4:checked ~ #controls label:nth-child(1) {
+    float:right;
+    margin: 0 -50px 0 0;
+    display: block;
+ }
+ #slide1:checked ~ #controls label:nth-last-child(2),
+ #slide2:checked ~ #controls label:nth-last-child(3),
+ #slide3:checked ~ #controls label:nth-last-child(4),
+ #slide4:checked ~ #controls label:nth-last-child(1) {
+    float:left;
+    margin: 0 0 0 -50px;
+    display: block;
+    z-index: 100;
+ }
+ #bullets {
+    margin: 150px 0 0;
+    text-align: center;
+ }
+ #bullets label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius:100%;
+    background: #ccc;
+    margin: 0 10px;
+ }
+ #slide1:checked ~ #bullets label:nth-child(1),
+ #slide2:checked ~ #bullets label:nth-child(2),
+ #slide3:checked ~ #bullets label:nth-child(3),
+ #slide4:checked ~ #bullets label:nth-child(4) {
+    background: #444;
+ }
+
+
+
+
+
+ /* part 2 */
+
+
+ #slide5:checked ~ #slides .inner {
+    margin-left: 0;
+ }
+ #slide6:checked ~ #slides .inner {
+    margin-left: -100%;
+ }
+ #slide7:checked ~ #slides .inner {
+    margin-left: -200%;
+ }
+ #slide8:checked ~ #slides .inner {
+    margin-left: -300%;
+ }
+
+ #slide5:checked ~ #controls label:nth-child(2),
+ #slide6:checked ~ #controls label:nth-child(3),
+ #slide7:checked ~ #controls label:nth-child(4),
+ #slide8:checked ~ #controls label:nth-child(1) {
+    float:right;
+    margin: 0 -50px 0 0;
+    display: block;
+ }
+
+
+ #slide5:checked ~ #controls label:nth-last-child(2),
+ #slide6:checked ~ #controls label:nth-last-child(3),
+ #slide7:checked ~ #controls label:nth-last-child(4),
+ #slide8:checked ~ #controls label:nth-last-child(1) {
+    float:left;
+    margin: 0 0 0 -50px;
+    display: block;
+    z-index: 100;
+ }
+
+
+ #slide5:checked ~ #bullets label:nth-child(1),
+ #slide6:checked ~ #bullets label:nth-child(2),
+ #slide7:checked ~ #bullets label:nth-child(3),
+ #slide8:checked ~ #bullets label:nth-child(4) {
+    background: #444;
+ }
+
+ #bullets2 {
+    margin: 150px 0 0;
+    text-align: center;
+ }
+ #bullets2 label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius:100%;
+    background: #ccc;
+    margin: 0 10px;
+ }
+
+ #controls2 {
+    margin: -180px 0 0 0;
+    width: 100%;
+    height: 50px;
+    z-index: 3;
+    
+ }
+ #controls2 label {
+    transition: opacity 0.2s ease-out;
+    display: none;
+    width: 50px;
+    height: 50px;
+    opacity: .4;
+   
+ }
+
+
+
+
+/* Det var slideren */
+ 
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.vaporCard {
+    width: 772px;
+    height: 354px;
+    flex-shrink: 0;
+    background: rgba(255, 251, 251, 0.50);
+    backdrop-filter: blur(1px);
+    margin: auto;
+    margin-bottom: 300px;
+}
+.vaporCardTit {
+    color: #513D8E;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: auto;
+    padding: 10px;
+    height: 50px;
+    width: auto;
+    font-size: xx-large;
+}
+.vaporCardMerch {
+
+    width: 772px;
+    height: 354px;
+    flex-shrink: 0;
+    background: rgba(255, 251, 251, 0.50);
+    backdrop-filter: blur(1px);
+    margin: auto;
+    margin-bottom: 300px;
+
+}
+.vaporCardTitMerch {
+    color: #513D8E;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: auto;
+    padding: 10px;
+    height: 50px;
+    width: auto;
+    font-size: xx-large;
+
+}
+.vaporCardInfo {
+    width: 772px;
+    height: 354px;
+    background: rgba(255, 251, 251, 0.50);
+    backdrop-filter: blur(1px);
+    margin: auto;
+    margin-bottom: 300px;
+
+}
+.vaporCardInfoImg{
+    width: 120px;
+    height: 120px;
+    padding-left: 20px;
+    
+}
+.vaporCardTitInfo {
+    padding-top: 20px;
+    padding-left: 20px;
+    color: #513D8E;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 50px;
+    width: 100%;
+}
+.vaporCardInfoContent{
+    display: flex;
+    width: 620px;
+    height: 80px;
+    flex-shrink: 0;
+}
+.infos {
+    padding: 20px;
+
+}
+.info{
+    list-style: none;
+    color: #513D8E;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+}
+
+.vaporCardContact {
+    width: 772px;
+    height: 354px;
+    background: rgba(255, 251, 251, 0.50);
+    backdrop-filter: blur(1px);
+    margin: auto;
+    margin-bottom: 300px;
+
+}
+.vaporCardContactImg{
+    width: 120px;
+    height: 120px;
+    padding-left: 20px;
+    
+}
+.vaporCardTitContact {
+    padding-top: 20px;
+    padding-left: 20px;
+    color: #513D8E;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 50px;
+    width: 100%;
+}
+.vaporCardContactContent{
+    display: flex;
+    width: 620px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    
+}
+.footerButton {
+    border-radius: 15px;
+    background: rgba(255, 251, 251, 0.50);
+    backdrop-filter: blur(1px);
+    padding: 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #513D8E;
+    font-size: medium;
+
+}
+.aboutButton {
+    margin-left: 10px;
+    
+
+}
+.contactButton {
+    margin-left: 10px;
+}
+.copyrightButton {
+    margin-left: auto; 
+}
+.footerBox {
+    width: 95%;
+    padding: 10px;
+}
+.navBarItem{
+    text-decoration: none;
+}
+
+
+/* Her er audio player som vi lavede udfra et eksempel på internettet */
+
+
+.audio-player {
+    width: 300px;
+    margin: 20px;
+    
+}
+
+audio::-webkit-media-controls-panel {
+    background: linear-gradient(90deg, rgba(222,153,253,1) 0%, rgba(96,253,231,1) 50%, rgba(223,138,163,1) 100%);
+}
+
+audio::-webkit-media-controls-play-button {
+    background-color: #513D8E;
+    border-radius: 100%;
+}
+
+audio::-webkit-media-controls-play-button:hover {
+    background-color: #8f7bc9;
+    border-radius: 100%;
+}
