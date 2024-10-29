@@ -225,7 +225,6 @@ h1 {
   -2px -2px 5px rgba(255, 255, 255), /* top-left */
   -2px 2px 5px rgba(255, 255, 255), /* bottom-left */
   2px -2px 5px rgba(255, 255, 255); /* top-right */
-
   font-size: 4em;
 }
 .albums {

@@ -1,0 +1,145 @@
+body{
+    background-color: black;
+    color: white;
+    margin: 0;
+}
+
+.header{
+    background-color: black;
+}
+
+.header__logo{
+    margin-right: auto;
+}
+
+.navBar{
+    display: flex;
+    justify-content: end;
+}
+
+.navBar__menu{
+    display: flex;
+    gap: 2em;
+    list-style: none;
+    margin-right: 30px;
+    align-items: center;
+
+}
+
+.navBar__menu--item{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+.hero {
+    height: 80vh;
+    background-image: url(images/footer-newsletter-bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    /* Det burde løses med grid, hvor background image har span 2 og man placere texten i første grid*/
+}
+
+
+
+.hero__headline{
+    font-size: 50px;
+    padding-left: 100px;
+}
+
+.products{
+
+}
+
+.intro{
+    background-color: black;
+    opacity: 75%;
+    background-image: url(images/roast.png);
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro__textbox{
+    background-color: rgba(0, 0, 0, 0.8);
+height: fit-content;
+width: 60%;
+display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+
+}
+
+.intro__title{
+color: red;
+font-size: 30px;
+}
+
+.intro__text{
+font-size: 20px;
+color: white;
+}
+
+footer{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+justify-content: space-between;
+justify-items: center;
+
+}
+
+footer{
+    padding-bottom: 10px;
+}
+
+.footer__find{
+
+}
+
+.footer__openingHours{
+
+}
+
+.footer__grid{
+display: grid;
+grid-template-columns: 1fr 1fr;
+margin: 0;
+}
+
+.footer__grid--dates{
+    margin: 5px 0px 5px 0px;
+}
+
+.footer__title{
+    color: red;
+}
+
+.footer__info{
+
+}
+
+a:link{
+    text-decoration: none;
+    color: white;
+}
+a:visited{
+    text-decoration: none;
+    color: white;
+}
+.navBar__menu a:hover{
+    color: red;
+    order-bottom: 2px solid red;
+}
