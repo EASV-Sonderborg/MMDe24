@@ -1,0 +1,30 @@
+header{
+display: flex;
+justify-content: space-between;
+align-items: start;
+
+}
+
+menu{
+
+}
+
+.cart{
+height: 50px;
+}
+
+footer{
+
+}
+
+.logo{
+size: 50px;
+}
+
+body{
+    background-color: #2F2F2F;
+}
+
+infomation{
+
+}
