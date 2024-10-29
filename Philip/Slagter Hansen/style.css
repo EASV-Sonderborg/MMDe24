@@ -82,17 +82,9 @@ body    {
     object-position: top;
     box-shadow: 0 4px 40px black;
 }
-/* .Hero_Logo  {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: auto;
-    filter: drop-shadow(0 0 20px black);
-} */
 
-.Hero_Background    {
+
+.Intro_Background    {
     width: 100vw;
     height: auto;
     background-color: #0D0D0D;
@@ -102,7 +94,7 @@ body    {
 
 
 
-.Hero_Content   {
+.Intro_Content   {
     color: white;
     width: 900px;
     max-width: 1200px;
@@ -111,35 +103,42 @@ body    {
 }
 
 @media screen and (max-width: 1400px) {
-    .Hero_Content   {
+    .Intro_Content   {
         width: 65vw;
         max-width: 900px;
     }
 }
 
-.Hero_Header    {
+.Intro_Header    {
     font-family: var(--font-Header);
     font-size: 2rem;
 }
 
-.Hero_Hightlight   {
+.Intro_Hightlight   {
     color: var(--lightred-color);
 }
 
-.Hero_List  {
+.Intro_List  {
     padding: 20px;
     line-height: 2rem;
 }
 
-.Hero_List_Item {
+.Intro_List_Item {
     font-family: var(--font-Default);
     font-size: 1rem;
 }
 
-.Hero_MainText  {
+.Intro_MainText  {
     font-family: var(--font-Default);
     font-size: 1rem;
     line-height: 2rem;
+}
+.Intro_Outro    {
+    font-family: var(--font-Default);
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--lightred-color);
+    text-transform: uppercase;
 }
 
 .Product_Header_Background  {
