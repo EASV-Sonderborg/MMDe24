@@ -7,6 +7,7 @@
     
 }
 
+/* Styling of navigation bar */
 .navBar{
     background-color: #363636;
     display: flex;
@@ -28,7 +29,7 @@
     justify-content: end;
     padding: 15px 16px;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     color: #D8D8D8;
 }
 
@@ -45,6 +46,7 @@
     color: #D8D8D8;
 }
 
+/* Styling of hero section */
 .hero{
     display: flex;
     background: url(images/hero\ \(1\).png);
@@ -58,21 +60,210 @@
     line-height: norma;
     background-size: 100%;
     min-height: 200px;
+    padding: 10%;
 }
+
 
 .hero__text{
     align-self: center;
     justify-self: center;
 }
 
+/* Styling of intro text section */
 .intro{
-
+    background: #222222 url(images/intro__bgImg.png);
+    background-size: 100%;
 }
 
+.intro:not(.intro__logo){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 3% 20% 3% 20%;
+    }
+
+.intro__logo{
+    height: 50%;
+    width: 50%;
+    align-self: center;
+}
+
+.intro__titleText{
+    color: #F0F0F0;
+    font-family: "Inria Serif";
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 3%;
+}
+
+.intro__breadText{
+    color: #D8D8D8;
+font-family: "Inria Serif";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-bottom: 3%;
+}
+
+.intro__textEnd{
+    color: #D8D8D8;
+font-family: "Inria Serif";
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+align-self: center;
+}
+
+/* Styling of products section */
 .products{
+    background: #5f2021;
+    color: #D8D8D8;
+    font-family: "Inria Serif";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100vh 10vh;
+    padding: 2%;
+    gap: 1%;
+}
+
+.product{
+    justify-items: center;
+    padding: auto;
+}
+
+.product__title{
+    padding-bottom: 5%;
+}
+
+.product__img{
+    padding-bottom: 5%;
+}
+
+.product__description{
+    align-self: center;
+}
+
+.product__price{
+    grid-column: 2;
+    text-decoration: none;
+    color: #363636;
+    padding: 20px;
+    background-color: #D8D8D8;
+    border-radius: 6px;
+}
+
+/*---------------------------------------------------*/
+
+/*Footer*/
+.info{
+    background: #441818e7 url(images/footer_img.png);
+    background-size: 100%;
+}
+
+.info__content{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 2%;
+    gap: 1%;
+}
+
+/*Opening hours*/
+.info__timeList{
+    display: flex;
+    gap: 1%;
+    grid-column: 1;
+}
+
+.info__hoursTitle{
+    color: #D8D8D8;
+font-family: "Inria Serif";
+font-size: 24px;
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+}
+
+.info__weekDays{
+    list-style: none;
+    color: #D8D8D8;
+font-family: "Inria Serif";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.info__weekDay{
 
 }
 
-.info{
+.info__openPeriods{
+    list-style: none;
+    color: #D8D8D8;
+font-family: "Inria Serif";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
 
+.info__openPeriod{
+
+}
+
+/*Find us info*/
+.info__findOs{
+    display: flex;
+    color: #D8D8D8;
+    font-family: "Inria Serif";
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal; 
+    grid-row: 0 2;
+}
+
+.info__findInfo{
+    list-style: none;
+    color: #D8D8D8;
+font-family: "Inria Serif";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+grid-column: 2;
+}
+
+.info__findItem{
+
+}
+
+/*Terms and conditions*/
+.info__terms{
+    color: #D8D8D8;
+    font-family: "Inria Serif";
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.info__readMore{
+    list-style: none;
+    color: #D8D8D8;
+font-family: "Inria Serif";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
