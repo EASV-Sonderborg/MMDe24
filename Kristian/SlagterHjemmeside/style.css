@@ -46,7 +46,15 @@
 }
 
 .hero{
-
+    background: url(images/hero\ \(1\).png);
+    color: #FFF;
+    text-align: center;
+    font-family: "Inria Serif";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-size: 100%;
 }
 
 .intro{
