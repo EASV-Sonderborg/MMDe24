@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root   {
-/* --grey-color: #202020;  */
+--lightgrey-color: #202020; 
 --grey-color: #0D0D0D; 
 --lightred-color: #EF3E35;
---darkred-color: #7F1D1D;
+--darkred-color: #7A1C1C;
 
 --font-Header: "Playfair Display SC", serif;
 --font-Default: "Playfair Display", serif;
@@ -56,6 +56,7 @@ body    {
     margin: 0;
     text-decoration: none;
     font-family: var(--font-Menu);
+    padding: 0 20px;
 }
 
 .Nav_List_Item a:hover  {
@@ -142,10 +143,10 @@ body    {
 }
 
 .Product_Header_Background  {
-    background-color: #7A1C1C;
+    background-color: var(--darkred-color);
     display: flex;
     align-items: center;
-    margin: 50px 0px;
+    margin: 50px 0px 0;
 }
 
 .Productpage_Header {
@@ -154,6 +155,11 @@ body    {
     font-size: 2rem;
     width: 100%;
     text-align: center;
+}
+
+.Product_Background {
+    background-color: var(--lightgrey-color);
+    padding-top: 50px;
 }
 
 .Products    {
@@ -174,7 +180,7 @@ body    {
 .Product_Card    {
     display: flex;
     flex-direction: column;
-    background-color: #7A1C1C;
+    background-color: var(--grey-color);
     overflow: hidden;
     width: 350px;
     height: 100%;
@@ -189,8 +195,8 @@ body    {
 
 
 .Product_Textbox   {
-    padding: 0 20px 20px;
-    color: white;
+    padding: 0 20px;
+    color: var(--lightred-color);
     flex: 1;
 }
 
@@ -198,7 +204,7 @@ body    {
     font-family: var(--font-Header);
     font-size: 1.5rem; 
     margin: 10px 0;
-    height: 60px;
+    height: 80px;
 }
 
 .Product_Info   {
@@ -224,7 +230,7 @@ body    {
 .Product_Buy_Button {
     padding: 0px 20px;
     height: 40px;
-    background-color: var(--grey-color);
+    background-color: var(--lightred-color);
     font-family: var(--font-Default);
     color: white;
     text-align: center;
@@ -247,6 +253,7 @@ body    {
     display: flex;
     padding: 20px 50px 20px;
     justify-content: space-between;
+    align-items: center;
     box-shadow: 0 0 4px black;
     border-top: 10px solid;
     border-color: var(--lightred-color);
