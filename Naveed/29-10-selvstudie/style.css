@@ -24,13 +24,19 @@ section:not(footer){
     padding: 20px;
 }
 /* header */
+header{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+}
 .navBar{
-    background-color: #3333331e;
+    background-color: #333333;
     display: grid;
     grid-template-columns: 300px 1fr 300px; /* apply grid to navBar and define sizes so that the menu is centered*/
     align-items: center;
     justify-items: center;
-    border-bottom: 2px solid #D3AB54;
+    box-shadow: 0 0 4px black;
 }
 .navBar__menu{
     margin: 0;
