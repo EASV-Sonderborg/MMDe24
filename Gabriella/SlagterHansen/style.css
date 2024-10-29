@@ -1,0 +1,94 @@
+.homeBody {
+  background-color: FFFAD1;
+}
+.navBar__ul {
+  list-style: none;
+  padding-top: 15px;
+  margin: 0px;
+  gap: 50px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: center;
+}
+.navbar__a {
+  text-decoration: none;
+  color: inherit;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+}
+.cartSVG {
+  width: 20px;
+  height: 20px;
+}
+.introduction {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  align-items: center;
+  justify-items: center;
+}
+.introduction__header {
+  font-size: 30px;
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.introduction__text {
+  font-size: 16px;
+  font-family: "Noto Sans", sans-serif;
+  text-align: justify;
+  margin: 100px;
+  line-height: 1.5;
+}
+
+.wineImage {
+  width: 413px;
+  height: 540px;
+  border-radius: 5px;
+}
+
+.productCards__header {
+  font-size: 25px;
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid__item {
+  width: 370px;
+  height: 400px;
+  padding: 20px;
+  background-color: #1e1e1e;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.grid__item__header {
+  color: white;
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+.grid__item__text {
+  color: white;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+}
+.grid__item__price {
+  color: white;
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  display: flex;
+}
