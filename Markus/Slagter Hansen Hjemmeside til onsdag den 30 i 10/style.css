@@ -1,0 +1,209 @@
+body {
+    background-color: black;
+    overflow-x: hidden;
+    margin: auto;
+}
+
+
+* {
+    color: white;
+}
+
+/*Mine transperante baggrunde til de forskellige section.*/
+
+.stegSelvMenu__Background {
+    background-image: url(images/stegSelvMenu__Background.png);
+    
+}
+
+.tider__Background {
+    background-image: url(images/tider__Background.png);
+}
+
+.footer__Background {
+    background-image: url(images/footer__Background.png);
+}
+
+
+/*alt inde for min navigations bar og logo*/
+.headBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(45, 41, 41);
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.headBar__Logo {
+    height: 100px;
+    justify-self: flex-start;
+    margin-left: 10px;
+}
+
+.navBar__Items {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    list-style: none;
+    margin-right: 80px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Her laver jeg lidt styling og placering af titlen på siden*/
+
+.head__Title {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+
+/* Her begynder jeg på min første info tekst*/
+
+.infoBox {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(45, 41, 41);
+    margin-right: 40px;
+    margin-left: 40px;
+    padding-left: 20px;
+    margin-bottom: 60px;
+}
+
+.infoBox__Text{
+   display: flex;
+   flex-direction: column;
+   font-size: 20px;
+}
+
+.infoBox__Picture {
+    width: 50%;
+}
+
+
+/* her begynderj eg på mine produkt kort*/
+
+.head__Title--Product {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 40px;
+}
+
+
+.productCards {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    justify-content: center;
+}
+
+
+.productCard {
+    background-color: rgb(45, 41, 41);
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.productCard__Text {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.productCard__Text--Header {
+    font-size: 30px;
+}
+
+/* jeg havde lidt problemer med at få mine prices til at være den rigtige størrelse, jeg kunne ikke få "flex-grow" til at virke*/
+.productCard__Price {
+    flex-grow: 1;
+    background-color: rgb(200,248,7);
+    align-self: center;
+    border-radius: 20px;
+    padding: 10px;
+    color: black;
+}
+
+
+/* Her laver jeg på selve steg menu kortet*/
+
+.head__Title--stegSelv {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 40px;
+}
+
+
+.productCard__stegSelv {
+    display: flex;
+    flex-direction: row;
+    margin-right: 40px;
+    margin-left: 40px;
+    padding-left: 20px;
+    margin-bottom: 60px;
+}
+
+.productCard__stegSelv--Text {
+    display: flex;
+   flex-direction: column;
+   font-size: 20px;
+   background-color: rgb(45, 41, 41);
+   padding: 20px;
+}
+
+.productCard__stegSelv--Pictures {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.productCard__stegSelv--Picture {
+    width: 40%;
+}
+
+.productCard__stegSelv--Title {
+    font-size: 30px;
+}
+
+/* her er css'en for åbeningstider*/
+
+.tider__Skema {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.882);
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+h5 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+/* her laver jeg min footer med kontakt info og de ting Slagter hansen ellers gerne ville have i sin footer*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    font-size: 20px;
+}
+
+.footer__Copyright {
+    display: flex;
+    justify-content: center;
+    margin-right: 40px;
+}
