@@ -1,0 +1,102 @@
+body{
+    background-color: #333;
+    color:white;
+    margin: 0;
+    padding: 0;
+}
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+.navBar__menu{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2em;
+    list-style: none;
+    align-items: center;
+}
+.navBar__menu--item{
+    font-size: 20px;
+}
+.navBar__menu--logo{
+    padding-left: 50px;
+}
+.navBar__menu--basket{
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+.hero{
+    height: 100vh;
+    background-image: 
+    linear-gradient(90deg, black 0%, rgba(0, 0, 0, 0.08) 100%),
+    url(images/hero__background.png);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    justify-items: center;
+}
+.hero__title{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 50px;
+}
+.hero__title--highlight{
+    font-size: 32px;
+    font-weight: 700;
+    color: #D3AB54;
+}
+.intro{
+    position: relative;
+    color: white;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+
+}
+.intro::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/roast.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
+    filter: blur(2px);
+}
+.intro__title{
+    display: flex;
+    justify-content: center;
+    color: #D3AB54;
+    padding: 20px;
+    margin: 0;
+    text-shadow:
+    2px 2px 2px #333,
+    -2px -2px 2px #333,
+    -2px 2px 2px #333,
+    2px -2px 2px #333; 
+}
+.intro__title--top{
+    font-size: 32px;
+}
+.intro__title--bottom{
+    font-size: 24px;
+}
+.intro__text{
+    padding: 8px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 1024px;
+    margin: auto;
+}
+.intro__text p{
+    margin: 16px 8px 16px 8px;
+}
