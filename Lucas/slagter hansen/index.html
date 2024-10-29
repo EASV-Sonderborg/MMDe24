@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navBar">
             <a href="#" class="header__logo">
-                <img src="images/logo.png" alt="Slagter Hansen logo">
+                <img class="logo" src="images/logo.png" alt="Slagter Hansen logo">
             <ul class="navBar__menu">
                 <li class="navBar__menu--item"><a href="#">Forside</a></li>
                 <li class="navBar__menu--item"><a href="#">Online bestilling</a></li>
@@ -25,6 +28,49 @@
             <h2 class="hero__headline">Velkommen hos Slagter Hansen</h2>
             <h2 class="hero__headline">SLAGTER - DELI - BAGER</h2>
         </section>
+
+        <section>
+            <h2 class="products__title">Anbefalede produkter</h2>    
+        </section>
+
+        <section class="products">
+            <section class="product">
+                <img src="images/Sandwich.png" alt="smækkerlækker sandwich">
+                <h2 class="product__title">Hansens favoritsandwich</h2>
+                <p class="product__description">Hansens favoritsandwich
+                    m. rosastegt chili & rødvins marineret tykstegsfilet m/grøn pesto, krabbes hjemmelavet sprøde bacon, sprød salat og syltede rødløg</p>
+                <p class="product__price">65,-</p>
+            </section>
+
+            <section class="product">
+                <img src="images/Stegselv.png" alt="">
+                <h2 class="product__title">Steg selv menu 1</h2>
+                <p class="product__description">Indeholder: <br>
+                    - Marineret svinemørbrad <br>
+                    - Vildtkrydret kalveculotte <br>
+                    - Flødekartofler og små mexicansk krydret kartofler
+                    <br>
+                    - Hjemmelavet broccolisalat
+                    <br>
+                    - Pastasalat
+                    <br>
+                    - Årstidens salat
+                    <br>
+                    - Dressing <br>
+                    - Flutes <br>
+                    Maden afhentes kold og klar til nem tilberedning</p>
+                <p class="product__price">130,-</p>
+            </section>
+
+            <section class="product">
+                <img src="images/Friiies.png" alt="">
+                <h2 class="product__title">Chili fries</h2>
+                <p class="product__description">Fåes i størrelserne mellem og stor.
+                    Inkl. 2 slags valgfri dip.</p>
+                <p class="product__price">35,-</p>
+            </section>
+        </section>
+
         <section class="intro">
             <article class="intro__textbox">
                 <h2 class="intro__title">Friskskåret kød og hjemmelavede delikatesser af fineste kvalitet</h2>
@@ -37,6 +83,7 @@
             <h2 class="intro__title">Rigtig god fornøjelse med din shopping.</h2>
             </article>
         </section>
+
     </main>
     <footer>
         <section class="footer__find">
