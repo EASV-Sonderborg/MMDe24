@@ -1,0 +1,169 @@
+.homeBody {
+  background-color: FFFAD1;
+}
+.headerImg {
+  width: 1500px;
+  height: 543px;
+  padding: 0px;
+  margin: 0px;
+}
+.headerLogo {
+  display: flex;
+}
+.navBar__ul {
+  list-style: none;
+  font-weight: 700;
+  padding-top: 15px;
+  margin: 0px;
+  gap: 50px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: center;
+}
+.navbar__a {
+  text-decoration: none;
+  color: inherit;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+}
+.cartSVG {
+  width: 20px;
+  height: 20px;
+}
+.introduction {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  align-items: center;
+  justify-items: center;
+}
+.introduction__header {
+  font-size: 30px;
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  color: #441d1d;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.introduction__text {
+  font-size: 16px;
+  font-family: "Noto Sans", sans-serif;
+  color: #1e1e1e;
+  text-align: justify;
+  margin: 100px;
+  line-height: 1.5;
+}
+
+.wineImage {
+  width: 413px;
+  height: 540px;
+  border-radius: 5px;
+}
+
+.productCards__header {
+  font-size: 30px;
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  color: #441d1d;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-left: 50px;
+}
+
+.grid__item {
+  width: 370px;
+  height: 400px;
+  padding: 20px;
+  background-color: #1e1e1e;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.grid__item__header {
+  color: white;
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+.grid__item__text {
+  color: white;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 16px;
+}
+.grid__item__price {
+  color: white;
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  display: flex;
+}
+.imagesGrid {
+  display: grid;
+  justify-content: space-around;
+  padding-top: 55px;
+  padding-bottom: 35px;
+  gap: 20px;
+}
+.buffetImg {
+  width: 900px;
+  height: 500px;
+  opacity: 50%;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition on hover */
+}
+.buffetImg:hover {
+  opacity: 100%;
+}
+.barbecueImg {
+  width: 450px;
+  height: 250px;
+  opacity: 50%;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+.barbecueImg:hover {
+  opacity: 100%;
+}
+
+.roastchickenImg {
+  width: 300px;
+  height: 150px;
+  opacity: 50%;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+.roastchickenImg:hover {
+  opacity: 100%;
+}
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  line-height: 2;
+  padding-left: 100px;
+  padding-top: 30px;
+  background-color: 441D1D;
+}
+.openingHours {
+  font-family: "Noto Sans", sans-serif;
+  color: #f1ecc3;
+}
+.locationText {
+  font-family: "Noto Sans", sans-serif;
+  color: #f1ecc3;
+}
+.paymentPolicy {
+  font-family: "Noto Sans", sans-serif;
+  color: #f1ecc3;
+}
+.payment {
+  font-family: "Noto Sans", sans-serif;
+  color: #f1ecc3;
+}
