@@ -1,0 +1,170 @@
+/* Body & Fonts */
+body {
+    font-family: "Handlee";
+    background-color: rgb(39, 39, 39);
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+@font-face {
+    font-family: "Handlee";
+    src: url("Fonts/handlee-regular.ttf");
+}
+
+
+/* Header & Navigation */
+.header__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+}
+
+.menu {
+    display: flex;
+    flex-grow: 1;
+    color: white;
+    gap: 0px;
+    justify-content: flex-start;
+}
+
+.menu__item {
+    list-style-type: none;
+    flex: 1;
+    text-align: center;
+  }
+
+  .menu__item:nth-child(3) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.menu__link {
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.menu__link:link, .menu__link:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.menu__link:hover {
+    color: white;
+    border-bottom: 1px solid rgb(211, 171, 84);
+    padding-bottom: 3px;
+}
+
+.logo__image {
+    height: 60px;
+    width: auto;
+    margin-top: 10px;
+}
+
+.cart {
+    height: 22px;
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.hero__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5)
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%,rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0) 40%);
+    z-index: 0;
+}
+
+.hero__highlight {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    z-index: 1;
+    color: white;
+    max-width: 440px;
+}
+
+.hero__highlight__heading {
+    font-size: 2rem;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 255);
+    padding-bottom: 10px;
+    font-weight: normal;
+}
+
+.hero__highlight__contentText {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    padding-top: 10px;
+    line-height: 1.5;
+}
+
+/* Introduction Page */
+.introPage {
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgb(27, 27, 27);
+}
+
+.introPage__headingOne {
+    font-size: 3.5rem;
+    margin: 0;
+    margin-bottom: 0px;
+    color: rgb(239, 62, 53);
+    font-weight: normal;
+}
+
+.introPage__headingTwo {
+    font-size: 2.3rem;
+    margin: 40px 0 0 0;
+    color: white;
+    font-weight: normal;
+}
+
+.introPage__headingThree {
+    position: relative;
+    font-size: 1.2rem;
+    color: rgb(211, 171, 84);
+    font-weight: normal;
+}
+
+.introPage__headingThree::before {
+    content: "";
+    display: block;
+    width: 26%;
+    height: 2px;
+    background-color: rgb(211, 171, 84);
+    margin: 30px auto 46px;
+}
+
+.introPage__contentText {
+    color: white;
+    line-height: 1.5rem;
+    margin: 16px 500px;
+}
+
+.introPage__contentTextAlternate {
+    color: rgb(211, 171, 84);
+    margin-bottom: 40px;
+}

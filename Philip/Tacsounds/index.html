@@ -10,18 +10,22 @@
     <div class="device">
         <div class="screen">
             <h1>Mit Musik</h1>
-            <ul class="playlist">
-                <li>Track 1</li>
-                <li>Track 2</li>
-                <li>Track 3</li>
+            <ul class="playlist" id="playlist">
+                <li>
+                    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1928063588&color=%230f151e&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/tacsounds" title="Tacsounds" target="_blank" style="color: #cccccc; text-decoration: none;">Tacsounds</a> · <a href="https://soundcloud.com/tacsounds/neverender-cover" title="Neverender Tac" target="_blank" style="color: #cccccc; text-decoration: none;">Neverender Tac</a></div>
+                </li>
+                <li><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1731843750&color=%230f151e&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/tacsounds" title="Tacsounds" target="_blank" style="color: #cccccc; text-decoration: none;">Tacsounds</a> · <a href="https://soundcloud.com/tacsounds/hold-my-hands" title="Take My Hand" target="_blank" style="color: #cccccc; text-decoration: none;">Take My Hand</a></div></li>
+                <li><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1805773812&color=%230f151e&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/tacsounds" title="Tacsounds" target="_blank" style="color: #cccccc; text-decoration: none;">Tacsounds</a> · <a href="https://soundcloud.com/tacsounds/emotions" title="Emotions" target="_blank" style="color: #cccccc; text-decoration: none;">Emotions</a></div></li>
                 <!-- Flere tracks -->
             </ul>
         </div>
-        <div class="controls">
-            <button class="control-btn">◄</button>
-            <button class="control-btn">Play</button>
-            <button class="control-btn">►</button>
+        <div class="ipod-control">
+            <div class="wheel">
+                <div class="knob" id="volume-knob"></div>
+                <div class="center-btn" id="play-btn">▶️</div>
+            </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

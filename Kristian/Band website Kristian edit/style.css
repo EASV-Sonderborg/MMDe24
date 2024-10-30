@@ -1,0 +1,279 @@
+*{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body{
+    background: black;
+}
+
+/*making background image*/
+img{
+    height: 100vh;
+    width: 100%;
+}
+
+/* creating background and border for text */
+.journey__narration{
+    color: #e1e1e1;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-family: "Island Moments";  
+    font-size: 90px;
+    font-style: normal;
+    line-height: normal;
+    
+    grid-column: span 2;
+    text-align: center;
+    align-self: start;
+    width: 80%;
+    justify-self: center;
+    padding: 10px 30px;
+    border: solid white;
+}
+
+/* Creating background and border for anchors */
+.journey__choice{
+
+opacity: 0;
+transform: scale(1);
+transition: opacity 4s ease-in-out;
+animation: fadeIn 4s forwards, pulse 4s ease-in-out infinite 2s;
+
+text-decoration: none;
+color: black;
+background-color: #aaaaaa9a;
+font-family: "Island Moments";
+font-size: 85px;
+padding: 2rem;
+text-align: center;
+justify-items: end;
+width: 60%;
+position: bsolute;
+border: solid rgb(0, 0, 0);
+border-radius: 10px;
+transition: transform 0.2s ease-in-out;
+box-shadow: 7px 6px 7px rgb(23, 23, 23);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+        scale: 0.9;
+        }
+
+    50%{
+        opacity: 0%;
+        scale: 0.9;
+    }
+    
+    100% {
+        opacity: 100%;
+        scale: 1;
+    }
+  }
+
+  /* Keyframes for pulsing effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+/* animation keyframes for anchors */
+@keyframes Starter {
+}
+
+.journey__choice:hover{
+    scale: 1.05;
+    transition: scale(2);
+    border: solid rgb(7, 225, 232);
+    color: rgb(0, 199, 244);
+    box-shadow: 0px 0px 50px rgb(0, 127, 136);
+    background-color: #7e7e7ef3;
+}
+
+
+/* have text in the overlap image */
+.journey{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10rem;
+    column-gap: 2rem;
+    padding: 1rem;
+    align-items:center;
+    animation: 2000ms ease-in-out 0s  Starting;
+    height: 100vh;
+}
+
+
+/* Giving a background image to every page */
+.journey--stairs{
+    background: url(images/castleInteriorStairs.png)  no-repeat center center fixed;
+}
+
+.journey--forest{
+    background: url(images/darkRoad.jpg)  no-repeat center center fixed;
+}
+
+.journey--start{
+    background: url(images/scroll.png)  no-repeat center center fixed;
+}
+
+.journey--intro{
+    background: url(images/dark-place.png)  no-repeat center center fixed;
+}
+
+.journey--castleDistance{
+    background: url(images/castleCut.png)  no-repeat center center fixed;
+}
+
+.journey--castleDragon{
+    background: url(images/dragonCastle222.jpg)  no-repeat center center fixed;
+}
+
+.journey--insideCastle{
+    background: url(images/castleInterior.png)  no-repeat center center fixed;}
+ 
+.journey--dungeon{
+    background: url(images/dungeon.jpg)  no-repeat center center fixed;
+}
+
+.journey--figure{
+    background: url(images/mysterious\ figure.png)  no-repeat center center fixed;
+}
+
+.journey--oldMan{
+    background: url(images/oldman.jpg)  no-repeat center center fixed;
+}
+
+.journey--riddles{
+    background: url(images/bricks.png)  no-repeat center center fixed;
+}
+
+.journey--musicPile{
+    background: url(images/pile.png)  no-repeat center center fixed;
+}
+
+.journey--deadDragon{
+    background: url(images/deadDragon.png)  no-repeat center center fixed;
+}
+
+.journey--shackOutside{
+    background: url(images/shedOutside.jpg)  no-repeat center center fixed;
+}
+
+.journey--shackInside{
+    background: url(images/shedInside.jpg)  no-repeat center center fixed;
+}
+
+.journey--cursedForest{
+    background: url(images/cursedForest.jpg)  no-repeat center center fixed;
+}
+
+.journey--cursedForest2{
+    background: url(images/cursedForest2.jpg)  no-repeat center center fixed;
+}
+
+.journey--ravenStone{
+    background: url(images/raven2.png)  no-repeat center center fixed;
+}
+
+.journey--ravenClose{
+    background: url(images/ravenClose.jpg)  no-repeat center center fixed;
+}
+
+.journey--castleBackDoor{
+    background: url(images/backDoor.jpg)  no-repeat center center fixed;
+}
+
+.journey--angryBird{
+    background: url(images/angryRaven.png)  no-repeat center center fixed;
+}
+
+.journey--lost{
+    background: url(images/lost.jpg)  no-repeat center center fixed;
+}
+
+/*making sure ever time there is only one choice that it is in the middle of the page */
+.journey__choice--single{
+    grid-column: span 2;
+    justify-self: center;
+    align-self: end;
+    width: fit-content;
+}
+
+/* animation for the start of every page */
+
+@keyframes Starting {
+
+from {
+    opacity: 0%;
+    }
+
+to {
+    opacity: 100%
+    }
+}
+
+/* position for choices/paths */
+
+.choice__path1{
+    justify-self: center;
+    align-self: end;
+}
+.choice__path2{
+    justify-self: center;
+    align-self: end;
+}
+
+.choice__raven{
+    justify-self: center;
+    grid-column: auto;
+}
+
+.choice__riddle{
+    justify-self: center;
+    grid-column: auto;
+}
+
+
+/*
+.choice__riddle1{
+    translate: -400px 0;   
+}
+
+.choice__riddle2{
+    translate: 400px 0px;
+}
+
+.choice__riddle3{
+    translate: -400px 200px;
+}
+
+.choice__riddle4{
+    translate: 400px 200px;
+}
+
+
+
+.choice__raven1 {
+    translate: 0 -80px;
+}
+
+.choice__raven2 {
+    translate: 0 60px
+}
+
+.choice__raven3 {
+    translate: 0 200px;
+} */
