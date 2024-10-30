@@ -19,17 +19,17 @@
   </head>
   <body class="homeBody">
     <header class="header">
-      <img class="header__logo" src="images/logo.png" alt="" />
       <nav class="navBar">
-        <ul class="navBar__ul">
-          <li class="navBar__link">
-            <a class="navBar__link--a" href="">Om os</a>
+        <img class="navBar__image" src="images/logo.png" alt="Hansens Logo" />
+        <ul class="navBar__list">
+          <li class="navBar__item">
+            <a class="navBar__link" href="#">Om os</a>
           </li>
-          <li class="navBar__link">
-            <a class="navBar__link--a" href="">Kontakt os</a>
+          <li class="navBar__item">
+            <a class="navBar__link" href="#">Kontakt os</a>
           </li>
-          <li class="navBar__link">
-            <a class="navBar__link--a" href="">Online bestilling</a>
+          <li class="navBar__item">
+            <a class="navBar__link" href="#">Online bestilling</a>
             <svg
               class="cartSVG"
               xmlns="http://www.w3.org/2000/svg"
@@ -49,82 +49,86 @@
       kvalitet
     </h1>
     <section class="introduction">
-      <p class="introduction__text">
-        Hos Slagter Hansen finder du et overdådigt udvalg af kød, pålæg og andre
-        hjemmelavede delikatesser af bedste kvalitet. Alt er friskskåret og
-        veltilberedt. Vores store skare af tilfredse kunder er det bedste bevis
-        på vores høje standard i både varer og service. <br />
-        <br />
-        Det skal være en oplevelse at handle hos og med Slagter Hansen– en lille
-        luksus i hverdagen for alle. <br />
-        <br />
-        Har du ikke mulighed for at besøge vores indbydende slagterforretning i
-        Brønderslev, kan du købe et stort udvalg af vores flotte varer i
-        webshoppen. <br />
-        <br />
-        Hos Slagter Hansen er vi stolte over at levere varer i allerhøjeste
-        kvalitet og yde kompetent og ærlig kundeservice – uanset om du handler i
-        forretningen i Brønderslev eller her på slagterhansen.dk. <br />
-        <br />
-        Besøg også vores inspirerende bageri, der ligger i umiddelbar
-        forlængelse af Slagter Hansens forretning i Brønderslev. Her kan du lade
-        dig friste af alt, hvad hjertet begærer af duftende nybagt brød, kager
-        og konditorværk. Rigtig god fornøjelse med din shopping.
-      </p>
+      <section class="textSection">
+        <p class="introduction__text">
+          Hos Slagter Hansen finder du et overdådigt udvalg af kød, pålæg og
+          andre hjemmelavede delikatesser af bedste kvalitet. Alt er friskskåret
+          og veltilberedt. Vores store skare af tilfredse kunder er det bedste
+          bevis på vores høje standard i både varer og service.
+        </p>
+        <p class="introduction__text">
+          Det skal være en oplevelse at handle hos og med Slagter Hansen– en
+          lille luksus i hverdagen for alle.
+        </p>
+        <p class="introduction__text">
+          Har du ikke mulighed for at besøge vores indbydende slagterforretning
+          i Brønderslev, kan du købe et stort udvalg af vores flotte varer i
+          webshoppen.
+        </p>
+        <p class="introduction__text">
+          Hos Slagter Hansen er vi stolte over at levere varer i allerhøjeste
+          kvalitet og yde kompetent og ærlig kundeservice – uanset om du handler
+          i forretningen i Brønderslev eller her på slagterhansen.dk.
+        </p>
+        <p class="introduction__text">
+          Besøg også vores inspirerende bageri, der ligger i umiddelbar
+          forlængelse af Slagter Hansens forretning i Brønderslev. Her kan du
+          lade dig friste af alt, hvad hjertet begærer af duftende nybagt brød,
+          kager og konditorværk. Rigtig god fornøjelse med din shopping.
+        </p>
+      </section>
       <img
         class="introduction__image"
-        src="images/wineImage.png"
+        src="images/wineglasses.png"
         alt="Image of wine glasses at a table"
       />
     </section>
     <section class="productCards">
       <h2 class="productCards__header">Vælg mellem...</h2>
-      <section class="gridContainer">
-        <article class="grid__item">
-          <img
-            class="grid__item--image"
-            src="images/hansensfavorit.png"
-            alt="hansens favorit sandwich"
-          />
-          <h3 class="grid__item__header">Hansens favoritsandwich</h3>
-          <p class="grid__item__text">
-            m. rosastegt chili & rødvins marineret tykstegsfilet m/grøn pesto,
-            krabbes hjemmelavet sprøde bacon, sprød salat og syltede rødløg
-          </p>
-          <p class="grid__item__price">65,- kr</p>
-        </article>
-        <article class="grid__item">
-          <img
-            class="grid__item--image"
-            src="images/stegselv.png"
-            alt="billede af steg selv menu"
-          />
-          <h3 class="grid__item__header">Steg selv menu 1</h3>
-          <p class="grid__item__text">
-            Indeholder: <br />
-            - Marineret svinemørbrad <br />
-            - Vildtkrydret kalveculotte - <br />
-            Flødekartofler og små mexicansk krydret kartofler <br />-
-            Hjemmelavet broccolisalat <br />
-            - Pastasalat <br />- Årstidens salat <br />- Dressing <br />- Flutes
-            <br />
-            Maden afhentes kold og klar til nem tilberedning
-          </p>
-          <p class="grid__item__price">130,- kr</p>
-        </article>
-        <article class="grid__item">
-          <img
-            class="grid__item--image"
-            src="images/fishnchips.png"
-            alt="billede af chilli fries"
-          />
-          <h3 class="grid__item__header">Chili fries</h3>
-          <p class="grid__item__text">
-            Fåes i størrelserne mellem og stor. Inkl. 2 slags valgfri dip.
-          </p>
-          <p class="grid__item__price">35,- kr</p>
-        </article>
-      </section>
+      <article class="grid__item">
+        <img
+          class="grid__item--image"
+          src="images/hansensfavorit.png"
+          alt="hansens favorit sandwich"
+        />
+        <h3 class="grid__item__header">Hansens favoritsandwich</h3>
+        <p class="grid__item__text">
+          m. rosastegt chili & rødvins marineret tykstegsfilet m/grøn pesto,
+          krabbes hjemmelavet sprøde bacon, sprød salat og syltede rødløg
+        </p>
+        <p class="grid__item__price">65,- kr</p>
+      </article>
+      <article class="grid__item">
+        <img
+          class="grid__item--image"
+          src="images/stegselv.png"
+          alt="billede af steg selv menu"
+        />
+        <h3 class="grid__item__header">Steg selv menu 1</h3>
+        <p class="grid__item__text">
+          Indeholder: <br />
+          - Marineret svinemørbrad <br />
+          - Vildtkrydret kalveculotte - <br />
+          Flødekartofler og små mexicansk krydret kartofler <br />- Hjemmelavet
+          broccolisalat <br />
+          - Pastasalat <br />- Årstidens salat <br />- Dressing <br />- Flutes
+          <br />
+          Maden afhentes kold og klar til nem tilberedning
+        </p>
+        <p class="grid__item__price">130,- kr</p>
+      </article>
+      <article class="grid__item">
+        <img
+          class="grid__item--image"
+          src="images/fishnchips.png"
+          alt="billede af chilli fries"
+        />
+        <h3 class="grid__item__header">Chili fries</h3>
+        <p class="grid__item__text">
+          Fåes i størrelserne mellem og stor. Inkl. 2 slags valgfri dip.
+        </p>
+        <p class="grid__item__price">35,- kr</p>
+      </article>
     </section>
     <section class="imagesGrid">
       <img
