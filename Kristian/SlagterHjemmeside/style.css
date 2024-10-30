@@ -127,15 +127,23 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100vh 10vh;
+    display: flex;
+    /*grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100vh 10vh; */
     padding: 2%;
     gap: 1%;
 }
 
 .product{
     justify-items: center;
+    width:50%;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-start;
+    padding-bottom: 50px;
+    
 }
 
 .product__title{
@@ -147,7 +155,10 @@
 }
 
 .product__description{
-    align-self: center;
+    justify-self: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: auto;
 }
 
 .product__price{
@@ -157,7 +168,10 @@
     padding: 20px;
     background-color: #D8D8D8;
     border-radius: 6px;
+
+    align-self: center;
     margin-top: auto;
+
 }
 
 /*---------------------------------------------------*/
