@@ -1,16 +1,25 @@
 *{
     font-family: "Fanwood Text", serif;
-    justify-content: center;
+    /* justify-content: center; */
     /* margin: auto; */
 }
-body{
+.body{
     background-color: black;
     color: white;
     margin: 0;
 }
-
 .header{
     background-color: black;
+    position: fixed;
+    top: 0;
+    transition: top 0.9 ease-in-out;
+    width: 100%;
+    z-index: 10;
+    height: 100px;
+}
+
+.header.hidden{
+    transform: translateY(-100%);
 }
 
 .logo{
@@ -24,12 +33,12 @@ body{
 
 }
 
-.navBar{
+.nav{
     display: flex;
     justify-content: end;
 }
 
-.navBar__menu{
+.menu{
     display: flex;
     gap: 2em;
     list-style: none;
@@ -38,7 +47,7 @@ body{
 
 }
 
-.navBar__menu--item{
+.menu__item{
     text-decoration: none;
     color: white;
     font-size: 30px;
@@ -50,21 +59,20 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: 20% 20%;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
     justify-items: center;
-    flex-direction: column;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    /* Det burde løses med grid, hvor background image har span 2 og man placere texten i første grid*/
 }
 
 .hero__headline{
     font-size: 50px;
-    align-items: end;
-    padding-left: 100px;
-    /*midlertidig lorte fix*/
+}
+
+.hero__headline--bottom{
+    grid-row: 2 / 4;
+    font-size: 40px;
 }
 
 .products__title{
@@ -78,6 +86,8 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
+    position: relative;
+    padding-top: 10px;
 }
 
 .product{
@@ -87,9 +97,49 @@ body{
     max-width: 400px;
     height: 98%;
     border-radius: 10px;
-
+    position: relative;
+    overflow: hidden;
+    transition-duration: 400ms;
+    transition-property: opacity, scale, box-shadow;
+    opacity: 0.95;
 }
 
+/* .product::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: inherit;
+    z-index: -1;
+
+} */
+
+.product:hover{
+    scale: 1.02;
+    opacity: 1;
+    box-shadow:  
+    0 0 10px #EF3E35,
+    0 0 20px #EF3E35,
+    0 0 100px #EF3E35;
+}
+
+.products::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/wineglasses.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    z-index: -2;
+    filter: blur(2px);
+}
 .product__title{
     padding-left: 10px;
     margin: 10px 0px 10px 0px;
@@ -111,6 +161,12 @@ color: #EF3E35;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 margin-top: 0;
 margin-bottom: 5px;
+}
+
+.product__list{
+    list-style-type: '🔥 ';
+    padding-left: 20px;
+    padding-right: 5px;
 }
 
 .product img{
@@ -165,9 +221,19 @@ footer{
     margin: 5px 0px 5px 0px;
 }
 
-footer p{
+.footer p{
     font-family: Arial, Helvetica, sans-serif;
     /* Mere læselig font til tal */
+}
+
+.footer a{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer__find{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .footer__grid{
@@ -184,6 +250,16 @@ footer p{
     color: #EF3E35;
 }
 
+.footer__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer__links{
+    margin: 10px 0px 10px 0px;
+}
+
 a:link{
     text-decoration: none;
     color: white;
@@ -193,7 +269,12 @@ a:visited{
     color: white;
 }
 
-.navBar__menu a:hover{
+a:hover{
+    color: #EF3E35;
+    border-bottom: 2px solid #EF3E35;
+}
+
+.menu a:hover{
     color: #EF3E35;
     border-bottom: 2px solid #EF3E35;
     /* Hover effekt til navbar */
