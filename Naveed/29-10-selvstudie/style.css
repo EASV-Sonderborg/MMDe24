@@ -17,12 +17,13 @@ a{
     text-decoration: none;
     color: inherit;
 }
-ul:not(.product__description--list){
+ul:not(.product__list){
     padding-left: 0;
 }
 section:not(footer){
     padding: 20px;
 }
+
 /* header */
 header{
     position: fixed;
@@ -38,7 +39,11 @@ header{
     justify-items: center;
     box-shadow: 0 0 4px black;
 }
-.navBar__menu{
+.header__logo{
+    padding: 8px;
+    height: 80px;
+}
+.menu{
     margin: 0;
     padding: 0;
     display: flex;
@@ -46,15 +51,11 @@ header{
     list-style: none;
     justify-content: center;
 }
-.navBar__menu--item{
+.menu__item{
     font-size: 24px;
     padding: 8px;
 }
-.navBar__menu--logo{
-    padding: 8px;
-    height: 80px;
-}
-.navBar__menu--basket{
+.menu__basket{
     display: flex;
     justify-content: center;
 }
