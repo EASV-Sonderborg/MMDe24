@@ -9,7 +9,8 @@
     margin: 0;
 }
 .header{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    transition: background-color 0.3s ease; /* Smooth transition */
     position: fixed;
     top: 0;
     transition: top 0.9 ease-in-out;
@@ -93,7 +94,8 @@
 .product{
     display: flex;
     flex-direction: column;
-    background-color: #1e1e1e;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    transition: background-color 0.3s ease; /* Smooth transition */
     max-width: 400px;
     height: 98%;
     border-radius: 10px;
@@ -119,7 +121,7 @@
 
 .product:hover{
     scale: 1.02;
-    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.99);
     box-shadow:  
     0 0 10px #EF3E35,
     0 0 20px #EF3E35,
