@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hansen Slagter</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="meme icon" href="images/bull.PNG">
 </head>
+
 <body>
     <header class="start">
         <nav class="navBar">
@@ -32,7 +34,7 @@
 
     <section class="hero">
         <p class="hero__text">Velkommen! Her finder du det bedste kød
-<br>der skaber den hyggeligste stemning</p>
+                            <br>der skaber den hyggeligste stemning</p>
     </section>
 
     <section class="intro">
@@ -56,10 +58,10 @@
                 Sandwich
             </h3>
             <img src="images/product__Img--sandwich.png" alt="en sandich med varieret inhold" class="product__img">
-            <p>
+            <p class="product__description">
                 m. rosastegt chili & rødvins marineret tykstegsfilet m/grøn pesto, krabbes hjemmelavet sprøde bacon, sprød salat og syltede rødløg
             </p>
-            <p class="product__price">65,- kr.</p>
+            <a href="#" class="product__price">35,- kr.</a>
         </section>
 
         <section class="product">
@@ -99,52 +101,58 @@
                 </ul>
                 
             <p>Maden afhentes kold og klar til nem tilberedning</p>
-            <p class="product__price">130,- kr.</p>
+            <a href="#" class="product__price">130,- kr.</a>
         </section>
+
+
 
         <section class="product">
             <h3 class="product__title">
                 Chili fries
             </h3>
-            <img src="images/product__Img--fishnchips.png" alt="pommes fritter i et bæger" class="product__img">
+            <img src="images/product__Img--fishnchips.png" alt="pommes fritter i et bæger" class="product__img product__Img--fishnchips">
             <p class="product__description">
                 Fåes i størrelserne mellem og stor.
                 Inkl. 2 slags valgfri dip.
             </p>
-            <p class="product__price">35,- kr.</p>
+            <a href="#" class="product__price">35,- kr.</a>
         </section>
+
+
+
 
     </section>
 
     <footer class="info">
         <section class="info__content">
-            <p class="info__hoursTitle">Åbningstider</p>
             <section class="info__timeList"> 
-            <ul class="info__weekDays">
-                <li class="info__weekDay">
-                    Mandag
-                </li>
-                <li class="info__weekDay">
-                    Tirsdag
-                </li>
-                <li class="info__weekDay">
-                    Onsdag
-                </li>
-                <li class="info__weekDay">
-                    Torsdag
-                </li>
-                <li class="info__weekDay">
-                    Fredag
-                </li>
-                <li class="info__weekDay">
-                    Lørdag
-                </li>
-                <li class="info__weekDay">
-                    Søndag
-                </li>
-            </ul>
+                
+                    <p class="info__hoursTitle">Åbningstider</p>
+                <ul class="info__weekDays">
+                    <li class="info__weekDay">
+                        Mandag
+                    </li>
+                    <li class="info__weekDay">
+                        Tirsdag
+                    </li>
+                    <li class="info__weekDay">
+                        Onsdag
+                    </li>
+                    <li class="info__weekDay">
+                        Torsdag
+                    </li>
+                    <li class="info__weekDay">
+                        Fredag
+                    </li>
+                    <li class="info__weekDay">
+                        Lørdag
+                    </li>
+                    <li class="info__weekDay">
+                        Søndag
+                    </li>
+                </ul>
 
-            <ul class="info__openPeriods">
+             <ul class="info__openPeriods">
                 <li class="info__openPeriod">
                     Lukket
                 </li>
@@ -166,27 +174,32 @@
                 <li class="info__openPeriod">
                     Lukket
                 </li>
-            </ul>
-        </section>
-        <p class="info__findOs">Find os her</p>
-        <ul class="info__findInfo">
-                <li class="info__findItem">
-                    Tlf: 98 80 22 43
-                </li>
-                <li class="info__findItem">
-                    Mail: info@slagterhansen.dk
-                </li>
-                <li class="info__findItem">
-                    Algade 68
-                </li>
-                <li class="info__findItem">
-                    9700 Brønderslev
-                </li>
-        </ul>
+             </ul>
+            </section>
 
-        <p class="info__terms">Forretningsbetingelser</p>
-        <p class="info__readMore">Læs mere her</p>
-    </section>
+            <section class="info__contact">
+            <p class="info__findOs">Find os her</p>
+                <ul class="info__findInfo">
+                        <li class="info__findItem">
+                            Tlf: 98 80 22 43
+                        </li>
+                        <li class="info__findItem">
+                            Mail: info@slagterhansen.dk
+                        </li>
+                        <li class="info__findItem">
+                            Algade 68
+                        </li>
+                        <li class="info__findItem">
+                            9700 Brønderslev
+                        </li>
+                </ul>
+            </section>
+
+            <section class="info__termsAndRead">
+                <p class="info__terms">Forretningsbetingelser</p>
+                <p class="info__readMore">Læs mere her</p>
+            </section>
+        </section>
     </footer>
 
 </body>

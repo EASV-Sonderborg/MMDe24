@@ -9,12 +9,19 @@ body{
     margin: 0;
 }
 
-header{
+.header{
     background-color: black;
+}
+
+.logo{
+    height: 100px;
 }
 
 .header__logo{
     margin-right: auto;
+    padding-left: 10px;
+    height: 50%;
+
 }
 
 .navBar{
@@ -37,10 +44,6 @@ header{
     font-size: 30px;
 }
 
-.products{
-
-}
-
 .hero{
     height: 80vh;
     background-image: url(images/footer-newsletter-bg.png);
@@ -57,10 +60,9 @@ header{
     /* Det burde løses med grid, hvor background image har span 2 og man placere texten i første grid*/
 }
 
-
-
 .hero__headline{
     font-size: 50px;
+    align-items: end;
     padding-left: 100px;
     /*midlertidig lorte fix*/
 }
