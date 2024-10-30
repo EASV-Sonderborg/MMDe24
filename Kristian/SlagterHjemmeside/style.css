@@ -127,15 +127,23 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100vh 10vh;
+    display: flex;
+    /*grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100vh 10vh; */
     padding: 2%;
     gap: 1%;
 }
 
 .product{
     justify-items: center;
+    width:50%;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-start;
+    padding-bottom: 50px;
+    
 }
 
 .product__title{
@@ -147,7 +155,10 @@
 }
 
 .product__description{
-    align-self: center;
+    justify-self: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: auto;
 }
 
 .product__price{
@@ -157,29 +168,32 @@
     padding: 20px;
     background-color: #D8D8D8;
     border-radius: 6px;
+
+    align-self: center;
+    margin-top: auto;
+
 }
 
 /*---------------------------------------------------*/
 
 /*Footer*/
 .info{
-    background: #441818e7 url(images/footer_img.png);
+    background: #441818e7 url(images/footer__img.png);
     background-size: 100%;
 }
 
 .info__content{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
     padding: 2%;
     gap: 1%;
+    display: flex;
+    gap: 25%;
 }
 
 /*Opening hours*/
 .info__timeList{
     display: flex;
+    flex-direction: column;
     gap: 1%;
-    grid-column: 1;
 }
 
 .info__hoursTitle{
@@ -220,8 +234,13 @@
 }
 
 /*Find us info*/
-.info__findOs{
+.info__contact{
     display: flex;
+    flex-direction: column;
+    grid-column-start: 2;
+}
+
+.info__findOs{
     color: #D8D8D8;
     font-family: "Inria Serif";
     font-size: 24px;
@@ -246,6 +265,11 @@
 }
 
 /*Terms and conditions*/
+.info__termsAndRead{
+    display: flex;
+    flex-direction: column;
+}
+
 .info__terms{
     color: #D8D8D8;
     font-family: "Inria Serif";
