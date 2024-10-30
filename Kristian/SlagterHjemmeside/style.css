@@ -31,6 +31,7 @@
     align-items: center;
     gap: 20px;
     color: #D8D8D8;
+    animation: fadeInDown 2s;
 }
 
 .navBar__item{
@@ -47,7 +48,7 @@
     background-color: #222222;
     border-radius: 6px;
     animation: navItem  linear 300ms alternate;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 
@@ -60,7 +61,7 @@
 /* Styling of hero section */
 .hero{
     display: flex;
-    background: url(images/hero\ \(1\).png);
+    background: url(images/headerBg.png);
     color: #FFF;
     text-align: center;
     justify-content: center;
@@ -77,11 +78,12 @@
 .hero__text{
     align-self: center;
     justify-self: center;
+    animation: fadeIn 5s;
 }
 
 /* Styling of intro text section */
 .intro{
-    background: #222222 url(images/intro__bgImg.png);
+    background: #222222 url(images/cutBeef.png);
     background-size: 100%;
 }
 
@@ -120,7 +122,7 @@
 }
 
 .intro__textEnd{
-    color: #D8D8D8;
+    color: #ececec;
     font-family: "Inria Serif";
     font-size: 24px;
     font-style: normal;
@@ -151,6 +153,15 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 50px;
+    border: solid rgba(0, 0, 255, 0);
+    border-radius: 6px;
+    padding: 2%;
+    transition: border 100ms ease;
+}
+
+.product:hover{
+    border: solid white;
+    transform: scale(1.05);
 }
 
 
@@ -162,6 +173,13 @@
     padding-bottom: 1rem;
     width: 100%;
     border-radius: 2px;
+}
+
+.product__buffetList{
+    list-style:inside;
+    font-size: smaller;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .product__Img--fishnchips{
@@ -200,18 +218,20 @@
     background-size: 100%;
 }
 
+
 .info__content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
     padding: 2%;
-    gap: 1%;
-    display: flex;
-    gap: 25%;
 }
 
 /*Opening hours*/
 .info__timeList{
-    display: flex;
-    flex-direction: column;
-    gap: 1%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+    grid-template-rows: 1fr;
 }
 
 .info__hoursTitle{
@@ -222,6 +242,7 @@
     font-weight: 700;
     line-height: normal;
     margin-bottom: 1rem;
+    grid: span 2;
 }
 
 .info__weekDays{
@@ -235,7 +256,8 @@
 }
 
 .info__weekDay{
-
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .info__openPeriods{
