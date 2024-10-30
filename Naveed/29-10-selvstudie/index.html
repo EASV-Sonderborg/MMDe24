@@ -1,32 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slagter Hansen</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Pirata+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header><!-- Define header with logo and basket outside the <ul> element to center the menu items -->
         <nav class="navBar">
-            <a href="#"><img 
+            <img 
                 src="images/logo.png" 
                 alt="Logo til Henrik Hansen - Kreaturslagteri"
                 class="navBar__menu--logo">
-            </a>
             <ul class="navBar__menu">
-                <li class="navBar__menu--item"><a href="#"></a>
+                <li class="navBar__menu--item"><a href="#">
                     Forside
-                </li>
-                <li class="navBar__menu--item"><a href="#"></a>
+                </a></li>
+                <li class="navBar__menu--item"><a href="#">
                     Online bestilling
-                </li>
-                <li class="navBar__menu--item"><a href="#"></a>
+                </a></li>
+                <li class="navBar__menu--item"><a href="#">
                     Om os
-                </li>
-                <li class="navBar__menu--item"><a href="#"></a>
+                </a></li>
+                <li class="navBar__menu--item"><a href="#">
                     Kontakt
-                </li>
+                </a></li>
             </ul>
             <a href="#" class="navBar__menu--basket">
                 <img
@@ -36,9 +38,10 @@
         </nav>
     </header>
     <main>
+        <!-- Background and title for hero page -->
         <section class="hero">
             <h2 class="hero__title">
-                Velkommen hos <span class="hero__title--highlight">Slagter Hansen</span> <br>SLAGTER - DELI - BAGER
+                Velkommen hos <span class="hero__title--highlight">Slagter Hansen</span> <br>Slagter - Deli - Bager
             </h2>
         </section>
         <section class="intro">
@@ -61,14 +64,110 @@
             </article>
             <h2 class="intro__title intro__title--bottom">Rigtig god fornøjelse med din shopping.</h2>
         </section>
-
+        <!-- Product cards -->
         <section class="products">
-            products
+            <article class="product">
+                <img 
+                src="images/product__image--1.png" 
+                alt="" 
+                class="product__image">
+                <h2 class="product__title">
+                    Hansens favoritsandwich
+                </h2>
+                <p class="product__description">
+                    m. rosastegt chili & rødvins marineret tykstegsfilet m/grøn pesto, krabbes hjemmelavet sprøde bacon, sprød salat og syltede rødløg
+                </p>
+                <p class="product__price">65,-kr.</p>
+            </article>
+            <article class="product">
+                <img 
+                src="images/product__image--2.png" 
+                alt="" 
+                class="product__image">
+                <h2 class="product__title">
+                    Steg selv menu 1
+                </h2>
+                <section class="product__description">
+                    <ul class="product__description--list">
+                        <li>Marineret</li>
+                        <li>Vildtkrydret kalveculotte</li>
+                        <li>Flødekartofler og små mexicansk krydret kartofler</li>
+                        <li>Hjemmelavet broccolisalat</li>
+                        <li>Pastasalat</li>
+                        <li>Årstidens salat</li>
+                        <li>Dressing</li>
+                        <li>Flutes</li>
+                        <li>Flutes</li>
+                    </ul>
+                    <p>
+                        Maden afhentes kold og klar til nem tilberedning
+                    </p>
+                </section>
+                <p class="product__price">130,-kr.</p>
+            </article>
+            <article class="product">
+                <img 
+                src="images/product__image--3.png" 
+                alt="" 
+                class="product__image">
+                <h2 class="product__title">
+                    Chili fries
+                </h2>
+                <p class="product__description">
+                    Fåes i størrelserne mellem og stor.
+                    Inkl. 2 slags valgfri dip.
+                </p>
+                <p class="product__price">Fra 35,-kr.</p>
+            </article>
         </section>
     </main> 
     <footer>
-        footer
+        <section>
+            <h3 class="footer__title">
+                Åbningstider
+            </h3>
+            <section class="footer__openingHours">
+                <ul class="footer__openingHours--days">
+                    <li>Mandag</li>
+                    <li>Tirsdag</li>
+                    <li>Onsdag</li>
+                    <li>Torsdag</li>
+                    <li>Fredag</li>
+                    <li>Lørdag</li>
+                    <li>Søndag</li>
+                </ul>
+                <ul class="footer__openingHours--times">
+                    <li>Lukket</li>
+                    <li>09:00-17:30</li>
+                    <li>09:00-17:30</li>
+                    <li>09:00-17:30</li>
+                    <li>09:00-18:00</li>
+                    <li>08:00-12:30</li>
+                    <li>Lukket</li>
+                </ul>
+            </section>
+        </section>
+        <img 
+            src="images/logo.png" 
+            alt="Logo til Henrik Hansen - Kreaturslagteri"
+            class="footer__logo">
+        <section>
+            <h3 class="footer__title">
+                Find os her
+            </h3>
+            <section class="footer__contact">
+                <ul class="footer__openingHours--days">
+                    <li>Tlf:</li>
+                    <li>Mail:</li>
+                </ul>
+                <ul class="footer__openingHours--times">
+                    <li>98 80 22 43</li>
+                    <li>info@slagterhansen.dk</li>
+                    <li>Algade 68</li>
+                    <li>9700 Brønderslev</li>
+                </ul>
+            </section>
+        </section>
     </footer>
-
 </body>
 </html>
