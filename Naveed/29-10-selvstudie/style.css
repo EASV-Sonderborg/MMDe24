@@ -72,11 +72,13 @@ a{
     justify-items: center;
 }
 .logo__link{
-    /* padding: 8px; */
     height: 80px;
 }
+.menu__link:hover{
+    border-bottom: 2px solid white;
+}
 .header__logo{
-    padding: 8px;
+    padding-top: 8px;
     height: 80px;
 }
 .menu{
@@ -295,5 +297,7 @@ footer{
     padding-left: 0;
 }
 .footer__logo{
-    padding-top: 64px;
+    /* padding-top: 64px; */
+    display: flex;
+    align-self: center;
 }
