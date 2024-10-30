@@ -127,21 +127,18 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    display: flex;
-    /*grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100vh 10vh; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 2%;
-    gap: 1%;
+    gap: 1rem;
 }
 
+/* Styling of individual products */
 .product{
-    justify-items: center;
-    width:50%;
-    flex-basis: 100%;
+    width:70%;
+    justify-self: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-self: flex-start;
     padding-bottom: 50px;
     
 }
@@ -151,14 +148,18 @@
 }
 
 .product__img{
-    padding-bottom: 5%;
+    padding-bottom: 1rem;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.product__Img--fishnchips{
+    height: 40%;
 }
 
 .product__description{
     justify-self: center;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: auto;
+    flex-grow: 1;
 }
 
 .product__price{
@@ -168,9 +169,9 @@
     padding: 20px;
     background-color: #D8D8D8;
     border-radius: 6px;
-
+    margin-top: 2rem;
     align-self: center;
-    margin-top: auto;
+    justify-content:center;
 
 }
 
