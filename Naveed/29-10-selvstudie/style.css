@@ -1,5 +1,5 @@
 /* common styling */
-body{
+.body{
     background-color: #333;
     color:white;
     /* remove default padding and margin */
@@ -11,21 +11,17 @@ p, li{
 }
 h2{
     font-family: "Charm", cursive;
-    margin: 16px;
 }
 a{
     text-decoration: none;
     color: inherit;
 }
-ul:not(.product__list){
-    padding-left: 0;
-}
-section:not(footer){
-    padding: 20px;
+.section{
+    padding: 2rem;
 }
 
 /* header */
-header{
+.header{
     position: fixed;
     top: 0;
     width: 100vw;
@@ -70,9 +66,11 @@ header{
     background-size: cover;
     background-position: center;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Display the text in the first fraction*/
+    grid-template-rows: 20% 20%;
+    grid-template-columns: 1fr 1fr;
     align-content: center;
     justify-items: center;
+    padding: 2rem;
 }
 .hero__title{
     font-weight: 600;
@@ -85,6 +83,12 @@ header{
     font-weight: 700;
     color: #D3AB54;
 }
+.hero__title--1{
+    justify-self: end;
+}
+.hero__title--2{
+    grid-row: 2 / 4;
+}
 
 /* section: intro */
 .intro{
@@ -94,6 +98,7 @@ header{
     justify-content: center;
     border-top: 2px solid #D3AB54;
     border-bottom: 2px solid #D3AB54;
+    padding: 2rem;
 }
 /* Background for section without affecting the text */
 .intro::before{ 
@@ -152,6 +157,7 @@ header{
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     position: relative;
+    padding: 2rem;
 }
 .products::before{ 
     content: "";
@@ -204,9 +210,9 @@ header{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    /* padding: 0 8px 0 8px; */
     max-width: 370px;
     flex-grow: 1;
+    padding: 2rem;
 }
 .product__price{
     color: #D3AB54;
@@ -228,21 +234,23 @@ footer{
     justify-content: center;
     color: #D3AB54;
     font-family: "Charm", cursive;
-    font-size: 24px;
+    font-size: 32px;
     margin: 32px 0 0 0;
 }
 .footer__openingHours{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: start;
+    padding: 2rem;
 }
 .footer__contact{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
 }
-.footer__openingHours--days, .footer__openingHours--times{
+.footer__list{
     list-style: none;
+    padding-left: 0;
 }
 .footer__logo{
     padding-top: 64px;
