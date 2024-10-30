@@ -18,7 +18,7 @@ body {
 	color: #fff;
 	height: 100vh;
 	width: 100%;
-	background-image: url("https://source.unsplash.com/tZpmdFfU5gQ");
+	background-image: url("alssund.jpeg");
 	background-size: cover;
 	background-position: 50% 50%;
 	background-blend-mode: soft-light;
@@ -35,12 +35,16 @@ body {
 	animation-timeline: scroll();
 	animation-range: 0vh 90vh;
 }
-
 .content {
+	background-image: url(houses.jpeg);
+}
+
+.text {
 	padding-top: 1em;
 	margin: 0 auto 0;
 	width: 80vw;
 	max-width: 60em;
+	
 }
 
 @keyframes sticky-parallax-header-move-and-size {

@@ -9,13 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Pirata+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header><!-- Define header with logo and basket outside the <ul> element to center the menu items -->
+<body class="body">
+    <header class="header sticky-parallax-header"><!-- Define header with logo and basket outside the <ul> element to center the menu items -->
         <nav class="navBar">
-            <img 
+            <a href="#" class="logo__link"><img 
                 src="images/logo.png" 
                 alt="Logo til Henrik Hansen - Kreaturslagteri"
-                class="header__logo">
+                class="header__logo"></a>
             <ul class="menu">
                 <li class="menu__item"><a href="#" class="menu__link">
                     Forside
@@ -39,16 +39,19 @@
     </header>
     <main>
         <!-- Background and title for hero page -->
-         <!-- TODO: fix grid -->
         <section class="hero">
-            <h2 class="hero__title">
-                Velkommen hos <span class="hero__title--highlight">Slagter Hansen</span> <br>Slagter - Deli - Bager
+            <h2 class="hero__title hero__title--1">
+                Velkommen hos <span class="hero__title--highlight">Slagter Hansen</span>
+            </h2>
+            <h2 class="hero__title hero__title--2">
+                Slagter - Deli - Bager
             </h2>
         </section>
         <section class="intro">
             <h2 class="intro__title intro__title--top">
                 Friskskåret kød og hjemmelavede delikatesser af fineste kvalitet
             </h2>
+            <!-- TODO: remove article and give each <p> the class instead -->
             <article class="intro__text">
                 <p>
                     Hos Slagter Hansen finder du et overdådigt udvalg af kød, pålæg og andre hjemmelavede delikatesser af bedste kvalitet. Alt er friskskåret og veltilberedt. Vores store skare af tilfredse kunder er det bedste bevis på vores høje standard i både varer og service.
@@ -70,7 +73,7 @@
             <article class="product">
                 <img 
                 src="images/product__image--1.png" 
-                alt="" 
+                alt="Hansens favoritsandwich m. rosastegt chili & rødvins marineret tykstegsfilet m/grøn pesto, krabbes hjemmelavet sprøde bacon, sprød salat og syltede rødløg" 
                 class="product__image">
                 <h2 class="product__title">
                     Hansens favoritsandwich
@@ -83,7 +86,7 @@
             <article class="product">
                 <img 
                 src="images/product__image--2.png" 
-                alt="" 
+                alt="Smorgasbord of different meats" 
                 class="product__image">
                 <h2 class="product__title">
                     Steg selv menu 1
@@ -109,7 +112,7 @@
             <article class="product">
                 <img 
                 src="images/product__image--3.png" 
-                alt="" 
+                alt="Chili fries" 
                 class="product__image">
                 <h2 class="product__title">
                     Chili fries
@@ -123,12 +126,12 @@
         </section>
     </main> 
     <footer>
-        <section>
+        <section class="section">
             <h3 class="footer__title">
                 Åbningstider
             </h3>
             <section class="footer__openingHours">
-                <ul class="footer__openingHours--days">
+                <ul class="footer__list">
                     <li>Mandag</li>
                     <li>Tirsdag</li>
                     <li>Onsdag</li>
@@ -137,7 +140,7 @@
                     <li>Lørdag</li>
                     <li>Søndag</li>
                 </ul>
-                <ul class="footer__openingHours--times">
+                <ul class="footer__list">
                     <li>Lukket</li>
                     <li>09:00-17:30</li>
                     <li>09:00-17:30</li>
@@ -152,16 +155,16 @@
             src="images/logo.png" 
             alt="Logo til Henrik Hansen - Kreaturslagteri"
             class="footer__logo">
-        <section>
+        <section class="section">
             <h3 class="footer__title">
                 Find os her
             </h3>
             <section class="footer__contact">
-                <ul class="footer__openingHours--days">
+                <ul class="footer__list">
                     <li>Tlf:</li>
                     <li>Mail:</li>
                 </ul>
-                <ul class="footer__openingHours--times">
+                <ul class="footer__list">
                     <li>98 80 22 43</li>
                     <li>info@slagterhansen.dk</li>
                     <li>Algade 68</li>

@@ -39,7 +39,18 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    padding: 8px;
+    transition: navItem 0.3s ease, transform 0.3s ease;
 }
+
+.navBar__item:hover{
+    background-color: #222222;
+    border-radius: 6px;
+    animation: navItem  linear 300ms alternate;
+    transform: scale(1.1);
+}
+
+
 
 .navBar__link{
     text-decoration: none;
@@ -140,8 +151,8 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 50px;
-    
 }
+
 
 .product__title{
     padding-bottom: 5%;
@@ -172,7 +183,13 @@
     margin-top: 2rem;
     align-self: center;
     justify-content:center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
+.product__price:hover{
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: scale(1.1);
+    background-color: rgb(210, 204, 33);
 }
 
 /*---------------------------------------------------*/
@@ -204,6 +221,7 @@
     font-style: italic;
     font-weight: 700;
     line-height: normal;
+    margin-bottom: 1rem;
 }
 
 .info__weekDays{
@@ -230,6 +248,11 @@
     line-height: normal;
 }
 
+.info__titleAndDays{
+    display: flex;
+    flex-direction: row;
+}
+
 .info__openPeriod{
 
 }
@@ -248,6 +271,7 @@
     font-style: italic;
     font-weight: 700;
     line-height: normal; 
+    margin-bottom: 1rem;
 }
 
 .info__findInfo{
@@ -278,6 +302,7 @@
     font-style: italic;
     font-weight: 700;
     line-height: normal;
+    margin-bottom: 1rem;
 }
 
 .info__readMore{
