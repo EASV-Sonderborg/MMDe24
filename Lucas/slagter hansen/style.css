@@ -16,7 +16,7 @@
     transition: top 0.9 ease-in-out;
     width: 100%;
     z-index: 10;
-    height: 100px;
+    height: 110px;
 }
 
 .header.hidden{
@@ -30,6 +30,8 @@
 .header__logo{
     margin-right: auto;
     padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     height: 50%;
 
 }
@@ -55,7 +57,7 @@
 }
 
 .hero{
-    height: 80vh;
+    height: 100vh;
     background-image: url(images/footer-newsletter-bg.png);
     background-size: cover;
     background-position: center;
@@ -84,6 +86,7 @@
 }
 
 .products{
+    /* height: 80vh; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
@@ -180,7 +183,7 @@ border-radius: 5px;
 .intro{
     background-color: black;
     background-image: url(images/roast.png);
-    height: 80vh;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -274,6 +277,7 @@ a:visited{
 a:hover{
     color: #EF3E35;
     border-bottom: 2px solid #EF3E35;
+    width: fit-content;
 }
 
 .menu a:hover{
