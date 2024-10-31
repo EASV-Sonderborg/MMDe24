@@ -10,9 +10,9 @@
 	box-sizing: border-box;
 }
 html {
-    /* scroll-behavior: smooth; */
+    scroll-behavior: smooth;
   }
-.body{
+body{
     background-color: #333;
     color:white;
     /* remove default padding and margin */
@@ -138,9 +138,6 @@ a{
 /* section: intro */
 .intro{
     position: relative; /* Display the image behind */
-    display: grid;
-    grid-template-rows: 1fr 400px 1fr;
-    justify-content: center;
     border-top: 2px solid #D3AB54;
     border-bottom: 2px solid #D3AB54;
     padding: 2em;
@@ -156,44 +153,60 @@ a{
     background-image: url('images/roast.png');
     background-size: cover;
     background-position: center;
-    height: 800px;
     opacity: 0.7;
     z-index: -1;
     filter: blur(2px);
 }
-.intro__title{ /* Common styling for both titles */
+/* text reveal scroll effect by Kevin Powell: 
+https://www.youtube.com/watch?v=d10GaL6F-lA */
+.intro span {
+    color: hsla(0 0 100% / 0.2);
+    background-clip: text;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-image: linear-gradient(90deg, white, white);
+    animation: scroll-reveal linear forwards;
+    animation-timeline: view();
+}
+.intro .intro__title--top span{
+    animation-range-start: cover 20vh;
+    animation-range-end: cover 40vh;
+}
+.intro .intro__text span{
+    animation-range-start: cover 22.5vh;
+    animation-range-end: cover 50vh;
+}
+.intro .intro__title--bottom span{
+    animation-range-start: cover 42.5vh;
+    animation-range-end: cover 50vh;
+}
+@keyframes scroll-reveal {
+    to {
+        background-size: 100% 100%;
+    }
+}
+/* Common styling for both titles */
+.intro__title{
     display: flex;
     justify-content: center;
-    align-content: center;
-    color: #D3AB54;
-    padding: 1em 0 1em 0;
     margin: 0;
-    text-shadow:
-    2px 2px 2px #333,
-    -2px -2px 2px #333,
-    -2px 2px 2px #333,
-    2px -2px 2px #333; 
 }
 /* Larger/smaller font sizes for each title*/
 .intro__title--top{
     font-size: var(--xlfont);
+    padding: 1em 0 0.5em 0;
 }
 .intro__title--bottom{
     font-size: var(--lfont);
+    padding: 0.5em 0 1em 0;
 }
 .intro__text{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     font-size: var(--sfont);
     background-color: rgba(0, 0, 0, 0.5);
-    max-width: 1024px;
-    margin: auto; /* center the text box */
-    height: 400px;
+    max-width: 70%;
+    margin: auto;
     border: 2px solid #D3AB54;
-}
-.intro__text p{
-    margin: 0 1.5em 0 1.5em;
+    padding: 2em;
 }
 
 /* section: products */
