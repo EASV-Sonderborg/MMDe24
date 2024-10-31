@@ -26,7 +26,7 @@ body    {
 .nav    {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 1rem 0;
     background-color: var(--grey-color);
     position: fixed;
     width: 100vw;
@@ -51,7 +51,7 @@ body    {
     list-style: none;
     width: 60%;
     align-items: center;
-    margin: 0 20px;
+    margin: 0 1rem;
 }
 
   .navList__link {
@@ -60,7 +60,7 @@ body    {
     margin: 0;
     text-decoration: none;
     font-family: var(--font-Menu);
-    padding: 5px 20px;
+    padding: 5px 1rem;
     position: relative; /* Needed to position the pseudo-element */
     overflow: hidden; /* To keep animation within bounds */
 }
@@ -138,23 +138,22 @@ body    {
 
 .intro__content   {
     color: white;
-    width: 900px;
-    max-width: 1200px;
-    padding: 100px 50px;
+    width: 75ch;
+    padding: 100px 3rem;
     text-shadow: 0 0 4px black;
     z-index: 2;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 20% cover 50%;
 }
 
-@media screen and (max-width: 1400px) {
-    .intro__content   {
-        width: 65vw;
-        max-width: 900px;
-    }
-}
 
 .intro__header    {
     font-family: var(--font-Header);
     font-size: 2rem;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
 }
 
 .intro__hightlight   {
@@ -168,7 +167,7 @@ body    {
 
 
 .introList  {
-    padding: 20px;
+    padding: 1rem;
     line-height: 2rem;
 }
 
@@ -181,6 +180,9 @@ body    {
     font-family: var(--font-Default);
     font-size: 1rem;
     line-height: 1.5rem;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
 }
 .intro__outro    {
     font-family: var(--font-Default);
@@ -189,6 +191,9 @@ body    {
     color: var(--lightred-color);
     text-transform: uppercase;
     padding-bottom: 100px;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
 }
 
 .productHeader__background  {
@@ -214,7 +219,7 @@ body    {
 .product__background {
     position: relative;
     background-image: url(media/concrete.jpg);
-    padding-top: 50px;
+    padding-top: 3rem;
 }
 .product__background::after  {
     content: "";
@@ -233,7 +238,7 @@ body    {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 100px 0 200px;
+    padding: 5rem 0 10rem;
     z-index: 5;
 }
 
@@ -248,26 +253,30 @@ body    {
     flex-direction: column;
     background-color: var(--grey-color);
     overflow: hidden;
-    width: 350px;
+    max-width: 30rem;
     height: 100%;
     border-radius: 10px;
+    flex: 1;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
 }
 
 .product__card:hover    {
-    box-shadow: 0 -10px 20px black;
+    box-shadow: 0 -10px 1rem black;
     transform: translateY(-4px);
     transform: scale(1.05);
 }
 
 .product__image  img {
     width: 100%;
-    height: 300px;
+    height: 30vh;
     object-fit: cover;
 }
 
 
 .product__textbox   {
-    padding: 0 20px;
+    padding: 0 1rem;
     flex: 1;
 }
 
@@ -279,7 +288,7 @@ body    {
     font-family: var(--font-Header);
     font-size: 1.5rem; 
     margin: 10px 0;
-    height: 80px;
+    min-height: 5rem;
     color: var(--lightred-color);
     border-bottom:4px solid var(--lightred-color);
 }
@@ -293,7 +302,7 @@ body    {
 .product__buy    {
     display: flex;
     justify-content: space-evenly;
-    padding: 0 20px 20px;
+    padding: 0 1rem 1rem;
     align-items: center;
 }
 
@@ -305,7 +314,7 @@ body    {
 }
 
 .product__buyButton {
-    padding: 0px 20px;
+    padding: 0px 1rem;
     height: 40px;
     background-color: var(--lightred-color);
     font-family: var(--font-Default);
@@ -317,9 +326,9 @@ body    {
     border-radius: 10px;
 }
 .buyButton__icon    {
-    max-width: 20px;
+    max-width: 1rem;
     height: auto;
-    padding-left: 10px;
+    padding-left: 0.5rem;
 }
 
 .product__buyButton:hover   {
@@ -336,27 +345,32 @@ body    {
 .footer  {
     position: relative;
     display: flex;
-    padding: 20px 50px 20px;
+    padding: 1rem 3rem 1rem;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 4px black;
-    border-top: 10px solid;
-    border-color: var(--lightred-color);
 }
 .footer::before {
     content: "";
     position: absolute;
-    background: linear-gradient(to right, red, purple);
-    top: -20px;
+    background: linear-gradient(to right, #EF3E35, black, #EF3E35);
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    padding-top: 20px;
+    width: 100%; 
+    background-size: 300%;   
+    height: 10px;
     z-index: -1;
+    animation: gradientBorder 20s linear infinite;
+}
+
+@keyframes gradientBorder   {
+    0%  { background-position: 0 0;} 
+    50%  { background-position: 400% 0;} 
+    100%  { background-position: 0 0;} 
 }
 
 .openingHours   {
-    padding: 0 20px 20px;
+    padding: 0 1rem 1rem;
 }
 
 .footerList__header   {
@@ -369,7 +383,7 @@ body    {
     width: 400px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 30px);
+    grid-template-rows: repeat(4, 1fr);
 }
 
 .footerList__item  {
@@ -411,12 +425,12 @@ body    {
 
 .contactList   {
     display: grid;
-    grid-template-rows: repeat(4, 30px);
+    grid-template-rows: repeat(4, 1fr);
 }
 
 .policyList   {
     display: grid;
-    grid-template-rows: repeat(4, 30px);
+    grid-template-rows: repeat(4, 1fr);
 }
 
 .policyList__item   {
@@ -430,9 +444,20 @@ body    {
 }
 
 .footer__logo img    {
-    width: 300px;
+    width: 100%;
 }
 
 .footer__logo:hover {
     animation: flipOutY 2s;
 }
+
+@keyframes appear {
+    0% {
+      opacity: 0;
+      scale: 0.8;
+    }
+    80% {
+      opacity: 1;
+      scale: 1;
+    }
+  }

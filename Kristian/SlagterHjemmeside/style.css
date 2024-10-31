@@ -178,8 +178,6 @@
 .product__buffetList{
     list-style:inside;
     font-size: smaller;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .product__Img--fishnchips{
@@ -218,20 +216,18 @@
     background-size: 100%;
 }
 
-
 .info__content{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
     padding: 2%;
+    gap: 1%;
+    display: flex;
+    justify-content: space-between;
 }
 
 /*Opening hours*/
 .info__timeList{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: start;
-    grid-template-rows: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .info__hoursTitle{
@@ -242,7 +238,6 @@
     font-weight: 700;
     line-height: normal;
     margin-bottom: 1rem;
-    grid: span 2;
 }
 
 .info__weekDays{
