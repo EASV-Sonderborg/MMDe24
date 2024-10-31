@@ -99,8 +99,18 @@ body    {
     margin-top: 1em;
 }
 
-.author__Image  {
+.author__image  {
     max-width: 100%;
+}
+
+.author__heading    {
+    margin: 0.2em 0;
+    
+}
+
+.author__text   {
+    font-style: italic;
+    margin: 0.2em 0 0.2em;
 }
 
 
@@ -119,4 +129,3 @@ body    {
     font-size: 1em;
     margin: 1em 0;
 }
-
