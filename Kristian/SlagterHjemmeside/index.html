@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hansen Slagter</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="meme icon" href="images/bull.PNG">
+    <link rel="icon" type="memeIcon" href="images/bull.PNG">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 
 <body>
     <header class="start">
         <nav class="navBar">
-            <img src="images/nav__logo.png" alt="Slagter Hansen's logo i lille format i øverste venstre hjørne" class="navBar__logo">
+            <img src="images/navLogo.png" alt="Slagter Hansen's logo i lille format i øverste venstre hjørne" class="navBar__logo">
                 <ul class="navBar__items">
                     <li class="navBar__item">
                         <a href="#" class="navBar__link">Forside</a>
@@ -38,7 +42,7 @@
     </section>
 
     <section class="intro">
-        <img src="images/intro__logo.png" alt="Slagter Hansen's logo i større format" class="intro__logo">
+        <img src="images/introLogo.png" alt="Slagter Hansen's logo i større format" class="intro__logo">
 
         <h2 class="intro__titleText">Friskskåret kød og hjemmelavede delikatesser af fineste kvalitet</h2>
 
@@ -70,7 +74,7 @@
             </h3>
             <img src="images/product__Img--buffet.png" alt="buffet med forskelligt kød" class="product__img">
             <p>Indeholder:</p>
-                <ul>
+                <ul class="product__buffetList">
                     <li>
                         Marineret svinemørbrad
                     </li>
@@ -118,63 +122,23 @@
             <a href="#" class="product__price">35,- kr.</a>
         </section>
 
-
-
-
     </section>
 
     <footer class="info">
         <section class="info__content">
             <section class="info__timeList"> 
+                    
+            <p class="info__hoursTitle">Åbningstider</p>
+                       <ul class="info__weekDays">
+                            <li class="info__weekDay">Mandag Lukket</li>
+                            <li class="info__weekDay">Tirsdag 09:00-17:30</li>
+                            <li class="info__weekDay">Onsdag 09:00-17:30</li>
+                            <li class="info__weekDay">Torsdag 09:00-17:30</li>
+                            <li class="info__weekDay">Fredag 09:00-17:30</li>
+                            <li class="info__weekDay">Lørdag 09:00-17:30</li>
+                            <li class="info__weekDay">Søndag Lukket</li>
                 
-                    <p class="info__hoursTitle">Åbningstider</p>
-                <ul class="info__weekDays">
-                    <li class="info__weekDay">
-                        Mandag
-                    </li>
-                    <li class="info__weekDay">
-                        Tirsdag
-                    </li>
-                    <li class="info__weekDay">
-                        Onsdag
-                    </li>
-                    <li class="info__weekDay">
-                        Torsdag
-                    </li>
-                    <li class="info__weekDay">
-                        Fredag
-                    </li>
-                    <li class="info__weekDay">
-                        Lørdag
-                    </li>
-                    <li class="info__weekDay">
-                        Søndag
-                    </li>
-                </ul>
-
-             <ul class="info__openPeriods">
-                <li class="info__openPeriod">
-                    Lukket
-                </li>
-                <li class="info__openPeriod">
-                    09:00-17:30
-                </li>
-                <li class="info__openPeriod">
-                    09:00-17:30
-                </li>
-                <li class="info__openPeriod">
-                    09:00-17:30
-                </li>
-                <li class="info__openPeriod">
-                    09:00-18:00
-                </li>
-                <li class="info__openPeriod">
-                    08:00-12:30
-                </li>
-                <li class="info__openPeriod">
-                    Lukket
-                </li>
-             </ul>
+                        </ul>
             </section>
 
             <section class="info__contact">
@@ -197,10 +161,11 @@
 
             <section class="info__termsAndRead">
                 <p class="info__terms">Forretningsbetingelser</p>
-                <p class="info__readMore">Læs mere her</p>
+                <a href="#" class="info__readMore">Læs mere her</a>
             </section>
         </section>
     </footer>
 
 </body>
+
 </html>

@@ -10,12 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Pirata+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body class="body">
-    <header class="header"><!-- Define header with logo and basket outside the <ul> element to center the menu items -->
+    <header class="header sticky-parallax-header"><!-- Define header with logo and basket outside the <ul> element to center the menu items -->
         <nav class="navBar">
-            <img 
+            <a href="#" class="logo__link"><img 
                 src="images/logo.png" 
                 alt="Logo til Henrik Hansen - Kreaturslagteri"
-                class="header__logo">
+                class="header__logo"></a>
             <ul class="menu">
                 <li class="menu__item"><a href="#" class="menu__link">
                     Forside
@@ -72,7 +72,7 @@
         <section class="products">
             <article class="product">
                 <img 
-                src="images/product__image--1.png" 
+                src="images/sandwich.png" 
                 alt="Hansens favoritsandwich m. rosastegt chili & rødvins marineret tykstegsfilet m/grøn pesto, krabbes hjemmelavet sprøde bacon, sprød salat og syltede rødløg" 
                 class="product__image">
                 <h2 class="product__title">
@@ -85,7 +85,7 @@
             </article>
             <article class="product">
                 <img 
-                src="images/product__image--2.png" 
+                src="images/smorgasbord.png" 
                 alt="Smorgasbord of different meats" 
                 class="product__image">
                 <h2 class="product__title">
@@ -111,7 +111,7 @@
             </article>
             <article class="product">
                 <img 
-                src="images/product__image--3.png" 
+                src="images/chili_fries.png" 
                 alt="Chili fries" 
                 class="product__image">
                 <h2 class="product__title">
@@ -126,10 +126,12 @@
         </section>
     </main> 
     <footer>
+        <!-- TODO: make the title span 2 -->
         <section class="section">
             <h3 class="footer__title">
                 Åbningstider
             </h3>
+            <!-- TODO: look into using <dl> for description list elements, which makes it semantically correct -->
             <section class="footer__openingHours">
                 <ul class="footer__list">
                     <li>Mandag</li>
@@ -156,6 +158,7 @@
             alt="Logo til Henrik Hansen - Kreaturslagteri"
             class="footer__logo">
         <section class="section">
+            <!-- TODO: make the title span 2 -->
             <h3 class="footer__title">
                 Find os her
             </h3>
