@@ -9,33 +9,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="body">
     <header class="header">
-        <nav class="navBar">
+        <nav class="nav">
             <a href="#" class="header__logo">
                 <img class="logo" src="images/logo.png" alt="Slagter Hansen logo">
-            <ul class="navBar__menu">
-                <li class="navBar__menu--item"><a href="#">Forside</a></li>
-                <li class="navBar__menu--item"><a href="#">Online bestilling</a></li>
-                <li class="navBar__menu--item"><a href="#">Om os</a></li>
-                <li class="navBar__menu--item"><a href="#">Kontakt</a></li>
-                <li class="navBar__menu--item"><img src="images/ShoppingCart.png" alt="">
+            <ul class="menu">
+                <li class="menu__item"><a class="menu__link" href="#">Forside</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Online bestilling</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Om os</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Kontakt</a></li>
+                <li class="menu__item"><img src="images/ShoppingCart.png" alt="Shopping Cart button">
             </ul>
         </nav>
     </header>
-    <main>
+    <main class="main">
         <section class="hero">
             <h2 class="hero__headline">Velkommen hos Slagter Hansen</h2>
-            <h2 class="hero__headline">SLAGTER - DELI - BAGER</h2>
-        </section>
-
-        <section>
-            <h2 class="products__title">Anbefalede produkter</h2>    
+            <h2 class="hero__headline--bottom">SLAGTER - DELI - BAGER</h2>
         </section>
 
         <section class="products">
             <section class="product">
-                <img src="images/Sandwich.png" alt="smækkerlækker sandwich">
+                <img class="product__image" src="images/Sandwich.png" alt="smækkerlækker sandwich">
                 <h2 class="product__title">Hansens favoritsandwich</h2>
                 <p class="product__description">Hansens favoritsandwich
                     m. rosastegt chili & rødvins marineret tykstegsfilet m/grøn pesto, krabbes hjemmelavet sprøde bacon, sprød salat og syltede rødløg</p>
@@ -43,27 +39,23 @@
             </section>
 
             <section class="product">
-                <img src="images/Stegselv.png" alt="">
+                <img class="product__image" src="images/Stegselv.png" alt="Assortment of meats">
                 <h2 class="product__title">Steg selv menu 1</h2>
-                <p class="product__description">Indeholder: <br>
-                    - Marineret svinemørbrad <br>
-                    - Vildtkrydret kalveculotte <br>
-                    - Flødekartofler og små mexicansk krydret kartofler
-                    <br>
-                    - Hjemmelavet broccolisalat
-                    <br>
-                    - Pastasalat
-                    <br>
-                    - Årstidens salat
-                    <br>
-                    - Dressing <br>
-                    - Flutes <br>
-                    Maden afhentes kold og klar til nem tilberedning</p>
+                <ul class="product__list">
+                    <li>Marineret Vildtkrydret kalvekulotte</li>
+                    <li>Flødekartofler og små mexicansk krydret kartofler</li>
+                    <li>Hjemmelavet broccolisalat</li>
+                    <li>Pastasalat</li>
+                    <li>Årstidens salat</li>
+                    <li>Dressing</li>
+                    <li>Flutes</li>
+                </ul>
+                <p class="product__description">Maden afhentes kold og klar til nem tilberedning</p>
                 <p class="product__price">130,-</p>
             </section>
 
             <section class="product">
-                <img src="images/Friiies.png" alt="">
+                <img class="product__image" src="images/Friiies.png" alt="Chili fries">
                 <h2 class="product__title">Chili fries</h2>
                 <p class="product__description">Fåes i størrelserne mellem og stor.
                     Inkl. 2 slags valgfri dip.</p>
@@ -85,13 +77,13 @@
         </section>
 
     </main>
-    <footer>
+    <footer class="footer">
         <section class="footer__find">
             <h2 class="footer__title">FIND OS HER</h2>
-            <p>Tlf: 98 80 22 43</p>
-            <p>Mail: infoslagterhanse.dk</p>
-            <p>Algade 68</p>
-            <p>9700 Brønderslev</p>
+            <a class="footer__links" href="#">Tlf: 98 80 22 43</a>
+            <a class="footer__links" href="#">Mail: infoslagterhansen.dk</a>
+            <a class="footer__links" href="#">Algade 68</a>
+            <a class="footer__links" href="#">9700 Brønderslev</a>
         </section>
         <section class="footer__openingHours">
             <h2 class="footer__title">Åbningstider</h2>
@@ -115,11 +107,12 @@
         </section>
         <section class="footer__info">
             <h2 class="footer__title">Find det du søger</h2>
-            <p>Forretningsbetingelser</p>
-            <p>Persondatapolitik</p>
-            <p>Cookiepolitik</p>
-            <p>Info</p>
+            <a class="footer__links" href="#">Forretningsbetingelser</a>
+            <a class="footer__links" href="#">Persondatapolitik</a>
+            <a class="footer__links" href="#">Cookiepolitik</a>
+            <a class="footer__links" href="#">Info</a>
         </section>
     </footer>
+<script src="script.js"></script>
 </body>
 </html>
