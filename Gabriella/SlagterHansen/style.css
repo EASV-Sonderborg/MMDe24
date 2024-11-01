@@ -66,8 +66,8 @@ img {
 }
 .productCards {
   display: grid;
-  grid-template-columns: 3fr, 1fr, 1fr;
-  padding-left: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 3fr));
+  padding-left: 4rem;
 }
 .productCards__header {
   font-size: 30px;
@@ -139,11 +139,11 @@ img {
 }
 .footerGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(450px, 3fr));
   line-height: 2;
   padding-left: 100px;
   padding-top: 30px;
-  background-color: 441D1D;
+  background-color: #441d1d;
 }
 .footerGrid__openinghours--text {
   font-family: "Noto Sans", sans-serif;
