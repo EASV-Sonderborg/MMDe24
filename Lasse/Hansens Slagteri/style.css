@@ -293,10 +293,16 @@ body {
 /* Opening Days & Times */
 .footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 40px 100px;
     background-color: rgb(27, 27, 27);
     border-top: 1px solid rgb(211, 171, 84);
+}
+
+.footer__openingHours {
+    margin-right: 100px;
+    margin-bottom: 50px;
 }
 
 .footer__openingHours__heading {
@@ -317,6 +323,9 @@ body {
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+.footer__openingHours__times__listItems {
+    width: 168px;
 }
 
 .footer__openingHours__days__listItem {
