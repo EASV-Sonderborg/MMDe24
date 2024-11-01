@@ -1,0 +1,58 @@
+body    {
+    background-color: black;
+}
+
+.candle {
+    position: relative;
+    width: 100px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    background: #e5b000; /* Candle color */
+    border-radius: 10px;
+    margin: 50px auto; /* Center the candle */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.tip {
+    position: absolute;
+    top: -10px; /* Position it above the candle */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px; /* Width of the tip */
+    height: 10px; /* Height of the tip */
+    background: #b08d00; /* Color for the tip */
+    border-radius: 10px; /* Rounded edges */
+}
+
+.flame {
+    position: absolute;
+    bottom: 100%; /* Position it above the candle */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px; /* Increased width for the flame */
+    height: 30px; /* Height of the flame */
+    background: orange; /* Flame color */
+    border-radius: 50%; /* Circular shape */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease;
+    box-shadow: 
+        0 0 10px orange,   /* Inner glow */
+        0 0 20px yellow,   /* Medium glow */
+        0 0 80px rgba(255, 255, 0, 0.7); /* Large, less bright glow */
+}
+
+.candle.active .flame {
+    opacity: 1; /* Show the flame when active */
+    animation: flicker 0.5s infinite alternate ease-in-out; /* Flicker effect */
+}
+
+@keyframes flicker {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    80% {
+        transform: translateX(-50%) scale(1.05); /* Slightly larger */
+    }
+    100% {
+        transform: translateX(-50%) scale(1); /* Back to normal */
+    }
+}
