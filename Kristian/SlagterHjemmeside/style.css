@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     flex-direction: row;
     padding: 15px 15px;
 }
@@ -26,6 +27,7 @@
     list-style: none;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: end;
     padding: 15px 16px;
     align-items: center;
@@ -70,8 +72,11 @@
     font-style: normal;
     font-weight: 400;
     background-size: 100%;
-    min-height: 200px;
     padding: 10%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -84,7 +89,9 @@
 /* Styling of intro text section */
 .intro{
     background: #222222 url(images/cutBeef.png);
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .intro:not(.intro__logo){
@@ -141,9 +148,10 @@
     font-weight: 400;
     line-height: normal;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     padding: 2%;
     gap: 1rem;
+    
+    grid-template-columns: repeat(auto-fit, minmax(200px, 450px))
 }
 
 /* Styling of individual products */
@@ -182,6 +190,7 @@
 
 .product__Img--fishnchips{
     height: 40%;
+    width: 100%;
 }
 
 .product__description{
@@ -214,6 +223,9 @@
 .info{
     background: #441818e7 url(images/footer__img.png);
     background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .info__content{
@@ -221,6 +233,7 @@
     gap: 1%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 /*Opening hours*/

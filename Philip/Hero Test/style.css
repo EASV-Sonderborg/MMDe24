@@ -74,6 +74,7 @@ h1 {
     font-size: 3rem;
     background: linear-gradient(90deg, blue, green, yellow, red); /* Gradient fra blå til rød */
     -webkit-background-clip: text; /* Klipper baggrund til tekst */
+    background-clip: text;
     -webkit-text-fill-color: transparent; /* Gør teksten gennemsigtig, så gradienten vises */
     z-index: 2; /* Sørger for, at teksten er ovenfor videoen */
 }
