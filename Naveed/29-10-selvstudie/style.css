@@ -278,7 +278,7 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
 }
 
 /* footer */
-footer{
+.footer{
     border-top: 2px solid #D3AB54;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
