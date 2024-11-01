@@ -5,6 +5,9 @@
     --lfont: calc(var(--sfont) + 1rem); 
     --xlfont: calc(var(--sfont) + 2rem); 
     --xxlfont: calc(var(--sfont) + 3rem); 
+
+    --ff-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --ff-accent: "Charm", cursive;
 }
 * {
 	box-sizing: border-box;
@@ -21,14 +24,18 @@ body{
     padding-top: 100vh;
 }
 p, li{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--ff-primary)
 }
 h2{
-    font-family: "Charm", cursive;
+    font-family: var(--ff-accent)
 }
 a{
     text-decoration: none;
     color: inherit;
+}
+ul{
+    margin: 0;
+    padding: 0;
 }
 .section{
     padding: 2em;
@@ -153,7 +160,6 @@ a{
     background-image: url('images/roast.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.7;
     z-index: -1;
     filter: blur(2px);
 }
@@ -201,7 +207,7 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
     padding: 0.5em 0 1em 0;
 }
 .intro__text{
-    font-size: var(--sfont);
+    font-size: var(--mfont);
     background-color: rgba(0, 0, 0, 0.5);
     max-width: 70%;
     margin: auto;
@@ -212,11 +218,10 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
 /* section: products */
 .products{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     justify-items: center;
     position: relative;
     padding: 2em;
-    gap: 2em;
 }
 .products::before{ 
     content: "";
@@ -228,7 +233,6 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
     background-image: url('images/wineglasses.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.8;
     z-index: -1;
     filter: blur(2px);
 }
@@ -241,12 +245,13 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
     box-shadow: 5px 5px 5px #20202076;
     border: 2px solid #D3AB54;
     opacity: 0.8;
+    scale: 0.98;
     transition-duration: 400ms;
     transition-property: opacity, scale, box-shadow;
 }
 .product:hover{
     opacity: 1;
-    scale: 1.02;
+    scale: 1;
     box-shadow:  
     0 0 10px #D3AB54, 
     0 0 20px #D3AB54,
@@ -265,7 +270,7 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
     2px -2px 2px #333; 
 }
 .product__description{
-    font-size: var(--sfont);
+    font-size: clamp(1rem, 0.6667rem + 1.0667vw, 2rem);
     flex-wrap: wrap;
     flex-grow: 1;
     padding: 1em;
@@ -273,15 +278,15 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
 .product__price{
     color: #D3AB54;
     font-size: var(--lfont);
-    font-family: "Charm", cursive;
-    font-weight: 700;
+    font-family: var(--ff-accent);
+    /* font-weight: 700; */
 }
 
 /* footer */
 .footer{
     border-top: 2px solid #D3AB54;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-items: center;
     background-color: #222;
 }
@@ -289,7 +294,7 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
     display: flex;
     justify-content: center;
     color: #D3AB54;
-    font-family: "Charm", cursive;
+    font-family: var(--ff-accent);
     font-size: var(--lfont);
     margin: 0 0 0 0;
 }
@@ -311,4 +316,5 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
 .footer__logo{
     display: flex;
     align-self: center;
+    scale: 0.8;
 }
