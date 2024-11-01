@@ -230,17 +230,17 @@
 
 .info__content{
     padding: 2%;
-    gap: 1%;
+    gap: 1rem;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
 }
 
 /*Opening hours*/
 .info__timeList{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .info__hoursTitle{
@@ -264,8 +264,6 @@
 }
 
 .info__weekDay{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 }
 
 .info__openPeriods{
