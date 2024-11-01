@@ -2,7 +2,7 @@ const textBox = document.getElementById("textBox");
 const bigger = document.getElementById("increaseTxt");
 const smaller = document.getElementById("decreaseTxt");
 
-const changeAmount = 4;
+const changeAmount = 2;
 
 function getCurrentFontSize(element)    {
     return parseFloat(window.getComputedStyle(element).fontSize);

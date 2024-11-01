@@ -68,7 +68,8 @@ body    {
 }
 
 .textAdjust {
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
@@ -81,6 +82,7 @@ body    {
     border-radius: 10px;
     font-size: 1em;
     cursor: pointer;
+    
 }
 
 .button:hover   {
