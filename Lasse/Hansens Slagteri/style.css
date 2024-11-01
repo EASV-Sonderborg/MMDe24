@@ -12,6 +12,7 @@ body {
 }
 
 
+
 /* Header & Navigation */
 .header__navigation {
     display: flex;
@@ -67,11 +68,15 @@ body {
 }
 
 
+
 /* Hero Section */
 .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
     width: 100vw;
-    overflow: hidden;
 }
 
 .hero__image {
@@ -118,19 +123,24 @@ body {
     line-height: 1.5;
 }
 
+
+
 /* Introduction Page */
 .introPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
     padding: 20px;
-    box-sizing: border-box;
     background-color: rgb(27, 27, 27);
 }
 
 .introPage__headingOne {
     font-size: 3.5rem;
     margin: 0;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     color: rgb(239, 62, 53);
     font-weight: normal;
 }
@@ -142,6 +152,14 @@ body {
     font-weight: normal;
 }
 
+.introPage__heading__line {
+    width: 480px;
+    height: 2px;
+    background-color: rgb(211, 171, 84);
+    margin: 0px auto 50px auto;
+    display: block;
+}
+
 .introPage__headingThree {
     position: relative;
     font-size: 1.2rem;
@@ -149,19 +167,13 @@ body {
     font-weight: normal;
 }
 
-.introPage__headingThree::before {
-    content: "";
-    display: block;
-    width: 26%;
-    height: 2px;
-    background-color: rgb(211, 171, 84);
-    margin: 30px auto 46px;
-}
-
 .introPage__contentText {
+    display: flex;
+    flex-wrap: wrap;
     color: white;
     line-height: 1.5rem;
-    margin: 16px 500px;
+    margin: 16px auto;
+    max-width: 750px;
 }
 
 .introPage__contentTextAlternate {
@@ -174,6 +186,7 @@ body {
 /* Product Page */
 .productPage {
     padding: 20px;
+    margin-bottom: 60px;
 }
 
 .productPage__heading {
@@ -185,7 +198,7 @@ body {
 }
 
 .productPage__heading__line {
-    width: 22%;
+    width: 400px;
     height: 2px;
     background-color: rgb(211, 171, 84);
     margin: 0px auto 70px auto;
@@ -193,10 +206,13 @@ body {
 }
 
 .productPage__productCards {
-    display: flex;
-    justify-content: center;
-    gap: 200px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 100px;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+    justify-items: center;
 }
 
 .productPage__productCard {
@@ -204,10 +220,11 @@ body {
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 2px;
-    max-width: 280px;
     display: flex;
     flex-direction: column;
     border-bottom: 2px solid rgb(239, 62, 53);
+    max-width: 280px;
+    width: 100%;
 }
 
 .productPage__productCard__imageWrapper {
@@ -247,8 +264,8 @@ body {
     letter-spacing: 1px;
 }
 
-.productPage__productCard__descriptionAlternate {
-    margin-bottom: 40px;
+.productPage__productCard__description, .productPage__productCard__descriptionAlternate, .productPage__productCard__listItemsAlternate {
+    margin-bottom: 30px;
 }
 
 .productPage__productCard__price {
@@ -256,7 +273,6 @@ body {
     font-weight: normal;
     color: rgb(211, 171, 84);
     margin: 0 5px;
-    padding: 0;
     margin-top: auto;
 }
 
@@ -265,4 +281,102 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.productPage__productCard__chiliFries, .productPage__productCard__priceContainer {
+    gap: 5px;
+}
+
+
+
+/* Footer Section */
+/* Opening Days & Times */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 100px;
+    background-color: rgb(27, 27, 27);
+    border-top: 1px solid rgb(211, 171, 84);
+}
+
+.footer__openingHours__heading {
+    margin-bottom: 10px;
+    color: white;
+    border-bottom: 1px solid rgb(239, 62, 53);
+    font-weight: normal;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+.footer__schedule__wrapper {
+    display: flex;
+    gap: 0px;
+}
+
+.footer__openingHours__days__listItems, .footer__openingHours__times__listItems {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.footer__openingHours__days__listItem {
+    padding-left: 5px;
+}
+
+.footer__openingHours__times__listItem {
+    padding-left: 50px;
+    padding-right: 5px;
+}
+
+.footer__openingHours__days__listItem, .footer__openingHours__times__listItem {
+    list-style-type: none;
+    line-height: 2.5rem;
+    color: rgb(214, 214, 214);
+    border-bottom: 1px solid rgb(17, 17, 17);
+}
+
+/* Contact */
+.footer__contact__heading {
+    margin-bottom: 10px;
+    color: white;
+    border-bottom: 1px solid rgb(239, 62, 53);
+    font-weight: normal;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.footer__contact__info__listItems, .footer__policies__listItems {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__contact__info__listItem, .footer__policies__listItem {
+    color: rgb(214, 214, 214);
+    line-height: 2.5rem;
+    border-bottom: 1px solid rgb(17, 17, 17);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.footer__policies__listLink {
+    color: rgb(214, 214, 214);
+    text-decoration: none;
+}
+
+.footer__policies__listLink:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.footer__policies__listItemAlternate {
+    border-top: 1px solid rgb(17, 17, 17);
+}
+
+.footer__divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(211, 171, 84);
+    margin: 36px 0;
 }
