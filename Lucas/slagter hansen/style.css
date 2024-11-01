@@ -88,7 +88,8 @@
 .products{
     /* height: 80vh; */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 
+    repeat(auto-fit, minmax(400px, 1fr ));
     justify-items: center;
     position: relative;
     padding-top: 10px;
@@ -100,7 +101,7 @@
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
     transition: background-color 0.3s ease; /* Smooth transition */
     max-width: 400px;
-    height: 98%;
+    max-height: 98%;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
@@ -215,7 +216,8 @@ border-radius: 5px;
 
 footer{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 
+    repeat(auto-fit, minmax(200px, 1fr ));
     justify-content: space-between;
     justify-items: center;
     padding-bottom: 10px;
@@ -245,6 +247,8 @@ footer{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 0;
+    align-items: start;
+
 }
 
 .footer__grid--dates{
