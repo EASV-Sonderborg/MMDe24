@@ -207,7 +207,7 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
     padding: 0.5em 0 1em 0;
 }
 .intro__text{
-    font-size: var(--mfont);
+    font-size: var(--sfont);
     background-color: rgba(0, 0, 0, 0.5);
     max-width: 70%;
     margin: auto;
