@@ -71,9 +71,12 @@ body {
 
 /* Hero Section */
 .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
     width: 100vw;
-    overflow: hidden;
 }
 
 .hero__image {
@@ -124,8 +127,12 @@ body {
 
 /* Introduction Page */
 .introPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
     padding: 20px;
     background-color: rgb(27, 27, 27);
 }
@@ -161,10 +168,12 @@ body {
 }
 
 .introPage__contentText {
+    display: flex;
+    flex-wrap: wrap;
     color: white;
     line-height: 1.5rem;
     margin: 16px auto;
-    width: 800px;
+    max-width: 750px;
 }
 
 .introPage__contentTextAlternate {
@@ -197,10 +206,13 @@ body {
 }
 
 .productPage__productCards {
-    display: flex;
-    justify-content: center;
-    gap: 200px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 100px;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+    justify-items: center;
 }
 
 .productPage__productCard {
@@ -208,10 +220,11 @@ body {
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 2px;
-    max-width: 280px;
     display: flex;
     flex-direction: column;
     border-bottom: 2px solid rgb(239, 62, 53);
+    max-width: 280px;
+    width: 100%;
 }
 
 .productPage__productCard__imageWrapper {
@@ -251,8 +264,8 @@ body {
     letter-spacing: 1px;
 }
 
-.productPage__productCard__descriptionAlternate {
-    margin-bottom: 40px;
+.productPage__productCard__description, .productPage__productCard__descriptionAlternate, .productPage__productCard__listItemsAlternate {
+    margin-bottom: 30px;
 }
 
 .productPage__productCard__price {
@@ -260,7 +273,6 @@ body {
     font-weight: normal;
     color: rgb(211, 171, 84);
     margin: 0 5px;
-    padding: 0;
     margin-top: auto;
 }
 
@@ -268,6 +280,10 @@ body {
     margin-top: auto;
     display: flex;
     flex-direction: column;
+    gap: 5px;
+}
+
+.productPage__productCard__chiliFries, .productPage__productCard__priceContainer {
     gap: 5px;
 }
 
