@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+}
+
+
+
+
+
+
+html {
+    font-size: 20px;
+}
+
+
+
+.box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+.textEM {
+    background-color: red;
+    padding: 2em;
+    font-size: 10px;
+}
+
+
+
+.textREM {
+    background-color: blue;
+    padding: 2rem;
+    font-size: 10px;
+}
+
+
+
+
+.textPX {
+    background-color: green;
+    padding: 32px;
+    font-size: 30px;
+}
+
+
+
+
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+h3 {
+    text-align: center;
+    font-size: 32px;
+}
