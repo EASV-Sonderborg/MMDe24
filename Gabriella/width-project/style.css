@@ -1,0 +1,19 @@
+.cardOne {
+  background-color: lightblue;
+  padding: 3rem;
+  width: auto;
+  margin-right: 200px;
+  border-radius: 5px;
+}
+.cardTwo {
+  background-color: lightgreen;
+  width: 20cqw;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.cardThree {
+  background-color: lightcoral;
+  width: 100%;
+  margin: 3rem;
+}
