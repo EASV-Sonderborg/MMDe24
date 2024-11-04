@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 16px;
+}
+
+
+.px{
+    background: red;
+}
+
+.px__img{
+    border: solid red;
+}
+
+.px__img--small{
+    height: 100px;
+}
+
+.px__img--big{
+    height: 200px;
+}
+
+.rem{
+    background: green;
+}
+
+.rem__img{
+    border: solid green;
+}
+
+.rem__img--big{
+    height: 6rem;
+}
+
+.rem__img--small{
+    height: 3rem;
+}
+
+
+
+.percent{
+    height: 100vh;
+    background: rgb(83, 83, 170);
+}
+
+.percent__title{
+    position: absolute;
+    left: 150px;
+}
+
+.percent__img{
+    display: block;
+    height: 50%;
+    /*order: solid 1px aqua;*/
+}
+
+.vh{
+    height: 100vh;
+}
+
+.vh__title{
+    position: absolute;
+}
+
+.vh__img{
+    height: 100vh;
+}
