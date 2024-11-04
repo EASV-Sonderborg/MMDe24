@@ -29,10 +29,9 @@
 
 .header__logo{
     margin-right: auto;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 50%;
+    padding-left: 0.625em;
+    padding-top: 0.625em;
+    padding-bottom: 0.625em;
 
 }
 
@@ -79,7 +78,7 @@
 }
 
 .products{
-    /* height: 80vh; */
+    /* heixght: 80vh; */
     display: grid;
     grid-template-columns: 
     repeat(auto-fit, minmax(400px, 1fr ));
