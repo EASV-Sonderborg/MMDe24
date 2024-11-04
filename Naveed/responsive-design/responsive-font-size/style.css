@@ -83,11 +83,13 @@ body {
 .col--em p {
   font-size: 1em;
 }
+/* Change this value to affect the span's relative font size */
 .col--em p span{
-    font-size: 0.5em;
+    font-size: 2em;
 }
+/* Change this value to affect the overall font size */
 .col--em{
-    /* font-size: 2em; */
+    font-size: 1em;
 }
 
 /* ============
@@ -101,5 +103,5 @@ body {
   font-size: 1rem;
 }
 .col--rem{
-    font-size: 2em;
+    font-size: 4rem;
 }
