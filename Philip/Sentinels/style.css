@@ -21,11 +21,10 @@ body    {
     height: 8rem;
     top: 0;
     z-index: 5;
-    
 }
 
 .header__logo   {
-    width: clamp(200px, 10vw, 400px);
+    width: clamp(150px, 10vw, 400px);
     padding: 2rem;
     border-right: 1px solid var(--textgrey-color);
 }
@@ -33,21 +32,21 @@ body    {
 .navList    {
     list-style: none;
     display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 3rem);
     max-width: 100%;
+    height: 100%;
     padding-right: 2rem;
+    margin: 0;
 }
 
-.navList__item  {
-    text-decoration: none;
-    padding: 2rem;
-}
 
 
 .navList__link  {
     text-decoration: none;
     color: white;
     font-weight: 500;
-    font-size: clamp(0.5rem, 2vw, 1.5rem);
+    font-size: clamp(0.125rem, 2vw, 2rem);
     text-transform: uppercase;
     font-family: var(--sencity-font)
 }
@@ -76,9 +75,29 @@ body    {
     margin-top: 8rem;
 }
 
-@keyframes slideIn {
+.buttonArea {
+    display: flex;
+    margin: 2rem 2rem 2rem 4rem;
+    gap: 2rem;
+    height: fit-content;
+}
+
+.button {
+    color: white;
+    background-color: var(--senred-color);
+    padding: 0 2rem;
+    font-size: 1.5rem;
+    font-family: var(--sencity-font);
+    font-weight: bold;
+    height: min-content;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+@keyframes slideInLeft {
     from {
-        transform: translateX(-100%); /* Starter uden for skærmen til højre */
+        transform: translateX(-100%); /* Starter uden for skærmen til venstre */
         opacity: 0; /* Gør elementet usynligt */
     }
     to {
@@ -86,14 +105,35 @@ body    {
         opacity: 1; /* Gør elementet synligt */
     }
 }
-@keyframes slideOut {
+@keyframes slideInRight {
     from {
-        transform: translateX(0); /* Starter i sin normale position */
-        opacity: 1; /* Gør elementet synligt */
+        transform: translateX(100%); /* Starter uden for skærmen til højre */
+        opacity: 0; /* Gør elementet usynligt */
     }
     to {
-        transform: translateX(100%); /* Bevæger sig uden for skærmen til venstre */
-        opacity: 0; /* Gør elementet usynligt */
+        transform: translateX(0); /* Slutter i sin normale position */
+        opacity: 1; /* Gør elementet synligt */
+    }
+}
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0); /* Start in normal position */
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%); /* Move to the left */
+        opacity: 0;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0); /* Start in normal position */
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%); /* Move to the right */
+        opacity: 0;
     }
 }
 
@@ -116,17 +156,25 @@ body    {
     visibility: visible;
 }
 
-.product.active .product__text, .product.active .productImage__box {
-    animation: slideIn 1s ease;
-}
-
 .product.fadeOut    {
     opacity: 0;
     visibility: hidden;
 }
 
-.product.fadeOut .product__text, .product.fadeOut .productImage__box    {
-    animation: slideOut 1s ease forwards;
+.product.slideOutLeft {
+    animation: slideOutLeft 1s ease forwards; /* Slide out to the left */
+}
+
+.product.slideOutRight {
+    animation: slideOutRight 1s ease forwards; /* Slide out to the right */
+}
+
+.product.slideInLeft {
+    animation: slideInLeft 1s ease forwards; /* Slide in from the left */
+}
+
+.product.slideInRight {
+    animation: slideInRight 1s ease forwards; /* Slide in from the right */
 }
 
 .productImage__box  {
@@ -155,7 +203,7 @@ body    {
     margin-left: 4rem;
     max-width: 100%;
     font-family:  var(--sencity-font);
-    /* border-right: 1px solid var(--textgrey-color); */
+    border-right: 1px solid var(--textgrey-color);
     max-height: 70vh;
     min-height: 100%;
 }
@@ -170,4 +218,99 @@ body    {
 .product__price {
     color: var(--senred-color);
     font-size: 2rem;
+}
+
+
+.socials    {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.senSociety {
+    position: relative;
+    grid-area: 1 / 1 / 3 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    border-right: 1px solid var(--textgrey-color);
+    overflow: hidden;
+}
+
+.senSocietyLogo__box    {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.senSociety__logo   {
+    height: 3rem;
+}
+
+.senSociety__text   {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: var(--sencity-font);
+    text-transform: uppercase;
+}
+
+.social__header {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin: 0;
+}
+.senSociety__description    {
+    font-size: clamp(0.5rem, 10vw, 1rem);
+}
+
+.senSociety__background {
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    width: 300px;
+    z-index: -1;
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    min-height: 250px;
+}
+
+.social__logo    {
+    width: 30px;
+    height: auto;
+}
+
+.social__followers  {
+    color: white;
+    text-transform: uppercase;
+    font-family: var(--sencity-font);
+}
+
+.twitterX   {
+    grid-area: 1 / 3 / 2 / 4;
+    border-right: 1px solid var(--textgrey-color);
+    border-bottom: 1px solid var(--textgrey-color);
+}
+
+.youtube    {
+    grid-area: 1 / 4 / 2 / 5;
+    border-bottom: 1px solid var(--textgrey-color);
+}
+
+.instagram  {
+    grid-area: 2 / 3 / 3 / 4;
+    border-right: 1px solid var(--textgrey-color);
+}
+
+.tiktok {
+    grid-area: 2 / 4 / 3 / 5;
+}
+
+.tiktok__logo   {
+    scale: 1.5;
 }
