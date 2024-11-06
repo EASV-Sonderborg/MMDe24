@@ -5,8 +5,8 @@ const myButton1 = document.getElementById("myButton1");
 const myButton2 = document.getElementById("myButton2");
 
 
-let Cool = false
-let Age = 1
+let Cool = localStorage.getItem("Cool") ==="true"
+let Age = parseInt(localStorage.getItem("Age"), 10) || 1;
 
 
 
@@ -25,6 +25,7 @@ setAgeButton.onclick = function(){
     if(!isNaN(newAge)) {
         if(newAge >= 0 ){
           Age = newAge;
+          localStorage.setItem("Age", Age)
         updateText();  
         }
         else {
@@ -36,26 +37,20 @@ else  {
     alert("Please dont fuck around.");
 }
 };
-/* setAgeButton.onclick = function(){
-    Age = ageInput.value;
-    Age = Number(age);
-        if(Age >= 0 ){
-        updateText();  
-        }
-        else {
-            alert("HOW THE FUCK DID YOU TYPE THIS MESSAGE!!!")
-        }
-    } */
 
 
 
 myButton1.onclick = function() {
     Cool = true
+    localStorage.setItem("Cool", Cool)
     updateText();
 }
 myButton2.onclick = function() {
     Cool = false
+    localStorage.setItem("Cool",Cool)
     updateText();
 }
 
 updateText();
+
+
