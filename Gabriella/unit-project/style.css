@@ -1,0 +1,39 @@
+.hero__header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+}
+.hero__header--sub {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.hero__text {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.cardOne {
+  background-color: lightseagreen;
+  width: 30rem;
+  padding: 1rem;
+}
+.cardOne__header {
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.imageOne {
+  height: 250px;
+  width: auto;
+}
+.cardOne__text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+.cardTwo {
+  background-color: lightcoral;
+}
+.cardTwo__header {
+  font-size: 2rem;
+}
+.cardThree {
+  background-color: lightgreen;
+}
+.cardThree__header {
+  font-size: 1rem;
+}
