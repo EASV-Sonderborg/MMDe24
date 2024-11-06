@@ -1,0 +1,32 @@
+.root {
+  background-color: lightblue;
+}
+
+@media screen and (min-width: 600px) and (max-width: 65.999rem) {
+  .root {
+    background-color: lightcoral;
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 1rem;
+  /* remembering to define the container for the container query to work */
+  container-type: inline-size;
+  container-name: cards-container;
+}
+
+.card {
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Use the defined container */
+@container cards-container (min-width: 45ch) {
+  .card {
+    display: grid;
+    grid-template-columns: auto minmax(25ch, 1fr);
+  }
+}
