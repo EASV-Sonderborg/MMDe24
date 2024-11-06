@@ -1,0 +1,64 @@
+.body {
+  background-color: FFF7B2;
+}
+.header {
+  font-family: "Noto Sans", serif;
+  background-color: #fffdf1;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px #fff59f;
+}
+.title {
+  text-decoration: none;
+  font-weight: 800;
+  color: #7f0019;
+  margin: 3rem;
+  font-size: 2rem;
+}
+.nav {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.nav__list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.nav__link {
+  text-decoration: none;
+  font-weight: 800;
+  color: #7f0019;
+}
+.nav__link:visited {
+  color: #7f0019;
+}
+.hero {
+  font-family: "Noto Sans", serif;
+}
+.hero__header {
+  font-size: 2rem;
+  color: #4a4a4a;
+}
+.hero__header--sub {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #818181;
+}
+.card {
+  background-color: #ffffff;
+  font-family: "Noto Sans", serif;
+}
+.card__image {
+  width: 200px;
+  height: 200px;
+}
+.card__header {
+  color: #7f0019;
+  font-size: 1.3rem;
+}
+.card__header--sub {
+  color: 4A4A4A;
+  font-weight: 400;
+}
