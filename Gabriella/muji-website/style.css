@@ -12,7 +12,8 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards; /*Loading animation when entering the website on both mobile, tablet and desktop*/
 }
-@keyframes fadeInAnimation { /*Keyframe for loading in the animation*/
+@keyframes fadeInAnimation {
+  /*Keyframe for loading in the animation*/
   0% {
     opacity: 0;
   }
@@ -124,6 +125,7 @@
 }
 
 @media only screen and (max-width: 450px) {
+  /*most mobile devices*/
   .nav__list {
     display: none;
   }
@@ -139,13 +141,73 @@
     display: flex;
     align-items: center;
     margin: 1rem;
-    /* margin-top: 3.5rem;
-    margin-right: 2rem; */
   }
   .hero {
     text-align: center;
   }
   .cards {
+  }
+}
+@media only screen and (max-width: 380px) {
+  /*small mobile device*/
+  .nav__list {
+    display: none;
+  }
+  .header {
+    display: flex;
+    justify-content: left;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .svg {
+    display: block;
+    display: flex;
     align-items: center;
+    margin: 1rem;
+  }
+  .hero {
+    text-align: center;
+  }
+  .hero__header {
+    width: 250px;
+    height: auto;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+  }
+  .hero__header--sub {
+    width: 250px;
+    height: auto;
+    font-size: 1rem;
+  }
+  .cards {
+    font-size: 1rem;
+  }
+  .card {
+    width: 15rem; /*adjusting the cards to be smaller to fit*/
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .nav__list {
+    display: none;
+  }
+  .header {
+    display: flex;
+    justify-content: left;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .svg {
+    display: block;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    margin-left: 22rem;
+    /* margin-top: 3.5rem;
+    margin-right: 2rem; */
+  }
+  .hero {
+    text-align: center;
   }
 }
