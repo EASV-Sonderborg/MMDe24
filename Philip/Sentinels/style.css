@@ -78,14 +78,15 @@ body    {
 .buttonArea {
     display: flex;
     margin: 2rem 2rem 2rem 4rem;
-    gap: 2rem;
-    height: fit-content;
+    gap: 1rem;
+
 }
 
 .button {
     color: white;
     background-color: var(--senred-color);
-    padding: 0 2rem;
+    width: 50px;
+    height: 50px;
     font-size: 1.5rem;
     font-family: var(--sencity-font);
     font-weight: bold;
