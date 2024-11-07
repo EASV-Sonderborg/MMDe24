@@ -1,11 +1,32 @@
+/* Apply box-sizing globally */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 .body {
-  background-color: FFF7B2;
+  background-color: #fff7b2;
+  margin: 0;
+  overflow-x: hidden; /* Removing my browsers default margin */
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; /*Loading animation when entering the website on both mobile, tablet and desktop*/
+}
+@keyframes fadeInAnimation { /*Keyframe for loading in the animation*/
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 .header {
   font-family: "Noto Sans", serif;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 10px 10px #fff59f;
+  margin: 1rem; /* Adding margin back so the header stands correctly again*/
 }
 .title {
   text-decoration: none;
@@ -38,6 +59,11 @@
 }
 .nav__link:hover {
   color: #4e0010;
+}
+.svg {
+  width: 3rem;
+  color: #7f0019;
+  display: none;
 }
 .hero {
   font-family: "Noto Sans", serif;
@@ -97,9 +123,29 @@
   font-weight: 400;
 }
 
-/* iPad Air in Portrait Mode */
-@media (min-width: 768px) and (max-width: 1180px) {
+@media only screen and (max-width: 450px) {
   .nav__list {
     display: none;
+  }
+  .header {
+    display: flex;
+    justify-content: left;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .svg {
+    display: block;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    /* margin-top: 3.5rem;
+    margin-right: 2rem; */
+  }
+  .hero {
+    text-align: center;
+  }
+  .cards {
+    align-items: center;
   }
 }
