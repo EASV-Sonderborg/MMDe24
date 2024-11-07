@@ -1,54 +1,69 @@
 let productPage = 0;
-const   products = document.querySelectorAll(".product");
-const   nextProduct = 5000;
+const products = document.querySelectorAll(".product");
+const nextProduct = 5000;
 let autoSlide;
 
 function changeProduct(direction = 1) {
+    // Prevent multiple animations from running simultaneously
+    if (document.querySelector('.product.animating')) {
+        return;
+    }
+
     const currentProduct = products[productPage];
+    const nextPage = (productPage + direction + products.length) % products.length;
+    const nextProduct = products[nextPage];
 
-    currentProduct.classList.add("fadeOut");
+    // Mark that animation is in progress
+    currentProduct.classList.add('animating');
 
-    if (direction === 1) {
-        currentProduct.classList.add("slideOutLeft");
-    }
-    else    {
-        currentProduct.classList.add("slideOutRight");
-    }
-    setTimeout(() => {
+    // Setup exit animation for current product
+    currentProduct.classList.add(direction === 1 ? "slideOutLeft" : "slideOutRight");
 
-        currentProduct.classList.remove("active", "fadeOut", "slideOutRight", "slideOutLeft");
+    // Handle the exit animation completion
+    currentProduct.addEventListener("animationend", function() {
+        currentProduct.classList.remove("active", "slideOutLeft", "slideOutRight", "animating");
+        
+        // Setup and start enter animation for next product
+        nextProduct.classList.add("active");
+        nextProduct.classList.add(direction === 1 ? "slideInRight" : "slideInLeft");
+        
+        // Handle the enter animation completion
+        nextProduct.addEventListener("animationend", function() {
+            nextProduct.classList.remove("slideInRight", "slideInLeft", "animating");
+        }, { once: true });
 
-        productPage = (productPage + direction + products.length) % products.length;
-
-        const newProduct = products[productPage];
-
-        newProduct.classList.remove("slideInLeft", "slideInRight");
-        newProduct.classList.add("active");
-
-
-        if  (direction === 1)   {
-            newProduct.classList.add("slideInRight");
-        }
-        else    {
-            newProduct.classList.add("slideInLeft");
-        }
-
-    }, 1000);
+        // Update the current page
+        productPage = nextPage;
+    }, { once: true });
 }
 
-document.getElementById("nextButton").onclick = () => {
-    resetAutoSlide();
-    changeProduct(1);
-};
-document.getElementById("prevButton").onclick = () => {
-    resetAutoSlide();
-    changeProduct(-1);
-};
-
-function resetAutoSlide(){
+function resetAutoSlide() {
     clearInterval(autoSlide);
     autoSlide = setInterval(() => changeProduct(1), nextProduct);
 }
 
-products[productPage].classList.add("active");
-resetAutoSlide();
+// Initialize the first product
+document.addEventListener('DOMContentLoaded', () => {
+    // Make sure all products start hidden except the first one
+    products.forEach((product, index) => {
+        if (index === 0) {
+            product.classList.add('active');
+        } else {
+            product.classList.remove('active');
+        }
+    });
+
+    // Setup event listeners
+    document.getElementById("nextButton").addEventListener('click', () => {
+        resetAutoSlide();
+        changeProduct(1);
+    });
+
+    document.getElementById("prevButton").addEventListener('click', () => {
+        resetAutoSlide();
+        changeProduct(-1);
+    });
+
+    // Start auto-slide
+    resetAutoSlide();
+});
