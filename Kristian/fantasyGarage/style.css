@@ -1,6 +1,7 @@
 
 *{
     margin: 0;
+    font-family: "Klee One", cursive;
 }
 
 .navBar{
@@ -24,6 +25,7 @@
 .navBar__item{
     text-decoration: none;
     color: black;
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.58);
 }
 
 
@@ -32,9 +34,11 @@ main{
     background-color: #5FD0C7;
     display: flex;
     flex-direction: column;
+    /*min-height: 100vh;*/
 }
 
 .welcome{
+    font-size: 20px;    
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -48,27 +52,20 @@ main{
     align-items: center;
 }
 
+.welcome__title{
+    
+}
+
 .examples{
+    font-size: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-items: center;
     justify-content: center;
     gap: 10rem;
     margin: 7rem 15rem 0 15rem;
     container-type: inline-size;
 }
-
-/* Media query for smaller screens */
-@container (max-width: 1074px) {
-    .example {
-        grid-template-columns: 1fr; /* Stack items in a single column on smaller screens */
-        gap: 5rem; /* Further reduce the gap */
-        padding: 2rem 2vw; /* Adjust padding for a narrower screen */
-    }
-}
-
-
-
 
 
 .example{
@@ -81,6 +78,17 @@ main{
     border-radius: 6px;
     background-color: #A47ADF;
 }
+
+/* Media query for smaller screens */
+@container (max-width: 1074px) {
+    .example {
+        grid-template-columns: 1fr; /* Stack items in a single column on smaller screens */
+        gap: 0.1rem; /* Further reduce the gap */
+
+        align-self: center;
+    }
+}
+
 
 .example__text{
     margin-top: 1.5rem;
@@ -124,4 +132,33 @@ main{
 .extraInfo__item{
     text-decoration: none;
     color: black;
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.58);
+}
+
+.extraInfo__cpr{
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.58);
+}
+
+
+
+.contact__info{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 8rem;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+
+.contact__info--address{
+    display: grid;
+    grid-rows: 2 / 4;
+}
+
+.contact__map{
+    max-width: 30%;
+    align-self: flex-start;
+    border: solid 4px #DBE1E1;
+    border-radius: 6px;
+    
 }
