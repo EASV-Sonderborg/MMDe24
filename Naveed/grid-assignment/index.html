@@ -15,20 +15,29 @@
 <body>
     <header>
         <nav class="menu">
-            <a href="#capetown">Cape Town</a>
-            <a href="#hanoi">Hanoi</a>
-            <a href="#london">London</a>
-            <a href="#newyork">New York</a>
-            <a href="#paris">Paris</a>
-            <img class="travelimg" src="images/travel.jpeg" alt="">
+            <input type="checkbox" id="sidebarActive"><!-- checks whether the sidebar should be open or not -->
+            <label for="sidebarActive" class="openSidebar"> <!-- opens the sidebar -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+            </label>
+            <label for="sidebarActive" id="overlay"></label> <!-- overlay used for closing the sidebar by clicking anywhere besides it -->
+            <div class="menu__links">
+                <label for="sidebarActive" class="closeSidebar"> <!-- closes the sidebar -->
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </label>
+                <a href="#capetown" class="menu__link">Cape Town</a>
+                <a href="#hanoi" class="menu__link">Hanoi</a>
+                <a href="#london" class="menu__link">London</a>
+                <a href="#newyork" class="menu__link">New York</a>
+                <a href="#paris" class="menu__link">Paris</a>
+            </div>
         </nav>
     </header>
-    <section class="intro">
-        <h1>Byer jeg drømmer om at rejse til</h1>
-        <p>Jeg er en passioneret backpacker, som elsker at rejse</p>
-        <p class="intro__bottom">Herunder præsenterer jeg nogle af mine yndlings byer, som jeg drømmer om at rejse til.</p>
-    </section>
     <main>
+        <section class="intro">
+            <h1>Byer jeg drømmer om at rejse til</h1>
+            <p>Jeg er en passioneret backpacker, som elsker at rejse</p>
+            <p class="intro__bottom">Herunder præsenterer jeg nogle af mine yndlings byer, som jeg drømmer om at rejse til.</p>
+        </section>
         <section class="blog">
             <article class="blog__post" id="capetown">
                 <h2>Cape Town</h2>
