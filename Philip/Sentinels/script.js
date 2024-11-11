@@ -67,3 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start auto-slide
     resetAutoSlide();
 });
+
+function toggleMenu() {
+    document.querySelector(".nav").classList.toggle("compact");
+}

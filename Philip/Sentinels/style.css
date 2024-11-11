@@ -13,6 +13,7 @@ body    {
 
 .header {
     display: flex;
+    align-items: center;
     border-bottom: 1px solid var(--textgrey-color);
     border-top: none;
     position: fixed;
@@ -21,10 +22,11 @@ body    {
     height: 8rem;
     top: 0;
     z-index: 5;
+
 }
 
 .header__logo   {
-    width: clamp(100px, 10vw, 400px);
+    width: clamp(200px, 10vw, 400px);
     padding: 1rem;
     border-right: 1px solid var(--textgrey-color);
 }
@@ -46,9 +48,43 @@ body    {
     text-decoration: none;
     color: white;
     font-weight: 500;
-    font-size: clamp(0.125rem, 2vw, 1rem);
+    font-size: clamp(0.5rem, 2vw, 1rem);
     text-transform: uppercase;
     font-family: var(--sencity-font)
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    padding: 0 1rem;
+    cursor: pointer;
+    height: 100%;
+}
+@media (max-width:940px) {
+    .navList    {
+        display: none;
+        flex-direction: row;
+    }
+    .hamburger  {
+        display: block;
+        padding-right: 2rem;
+    }
+    .header {
+        justify-content: space-between;
+    }
+}
+.nav.compact .navList    {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: black;
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+    position: absolute;
+    top: 8rem;
+    left: 80%;
 }
 
 .main    {
