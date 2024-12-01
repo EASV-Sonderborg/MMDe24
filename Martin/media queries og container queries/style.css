@@ -1,0 +1,35 @@
+.title {
+
+}
+
+.trumps_victory {
+    container-type:inline-size;
+}
+
+@container (width > 45ch) {
+
+}
+
+.trump_won{
+    container-type: inline-size;
+}
+
+
+
+.ukrian{
+    container-type: inline-size;
+}
+
+
+.nato {
+    container-type: inline-size;
+}
+
+
+
+@media (min-width: 800px) {
+    p{
+        font-size: 1,5rem;
+        line-height: 1,5;
+    }
+}
