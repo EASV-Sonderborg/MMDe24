@@ -193,6 +193,11 @@ a   {
     height: 100%;
 }
 
+.content__title {
+    font-family: var(--defaultPost-font);
+    font-size: 1.5rem;
+}
+
 .forbindBluetooth   {
     padding: 0 1rem;
     display: flex;
@@ -201,10 +206,6 @@ a   {
     gap: 2rem;
 }
 
-.bluetoothTitle     {
-    font-family: var(--defaultPost-font);
-    font-size: 1.5rem;
-}
 
 .bluetooth__img     {
     width: 100px;
@@ -236,10 +237,19 @@ a   {
     background-color: var(--parcelblue-color);
     color: white;
     padding: 1rem 2rem;
+    text-align: center;
 }
 
 
+.connectedNaerbox    {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.connected__title   {
+    text-align: center;
+}
 
 .naerbox    {
     display: grid;
@@ -294,4 +304,16 @@ a   {
     border: 2px solid black;
 }
 
+.connected__info    {
+    text-align: center;
+    color: black;
+    font-family: var(--defaultPost-font);
+    font-size: 0.75rem;
+}
+
+.connected__guide   {
+    text-align: center;
+    color: black;
+    font-family: var(--defaultPost-font);
+}
 
