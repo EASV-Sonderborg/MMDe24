@@ -43,13 +43,14 @@ body    {
 .header__title  {
     color: white;
     font-family: var(--defaultPost-font);
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding: 0px 1rem;
     margin: 20px;
 }
 
 .buttonParcel   {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     margin: 1rem 0;
 }
@@ -60,17 +61,18 @@ body    {
     margin: 0;
 }
 
+/* Har padding på buttonHent til over og under men den fungere på begge da de spreder sig ud til at fylde det hele */
+
 .buttonHent {
     color: white;
     font-size: 1rem;
-    padding: 0.25rem 2rem;
     background-color: var(--parcelblue-color);
     border-radius: 1rem 0 0 1rem;
+    padding: 0.5rem 0;
 }
 .buttonSend {
     color: black;
     font-size: 1rem;
-    padding: 0.25rem 2rem;
     background-color: white;
     border: 2px solid var(--parcelblue-color);
     border-radius: 0 1rem 1rem 0;
@@ -79,6 +81,7 @@ body    {
 
 .main   {
     width: 300px;
+    height: 70vh;
 }
 
 .parcelOverview {
@@ -86,6 +89,7 @@ body    {
     flex-direction: column;
     gap: 2rem;
 }
+
 a   {
     text-decoration: none;
 }
@@ -94,8 +98,8 @@ a   {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    margin: 0 1rem;
+    padding: 0 1rem; 
+    border-bottom: 2px solid var(--parcelblue-color);
 }
 
 .parcelOverview__title {
@@ -104,13 +108,27 @@ a   {
     font-weight: bold;
 }
 
+.parcelOverview__guide  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.parcelOverview__iconText   {
+    font-family: var(--defaultPost-font);
+    color: black;
+    font-size: 0.75rem;
+    margin: 0.5rem 0;
+}
+
 
 
 .parcelItem {
     display: grid;
-    grid-template-columns: 80% 20%;
-    border: 2px solid var(--pickupred-color);
-    border-radius: 10px;
+    grid-template-columns: 1fr auto;
+    border: 2px solid var(--parcelblue-color);
+    border-radius: 0.5rem;
     overflow: hidden;
 }
 
@@ -121,6 +139,7 @@ a   {
 
 .parcelItem__title  {
     font-size: 0.75rem;
+    color: black;
 }
 
 .parcelItem__info   {
@@ -135,12 +154,89 @@ a   {
 }
 
 .parcelItem__action {
-    background-color: var(--pickupred-color);
+    background-color: var(--parcelblue-color);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 0.75rem;
 }
 
+
+
+.addParcel   {
+    background-color: var(--parcelblue-color);
+    width: 100% ;
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.addParcel__text    {
+    font-family: var(--defaultPost-font);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 400;
+}
+
+.addParcel__icon    {
+    color: white;
+    font-size: 2rem;
+    font-family: var(--defaultPost-font);
+    position: absolute;
+    margin: 0;
+    top: 0;
+    right: 1rem;
+    height: 100%;
+}
+
+.forbindBluetooth   {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.bluetoothTitle     {
+    font-family: var(--defaultPost-font);
+    font-size: 1.5rem;
+}
+
+.bluetooth__img     {
+    width: 100px;
+    height: auto;
+}
+
+.bluetooth__guide   {
+    font-family: var(--defaultPost-font);
+    text-align: center;
+    font-size: 1rem;
+}
+
+.bluetoothHelp__link    {
+    text-decoration: underline;
+    color: black;
+    font-family: var(--defaultPost-font);
+}
+
+.button__navBox {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 2rem;
+    overflow: hidden;
+    gap: 2px;
+}
+
+.button__nav  {
+    background-color: var(--parcelblue-color);
+    color: white;
+    padding: 1rem 2rem;
+}
 
 
 

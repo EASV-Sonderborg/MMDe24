@@ -11,22 +11,26 @@
     <h2 class="header__title">Pakker</h2>
 </header>
 <body>
-    <section class="buttonParcel">
-        <button class="button buttonHent">Hent Pakke</button>
-        <button class="button buttonSend">Send Pakke</button>
-    </section>
+
     <main class="main">
+        <section class="buttonParcel">
+            <button class="button buttonHent">Hent Pakke</button>
+            <button class="button buttonSend">Send Pakke</button>
+        </section>
         <section class="parcelOverview">
             <section class="parcelOverview__header">
                 <h1 class="parcelOverview__title">
                     Nærboksvej 28, 0000 Nærby
                 </h1>
-                <a href="#">
+                <a class="parcelOverview__guide" href="#">
                     <img class="parcelOverview__icon" src="media/Map Marker.png" alt="map icon">
+                    <p class="parcelOverview__iconText">
+                        Vis Vej
+                    </p>
                 </a>
             </section>
         
-            <a href="#">
+            <a href="pickupBluetooth.html">
                 <section class="parcelItem">
                     <section class="parcelItem__text">
                         <h2 class="parcelItem__title">
@@ -44,7 +48,7 @@
                     </section>
                 </section>
             </a>
-            <a href="#">
+            <a href="pickupBluetooth.html">
                 <section class="parcelItem">
                     <section class="parcelItem__text">
                         <h2 class="parcelItem__title">
@@ -62,10 +66,14 @@
                     </section>
                 </section>
             </a>
+                <button class="button addParcel">
+                   <h2 class="addParcel__text">tilføj pakke</h2>
+                   <p class="addParcel__icon">+</p>
+                </button>
         </section>
 
-        <section class="button "></section>
     </main>
+
     <!-- <section class="naerbox">
         <section class="box" id="box1"></section>
         <section class="box" id="box2"></section>
