@@ -1,0 +1,10 @@
+main{
+    background-color: #9a9a9a;
+    background-image: url(images/street.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+svg{
+    fill: red;
+}
