@@ -4,16 +4,17 @@
 :root   {
     --defaultPost-font: "Inter", serif;
     --parcelblue-color: #1ABBE7;
-    --pickupred-color: #FF0000;
+    --swipboxorange-color: #E95A0C;
 }
 
 body    {
     margin: 0;
-    padding-top: 100px;
+    padding-top: 10vh;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 80vh;
 }
 
 
@@ -24,6 +25,8 @@ body    {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 10vh;
 }
 
 .burgerMenu {
@@ -45,14 +48,14 @@ body    {
     font-family: var(--defaultPost-font);
     font-size: 2rem;
     padding: 0px 1rem;
-    margin: 20px;
+    margin: 1rem;
 }
 
 .buttonParcel   {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    margin: 1rem 0;
+    margin: 1rem 0 0.5rem 0;
 }
 
 .button  {
@@ -77,7 +80,6 @@ body    {
     border: 2px solid var(--parcelblue-color);
     border-radius: 0 1rem 1rem 0;
 }
-
 
 .main   {
     width: 300px;
@@ -119,6 +121,7 @@ a   {
     font-family: var(--defaultPost-font);
     color: black;
     font-size: 0.75rem;
+    font-weight: 700;
     margin: 0.5rem 0;
 }
 
@@ -203,7 +206,9 @@ a   {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     gap: 2rem;
+    height: 80%;
 }
 
 
@@ -227,17 +232,26 @@ a   {
 .button__navBox {
     width: 300px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 2rem;
+    grid-template-rows: 1fr 1fr;
     overflow: hidden;
-    gap: 2px;
+    gap: 0.5rem;
 }
 
 .button__nav  {
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border-radius: 2rem;
+}
+
+.button__back   {
+    background-color: none;
+    border: 2px solid rgb(59, 59, 59);
+    color: rgb(59, 59, 59);
+}
+
+.button__forward    {
     background-color: var(--parcelblue-color);
     color: white;
-    padding: 1rem 2rem;
-    text-align: center;
 }
 
 
@@ -245,18 +259,22 @@ a   {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    height: 80%;
+    padding: 0.5rem 0;
 }
 
 .connected__title   {
     text-align: center;
+    margin: 0;
 }
 
 .naerbox    {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(13, 0.25fr);
-    width: 200px;
-    height: 325px;
+    width: 15vh;
+    height: 25vh;
 }
 
 #box1 { 
@@ -309,11 +327,29 @@ a   {
     color: black;
     font-family: var(--defaultPost-font);
     font-size: 0.75rem;
+    margin: 0;
 }
 
 .connected__guide   {
     text-align: center;
     color: black;
     font-family: var(--defaultPost-font);
+    margin: 0;
 }
 
+
+.openBoks__info     {
+    font-family: var(--defaultPost-font);
+    font-size: 1.25rem;
+}
+
+.openBoks__guide    {
+    font-family: var(--defaultPost-font);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.button__reOpen     {
+    color: white;
+    background-color: var(--swipboxorange-color);
+}
