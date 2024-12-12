@@ -4,7 +4,7 @@
 :root   {
     --defaultPost-font: "Inter", serif;
     --parcelblue-color: #1ABBE7;
-    --pickupred-color: #FF0000;
+    --swipboxorange-color: #E95A0C;
 }
 
 body    {
@@ -337,3 +337,19 @@ a   {
     margin: 0;
 }
 
+
+.openBoks__info     {
+    font-family: var(--defaultPost-font);
+    font-size: 1.25rem;
+}
+
+.openBoks__guide    {
+    font-family: var(--defaultPost-font);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.button__reOpen     {
+    color: white;
+    background-color: var(--swipboxorange-color);
+}
