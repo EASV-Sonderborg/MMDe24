@@ -83,7 +83,7 @@ body    {
 
 .main   {
     width: 300px;
-    height: 70vh;
+    height: 64vh;
 }
 
 .parcelOverview {
@@ -275,6 +275,7 @@ a   {
     grid-template-rows: repeat(13, 0.25fr);
     width: 15vh;
     height: 25vh;
+    background-color: var(--parcelblue-color);
 }
 
 #box1 { 
@@ -320,6 +321,25 @@ a   {
 .box    {
     background-color: #97BBD5;
     border: 2px solid black;
+    transition: transform 0.5s ease-in;
+    transform-origin: left center;
+}
+
+@keyframes openDoor {
+    0% {
+        transform: rotateY(0deg) scale(1);
+    }
+    100%    {
+        transform: rotateY(45deg) scale(1.1);
+    }
+}
+
+.box.highlight  {
+    background-color: var(--swipboxorange-color);
+}
+
+.box.open   {
+    animation: openDoor 1s ease-in forwards;
 }
 
 .connected__info    {
