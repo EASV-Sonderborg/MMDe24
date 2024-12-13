@@ -18,8 +18,7 @@
     #51A2DB 63%,
     #7FC1F2 80%,
     #6AAEE4 92%,
-    #7BC3FE 100%),
-    url(images/street.png);
+    #7BC3FE 100%);
 
     /* Font settings
     <weight>: Use a value from 100 to 900
@@ -101,18 +100,22 @@
     drop-shadow(0 0 16px #FFA702);
 } */
 
-/* start screen */
-.start{
-    height: 289px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+.main{
     backdrop-filter: blur(16px);
     background: linear-gradient(320deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
     padding: 1em;
+
+}
+
+/* start screen */
+.start{
+    height: 289px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     color: white; 
     text-align: center;
 }
@@ -156,3 +159,45 @@
     background-color: var(--clr-ghost-white);
     color: #000;
 }
+
+/* create account page */
+.backButton{
+    display: block;
+    fill: var(--clr-federal-blue);
+    width: 30px;
+    height: 30px;
+}
+.phone-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 300px; /* Adjust width as needed */
+  }
+  
+  .country-code {
+    border: none;
+    background-color: #CDCDCD;
+    padding: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .phone-number {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  .phone-number::placeholder {
+    color: #aaa;
+  }
+  
+  .phone-input:focus-within {
+    border-color: #007bff;
+  }
+  

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nærboks - opret bruger</title>
+    <title>Nærboks</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,21 +16,28 @@
         <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
         <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
         <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
-        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
-        <svg class="hero__sun"
-        width="136" height="136" viewBox="0 0 136 136" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="68" cy="68" r="68" fill="url(#sun-gradient)"/>
-        <defs>
-            <!-- defines a gradient for the circle so it doesn't take away focus from the rest of the screen -->
-            <linearGradient id="sun-gradient" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" style="stop-color: #ffc9650e; stop-opacity: 1;" />
-                <stop offset="100%" style="stop-color: #ffa60253; stop-opacity: 1;" />
-            </linearGradient>
-        </defs>
-    </svg>             
+        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">            
     </div>
-    <main>
-        
+    <main class="main">
+        <section class="createAccount">
+            <a href="index.html" class="backButton">
+                <svg class="backButton__svg" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill=""><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+            </a>
+            <div class="phone-input">
+                <select class="country-code">
+                    <option value="+45">+45</option>
+                    <option value="+45">+46</option>
+                    <option value="+45">+47</option>
+                    <option value="+45">+358</option>
+                    <option value="+45">+44</option>
+                    <option value="+45">+49</option>
+                    <option value="+45">+354</option>
+                    <option value="+45">+32</option>
+                    <option value="+45">+48</option>
+                </select>
+                <input type="number" class="phone-number" placeholder="Telefonnumer">
+              </div>              
+        </section>
     </main>
 </body>
 </html>
