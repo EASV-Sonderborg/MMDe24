@@ -1,0 +1,120 @@
+html {
+overflow: hidden;
+}
+body {
+    margin: 0px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    margin-top: 10svh;
+}
+.logoNærboksImg{
+    width: 85svw;
+    position: absolute;
+}
+.logoPackage{
+    width: 100svw; 
+    height: 40svh; 
+}
+
+.startPackageImg{
+    margin-top: 49svh;
+    width: 100svw; 
+    height: 40svh;   
+    position: absolute;
+}
+.startButtonLog {
+    position: absolute; 
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+}
+.startButtonReg {
+    position: absolute; 
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+}
+
+.firstButton {
+    background-color: #12A0D6;
+    color: #fff;
+    width: clamp(9svw,  -8rem + 44svw, 90svw );
+    height: clamp(0.3svw, 1svw, 9svw );
+    padding: clamp(1rem, 7vw, 7rem );
+    font-size: clamp(1.5rem, -8rem + 16vw, 8rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-style: inherit;
+    border-radius: 4px;
+}
+
+.firstButton:hover {    
+    background-color: #caf0ff;
+}
+.supButton{
+    background-color: #12A0D6;
+    color: #fff;
+    width: clamp(0.2svw, 0.4svw, 5svw );
+    height: clamp(0.2svw, 0.4svw, 5svw );
+    padding: clamp(1.5rem, 4vw, 7rem );
+    font-size: clamp(1.5rem, -8rem + 16vw, 8rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-style: inherit;
+    border-radius: 99999px;
+}
+.helpButton{
+    position: absolute; 
+    top: clamp(95%, 96.5%, 100%);
+    left: clamp(50%, 53%, 60%);
+    transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+    margin-left: 40%;
+}
+.supButtons {
+    margin: 0;
+}
+.supButton:hover {
+    background-color: #caf0ff;
+}
+
+.backButton{
+    position: absolute; 
+    top: clamp(95%, 96.5%, 100%);
+    left: clamp(-32%, -53%, -60%);
+    transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+    margin-left: 40%;
+}
+.logoSubTit{
+    display: flex;
+    justify-content: center;
+    margin-top: 10svh;
+    font-size: clamp(1.5rem, -8rem + 16vw, 8rem);
+    color: #12A0D6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.subTeksts{
+    color: #12A0D6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: clamp(0.6rem, -4rem + 10vw, 4rem);
+    list-style: none;
+    padding: 2svw;
+}
+.subTekst{
+    display: flex;
+    justify-content: center;
+    padding-top: 2svh;
+}
