@@ -10,31 +10,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pirata+One&display=swap" rel="stylesheet">
 </head>
 <body class="body">
-    <section class="hero">
+    <div class="hero">
         <img src="images/logo.png" alt="Nærboks logo" class="hero__logo">
         <img src="images/person-with-parcel.png" alt="En kvinde med sin telefon omringet af forskellige pakker" class="hero__image">
-        <div class="hero__cloud"></div>
-        <div class="hero__cloud"></div>
-        <div class="hero__cloud"></div>
-        <div class="hero__cloud"></div>
-        <svg class="hero__sun"
-            width="136" height="136" viewBox="0 0 136 136" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="68" cy="68" r="68" fill=""/>
-        </svg>            
-    </section>
-    <main class="main">
+        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
+        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
+        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
+        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
+        <!-- after some feedback we've realized the sun might be taking focus away from the rest of the screen. it's still here because it took some work to do -->
+        <!-- <svg class="hero__sun"
+        width="136" height="136" viewBox="0 0 136 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="68" cy="68" r="68" fill="url(#sun-gradient)"/>
+        <defs>
+            <linearGradient id="sun-gradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" style="stop-color: #ffc9650e; stop-opacity: 1;" />
+                <stop offset="100%" style="stop-color: #ffa60253; stop-opacity: 1;" />
+            </linearGradient>
+        </defs>
+        </svg> -->
+    </div>
+    <main>
         <section class="start">
             <h2 class="start__title">
                 Opret en bruger for at hente dine pakker
             </h2>
             <div class="start__buttons">
-                <a href="createAccount.html" class="start__createAccount">
+                <a href="createAccount.html" class="start__button start__createAccount">
                     Opret konto
                 </a>
                 <div class="start__divider">
-                    eller
+                    <hr class="divider__line">
+                    <p class="divider__text">
+                        eller
+                    </p>
+                    <hr class="divider__line">
                 </div>
-                <a href="login.html" class="start__login">
+                <a href="login.html" class="start__button start__login">
                     Log ind
                 </a>
             </div>
