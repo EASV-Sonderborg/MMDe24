@@ -58,10 +58,21 @@
 
 /* common styling */
 .start__title, 
-.login__title{
+.login__title,
+.createAccount__title{
     font-weight: 500;
     color: var(--clr-federal-blue);
-    filter: drop-shadow(4px rgba(0, 0, 0, 0.15))
+    filter: drop-shadow(4px rgba(0, 0, 0, 0.15));
+    text-align: center;
+}
+.button{
+    border-radius: 40px;
+    height: 48px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 /* hero section */
@@ -133,19 +144,11 @@
     gap: 0.5em;
     padding: 0.5em;
 }
-.start__button{
-    border-radius: 40px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-}
 .start__createAccount{ 
     background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
     color: var(--clr-ghost-white);
 }
-.start__createAccount:hover{
+.start__createAccount:hover, .start__createAccount:active{
     background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
     filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
     transition-duration: 200ms;
@@ -168,55 +171,82 @@
     background-color: hsl(from var(--clr-ghost-white) h s l / 0.9);
     color: #000;
 }
-.start__login:hover{
+.start__login:hover, .start__login:active{
     background-color: var(--clr-ghost-white);
     filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
-    /* border-bottom: #000 solid 1px; */
     transition-duration: 200ms;
 }
 
 /* create account page */
 .createAccount{
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.5em;
 }
-.backButton{
+.backButton__svg{
     fill: var(--clr-federal-blue);
-    width: fit-content;
-    padding: 0.2em;
+}
+.backButton:hover, .backButton:active{
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.35));
+    scale: 1.1;
+    transition-duration: 200ms;
+}
+.createAccount__title{
+    width: 75%;
 }
 .createAccount__phoneNumber {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
+    width: 100%;
 }
 .phoneNumber__countryCode {
     border: none;
     background-color: #CDCDCD;
-    padding: 8px;
-    font-size: 14px;
-    cursor: pointer;
-    outline: none;
+    padding: 0.5em 0 0.5em 1em;
+    font-size: 16px;
+    border-radius: 16px 0 0 16px;
 }
 .phone-number {
     flex: 1;
     border: none;
-    padding: 8px;
-    font-size: 14px;
-    outline: none;
+    padding: 0.5em;
+    font-size: 16px;
+    border-radius: 0 16px 16px 0;
 }
-  
 .phone-number::placeholder {
     color: #aaa;
 }
-  
 .createAccount__phoneNumber:focus-within {
     border-color: #007bff;
 }
-
+#terms{
+    width: 22px;
+    height: 22px;
+}
+.terms_text{
+    padding-inline: 1em;
+}
+.terms__link{
+    text-decoration: underline var(--clr-federal-blue);
+    color: var(--clr-federal-blue);
+    /* padding: 0.2em; */
+}
+.createAccount__sendCode{
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    color: var(--clr-ghost-white);
+}
+.createAccount__sendCode:hover, .createAccount__sendCode:active{
+    background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    transition-duration: 200ms;
+}
+.createAccount__codeText{
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+}
 /* login page */
 .login__title{
 }
