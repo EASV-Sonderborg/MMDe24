@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* general styling */
-*{
+*, ::after, ::before{
     margin: 0; /* remove defaults so that they can more easily be defined later */
     padding: 0;
     box-sizing: border-box; /* tells the browser to account for border/padding etc. when defining width and height */
@@ -61,6 +61,7 @@
 .login__title{
     font-weight: 500;
     color: var(--clr-federal-blue);
+    filter: drop-shadow(4px rgba(0, 0, 0, 0.15))
 }
 
 /* hero section */
@@ -97,7 +98,7 @@
 }
 .hero__cloud:nth-child(5) {
     top: 50%;
-    left: 60%;
+    left: 55%;
     scale: 1.05;
     opacity: 0.45;
 }
@@ -141,8 +142,13 @@
     text-decoration: none;
 }
 .start__createAccount{ 
-    background-color: var(--clr-federal-blue);
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
     color: var(--clr-ghost-white);
+}
+.start__createAccount:hover{
+    background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    transition-duration: 200ms;
 }
 .start__divider{
     display: flex;
@@ -159,25 +165,35 @@
     color: rgba(0, 0, 0, 0.5);
 }
 .start__login{
-    background-color: var(--clr-ghost-white);
+    background-color: hsl(from var(--clr-ghost-white) h s l / 0.9);
     color: #000;
+}
+.start__login:hover{
+    background-color: var(--clr-ghost-white);
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    /* border-bottom: #000 solid 1px; */
+    transition-duration: 200ms;
 }
 
 /* create account page */
-.backButton{
-    display: block;
-    fill: var(--clr-federal-blue);
-    width: 30px;
-    height: 30px;
+.createAccount{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-.phone-input {
+.backButton{
+    fill: var(--clr-federal-blue);
+    width: fit-content;
+    padding: 0.2em;
+}
+.createAccount__phoneNumber {
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow: hidden;
 }
-.country-code {
+.phoneNumber__countryCode {
     border: none;
     background-color: #CDCDCD;
     padding: 8px;
@@ -197,7 +213,7 @@
     color: #aaa;
 }
   
-.phone-input:focus-within {
+.createAccount__phoneNumber:focus-within {
     border-color: #007bff;
 }
 
