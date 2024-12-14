@@ -1,16 +1,19 @@
-/* common styling */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* general styling */
 *{
-    margin: 0;
+    margin: 0; /* remove defaults so that they can more easily be defined later */
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* tells the browser to account for border/padding etc. when defining width and height */
 }
 :root{
+    /* brand colors used in Figma */
     --clr-federal-blue: #03045E;
     --clr-ghost-white: #FBFBFF;
 }
 .body{
     max-width: 393px; /* iPhone 16 width in Figma */
-    margin: auto;
+    margin: auto; /* center content */
     background: 
     linear-gradient(
     #053B72 0%,
@@ -19,6 +22,8 @@
     #7FC1F2 80%,
     #6AAEE4 92%,
     #7BC3FE 100%);
+    width: 100svw;
+    height: 100svh;
 
     /* Font settings
     <weight>: Use a value from 100 to 900
@@ -31,6 +36,15 @@
     font-optical-sizing: auto;
     font-style: normal;
 }
+.main{
+    backdrop-filter: blur(16px);
+    background: linear-gradient(320deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    padding: 1em;
+    min-height: 223px; /* height of the street picture */
+}
 
 /* animation(s) */
 @keyframes slide {
@@ -42,14 +56,19 @@
       }
 }
 
+/* common styling */
+.start__title, 
+.login__title{
+    font-weight: 500;
+    color: var(--clr-federal-blue);
+}
+
 /* hero section */
 .hero{
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    overflow: clip;
-    max-width: 393px;
 }
 .hero__logo{
     padding-block-start: 3em;
@@ -61,7 +80,7 @@
 .hero__cloud {
     z-index: -2;
     position: absolute;
-    animation: slide 10000ms linear infinite;
+    /* animation: slide 10000ms linear infinite; */
 }
 .hero__cloud:nth-child(3){
     top: 15%;
@@ -89,25 +108,13 @@
     opacity: 0.15;
     transform: scaleX(-1);
 }
-/* .hero__sun{
-    padding: 0.75em;
-    z-index: -1;
-    right: 0;
+.hero__street{
     position: absolute;
-    filter: 
-    drop-shadow(0 0 4px #FFA702)
-    drop-shadow(0 0 8px #FFA702)
-    drop-shadow(0 0 16px #FFA702);
-} */
-
-.main{
-    backdrop-filter: blur(16px);
-    background: linear-gradient(320deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
-    padding: 1em;
-
+    opacity: 0.65;
+    z-index: -2;
+    overflow: auto;
+    top: 100%;
+    border-radius: 40px;
 }
 
 /* start screen */
@@ -116,12 +123,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    color: white; 
     text-align: center;
-}
-.start__title{
-    font-weight: 500;
-    color: var(--clr-federal-blue);
+    color: var(--clr-ghost-white); 
 }
 .start__buttons{
     display: flex;
@@ -173,31 +176,31 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow: hidden;
-    width: 300px; /* Adjust width as needed */
-  }
-  
-  .country-code {
+}
+.country-code {
     border: none;
     background-color: #CDCDCD;
     padding: 8px;
     font-size: 14px;
     cursor: pointer;
     outline: none;
-  }
-  
-  .phone-number {
+}
+.phone-number {
     flex: 1;
     border: none;
     padding: 8px;
     font-size: 14px;
     outline: none;
-  }
+}
   
-  .phone-number::placeholder {
+.phone-number::placeholder {
     color: #aaa;
-  }
+}
   
-  .phone-input:focus-within {
+.phone-input:focus-within {
     border-color: #007bff;
-  }
-  
+}
+
+/* login page */
+.login__title{
+}
