@@ -70,7 +70,7 @@
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
     padding: 1em;
-    width: fit-content;
+    min-height: 238px;
 }
 
 /* animation(s) */
@@ -91,11 +91,6 @@
     text-align: center;
     font-size: var(--font-size-1);
 }
-
-.guide__text{
-    text-align: center;
-    padding: 1em;
-}
 .button{
     border-radius: 40px;
     height: 48px;
@@ -106,15 +101,7 @@
     text-decoration: none;
     font-size: var(--font-size-0);
 }
-
-    /* sections */
-.activationCode,
-.createAccount,
-.createAccountPincode,
-.start,
-.login,
-.guide
-{
+.section{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -284,7 +271,7 @@
     text-align: center;
 }
 
-    /* activation code page */
+/* activation code page */
 .activationCode__input{
     flex: 1;
     border: none;
@@ -304,12 +291,7 @@
     color: var(--clr-federal-blue);
 }
 
-    /* create account pincode page */
-.createAccountPincode__title{
-    width: fit-content;
-}
-
-/* login page */
+/* create account pincode page */
 .login{
     display: flex;
     flex-wrap: wrap;
@@ -317,6 +299,7 @@
     align-items: center;
     row-gap: 1.5em;
 }
+
 .login__pincode{
 align-items: center;
 }
@@ -340,28 +323,15 @@ align-items: center;
     box-shadow: 0 0 6px rgba(3, 4, 94, 0.5);
     outline: none;
 }
-
 .create__pincode{
     padding-bottom: 2em;
 }
-
 .repeat__pincode{
     padding-top: 1em;
 }
-
 .pincode__text{
     padding-bottom: 0.5em;
 }
-
-/* Adds padding to Nærboks logo, only on the guide page */
-.guide__logo{
-    padding-bottom: 1em;
-}
-
-.guide__pic{
-    width: 100%;
-}
-
 /* Remove number input spinner in Webkit browsers (Chrome, Safari) */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -371,4 +341,24 @@ input[type="number"]::-webkit-inner-spin-button {
 /* Remove number input spinner in Firefox */
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+/* login page */
+.login__phoneNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* guide page */
+.guide__logo{
+    padding-bottom: 1em; /* Adds padding to Nærboks logo, only on the guide page */
+}
+.guide__pic{
+    width: 100%;
+}
+.guide__text{
+    text-align: center;
+    padding: 1em;
 }
