@@ -71,7 +71,9 @@
 /* common styling */
 .start__title, 
 .login__title,
-.createAccount__title{
+.createAccount__title,
+.pincode__title
+{
     font-weight: 500;
     color: var(--clr-federal-blue);
     filter: drop-shadow(4px rgba(0, 0, 0, 0.15));
@@ -251,6 +253,7 @@
     background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
     color: var(--clr-ghost-white);
 }
+
 .createAccount__sendCode:hover, .createAccount__sendCode:active{
     background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
     filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
@@ -263,5 +266,50 @@
 }
 
 /* login page */
+.login{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.5em;
+}
+
 .login__title{
 }
+
+.login__pincode{
+align-items: center;
+}
+
+/* Styling for pincode inputfields */
+.pincode-digit {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1.5em;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus styling */
+.pincode-digit:focus {
+    border-color: var(--clr-federal-blue);
+    box-shadow: 0 0 6px rgba(3, 4, 94, 0.5);
+    outline: none;
+}
+
+/* Remove number input spinner in Webkit browsers (Chrome, Safari) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove number input spinner in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
