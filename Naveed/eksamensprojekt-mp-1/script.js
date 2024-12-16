@@ -13,3 +13,11 @@ document.querySelectorAll('.pincode__digit').forEach((input, index, inputs) => {
         }
     });
 });
+
+        // Focus on the first input when the page loads
+        window.onload = function() {
+            const firstInput = document.getElementById('firstPinDigit');
+            if (firstInput) {
+                firstInput.focus();
+            }
+        };
