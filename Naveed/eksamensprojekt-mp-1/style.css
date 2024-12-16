@@ -24,7 +24,7 @@
     --clr-ghost-white: #FBFBFF;
 }
 .body{
-    max-width: 393px; /* iPhone 16 width in Figma */
+    max-width: 393px; iPhone 16 width in Figma
     margin: auto; /* center content */
     background: 
     linear-gradient(
@@ -34,8 +34,8 @@
     #7FC1F2 80%,
     #6AAEE4 92%,
     #7BC3FE 100%);
-    width: 100svw;
-    height: 100svh;
+    /* width: 100svw; */
+    /* height: 100svh; */
 
     /* Font settings
     <weight>: Use a value from 100 to 900
@@ -56,6 +56,9 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
     padding: 1em;
     min-height: 223px; /* height of the street picture */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 /* animation(s) */
@@ -74,11 +77,18 @@
 .createAccount__title,
 .pincode__title,
 .activationCode__title,
-.createAccountPincode__title{
+.createAccountPincode__title,
+.guide__title
+{
     font-weight: 500;
     color: var(--clr-federal-blue);
     filter: drop-shadow(4px rgba(0, 0, 0, 0.15));
     text-align: center;
+}
+
+.guide__text{
+    text-align: center;
+    padding: 1em;
 }
 .button{
     border-radius: 40px;
@@ -202,9 +212,9 @@
 .backButton__svg{
     fill: var(--clr-federal-blue);
 }
-.backButton:hover, .backButton:active{
+.backButton:active{
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.35));
-    scale: 1.1;
+    
     transition-duration: 200ms;
 }
 .createAccount__title{
@@ -296,9 +306,6 @@
     row-gap: 1.5em;
 }
 
-.login__title{
-}
-
 .login__pincode{
 align-items: center;
 }
@@ -321,6 +328,11 @@ align-items: center;
     border-color: var(--clr-federal-blue);
     box-shadow: 0 0 6px rgba(3, 4, 94, 0.5);
     outline: none;
+}
+
+/* Adds padding to Nærboks logo, only on the guide page */
+.guide__logo{
+    padding-bottom: 1em;
 }
 
 /* Remove number input spinner in Webkit browsers (Chrome, Safari) */
