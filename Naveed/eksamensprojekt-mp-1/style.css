@@ -105,9 +105,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    row-gap: 1em;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    row-gap: 1em;
 }
 
 /* hero section */
@@ -203,7 +204,7 @@
 .backButton__svg{
     fill: var(--clr-federal-blue);
     position: absolute;
-    inset: 5% 0 0 2%;
+    inset: 13px 0 0 2%;
 }
 .createAccount__phoneNumber {
     display: flex;
@@ -235,12 +236,15 @@
 .createAccount__phoneNumber:focus-within {
     border-color: #007bff;
 }
+.createAccount__terms{
+    display: flex;
+}
 #terms{
     width: 22px;
     height: 22px;
 }
 .terms_text{
-    padding-inline: 1em;
+    padding-inline: 0.5em;
 }
 .terms__link{
     color: var(--clr-federal-blue);
@@ -284,14 +288,6 @@
 }
 
 /* create account pincode page */
-.login{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    row-gap: 1.5em;
-}
-
 .login__pincode{
 align-items: center;
 }
