@@ -155,14 +155,6 @@
     opacity: 0.15;
     transform: scaleX(-1);
 }
-.hero__street{
-    position: absolute;
-    opacity: 0.65;
-    z-index: -2;
-    overflow: auto;
-    top: 100%;
-    border-radius: 40px;
-}
 
 /* start screen */
 .start__buttons{
