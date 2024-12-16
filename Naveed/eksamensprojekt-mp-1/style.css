@@ -6,6 +6,18 @@
     padding: 0;
     box-sizing: border-box; /* tells the browser to account for border/padding etc. when defining width and height */
 }
+
+/* @media (min-width: 768px) {
+    .body {
+        max-width: 768px;
+        padding: 1em;
+    }
+    .main {
+        padding: 2em;
+    }
+} */
+
+
 :root{
     /* brand colors used in Figma */
     --clr-federal-blue: #03045E;
@@ -201,6 +213,7 @@
     align-items: center;
     width: 100%;
 }
+
 .phoneNumber__countryCode {
     border: none;
     background-color: #CDCDCD;
@@ -218,6 +231,7 @@
 .phone-number::placeholder {
     color: #aaa;
 }
+
 .createAccount__phoneNumber:focus-within {
     border-color: #007bff;
 }
@@ -247,6 +261,7 @@
     font-size: 12px;
     font-weight: 600;
 }
+
 /* login page */
 .login__title{
 }
