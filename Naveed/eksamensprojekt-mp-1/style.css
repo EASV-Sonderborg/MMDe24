@@ -318,7 +318,7 @@ align-items: center;
 }
 
 /* Styling for pincode inputfields */
-.pincode-digit {
+.pincode__digit {
     width: 1.5em;
     height: 1.5em;
     font-size: 1.5em;
@@ -331,15 +331,31 @@ align-items: center;
 }
 
 /* Focus styling */
-.pincode-digit:focus {
+.pincode__digit:focus {
     border-color: var(--clr-federal-blue);
     box-shadow: 0 0 6px rgba(3, 4, 94, 0.5);
     outline: none;
 }
 
+.create__pincode{
+    padding-bottom: 2em;
+}
+
+.repeat__pincode{
+    padding-top: 1em;
+}
+
+.pincode__text{
+    padding-bottom: 0.5em;
+}
+
 /* Adds padding to Nærboks logo, only on the guide page */
 .guide__logo{
     padding-bottom: 1em;
+}
+
+.guide__pic{
+    width: 100%;
 }
 
 /* Remove number input spinner in Webkit browsers (Chrome, Safari) */

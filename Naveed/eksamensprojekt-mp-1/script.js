@@ -1,4 +1,4 @@
-document.querySelectorAll('.pincode-digit').forEach((input, index, inputs) => {
+document.querySelectorAll('.pincode__digit').forEach((input, index, inputs) => {
     input.addEventListener('input', () => {
         // Move to the next input if the current input has a value
         if (input.value.length === 1 && index < inputs.length - 1) {
