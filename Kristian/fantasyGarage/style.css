@@ -221,7 +221,7 @@ main{
 .contact__info--address{
     display: grid;
     justify-items: center;
-    grid-rows: 2 / 4;
+    grid-row: 2 / 4;
 }
 
 .contact__map{
