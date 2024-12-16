@@ -72,8 +72,9 @@
 .start__title, 
 .login__title,
 .createAccount__title,
-.pincode__title
-{
+.pincode__title,
+.activationCode__title,
+.createAccountPincode__title{
     font-weight: 500;
     color: var(--clr-federal-blue);
     filter: drop-shadow(4px rgba(0, 0, 0, 0.15));
@@ -88,6 +89,17 @@
     align-items: center;
     text-decoration: none;
 }
+    /* sections */
+.activationCode,
+.createAccount,
+.createAccountPincode,
+.start{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 1.5em;
+}
+
 
 /* hero section */
 .hero{
@@ -145,12 +157,7 @@
 
 /* start screen */
 .start{
-    height: 289px;
-    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    text-align: center;
-    color: var(--clr-ghost-white); 
 }
 .start__buttons{
     display: flex;
@@ -192,13 +199,6 @@
 }
 
 /* create account page */
-.createAccount{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    row-gap: 1.5em;
-}
 .backButton__svg{
     fill: var(--clr-federal-blue);
 }
@@ -223,14 +223,14 @@
     font-size: 16px;
     border-radius: 16px 0 0 16px;
 }
-.phone-number {
+.phoneNumber__input {
     flex: 1;
     border: none;
     padding: 0.5em;
     font-size: 16px;
     border-radius: 0 16px 16px 0;
 }
-.phone-number::placeholder {
+.phoneNumber__input::placeholder {
     color: #aaa;
 }
 
@@ -245,9 +245,7 @@
     padding-inline: 1em;
 }
 .terms__link{
-    text-decoration: underline var(--clr-federal-blue);
     color: var(--clr-federal-blue);
-    /* padding: 0.2em; */
 }
 .createAccount__sendCode{
     background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
@@ -265,6 +263,30 @@
     font-weight: 600;
 }
 
+    /* activation code page */
+.activationCode__input{
+    flex: 1;
+    border: none;
+    padding: 0.5em;
+    font-size: 16px;
+    border-radius: 8px;
+}
+.activationCode__input::placeholder{
+    color: #aaa;
+    text-align: center;
+}
+.activationCode__sendCode{
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    color: var(--clr-ghost-white);
+}
+.activationCode__resend{
+    color: var(--clr-federal-blue);
+}
+
+    /* create account pincode page */
+.createAccountPincode__title{
+    width: fit-content;
+}
 /* login page */
 .login{
     display: flex;
