@@ -24,7 +24,8 @@
     --clr-ghost-white: #FBFBFF;
 }
 .body{
-    max-width: 393px; iPhone 16 width in Figma
+    max-width: 393px; 
+    /* iPhone 16 width in Figma */
     margin: auto; /* center content */
     background: 
     linear-gradient(
