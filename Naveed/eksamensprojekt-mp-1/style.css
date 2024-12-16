@@ -325,6 +325,7 @@ align-items: center;
 .pincode__text{
     padding-bottom: 0.5em;
 }
+
 /* Remove number input spinner in Webkit browsers (Chrome, Safari) */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
