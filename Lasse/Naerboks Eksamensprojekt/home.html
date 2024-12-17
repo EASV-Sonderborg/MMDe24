@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hjem</title>
+</head>
+<body>
+    
+    <!--Header-->
+    <header class="header">
+        <h1 class="header__title">Hjem</h1>
+
+        <!-- Sprogvalg -->
+        <button class="header__languageSelection">
+            <span class="header__languageName">Dansk</span>
+            <span class="header__languageIcon">
+                <img class="header__languageImage" src="images\arrowDownIcon.png" alt="Tryk for at vælge sprog">
+            </span>
+        </button>
+
+        <!--Burger-menu-->
+        <div class="header__menu">
+            <button class="header__menuButton">
+                <img class="header__menuImage" src="images\burgerMenuIcon.png" alt="Åbn menu">
+            </button>
+            <ul class="header__menuDropdown">
+                <li class="header__menuItem">
+                    <a class="header__menuLink" href="home.html">Hjem</a>
+                </li>
+                <li class="header__menuItem">
+                    <a class="header__menuLink" href="#">Pakkehistorik</a>
+                </li>
+                <li class="header__menuItem">
+                    <a class="header__menuLink" href="#">Indstillinger</a>
+                </li>
+                <li class="header__menuItem">
+                    <a class="header__menuLink" href="index.html">Log ud</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!--Main Content-->
+    <main class="home">
+        <!--Packages ready for collecting-->
+        <section class="home__packages">
+            <h2 class="home__sectionTitle">Pakker klar til afhentning</h2>
+            <ul class="home__packageList">
+                <li class="home__packageItem">
+                    <span class="home__companyName">Zalando</span>
+                    <span class="home__pickupDate">13/11/2024 <span class="home__countdown home__countdown--highlight">(2 dage)</span></span>
+                    <a class="home__actionsButton" href="#">
+                        <img class="home__itemIcon" src="images\packageIcon.png" alt="Pakkedetaljer ikon">
+                        <img class="home__itemIcon" src="images\arrowRightIcon.png" alt="Gå til pakkedetaljer">
+                    </a>
+                </li>
+
+                <li class="home__packageItem">
+                    <span class="home__companyName">Elgiganten</span>
+                    <span class="home__pickupDate">15/11/2024 <span class="home__countdown">(4 dage)</span></span>
+                    <a class="home__actionsButton" href="#">
+                        <img class="home__itemIcon" src="images\packageIcon.png" alt="Pakkedetaljer ikon">
+                        <img class="home__itemIcon" src="images\arrowRightIcon.png" alt="Gå til pakkedetaljer">
+                    </a>
+                </li>
+
+                <li class="home__packageItem">
+                    <span class="home__companyName">ProShop</span>
+                    <span class="home__pickupDate">17/11/2024 <span class="home__countdown">(6 dage)</span></span>
+                    <a class="home__actionsButton" href="#">
+                        <img class="home__itemIcon" src="images\packageIcon.png" alt="Pakkedetaljer ikon">
+                        <img class="home__itemIcon" src="images\arrowRightIcon.png" alt="Gå til pakkedetaljer">
+                    </a>
+                </li>
+
+                <li class="home__packageItem">
+                    <span class="home__companyName">Sportmaster</span>
+                    <span class="home__pickupDate">På vej</span>
+                    <a class="home__actionsButton" href="#">
+                        <img class="home__itemIcon" src="images\packageIcon.png" alt="Pakkedetaljer ikon">
+                        <img class="home__itemIcon" src="images\arrowRightIcon.png" alt="Gå til pakkedetaljer">
+                    </a>
+                </li>
+
+                <li class="home__packageItem">
+                    <span class="home__companyName">Boozt</span>
+                    <span class="home__pickupDate">På vej</span>
+                    <a class="home__actionsButton" href="#">
+                        <img class="home__itemIcon" src="images\packageIcon.png" alt="Pakkedetaljer ikon">
+                        <img class="home__itemIcon" src="images\arrowRightIcon.png" alt="Gå til pakkedetaljer">
+                    </a>
+                </li>
+            </ul>
+            <a class="home__allPackages" href="#">Se alle pakker</a>
+        </section>
+
+        <!--Send your package-->
+        <section class="home__sendPackage">
+            <h2 class="home__sectionTitle">Send din pakke</h2>
+            <p class="home__noPackages">Du har ikke sendt nogle pakker endnu.</p>
+            <p class="home__noPackages">Tryk på 'Reservér en pakkeboks' for at aflevere en pakke.</p>
+            <a class="home__reserveButton" href="#">Reservér en pakkeboks</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer"></footer>
+
+</body>
+</html>

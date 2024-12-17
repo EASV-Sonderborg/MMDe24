@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificér konto</title>
+</head>
+<body>
+
+    <header class="header">
+        <a class="header__backButton" href="createAccount.html">
+            <img src="images\arrowLeftIcon.png" alt="Gå tilbage">
+        </a>
+        <button class="header__languageSelection">
+            <span class="header__languageName">Dansk</span>
+            <span class="header__languageIcon">
+                <img class="header__languageImage" src="images\arrowDownIcon.png" alt="Tryk for at vælge sprog">
+            </span>
+        </button>
+    </header>
+
+    <!--Logo-->
+    <span class="logo">
+        <img class="logo__image" src="images/naerboksLogo.png" alt="Nærboks logo">
+    </span>
+
+    <!--Verification Form-->
+    <section class="verificationForm">
+        <p class="verificationForm__description">
+            Indtast den 6-cifrede kode, som er sendt til dit telefonnumer.
+        </p>
+
+        <div class="verificationForm__inputGroup">
+            <label class="verificationForm__label" for="activationCode">Aktiveringskode</label>
+            <input class="verificationForm__input" type="text" id="activationCode" placeholder="123456" maxlength="6" required>
+        </div>
+
+        <!--Verify Button-->
+        <a class="verificationForm__submitButton" href="#">Verificér</a>
+        <p class="verificationForm__resendCode">
+            Send igen - <span class="verificationForm__timer">30 sekunder</span>
+        </p>
+    </section>
+
+     <!-- Footer -->
+     <footer class="footer"></footer>
+    
+</body>
+</html>
