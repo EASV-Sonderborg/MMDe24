@@ -1,0 +1,249 @@
+/* Hovedsektion (main) styles */
+html main {
+    overflow: hidden; /* Skjuler indhold, der strækker sig ud over containerens grænser */
+}
+body {
+    margin: 0px; /* Fjerner standardmargen for hele dokumentet */
+    overflow: hidden;
+}
+
+
+
+
+/* Logo-styles */
+.logo {
+    display: flex;
+    justify-content: center; 
+    margin-top: 10svh; 
+}
+.logoNærboksImg {
+    width: 85svw;
+    position: absolute; /* Placering relativt til nærmeste positionerede forælder */
+}
+
+
+
+.logoPackage {
+    width: 100svw;
+    height: 40vh;
+}
+/* Startbillede styles */
+.startPackageImg {
+    margin-top: 49vh; 
+    width: 100svw; 
+    height: 38.5vh; 
+    position: absolute; /* Positionering for præcis placering */
+}
+
+
+
+
+/* Startknapper */
+
+/* Primær knap styling */
+.firstButton {
+    position: absolute; /* Præcis placering på skærmen */
+    background-color: #12A0D6; 
+    color: #fff; 
+    width: clamp(9svw, -8rem + 44svw, 90svw); /* Responsiv bredde */
+    height: clamp(0.3svw, 1svw, 9svw); /* Responsiv højde */
+    padding: clamp(2rem, -0.2rem + 6vw, 9rem); /* Responsiv polstring */
+    font-size: clamp(1.5rem, -8rem + 16vw, 8rem); /* Responsiv skrifttype */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-decoration: none; 
+    font-style: inherit; 
+    border-radius: 4px; 
+    border: none;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+/* Startknapper placering */
+.startButton__Log{
+    top: 80%; 
+    left: 50%;
+}
+.startButton__Reg {
+    top: 90%;
+    left: 50%;
+}
+.firstButton:hover {
+    background-color: #caf0ff; 
+}
+
+
+
+
+
+
+/* Supplerende knap styles "common class" */
+.supButton {
+    background-color: #12A0D6; 
+    color: #fff;
+    width: clamp(0.2svw, 0.4svw, 5svw); 
+    height: clamp(0.2svw, 0.4svw, 5svw); 
+    padding: clamp(1.5rem, 4vw, 7rem); 
+    font-size: clamp(1.5rem, -8rem + 16vw, 8rem); 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    text-decoration: none; 
+    font-style: inherit; 
+    border-radius: 99999px; /* Gør knappen cirkulær */
+    border: none; 
+    cursor: pointer; 
+    position: absolute;
+    transform: translate(-50%, -50%);
+    margin-left: 40%;
+    top: clamp(95%, 96.5%, 100%); 
+}
+
+/* Supplerende knap placeres */
+.supButton__Help { 
+    left: clamp(50%, 53%, 60%); 
+}
+.supButton__Back {
+    left: clamp(-32%, -53%, -60%); 
+}
+.supButtons {
+    margin: 0;
+}
+.supButton:hover {
+    background-color: #caf0ff;
+}
+
+
+
+
+
+/* Logo undertekst */
+
+.logoSubTit {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    font-size: clamp(1.5rem, -8rem + 16vw, 8rem); 
+    color: #12A0D6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 2rem;
+}
+/* Undertekst styling */
+.subTeksts {
+    color: #12A0D6; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: clamp(0.6rem, -4rem + 10vw, 2rem); 
+    list-style: none; 
+    padding: 2svw; 
+}
+.subTekst {
+    display: flex; 
+    justify-content: center; 
+    padding-top: 1svh;
+}
+
+
+
+
+
+ /* TEST RUN */
+
+
+/* Styling til containeren */
+.container {
+    padding: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+}
+/* Inputs (tekst og adgangskode) */
+.inputField {
+    width: 100%; 
+    padding: 0.85rem 1.2rem;
+    margin: 8px 0; 
+    display: inline-block; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.submitButton {
+    background-color: #12A0D6;
+    color: white;
+    padding: 1rem 1.5rem; 
+    margin: 0.5rem 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    font-size: clamp(1.5rem, -9rem + 16vw, 8rem);
+}
+
+/*  Styling til inputfelter og deres pladsholdertekst */
+.inputField {
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+    border-radius: 4px; 
+    background: rgba(93, 231, 255, 0.5); 
+}
+.psw {
+    padding-top: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+    float: right;
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(108, 108, 108);
+}
+.psw__Reg {
+    padding-bottom: clamp(0.7rem, 0.6rem + 0.4rem, 2rem);
+    padding-top: clamp(0.7rem, 0.6rem + 0.4rem, 2rem);
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+
+    color: rgb(108, 108, 108);
+    margin: 0;
+}
+
+
+
+/* Styling til checkbox-teksten */
+.checkbox {
+    padding-top: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+    font-size: clamp(1rem, -10rem + 16vw, 8rem); /* Responsiv tekststørrelse */
+
+    color: rgb(108, 108, 108);
+}
+.checkbox__Reg {
+    padding-bottom: clamp(0.7rem, 0.6rem + 0.6rem, 2rem);
+    padding-top: clamp(0.7rem, 0.6rem + 0.6rem, 2rem);
+}
+label.checkbox {
+    float: left; 
+}
+
+.submitButton__Sup{
+    top: 65%; 
+    left: 50%;
+    position: absolute;
+    width: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.containerTekst__Sup {
+    padding: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+
+    color: rgb(108, 108, 108);
+    margin: 0;
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+}
+/* Animation for zoom-effekt */
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0);}
+    to {-webkit-transform: scale(1);}
+}
+@keyframes animatezoom {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+
+.fontStyle__A{
+    font-family: Inter;
+
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+

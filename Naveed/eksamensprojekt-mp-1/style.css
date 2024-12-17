@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* general styling */
+*, ::after, ::before{
+    margin: 0; /* remove defaults so that they can more easily be defined later */
+    padding: 0;
+    box-sizing: border-box; /* tells the browser to account for border/padding etc. when defining width and height */
+}
+
+/* @media (min-width: 768px) {
+    .body {
+        max-width: 768px;
+        padding: 1em;
+    }
+    .main {
+        padding: 2em;
+    }
+} */
+
+:root{
+    /* brand colors used in Figma */
+    --clr-federal-blue: #03045E;
+    --clr-ghost-white: #FBFBFF;
+
+    /* @link https://utopia.fyi/type/calculator?c=393,16,1.2,768,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    /* Step -2: 11.1111px → 12.8px */
+    --font-size--2: clamp(0.6944rem, 0.5838rem + 0.4504cqi, 0.8rem);
+    /* Step -1: 13.3333px → 16px */
+    --font-size--1: clamp(0.8333rem, 0.6587rem + 0.7111cqi, 1rem);
+    /* Step 0: 16px → 20px */
+    --font-size-0: clamp(1rem, 0.738rem + 1.0667cqi, 1.25rem);
+    /* Step 1: 19.2px → 25px */
+    --font-size-1: clamp(1.2rem, 0.8201rem + 1.5467cqi, 1.5625rem);
+    /* Step 2: 23.04px → 31.25px */
+    --font-size-2: clamp(1.44rem, 0.9022rem + 2.1893cqi, 1.9531rem);
+    /* Step 3: 27.648px → 39.0625px */
+    --font-size-3: clamp(1.728rem, 0.9804rem + 3.0439cqi, 2.4414rem);
+    /* Step 4: 33.1776px → 48.8281px */
+    --font-size-4: clamp(2.0736rem, 1.0485rem + 4.1735cqi, 3.0518rem);
+    /* Step 5: 39.8131px → 61.0352px */
+    --font-size-5: clamp(2.4883rem, 1.0983rem + 5.6592cqi, 3.8147rem);
+}
+.body{
+    max-width: 768px; /* iPad width */
+    margin: auto; /* center content */
+    background: 
+    linear-gradient(
+    #053B72 0%,
+    #3498DB 50%,
+    #51A2DB 63%,
+    #7FC1F2 80%,
+    #6AAEE4 92%,
+    #7BC3FE 100%);
+
+    /* Font settings
+    <weight>: Use a value from 100 to 900
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal; */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+.main{
+    backdrop-filter: blur(16px);
+    background: linear-gradient(320deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    padding: 1em;
+    min-height: 238px;
+}
+
+/* animation(s) */
+@keyframes slide {
+    0% {
+        transform: translateX(-100px);
+      }
+      100% {
+        transform: translateX(393px);
+      }
+}
+
+/* common styling */
+.title{
+    font-weight: 500;
+    color: var(--clr-federal-blue);
+    filter: drop-shadow(4px rgba(0, 0, 0, 0.15));
+    text-align: center;
+    font-size: var(--font-size-1);
+}
+.button{
+    border-radius: 40px;
+    height: 48px;
+    width: 329px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: var(--font-size-0);
+}
+.section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    row-gap: 1em;
+}
+
+/* hero section */
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.hero__logo{
+    padding-block-start: 3em;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
+}
+.hero__image{
+    z-index: 1;
+}
+.hero__cloud {
+    z-index: -2;
+    position: absolute;
+    /* animation: slide 10000ms linear infinite; */
+}
+.hero__cloud:nth-child(3){
+    top: 15%;
+    left: 15%;
+    scale: 1.1;
+    opacity: 0.45;
+}
+.hero__cloud:nth-child(4) {
+    top: 30%;
+    left: 50%;
+    scale: 0.8;
+    opacity: 0.25;
+    transform: scaleX(-1);
+}
+.hero__cloud:nth-child(5) {
+    top: 50%;
+    left: 55%;
+    scale: 1.05;
+    opacity: 0.45;
+}
+.hero__cloud:nth-child(6) {
+    top: 50%;
+    left: 0;
+    scale: 0.6;
+    opacity: 0.15;
+    transform: scaleX(-1);
+}
+
+/* start screen */
+.start__buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+}
+.start__createAccount{ 
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    color: var(--clr-ghost-white);
+}
+.start__createAccount:hover, .start__createAccount:active{
+    background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    transition-duration: 200ms;
+}
+.start__divider{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.divider__line{
+    width: 110px; 
+    border: none; 
+    height: 2px; 
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.divider__text{
+    color: rgba(0, 0, 0, 0.5);
+    padding-inline: 0.5em;
+    font-size: var(--font-size--1);
+}
+.start__login{
+    background-color: hsl(from var(--clr-ghost-white) h s l / 0.9);
+    color: #000;
+}
+.start__login:hover, .start__login:active{
+    background-color: var(--clr-ghost-white);
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    transition-duration: 200ms;
+}
+
+/* create account page */
+.backButton__svg{
+    fill: var(--clr-federal-blue);
+    position: absolute;
+    inset: 13px 0 0 2%;
+}
+.createAccount__phoneNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.phoneNumber__countryCode {
+    border: none;
+    background-color: #CDCDCD;
+    padding: 0.5em 0 0.5em 1em;
+    font-size: var(--font-size--1);
+    border-radius: 16px 0 0 16px;
+    height: 32px;
+}
+.phoneNumber__input {
+    flex: 1;
+    border: none;
+    padding: 0.5em;
+    font-size: var(--font-size--1);
+    border-radius: 0 16px 16px 0;
+    height: 32px;
+    max-width: calc(329px - 74px);
+}
+.phoneNumber__input::placeholder {
+    color: #aaa;
+    font-size: var(--font-size--1);
+}
+.createAccount__phoneNumber:focus-within {
+    border-color: #007bff;
+}
+.createAccount__terms{
+    display: flex;
+}
+#terms{
+    width: 22px;
+    height: 22px;
+}
+.terms_text{
+    padding-inline: 0.5em;
+}
+.terms__link{
+    color: var(--clr-federal-blue);
+}
+.createAccount__sendCode{
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    color: var(--clr-ghost-white);
+}
+
+.createAccount__sendCode:hover, .createAccount__sendCode:active{
+    background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    transition-duration: 200ms;
+}
+.createAccount__codeText{
+    color: #000;
+    font-size: var(--font-size--2);
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}
+
+/* activation code page */
+.activationCode__input{
+    flex: 1;
+    border: none;
+    padding: 0.5em;
+    font-size: var(--font-size--1);
+    border-radius: 8px;
+    width: 329px;
+}
+.activationCode__input::placeholder{
+    color: #aaa;
+    text-align: center;
+}
+.activationCode__sendCode{
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    color: var(--clr-ghost-white);
+}
+.activationCode__resend{
+    color: var(--clr-federal-blue);
+}
+
+/* create account pincode page */
+.login__pincode{
+align-items: center;
+}
+
+/* Styling for pincode inputfields */
+.pincode__digit {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1.5em;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus styling */
+.pincode__digit:focus {
+    border-color: var(--clr-federal-blue);
+    box-shadow: 0 0 6px rgba(3, 4, 94, 0.5);
+    outline: none;
+}
+.create__pincode{
+    padding-bottom: 2em;
+}
+.repeat__pincode{
+    padding-top: 1em;
+}
+.pincode__text{
+    padding-bottom: 0.5em;
+}
+
+/* Remove number input spinner in Webkit browsers (Chrome, Safari) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Remove number input spinner in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* login page */
+.login__phoneNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* guide page */
+.guide__logo{
+    padding-bottom: 1em; /* Adds padding to Nærboks logo, only on the guide page */
+}
+.guide__pic{
+    width: 100%;
+}
+.guide__text{
+    text-align: center;
+    padding: 1em;
+}

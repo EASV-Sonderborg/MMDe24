@@ -1,0 +1,166 @@
+.header{
+display: flex;
+justify-content: space-between;
+align-items: start;
+background-color: #464646;
+outline: solid;
+outline-color: #FF4B4B;
+}
+
+.cart{
+height: 100px;
+}
+
+.sub_menu_button{
+    background-color: #464646;
+}
+
+.logo{
+size: 50px;
+}
+
+.navgation{
+    list-style-type: none;
+    background-color: #464646;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.navgation a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+}
+
+.navgation button{
+    margin-left: 200px;
+    margin-top: 1px;
+    border: none;
+    color: white;   
+    font-size:14px;
+    font-weight:700;
+    background-color: #FF4B4B;
+
+}
+
+.infomation{
+width: 100%;
+position: relative;
+}
+
+.infomation_img {
+width: 100%;
+
+}
+
+.head_line{
+color: white;
+position: absolute;
+left: 50%;
+top: 50%;
+bottom: 50%;
+transform: translate(-50%, -50%);
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #FF4B4B;
+}
+
+.information_txt{
+    color: white;
+    text-align: center;
+    
+}
+
+.information_txt_marked{
+    color: #FF4B4B;
+    text-align: center;
+}
+
+.fried_pig_img{
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product_title{
+    color: white;
+    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FF4B4B;
+}
+
+.produkt_1{
+flex-wrap: wrap;
+display: flex;
+}
+
+.buy_produkt_1{
+width: 10em;
+height: 3em;
+
+}
+
+.produkt_title_1{
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FF4B4B;
+    width: 20em;
+    height: 5em;
+}
+
+.produkt_2{
+flex-wrap: wrap;
+}
+
+.produkt_title_2{
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FF4B4B;
+}
+
+.buy_produkt_2{
+    width: 10em;
+    height: 3em;
+}
+
+.produkt_3{
+flex-wrap: wrap;
+}
+
+.produkt_title_3{
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FF4B4B;
+}
+
+.buy_produkt_3{
+    width: 10em;
+    height: 3em;
+}
+
+footer{
+background-color: #464646;
+outline: solid;
+outline-color: #FF4B4B;
+}
+
+.find_os{
+color: white;
+text-align: left;
+}
+
+.Forretningsbetingelser{
+    color: white;
+    text-align: left;
+}
+
+.åbningstider{
+    color: white;
+    text-align: right;
+}
+
+body{
+    background-color: #2F2F2F;
+}

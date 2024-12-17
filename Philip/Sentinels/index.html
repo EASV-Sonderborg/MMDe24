@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinels</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <img class="header__logo" src="media/sentinels.svg" alt="Sentinels Logo">
+        <nav class="nav">
+            <section class="hamburger" onclick="toggleMenu()">☰</section>
+            <ul class="navList">
+                <li class="navList__item">
+                    <a class="navList__link" href="#">
+                        home
+                    </a>
+                </li>
+                <li class="navList__item">
+                    <a class="navList__link" href="#">
+                        partners
+                    </a>
+                </li>
+                <li class="navList__item">
+                    <a class="navList__link" href="#">
+                        teams
+                    </a>
+                </li>
+                <li class="navList__item">
+                    <a class="navList__link" href="#">
+                        content
+                    </a>
+                </li>
+                <li class="navList__item">
+                    <a class="navList__link" href="#">
+                        sen society
+                    </a>
+                </li>
+                <li class="navList__item">
+                    <a class="navList__link" href="#">
+                        news
+                    </a>
+                </li>
+                <li class="navList__item">
+                    <a class="navList__link" href="#">
+                        shop
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <section class="products">
+                <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/skylineHoodieBack.webp" alt="Sen black hoodie">
+                    </section>
+                    <section class="product__text">
+                        <h1 class="product__header">
+                            Sen City Hoodie
+                        </h1>
+                        <p class="product__price">
+                            $55.00
+                        </p>  
+                    </section>
+                </section>
+                <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/store_Jersey.webp" alt="Sen player jersey">
+                    </section>
+                    <section class="product__text">
+                        <h1 class="product__header">
+                            Sen City Player Jersey
+                        </h1>
+                        <p class="product__price">
+                            $69.99
+                        </p>  
+                    </section>
+                </section>
+                <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/2024ChampionsJacketFront.webp" alt="2024 Champions Jacket">
+                    </section>
+                    <section class="product__text">
+                        <h1 class="product__header">
+                            2024 Champions Jacket
+                        </h1>
+                        <p class="product__price">
+                            $110.00
+                        </p>  
+                    </section>
+                </section>
+                <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/storeJerseyBlackFront.webp" alt="Sentinels Limited Edition Blackout Jersey">
+                    </section>
+                    <section class="product__text">
+                        <h1 class="product__header">
+                            Sentinels Limited Edition Blackout Jersey
+                        </h1>
+                        <p class="product__price">
+                            $75.00
+                        </p>  
+                    </section>
+                </section>
+                <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/senCargoPants.webp" alt="Champs Cargo Pants">
+                    </section>
+                    <section class="product__text">
+                        <h1 class="product__header">
+                            Champs Cargo Pants
+                        </h1>
+                        <p class="product__price">
+                            $69.99
+                        </p>  
+                    </section>
+                </section>
+                <section class="buttonArea">
+                    <button class="button" id="prevButton"><</button>
+                    <button class="button" id="nextButton">></button>
+                </section>
+            </section>
+        </section>
+
+        <section class="socials">
+            <section class="senSociety">
+                <section class="senSocietyLogo__box">
+                    <img class="senSociety__logo" src="media/senSociety.svg" alt="Sen Society Logo">
+                </section>
+                <section class="senSociety__text">
+                    <h2 class="social__header">
+                        Join the <br>Sen Society
+                    </h2>
+                    <p class="senSociety__description">
+                        Exclusive content, merch, and more for fans!
+                    </p>
+                </section>
+                <img class="senSociety__background" src="media/senCube.png" alt="SenSociety Cube">
+            </section>
+            <section class="socials__links">
+                <section class="twitterX social">
+                    <img class="social__logo twitter__logo" src="media/twitterxSenRed.svg" alt="twitter / x logo">
+                    <h3 class="social__followers">    
+                        1.07M <br> Followers
+                    </h3>
+                </section>
+                <section class="youtube social">
+                    <img class="social__logo youtube__logo" src="media/youtubeSenRed.svg" alt="youtube logo">
+                    <h3 class="social__followers">    
+                        926K <br> Followers
+                    </h3> 
+                </section>
+                <section class="instagram social">
+                    <img class="social__logo instagram__logo" src="media/instagramSenRed.svg" alt="instagram logo">
+                    <h3 class="social__followers">    
+                        663K <br> Followers
+                    </h3>  
+                </section>
+                <section class="tiktok social">
+                    <img class="social__logo tiktok__logo" src="media/tiktokSenRed.svg" alt="tiktok logo">
+                    <h3 class="social__followers">    
+                        1.40M <br> Followers
+                    </h3>   
+                </section>
+            </section>
+        </section>
+        <section class="videos">
+            <section class="videoBackground videoBackground__left"></section>
+            <section class="videoBackground__center"></section>
+            <section class="videoBackground videoBackground__right"></section>
+            <section class="videoContainer">
+                <h2 class="videoContainer__header">
+                    recent videos
+                </h2>
+                <section class="videoContainer__grid">
+                    <section class="videoMain">
+                        <section class="mainVideoBackground"></section>
+                        <h3 class="videoMain__header">The Offseason Grand Finals</h3>
+                        <p class="videoMain__date">for 1 dag siden</p>
+                    </section>
+                    <section class="videoContainer__subGrid">
+                        <section class="videoContainer__subVideo">
+                            <section class="videoTopLeft subVideoBackground"></section>
+                            <h3 class="video__header">Tarik Reacts to the SEN City Classic FINALS</h3>
+                            <p class="video__date">for 2 dage siden</p>
+                        </section>
+                        <section class="videoContainer__subVideo">
+                            <section class="videoTopRight subVideoBackground"></section>
+                            <h3 class="video__header">SEN City Classic Day 2 Presented by !Razer</h3>
+                            <p class="video__date">for 2 dage siden</p>
+                        </section>
+                        <section class="videoContainer__subVideo">
+                            <section class="videoBottomLeft subVideoBackground"></section>
+                            <h3 class="video__header">Tarik Reacts to SEN City Classic Day 2</h3>
+                            <p class="video__date">for 3 dage siden</p>
+                        </section>
+                        <section class="videoContainer__subVideo">
+                            <section class="videoBottomRight subVideoBackground"></section>
+                            <h3 class="video__header">SEN City Classic Day 3 Presented by !Razer</h3>
+                            <p class="video__date">for 3 dage siden</p>
+                        </section>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

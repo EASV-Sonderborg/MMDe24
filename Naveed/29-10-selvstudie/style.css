@@ -8,6 +8,17 @@
 
     --ff-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --ff-accent: "Charm", cursive;
+
+/* @link https://utopia.fyi/type/calculator?c=450,16,1.2,1440,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+    --step--2: clamp(0.6944rem, 0.6465rem + 0.1706vw, 0.8rem);
+    --step--1: clamp(0.8333rem, 0.7576rem + 0.2694vw, 1rem);
+    --step-0: clamp(1rem, 0.8864rem + 0.404vw, 1.25rem);
+    --step-1: clamp(1.2rem, 1.0352rem + 0.5859vw, 1.5625rem);
+    --step-2: clamp(1.44rem, 1.2068rem + 0.8293vw, 1.9531rem);
+    --step-3: clamp(1.728rem, 1.4037rem + 1.153vw, 2.4414rem);
+    --step-4: clamp(2.0736rem, 1.629rem + 1.5809vw, 3.0518rem);
+    --step-5: clamp(2.4883rem, 1.8854rem + 2.1436vw, 3.8147rem);
 }
 * {
 	box-sizing: border-box;
@@ -180,7 +191,7 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
 }
 .intro .intro__text span{
     animation-range-start: cover 22.5vh;
-    animation-range-end: cover 50vh;
+    animation-range-end: cover 70vh;
 }
 .intro .intro__title--bottom span{
     animation-range-start: cover 42.5vh;
@@ -248,6 +259,7 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
     scale: 0.98;
     transition-duration: 400ms;
     transition-property: opacity, scale, box-shadow;
+    max-width: 31rem;
 }
 .product:hover{
     opacity: 1;
@@ -270,10 +282,13 @@ https://www.youtube.com/watch?v=d10GaL6F-lA */
     2px -2px 2px #333; 
 }
 .product__description{
-    font-size: clamp(1rem, 0.6667rem + 1.0667vw, 2rem);
+    font-size: var(--step-0);
     flex-wrap: wrap;
     flex-grow: 1;
     padding: 1em;
+}
+.product__list{
+    list-style-type: '- ';
 }
 .product__price{
     color: #D3AB54;

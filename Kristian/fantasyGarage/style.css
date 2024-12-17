@@ -1,0 +1,233 @@
+
+*{
+    margin: 0;
+    font-family: "Klee One", cursive;
+}
+
+
+.navBar{
+    background-color: #DBE1E1;
+    min-height: 5rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
+    justify-content: space-between;
+}
+
+.navBar__logo{
+    max-width: 5rem;
+    border-radius: 50%;
+    box-shadow: 0px 0px 12px black;
+    margin: 0.5rem;
+    transition: transform 300ms ease;
+}
+
+.navBar__logo:hover{
+    transform: scale(1.1);
+}
+
+
+
+.navBar__items{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin-right: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 699px) {
+    .navBar__items{
+    padding-bottom: 1rem;
+    }
+}
+
+
+.navBar__item{
+    text-decoration: none;
+    color: black;
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.58);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    border: solid #d5d5d500;
+    transition: background-color 200ms ease, border 1000ms ease;
+    
+    border-bottom: solid 0.1rem rgb(85, 85, 85);
+}
+
+.navBar__item:hover{
+    background-color: #c6cbcb;
+    border: solid #A47ADF
+}
+
+
+
+main{
+    padding-top: 1rem;
+    background-color: #5FD0C7;
+    display: flex;
+    flex-direction: column;
+    /*min-height: 100vh;*/
+}
+
+.welcome{
+    font-size: 20px;    
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    padding: 1rem;
+    gap: 40px;
+    background-color: #52B7AE;
+    border-radius: 6px;
+    width: fit-content; 
+    margin: 1rem;
+    align-items: center;
+}
+
+.welcome__title{
+    
+}
+
+.examples{
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    justify-content: center;
+    gap: 10rem;
+    margin: 7rem 15rem 0 15rem;
+    container-type: inline-size;
+}
+
+@media (max-width: 490px) {
+    .examples{
+        margin: 3rem 0.5rem; 
+    }
+}
+
+
+.example{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    border-radius: 6px;
+    background-color: #A47ADF;
+}
+
+@container (max-width: 1074px) {
+    .example {
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
+
+        align-self: center;
+    }
+}
+
+
+.example__text{
+    margin-top: 1.5rem;
+}
+
+.example__img{
+    max-width: 90%;
+    padding: 1em;
+}
+
+.btn{
+    background-color: #52B7AE;
+    border: solid #DBE1E1;
+    border-radius: 6px;
+    align-self: center;
+    text-decoration: none;
+    color: black;
+    font-size: 2em;
+    padding: 2rem;
+    margin: 4em;
+    transition: transform 300ms ease;
+}
+
+.btn:hover{
+    transform: scale(1.04);
+}
+
+
+
+
+
+.extraInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DBE1E1;
+    min-height: 7rem;
+    padding: 0 5rem;
+    flex-wrap: wrap;
+}
+
+.extraInfo__items{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    gap: 2rem;
+}
+
+.extraInfo__item{
+    text-decoration: none;
+    color: black;
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.58);
+    border: solid #dbe1e100;
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    border-bottom: solid 0.1rem rgb(85, 85, 85);
+    
+    transition: background-color 200ms ease, border 1000ms ease;
+}
+
+.extraInfo__item:hover{
+    background-color: #c6cbcb;
+    border: solid #A47ADF
+}
+
+
+.extraInfo__cpr{
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.58);
+}
+
+
+
+.contact__info{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+
+.contact__info--contact{
+    align-items: center;
+}
+
+.contact__info--address{
+    display: grid;
+    justify-items: center;
+    grid-row: 2 / 4;
+}
+
+.contact__map{
+    max-width: 30%;
+    align-self: flex-start;
+    border: solid 4px #DBE1E1;
+    border-radius: 6px;
+    
+}

@@ -1,0 +1,261 @@
+/* Hovedsektion (main) styles */
+html main {
+    overflow: hidden; /* Skjuler indhold, der strækker sig ud over containerens grænser */
+}
+
+
+body {
+    margin: 0px; /* Fjerner standardmargen for hele dokumentet */
+}
+
+/* Logo-styles */
+.logo {
+    display: flex;
+    justify-content: center; 
+    margin-top: 10svh; 
+}
+
+.logoNærboksImg {
+    width: 85svw;
+    position: absolute; /* Placering relativt til nærmeste positionerede forælder */
+}
+
+.logoPackage {
+    width: 100svw;
+    height: 40svh;
+}
+
+/* Startbillede styles */
+.startPackageImg {
+    margin-top: 49svh; 
+    width: 100svw; 
+    height: 38.5svh; 
+    position: absolute; /* Positionering for præcis placering */
+}
+
+/* Startknapper */
+.startButton__Log{
+    position: absolute; /* Præcis placering på skærmen */
+    top: 80%; 
+    left: 50%;
+    transform: translate(-50%, -50%); /* Justerer for at centrerer knappen */
+    border: none;
+    cursor: pointer;
+}
+
+.startButton__Reg {
+    position: absolute; 
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+}
+
+/* Primær knap styling */
+.firstButton {
+    background-color: #12A0D6; 
+    color: #fff; 
+    width: clamp(9svw, -8rem + 44svw, 90svw); /* Responsiv bredde */
+    height: clamp(0.3svw, 1svw, 9svw); /* Responsiv højde */
+    padding: clamp(2rem, -0.2rem + 6vw, 9rem); /* Responsiv polstring */
+    font-size: clamp(1.5rem, -8rem + 16vw, 8rem); /* Responsiv skrifttype */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-decoration: none; 
+    font-style: inherit; 
+    border-radius: 4px; 
+}
+
+
+.firstButton:hover {
+    background-color: #caf0ff; 
+}
+
+/* Supplerende knap styles */
+.supButton {
+    background-color: #12A0D6; 
+    color: #fff;
+    width: clamp(0.2svw, 0.4svw, 5svw); 
+    height: clamp(0.2svw, 0.4svw, 5svw); 
+    padding: clamp(1.5rem, 4vw, 7rem); 
+    font-size: clamp(1.5rem, -8rem + 16vw, 8rem); 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    text-decoration: none; 
+    font-style: inherit; 
+    border-radius: 99999px; /* Gør knappen cirkulær */
+}
+
+.supButton__Help {
+    position: absolute;
+    top: clamp(95%, 96.5%, 100%); 
+    left: clamp(50%, 53%, 60%); 
+    transform: translate(-50%, -50%);
+    border: none; 
+    cursor: pointer; 
+    margin-left: 40%; 
+}
+
+
+.supButton__Back {
+    position: absolute; 
+    top: clamp(95%, 96.5%, 100%); 
+    left: clamp(-32%, -53%, -60%); 
+    transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer; 
+    margin-left: 40%; 
+}
+
+.supButtons {
+    margin: 0;
+}
+
+.supButton:hover {
+    background-color: #caf0ff;
+}
+
+
+
+/* Logo undertekst */
+
+.logoSubTit {
+    display: flex;
+    justify-content: center;
+    margin-top: 10svh;
+    font-size: clamp(1.5rem, -8rem + 16vw, 8rem); 
+    color: #12A0D6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 2rem;
+}
+
+/* Undertekst styling */
+.subTeksts {
+    color: #12A0D6; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: clamp(0.6rem, -4rem + 10vw, 2rem); 
+    list-style: none; 
+    padding: 2svw; 
+}
+
+.subTekst {
+    display: flex; 
+    justify-content: center; 
+    padding-top: 2svh;
+}
+
+
+
+
+
+ /* TEST RUN */
+
+
+
+ 
+/* Form styling */
+form {
+    border: 3px solid #f1f1f1; 
+}
+
+/* Inputs (tekst og adgangskode) */
+input[type=text], input[type=password] {
+    width: 100%; 
+    padding: 0.85rem 1.2rem;
+    margin: 8px 0; 
+    display: inline-block; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+button {
+    background-color: #12A0D6;
+    color: white;
+    padding: 1rem 1.5rem; 
+    margin: 0.5rem 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    font-size: clamp(1.5rem, -9rem + 16vw, 8rem);
+}
+
+/* Styling til containeren */
+.container {
+    padding: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+
+}
+
+/* Styling til inputfelter og deres pladsholdertekst */
+input,
+input::placeholder {
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+    border-radius: 4px; 
+    background: rgba(93, 231, 255, 0.5); 
+}
+
+
+span.psw {
+    float: right;
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(108, 108, 108);
+}
+
+.psw__Reg {
+    padding-top: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+    padding-bottom: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(108, 108, 108);
+}
+/* Styling til checkbox-teksten */
+.checkbox__Reg {
+    padding-top: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+    padding-bottom: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+    font-size: clamp(1rem, -10rem + 16vw, 8rem); /* Responsiv tekststørrelse */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(108, 108, 108);
+}
+.checkbox {
+    padding-top: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+
+    font-size: clamp(1rem, -10rem + 16vw, 8rem); /* Responsiv tekststørrelse */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(108, 108, 108);
+}
+.psw {
+    padding-top: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(108, 108, 108);
+}
+.containerTekst__Sup {
+    padding-top: clamp(0.7rem, 0.6rem + 1rem, 3rem);
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(108, 108, 108);
+    display: flex;
+    justify-content: center;
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+}
+label.checkbox {
+    float: left; 
+
+}
+
+/* Animation for zoom-effekt */
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0);}
+    to {-webkit-transform: scale(1);}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}

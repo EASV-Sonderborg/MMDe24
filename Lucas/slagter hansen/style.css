@@ -29,10 +29,9 @@
 
 .header__logo{
     margin-right: auto;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 50%;
+    padding-left: 0.625em;
+    padding-top: 0.625em;
+    padding-bottom: 0.625em;
 
 }
 
@@ -45,7 +44,7 @@
     display: flex;
     gap: 2em;
     list-style: none;
-    margin-right: 30px;
+    margin-right: 2em;
     align-items: center;
 
 }
@@ -53,7 +52,7 @@
 .menu__item{
     text-decoration: none;
     color: white;
-    font-size: 30px;
+    font-size: 2rem;
 }
 
 .hero{
@@ -70,23 +69,16 @@
 }
 
 .hero__headline{
-    font-size: 50px;
+    font-size: 3rem;
 }
 
 .hero__headline--bottom{
     grid-row: 2 / 4;
-    font-size: 40px;
-}
-
-.products__title{
-    font-size: 40px;
-    color: #EF3E35;
-    text-align: center;
-    margin: 20px;
+    font-size: 2.5rem;
 }
 
 .products{
-    /* height: 80vh; */
+    /* heixght: 80vh; */
     display: grid;
     grid-template-columns: 
     repeat(auto-fit, minmax(400px, 1fr ));
@@ -109,19 +101,6 @@
     transition-property: opacity, scale, box-shadow;
     opacity: 0.95;
 }
-
-/* .product::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: inherit;
-    z-index: -1;
-
-} */
 
 .product:hover{
     scale: 1.02;
@@ -147,32 +126,32 @@
     filter: blur(2px);
 }
 .product__title{
-    padding-left: 10px;
+    font-size: 1.5rem;
+    padding-left: 0.3em;
     margin: 10px 0px 10px 0px;
     color: #EF3E35;
 }
 
 .product__description{
-    padding-left: 10px;
+    padding-left: 0.3em;
     flex-grow: 1;
-max-width: 310px;
-margin: 0;
+    max-width: 310px;
+    margin: 0;
 }
 
 .product__price{
-font-size: 30px;
-padding-left: 10px;
+font-size: 2rem;
 align-self: center;
 color: #EF3E35;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 margin-top: 0;
-margin-bottom: 5px;
+margin-bottom: 0.4rem;
 }
 
 .product__list{
     list-style-type: '🔥 ';
-    padding-left: 20px;
-    padding-right: 5px;
+    padding-left: 1.2rem;
+    padding-right: 0.4rem;
 }
 
 .product img{
@@ -184,7 +163,6 @@ border-radius: 5px;
 .intro{
     background-color: black;
     background-image: url(images/roast.png);
-    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,19 +176,20 @@ border-radius: 5px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
     border-radius: 5px;
 
 }
 
 .intro__title{
     color: #EF3E35;
-    font-size: 30px;
+    font-size: 2rem;
+    margin: 0.5em 0 0.25em 0;
 }
 
 .intro__text{
-    font-size: 20px;
+    font-size: 1.3rem;
     color: white;
 }
 
@@ -220,12 +199,12 @@ footer{
     repeat(auto-fit, minmax(200px, 1fr ));
     justify-content: space-between;
     justify-items: center;
-    padding-bottom: 10px;
+    padding-bottom: 0.8em;
 
 }
 
 .footer__title{
-    margin: 5px 0px 5px 0px;
+    margin: 0.2em 0 0.2em 0;
 }
 
 .footer p{
