@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+    <!--Header-->
+    <header class="header">
+        <a class="header__backButton" href="index.html">
+            <img src="images\arrowLeftIcon.png" alt="Gå tilbage">
+        </a>
+        <button class="header__languageSelection">
+            <span class="header__languageName">Dansk</span>
+            <span class="header__languageIcon">
+                <img class="header__languageImage" src="images\arrowDownIcon.png" alt="Klik for at vælge sprog">
+            </span>
+        </button>
+    </header>
+
+    <!--Logo-->
+    <div class="logo">
+        <img class="logo__image" src="images/naerboksLogo.png" alt="Nærboks logo">
+    </div>
+
+    <!--Login Form-->
+    <section class="loginForm">
+        <div class="loginForm__inputGroup">
+            <label class="loginForm__label" for="phoneNumber">Telefonnummer</label>
+            <div class="loginForm__inputWrapper">
+                <span class="loginForm__flag">
+                    <img class="loginForm__image" src="images\flagDenmark.png" alt="Danmarks flag">
+                </span>
+                <span class="loginForm__countryCode">+45</span>
+                <input type="tel" id="phoneNumber" class="loginForm__input" placeholder="12 34 56 78">
+            </div>
+        </div>
+
+        <div class="loginForm__inputGroup">
+            <label class="loginForm__label" for="pinCode">PIN-kode</label>
+            <input type="password" id="pinCode" class="loginForm__input" placeholder="123456">
+        </div>
+
+        <a class="loginForm__submitButton" href="#">Login</a>
+        <p class="loginForm__forgotPin">
+            Glemt din PIN-kode?
+            <a class="loginForm__forgotPin--highlight" href="#">Skift den her</a>
+        </p>
+    </section>
+
+    <!--Footer-->
+    <footer class="footer"></footer>
+    
+</body>
+</html>
