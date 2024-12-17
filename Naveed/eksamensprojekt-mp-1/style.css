@@ -43,6 +43,8 @@
 .body{
     max-width: 768px; /* iPad width */
     margin: auto; /* center content */
+    width: 100svw;
+    height: 100svh;
     background: 
     linear-gradient(
     #053B72 0%,
