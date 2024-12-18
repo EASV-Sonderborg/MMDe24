@@ -42,16 +42,16 @@
                             <img class="loginForm__image" src="images\flagDenmark.png" alt="Danmarks flag">
                         </span>
                         <span class="loginForm__countryCode">+45</span>
-                        <input class="loginForm__input" type="tel" id="phoneNumber"  placeholder="12 34 56 78" required>
+                        <input class="loginForm__input" type="tel" id="phoneNumber" maxlength="8" placeholder="12 34 56 78" required>
                     </div>
                 </div>
 
                 <div class="loginForm__inputGroup">
                     <label class="loginForm__label" for="pinCode">PIN-kode</label>
-                    <input class="loginForm__input" type="password" id="pinCode"  placeholder="123456" required>
+                    <input class="loginForm__input loginForm__pinCode" type="password" id="pinCode" maxlength="6" placeholder="123456" required>
                 </div>
 
-                <a class="loginForm__submitButton" href="#">Login</a>
+                <a class="loginForm__submitButton" href="home.html">Login</a>
                 <p class="loginForm__forgotPin">
                     Glemt din PIN-kode?
                     <a class="loginForm__forgotPin--highlight" href="#">Skift den her</a>
