@@ -86,6 +86,12 @@ body    {
     height: 64vh;
 }
 
+@media  (min-width: 600px) {
+    .main  {
+        width: 600px;
+    }
+}
+
 .parcelOverview {
     display: flex;
     flex-direction: column;
@@ -237,11 +243,13 @@ a   {
     gap: 0.5rem;
 }
 
+
 .button__nav  {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0rem;
     text-align: center;
     border-radius: 2rem;
     font-size: 1rem;
+    max-width: 100%;
 }
 
 .button__back   {
