@@ -38,9 +38,16 @@
                     Indtast den 6-cifrede kode, som er sendt til dit telefonnummer.
                 </p>
 
-                <div class="verificationForm__inputGroup">
-                    <label class="verificationForm__label" for="activationCode">Aktiveringskode</label>
-                    <input class="verificationForm__input" type="text" id="activationCode" placeholder="123456" maxlength="6" required>
+                <div class="verificationForm__inputGroup inputAnimation">
+                    <label class="verificationForm__label" for="activationCode">Indtast aktiveringskode</label>
+                    <div class="verificationForm__codeWrapper">
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="1" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="2" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="3" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="4" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="5" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="6" required>
+                    </div>
                 </div>
 
                 <!--Verify Button-->
@@ -57,5 +64,23 @@
         <!--Footer Box Styling-->
         <div class="footer__box"></div>
     </footer>
+
+    <script>
+        const inputs = document.querySelectorAll(".verificationForm__codeInput");
+    
+        inputs.forEach((input, index) => {
+            input.addEventListener("input", () => {
+                if (input.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+    
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Backspace" && index > 0 && input.value === "") {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

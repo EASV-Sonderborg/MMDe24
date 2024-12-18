@@ -314,8 +314,10 @@ main {
     font-size: 1rem;
     color: #0B3050;
     font-family: "Roboto-Regular";
-    padding: 10px;
+    padding: 5px;
+    outline: none;
 }
+
 
 .createAccountForm__pinCode {
     border: 4px solid #0B3050;
@@ -340,6 +342,8 @@ main {
 .createAccountForm__termsLink {
     font-family: "Roboto-Bold";
     color: black;
+    text-decoration: none;
+    border-bottom: 2px solid black;
 }
 
 .createAccountForm__submitButton {
@@ -359,6 +363,92 @@ main {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Verification Form */
+.verificationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.verificationForm__fieldset {
+    border: none;
+    width: 100%;
+    max-width: 400px;
+}
+
+.verificationForm__legend {
+    font-size: 2rem;
+    font-family: "Roboto-Black";
+    color: #E95C0C;
+    margin-bottom: 30px;
+}
+
+.verificationForm__description {
+    font-family: "Roboto-Regular";
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.verificationForm__inputGroup {
+    border: 2px solid #cccccc;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.verificationForm__label {
+    font-family: "Roboto-Bold";
+    color: #0B3050;
+    font-size: 1rem;
+    display: block;
+    text-align: left;
+   margin-bottom: 15px;
+}
+
+.verificationForm__codeWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+
+.verificationForm__codeInput {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: "Roboto-Medium";
+    border: 4px solid #0B3050;
+    border-radius: 10px;
+}
+
+.verificationForm__submitButton {
+    display: block;
+    width: 100%;
+    background-color: #E95C0C;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-family: "Roboto-Black";
+    padding: 1rem 0;
+    width: 300px;
+    border-radius: 200px;
+    margin-top: 50px;
+    margin: 50px auto 0 auto;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.verificationForm__resendCode {
+    font-family: "Roboto-Regular";
+    margin-top: 15px
+}
+
 
 /* Footer Styling */
 .footer__box {
@@ -372,7 +462,12 @@ main {
     box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
-
+/* CSS Animation for all forms */
+.inputAnimation:focus-within {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 4px solid #145288;
+}
 
 
 /* Media Queries - Mobil & Tablet */
@@ -390,9 +485,37 @@ main {
         width: 90%;
         margin: 0 auto;
     }
+
+    .verificationForm__description {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .verificationForm__codeInput {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .verificationForm__inputGroup {
+        padding: 10px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .verificationForm__label {
+        font-size: 0.9rem;
+        margin: 10px 0px 5px 2px;
+    }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 400px) {
+    .verificationForm__description {
+        width: 80%;
+    }
+}
+
+@media (max-width: 360px) {
     .login__link, .signUp__link {
         font-size: 1rem; 
         padding: 1rem 0; 
@@ -425,10 +548,33 @@ main {
     .loginForm__forgotPin {
         font-size: 0.8rem;
     }
+
+    .verificationForm__inputGroup {
+        width: 80%;
+    }
+
+    .verificationForm__codeInput {
+        width: 30px;
+        height: 30px;
+        border: 3px solid;
+        font-size: 0.9rem;
+    }
+
+    .verificationForm__submitButton {
+        width: 80%;
+    }
 }
 
 @media (max-width: 280px) {
     .loginForm__inputGroup {
         width: 70%;
+    }
+
+    .verificationForm__codeInput {
+        width: 20px;
+        height: 20px;
+        border-radius: 6px;
+        font-size: 0.6rem;
+        border: 2px solid;
     }
 }
