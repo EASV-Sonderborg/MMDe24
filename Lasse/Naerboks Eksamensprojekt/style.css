@@ -462,6 +462,7 @@ main {
     box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
+
 /* CSS Animation for all forms */
 .inputAnimation:focus-within {
     transform: scale(1.05);
