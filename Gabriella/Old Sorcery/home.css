@@ -1,4 +1,4 @@
-.homepageBody {
+.homepage-body {
   background-image: url(images/map/home_image.png);
   background-size: 1700px;
   background-color: black;
@@ -8,7 +8,7 @@
 }
 
 /* Section og label styling */
-.homepageTutorial {
+.homepage-tutorial {
   position: absolute;
   top: 480px;
   left: 150px;
@@ -18,7 +18,7 @@
   max-height: 300px;
 }
 
-.homepageTutorial_label {
+.homepage-tutorial__label {
   background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent baggrund */
   position: absolute;
   left: -80px;
@@ -33,13 +33,12 @@
   justify-content: center;
 }
 
-.homepageTutorial_label_text {
+.homepage-tutorial__label__text {
   font-size: 20px;
   font-family: "Germania One", system-ui;
   text-align: left;
   color: rgb(rgb(0, 0, 0));
 }
-
 /* Logo */
 nav {
   position: absolute;
@@ -53,7 +52,7 @@ nav {
   width: auto;
 }
 
-.lottieDiv {
+.lottie-div {
   /*Position til JSON animation LOTTIE*/
   position: absolute;
   left: -70px;
@@ -62,35 +61,35 @@ nav {
   height: auto;
 }
 
-.dragonContainer {
+.dragon-container {
   position: absolute;
   left: 530px;
   top: 110px;
   width: 300px;
   height: 200px;
 }
-.crowContainer {
+.crow-container {
   position: absolute;
   left: 900px;
   top: 80px;
   width: 200px;
   height: 200px;
 }
-.witchContainer {
+.witch-container {
   position: absolute;
   left: 1200px;
   top: 160px;
   width: 250px;
   height: 200px;
 }
-.batContainer {
+.bat-container {
   position: absolute;
   left: 1000px;
   top: 400px;
   width: 200px;
   height: 200px;
 }
-.dragonContainer_text {
+.dragon-container__text {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   opacity: 0%;
@@ -108,7 +107,7 @@ nav {
   transition-delay: 0.5ms;
   transition: 0.3s all 0.3s;
 }
-.crowContainer_text {
+.crow-container__text {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   opacity: 0%;
@@ -125,7 +124,7 @@ nav {
   transition-delay: 0.5ms;
   transition: 0.3s all 0.3s;
 }
-.witchContainer_text {
+.witch-container__text {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   opacity: 0%;
@@ -142,7 +141,7 @@ nav {
   transition-delay: 0.5ms;
   transition: 0.3s all 0.3s;
 }
-.batContainer_text {
+.bat-container__text {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   opacity: 0%;
@@ -159,57 +158,57 @@ nav {
   transition-delay: 0.5ms;
   transition: 0.3s all 0.3s;
 }
-.dragonContainer_text:hover {
+.dragon-container__text:hover {
   opacity: 100%;
 }
-.crowContainer_text:hover {
+.crow-container__text:hover {
   opacity: 100%;
 }
-.witchContainer_text:hover {
+.witch-container__text:hover {
   opacity: 100%;
 }
-.batContainer_text:hover {
+.bat-container__text:hover {
   opacity: 100%;
 }
-.dragonContainer_text:focus {
+.dragon-container__text:focus {
   color: #9d3a06;
 }
-.crowContainer_text:focus {
+.crow-container__text:focus {
   color: #9d3a06;
 }
-.witchContainer_text:focus {
+.witch-container__text:focus {
   color: #9d3a06;
 }
-.batContainer_text:focus {
+.bat-container__text:focus {
   color: #9d3a06;
 }
-.dragonImg {
+.dragon-img {
   width: 150px;
   height: auto;
 }
-.crowImg {
+.crow-img {
   width: 120px;
   height: auto;
 }
-.witchImg {
+.witch-img {
   width: 150px;
   height: auto;
 }
-.batImg {
+.bat-img {
   width: 150px;
   height: auto;
 }
-.dragonImg:hover {
+.dragon-img:hover {
   transform: scale(1.1);
   transition-duration: 0.5ms;
 }
-.crowImg:hover {
+.crow-img:hover {
   transform: scale(1.1);
 }
-.witchImg:hover {
+.witch-img:hover {
   transform: scale(1.1);
 }
-.batImg:hover {
+.bat-img:hover {
   transform: scale(1.1);
 }
 
