@@ -150,19 +150,22 @@ body {
 
 
 /* Styling til containeren */
-.container {
+.formContainer {
     padding: clamp(0.7rem, 0.6rem + 1rem, 3rem);
 }
 /* Inputs (tekst og adgangskode) */
-.inputField {
+.formInputField {
     width: 100%; 
     padding: 0.85rem 1.2rem;
     margin: 8px 0; 
     display: inline-block; 
     border: 1px solid #ccc;
     box-sizing: border-box;
+    font-size: clamp(1rem, -10rem + 16vw, 8rem);
+    border-radius: 4px; 
+    background: rgba(93, 231, 255, 0.5);
 }
-.submitButton {
+.formSubmitButton {
     background-color: #12A0D6;
     color: white;
     padding: 1rem 1.5rem; 
@@ -175,11 +178,7 @@ body {
 }
 
 /*  Styling til inputfelter og deres pladsholdertekst */
-.inputField {
-    font-size: clamp(1rem, -10rem + 16vw, 8rem);
-    border-radius: 4px; 
-    background: rgba(93, 231, 255, 0.5); 
-}
+
 .psw {
     padding-top: clamp(0.7rem, 0.6rem + 1rem, 3rem);
     float: right;
@@ -199,21 +198,21 @@ body {
 
 
 /* Styling til checkbox-teksten */
-.checkbox {
+.formCheckbox {
     padding-top: clamp(0.7rem, 0.6rem + 1rem, 3rem);
     font-size: clamp(1rem, -10rem + 16vw, 8rem); /* Responsiv tekststørrelse */
 
     color: rgb(108, 108, 108);
 }
-.checkbox__Reg {
+.formCheckbox__Reg {
     padding-bottom: clamp(0.7rem, 0.6rem + 0.6rem, 2rem);
     padding-top: clamp(0.7rem, 0.6rem + 0.6rem, 2rem);
 }
-label.checkbox {
+label.formCheckbox {
     float: left; 
 }
-
-.submitButton__Sup{
+/*pga af placering til registrerings siderner*/
+.formSubmitButton__Sup{
     top: 65%; 
     left: 50%;
     position: absolute;
@@ -221,7 +220,7 @@ label.checkbox {
     transform: translate(-50%, -50%);
 }
 
-.containerTekst__Sup {
+.formSupTekst {
     padding: clamp(0.7rem, 0.6rem + 1rem, 3rem);
     font-size: clamp(1rem, -10rem + 16vw, 8rem);
 
@@ -238,10 +237,8 @@ label.checkbox {
     from {transform: scale(0);}
     to {transform: scale(1);}
 }
-
 .fontStyle__A{
     font-family: Inter;
-
     font-style: normal;
     font-weight: 700;
     line-height: normal;
