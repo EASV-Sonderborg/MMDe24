@@ -1,0 +1,434 @@
+/* Fonts */
+@font-face {
+    font-family: "Roboto-Black";
+    src: url("fonts/Roboto/Roboto-Black.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Medium";
+    src: url("fonts/Roboto/Roboto-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("fonts/Roboto/Roboto-Bold.ttf");
+}
+
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+header, footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    height: 60px;
+    background-color: #E8E8E8;
+    border: none;
+    position: relative;
+    width: 100%;
+    left: 0;
+}
+
+/* Header Styling */
+.header__box {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, #0B3050 40%, #E95C0C);
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    border-bottom-left-radius: 200px;
+    box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.header__languageSelection {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background: none;
+    border: none;
+    margin-left: auto;
+    color: white;
+    padding: 10px 3vw;
+    margin-right: 20px;
+}
+
+.header__backButton img {
+    width: 50%;
+    max-width: 45px;
+    min-width: 40px;
+    margin: 0 2vw 0 4vw;
+}
+
+.header__languageImage {
+    width: 16px;
+    height: 16px;
+    margin-left: 6px;
+    margin-top: 3px;
+}
+
+/* Main Section */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nærboks Logo */
+.logo__image {
+    margin: 100px 0 50px 0;
+    width: 65%;
+    max-width: 310px;
+}
+
+/* Login & Sign Up */
+.login__description, .signUp__description {
+    font-family: "Roboto-Regular";
+    color: rgb(172, 172, 172);
+    font-size: 16px;
+}
+
+.signInOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin: 30px;
+}
+
+.login, .signUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.login__link, .signUp__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    padding: 1rem 0;
+    width: 300px;
+    box-sizing: border-box;
+    font-family: "Roboto-Black";
+}
+
+.login__link {
+    color: white;
+    background-color: #E95C0C;
+    border-radius: 200px;
+    text-decoration: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.signUp__link {
+    color: #0B3050;
+    background-color: transparent;
+    border: 4px solid #0B3050;
+    border-radius: 200px;
+    text-decoration: none;
+}
+
+/* Login Form */
+.loginForm {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.loginForm__fieldset {
+    border: none;
+    padding: 0;
+}
+
+.loginForm__legend {
+    font-size: 2rem;
+    font-family: "Roboto-Black";
+    color: #E95C0C;
+    margin-bottom: 40px;
+}
+
+.loginForm__inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.loginForm__inputWrapper {
+    display: flex;
+    align-items: center;
+    border: 4px solid #0b3050;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 5px;
+}
+
+.loginForm__flag img {
+    width: 20px;
+    height: 14px;
+}
+
+.loginForm__countryCode {
+    font-size: 1rem;
+    font-family: "Roboto-Medium";
+    padding-right: 5px;
+}
+
+.loginForm__input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-family: "Roboto-Regular";
+    color: #0B3050;
+}
+
+.loginForm__pinCode {
+    border: 4px solid #0B3050;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.loginForm__label {
+    font-family: "Roboto-Regular";
+    margin-bottom: 5px;
+    color: #919191;
+}
+
+.loginForm__submitButton {
+    display: block;
+    width: 100%;
+    background-color: #E95C0C;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-family: "Roboto-Black";
+    padding: 1rem 0;
+    width: 300px;
+    border-radius: 200px;
+    margin-top: 50px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.loginForm__forgotPin {
+    margin-top: 14px;
+    font-family: "Roboto-Regular";
+}
+
+.loginForm__forgotPin--highlight {
+    font-family: "Roboto-Bold";
+    text-decoration: none;
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+
+/* Create Account Form */
+.createAccountForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createAccountForm__fieldset {
+    border: none;
+    width: 100%;
+    max-width: 400px;
+}
+
+.createAccountForm__legend {
+    font-size: 2rem;
+    font-family: "Roboto-Black";
+    color: #E95C0C;
+    margin-bottom: 40px;
+}
+
+.createAccountForm__inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    gap: 5px;
+    flex: 1;
+}
+
+.createAccountForm__pinCodeGroup {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.createAccountForm__label {
+    font-family: "Roboto-Medium";
+    color: #919191;
+    font-size: 1rem;
+}
+
+.createAccountForm__inputWrapper {
+    display: flex;
+    align-items: center;
+    border: 4px solid #0B3050;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 5px;
+}
+
+.createAccountForm__flag img {
+    width: 20px;
+    height: 14px;
+}
+
+.createAccountForm__countryCode {
+    font-size: 1rem;
+    font-family: "Roboto-Medium";
+    padding-right: 5px;
+}
+
+.createAccountForm__input {
+    border: None;
+    font-size: 1rem;
+    color: #0B3050;
+    font-family: "Roboto-Regular";
+    padding: 10px;
+}
+
+.createAccountForm__pinCode {
+    border: 4px solid #0B3050;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.createAccountForm__terms {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: "Roboto-Regular";
+    font-size: 1rem;
+}
+
+.createAccountForm__checkbox {
+    width: 18px;
+    height: 18px;
+}
+
+.createAccountForm__termsLink {
+    font-family: "Roboto-Bold";
+    color: black;
+}
+
+.createAccountForm__submitButton {
+    display: block;
+    width: 100%;
+    background-color: #E95C0C;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-family: "Roboto-Black";
+    padding: 1rem 0;
+    width: 300px;
+    border-radius: 200px;
+    margin-top: 50px;
+    margin: 50px auto 0 auto;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Footer Styling */
+.footer__box {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, #E95C0C, #0B3050 50%);
+    right: 0;
+    top: 0;
+    z-index: 0;
+    border-top-right-radius: 200px;
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* Media Queries - Mobil & Tablet */
+@media (max-width: 500px) {
+    .logo__image {
+        width: 70%;
+    }
+
+    .createAccountForm__pinCodeGroup {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .createAccountForm__input, .createAccountForm__inputWrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 350px) {
+    .login__link, .signUp__link {
+        font-size: 1rem; 
+        padding: 1rem 0; 
+        width: 80vw;
+    }
+
+    .signUp__link {
+        padding: 0.8rem 0;
+        margin: auto 2vw;
+    }
+
+    .logo__image {
+        width: 70%;
+    }
+
+    .createAccountForm__submitButton {
+        width: 80%;
+    }
+
+    .loginForm__submitButton {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .loginForm__inputGroup {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+    .loginForm__forgotPin {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 280px) {
+    .loginForm__inputGroup {
+        width: 70%;
+    }
+}
