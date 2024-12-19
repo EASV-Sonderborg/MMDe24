@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!--Header-->
     <header class="header">
+        <!--Header Box Styling-->
+        <div class="header__box"></div>
+
         <a class="header__backButton" href="index.html">
             <img src="images\arrowLeftIcon.png" alt="Gå tilbage">
         </a>
@@ -22,36 +26,45 @@
 
     <!--Logo-->
     <span class="logo">
-        <img class="logo__image" src="images/naerboksLogo.png" alt="Nærboks logo">
+        <img class="logo__image" src="images\naerboksLogoPrimary.png" alt="Nærboks logo">
     </span>
 
-    <!--Login Form-->
-    <section class="loginForm">
-        <div class="loginForm__inputGroup">
-            <label class="loginForm__label" for="phoneNumber">Telefonnummer</label>
-            <div class="loginForm__inputWrapper">
-                <span class="loginForm__flag">
-                    <img class="loginForm__image" src="images\flagDenmark.png" alt="Danmarks flag">
-                </span>
-                <span class="loginForm__countryCode">+45</span>
-                <input class="loginForm__input" type="tel" id="phoneNumber"  placeholder="12 34 56 78" required>
-            </div>
-        </div>
+    <main class="main">
+        <!--Login Form-->
+        <form class="loginForm">
+            <fieldset class="loginForm__fieldset">
+                <legend class="loginForm__legend">Log ind</legend>
 
-        <div class="loginForm__inputGroup">
-            <label class="loginForm__label" for="pinCode">PIN-kode</label>
-            <input class="loginForm__input" type="password" id="pinCode"  placeholder="123456" required>
-        </div>
+                <div class="loginForm__inputGroup">
+                    <label class="loginForm__label" for="phoneNumber">Telefonnummer</label>
+                    <div class="loginForm__inputWrapper inputAnimation">
+                        <span class="loginForm__flag">
+                            <img class="loginForm__image" src="images\flagDenmark.png" alt="Danmarks flag">
+                        </span>
+                        <span class="loginForm__countryCode">+45</span>
+                        <input class="loginForm__input" type="tel" id="phoneNumber" maxlength="8" placeholder="12 34 56 78" required>
+                    </div>
+                </div>
 
-        <a class="loginForm__submitButton" href="#">Login</a>
-        <p class="loginForm__forgotPin">
-            Glemt din PIN-kode?
-            <a class="loginForm__forgotPin--highlight" href="#">Skift den her</a>
-        </p>
-    </section>
+                <div class="loginForm__inputGroup">
+                    <label class="loginForm__label" for="pinCode">PIN-kode</label>
+                    <input class="loginForm__input loginForm__pinCode inputAnimation" type="password" id="pinCode" maxlength="6" placeholder="123456" inputmode="numeric" required>
+                </div>
 
-    <!--Footer-->
-    <footer class="footer"></footer>
+                <a class="loginForm__submitButton" href="home.html">Login</a>
+                <p class="loginForm__forgotPin">
+                    Glemt din PIN-kode?
+                    <a class="loginForm__forgotPin--highlight" href="#">Skift den her</a>
+                </p>
+            </fieldset>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!--Footer Box Styling-->
+        <div class="footer__box"></div>
+    </footer>
 
 </body>
 </html>

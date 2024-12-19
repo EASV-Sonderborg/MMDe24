@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nærboks Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!--Header-->
     <header class="header">
+        <!--Header Box Styling-->
+        <div class="header__box"></div>
+
         <button class="header__languageSelection">
             <span class="header__languageName">Dansk</span>
             <span class="header__languageIcon">
@@ -17,26 +21,31 @@
         </button>
     </header>
 
-    <!--Logo-->
-    <span class="logo">
-        <img class="logo__image" src="images\naerboksLogo.png" alt="Nærboks logo">
-    </span>
+    <main class="main">
+        <!--Logo-->
+        <span class="logo">
+            <img class="logo__image" src="images\naerboksLogoPrimary.png" alt="Nærboks logo">
+        </span>
 
-    <!--Sign In Options-->
-    <section class="signInOptions">
-        <section class="login">
-            <p class="login__description">Har du konto? Log ind her</p>
-            <a class="login__link" href="login.html">Login</a>
+        <!--Sign In Options-->
+        <section class="signInOptions">
+            <section class="login">
+                <p class="login__description">Har du konto? Log ind her</p>
+                <a class="login__link" href="login.html">Login</a>
+            </section>
+
+            <section class="signUp">
+                <p class="signUp__description">Er du ny her? Opret konto</p>
+                <a class="signUp__link" href="createAccount.html">Opret konto</a>
+            </section>
         </section>
+    </main>
 
-        <section class="signUp">
-            <p class="signUp__description">Er du ny her? Opret konto</p>
-            <a class="signUp__link" href="#">Opret konto</a>
-        </section>
-    </section>
-
-    <!--Footer-->
-    <footer class="footer"></footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <!--Footer Box Styling-->
+        <div class="footer__box"></div>
+    </footer>
 
 </body>
 </html>

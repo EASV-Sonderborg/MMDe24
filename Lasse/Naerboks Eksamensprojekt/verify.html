@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificér konto</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="header">
+        <!--Header Box Styling-->
+        <div class="header__box"></div>
+
         <a class="header__backButton" href="createAccount.html">
             <img src="images\arrowLeftIcon.png" alt="Gå tilbage">
         </a>
@@ -19,31 +23,64 @@
         </button>
     </header>
 
-    <!--Logo-->
-    <span class="logo">
-        <img class="logo__image" src="images/naerboksLogo.png" alt="Nærboks logo">
-    </span>
+    <main class="main">
+        <!--Logo-->
+        <span class="logo">
+            <img class="logo__image" src="images\naerboksLogoPrimary.png" alt="Nærboks logo">
+        </span>
 
-    <!--Verification Form-->
-    <section class="verificationForm">
-        <p class="verificationForm__description">
-            Indtast den 6-cifrede kode, som er sendt til dit telefonnumer.
-        </p>
+        <!--Verification Form-->
+        <form class="verificationForm">
+            <fieldset class="verificationForm__fieldset">
+                <legend class="verificationForm__legend">Verificér konto</legend>
 
-        <div class="verificationForm__inputGroup">
-            <label class="verificationForm__label" for="activationCode">Aktiveringskode</label>
-            <input class="verificationForm__input" type="text" id="activationCode" placeholder="123456" maxlength="6" required>
-        </div>
+                <p class="verificationForm__description">
+                    Indtast den 6-cifrede kode, som er sendt til dit telefonnummer.
+                </p>
 
-        <!--Verify Button-->
-        <a class="verificationForm__submitButton" href="#">Verificér</a>
-        <p class="verificationForm__resendCode">
-            Send igen - <span class="verificationForm__timer">30 sekunder</span>
-        </p>
-    </section>
+                <div class="verificationForm__inputGroup inputAnimation">
+                    <label class="verificationForm__label" for="activationCode">Indtast aktiveringskode</label>
+                    <div class="verificationForm__codeWrapper">
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="1" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="2" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="3" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="4" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="5" required>
+                        <input class="verificationForm__codeInput" type="text" maxlength="1" inputmode="numeric" placeholder="6" required>
+                    </div>
+                </div>
 
-     <!-- Footer -->
-     <footer class="footer"></footer>
+                <!--Verify Button-->
+                <a class="verificationForm__submitButton" href="home.html">Verificér</a>
+                <p class="verificationForm__resendCode">
+                    Send igen - <span class="verificationForm__timer">30 sekunder</span>
+                </p>
+            </fieldset>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!--Footer Box Styling-->
+        <div class="footer__box"></div>
+    </footer>
+
+    <script>
+        const inputs = document.querySelectorAll(".verificationForm__codeInput");
     
+        inputs.forEach((input, index) => {
+            input.addEventListener("input", () => {
+                if (input.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+    
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Backspace" && index > 0 && input.value === "") {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

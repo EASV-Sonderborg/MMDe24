@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opret konto</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
     <!--Header-->
     <header class="header">
+        <!--Header Box Styling-->
+        <div class="header__box"></div>
+
         <a class="header__backButton" href="index.html">
             <img src="images\arrowLeftIcon.png" alt="Gå tilbage">
         </a>
@@ -20,51 +24,62 @@
         </button>
     </header>
 
-    <!--Logo-->
-    <span class="logo">
-        <img class="logo__image" src="images/naerboksLogo.png" alt="Nærboks logo">
-    </span>
+    <main class="main">
+        <!--Logo-->
+        <span class="logo">
+            <img class="logo__image" src="images\naerboksLogoPrimary.png" alt="Nærboks logo">
+        </span>
 
-    <!--Create Account Form-->
-    <section class="createAccountForm">
-        <!--Phonenumber-->
-        <div class="createAccountForm__inputGroup">
-            <label class="createAccountForm__label" for="phoneNumber">Telefonnummer</label>
-            <div class="createAccountForm__inputWrapper">
-                <span class="createAccountForm__flag">
-                    <img class="createAccountForm__image" src="images\flagDenmark.png" alt="Danmarks flag">
-                </span>
-                <span class="createAccountForm__countryCode">+45</span>
-                <input class="createAccountForm__input" type="tel" id="phoneNumber" placeholder="12 34 56 78" required>
-            </div>
-        </div>
+        <!--Create Account Form-->
+        <form class="createAccountForm">
+            <fieldset class="createAccountForm__fieldset">
+                <legend class="createAccountForm__legend">Opret konto</legend>
 
-        <!--Create PIN code-->
-        <div class="createAccountForm__inputGroup">
-            <label class="createAccountForm__label" for="pinCode">Opret PIN-kode</label>
-            <input class="createAccountForm__input" type="password" id="pinCode" placeholder="Vælg en PIN-kode" required>
-        </div>
+                <!--Phonenumber-->
+                <div class="createAccountForm__inputGroup">
+                    <label class="createAccountForm__label" for="phoneNumber">Telefonnummer</label>
+                    <div class="createAccountForm__inputWrapper inputAnimation inputAnimation">
+                        <span class="createAccountForm__flag">
+                            <img class="createAccountForm__image" src="images\flagDenmark.png" alt="Danmarks flag">
+                        </span>
+                        <span class="createAccountForm__countryCode">+45</span>
+                        <input class="createAccountForm__input" type="tel" id="phoneNumber" placeholder="12 34 56 78" maxlength="8" required>
+                    </div>
+                </div>
 
-        <!--Confirm PIN code-->
-        <div class="createAccountForm__inputGroup">
-            <label class="createAccountForm__label" for="confirmPinCode">Gentag PIN-kode</label>
-            <input class="createAccountForm__input" type="password" id="confirmPinCode" placeholder="Gentag din PIN-kode" required>
-        </div>
+                <!--Create PIN code-->
+                <div class="createAccountForm__pinCodeGroup">
+                    <div class="createAccountForm__inputGroup">
+                        <label class="createAccountForm__label" for="pinCode">Opret PIN-kode</label>
+                        <input class="createAccountForm__input createAccountForm__pinCode inputAnimation" type="password" id="pinCode" placeholder="Vælg en PIN-kode" maxlength="6" required>
+                    </div>
 
-        <!--Checkbox for Terms & Conditions-->
-        <div class="createAccountForm__terms">
-            <input class="createAccountForm__checkbox" type="checkbox" id="acceptTerms">
-            <label class="createAccountForm__termsLabel" for="acceptTerms">
-                Jeg accepterer <a class="createAccountForm__termsLink" href="#">vilkår og betingelser</a>
-            </label>
-        </div>
+                    <!--Confirm PIN code-->
+                    <div class="createAccountForm__inputGroup">
+                        <label class="createAccountForm__label" for="confirmPinCode">Gentag PIN-kode</label>
+                        <input class="createAccountForm__input createAccountForm__pinCode inputAnimation" type="password" id="confirmPinCode" placeholder="Gentag din PIN-kode" inputmode="numeric" required>
+                    </div>
+                </div>
 
-    <!--Send Code Button-->
-    <a class="createAccountForm__submitButton" href="#">Send kode</a>
-    </section>
+                <!--Checkbox for Terms & Conditions-->
+                <div class="createAccountForm__terms">
+                    <input class="createAccountForm__checkbox" type="checkbox" id="acceptTerms">
+                    <label class="createAccountForm__termsLabel" for="acceptTerms">
+                        Jeg accepterer <a class="createAccountForm__termsLink" href="#">vilkår og betingelser</a>
+                    </label>
+                </div>
+
+                <!--Send Code Button-->
+                <a class="createAccountForm__submitButton" href="verify.html">Send kode</a>
+            </fieldset>
+        </form>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <!--Footer Box Styling-->
+        <div class="footer__box"></div>
+    </footer>
 
 </body>
 </html>
