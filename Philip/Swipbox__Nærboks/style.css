@@ -82,7 +82,7 @@ body    {
 }
 
 .main   {
-    max-width: 300px;
+    width: 300px;
     height: 64vh;
 }
 
