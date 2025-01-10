@@ -277,6 +277,8 @@
 .createAccount__sendCode{
     background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
     color: var(--clr-ghost-white);
+    border: none;
+    font: inherit;
 }
 .createAccount__codeText{
     color: #000;
