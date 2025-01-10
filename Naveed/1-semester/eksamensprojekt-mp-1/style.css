@@ -6,17 +6,6 @@
     padding: 0;
     box-sizing: border-box; /* tells the browser to account for border/padding etc. when defining width and height */
 }
-
-/* @media (min-width: 768px) {
-    .body {
-        max-width: 768px;
-        padding: 1em;
-    }
-    .main {
-        padding: 2em;
-    }
-} */
-
 :root{
     /* brand colors used in Figma */
     --clr-federal-blue: #03045E;
@@ -45,6 +34,7 @@
     margin: auto; /* center content */
     width: 100svw;
     height: 100svh;
+    overflow-x: hidden;
     background: 
     linear-gradient(
     #053B72 0%,
@@ -66,24 +56,13 @@
     font-style: normal;
 }
 .main{
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(1em);
     background: linear-gradient(320deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
+    border-radius: 1em;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
     padding: 1em;
-    height: auto;
 
-}
-
-/* animation(s) */
-@keyframes slide {
-    0% {
-        transform: translateX(-100px);
-      }
-      100% {
-        transform: translateX(393px);
-      }
 }
 
 /* common styling */
@@ -104,13 +83,28 @@
     text-decoration: none;
     font-size: var(--font-size-0);
 }
+.button:hover, .button:active{
+    background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    scale: 1.05;
+    transition-duration: 200ms;
+}
 .section{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* position: relative; */
     row-gap: 1em;
+}
+.backButton__svg{
+    fill: var(--clr-federal-blue);
+    position: absolute;
+    inset: 28px 0 0 1em;
+}
+.backButton__svg:hover, .backButton__svg:active{
+    background-color: hsla(0, 0%, 100%, 0.5);
+    border-radius: 8px;
+    transition-duration: 200ms;
 }
 
 /* hero section */
@@ -126,40 +120,65 @@
 }
 .hero__image{
     z-index: 1;
+    width: 80%;
 }
-.hero__cloud {
+.hero__clouds{
     z-index: -2;
+}
+.hero__cloud{
     position: absolute;
-    /* animation: slide 10000ms linear infinite; */
 }
-.hero__cloud:nth-child(3){
-    top: 15%;
-    left: 15%;
+.hero__cloud:nth-child(1){
+    inset: 15% 0 0 15%;
     scale: 1.1;
-    opacity: 0.45;
+    opacity: 0.5;
 }
-.hero__cloud:nth-child(4) {
-    top: 30%;
-    left: 50%;
-    scale: 0.8;
+.hero__cloud:nth-child(2){
+    inset: 30% 0 0 50%;
+    scale: 1.07;
     opacity: 0.25;
     transform: scaleX(-1);
 }
-.hero__cloud:nth-child(5) {
-    top: 50%;
-    left: 55%;
-    scale: 1.05;
-    opacity: 0.45;
+.hero__cloud:nth-child(3){
+    inset: 50% 0 0 55%;
+    scale: 1.2;
+    opacity: 0.35;
 }
-.hero__cloud:nth-child(6) {
-    top: 50%;
-    left: 0;
-    scale: 0.6;
+.hero__cloud:nth-child(4){
+    inset: 50% 0 0 0;
+    scale: 0.95;
     opacity: 0.15;
     transform: scaleX(-1);
 }
+@keyframes slide {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
+}
+.hero__cloud--index:nth-child(1){
+    inset: 15% 0 0 0;
+    animation: slide 13000ms ease-in-out infinite;
+}
+.hero__cloud--index:nth-child(2){
+    inset: 30% 0 0 0;
+    animation: slide 23000ms linear infinite;
+}
+.hero__cloud--index:nth-child(3){
+    inset: 50% 0 0 0;
+    animation: slide 15000ms ease-out infinite;
+}
+.hero__cloud--index:nth-child(4){
+    inset: 70% 0 0 0;
+    animation: slide 22000ms linear infinite;
+}
 
 /* start screen */
+.start__title{
+    padding-inline: 0.5em;
+}
 .start__buttons{
     display: flex;
     flex-direction: column;
@@ -170,11 +189,6 @@
 .start__createAccount{ 
     background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
     color: var(--clr-ghost-white);
-}
-.start__createAccount:hover, .start__createAccount:active{
-    background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
-    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
-    transition-duration: 200ms;
 }
 .start__divider{
     display: flex;
@@ -203,10 +217,10 @@
 }
 
 /* create account page */
-.backButton__svg{
-    fill: var(--clr-federal-blue);
-    position: absolute;
-    inset: 13px 0 0 2%;
+.createAccount__form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
 }
 .createAccount__phoneNumber {
     display: flex;
@@ -214,21 +228,27 @@
     justify-content: center;
     width: 100%;
 }
+.phoneNumber__label{
+    /* label only for screen readers which is hidden for sighted users */
+    position: absolute;
+    height: 1px;
+    overflow: hidden;
+}
 .phoneNumber__countryCode {
     border: none;
     background-color: #CDCDCD;
     padding: 0.5em 0 0.5em 1em;
     font-size: var(--font-size--1);
-    border-radius: 16px 0 0 16px;
-    height: 32px;
+    border-radius: 1em 0 0 1em;
+    height: 3em;
 }
 .phoneNumber__input {
     flex: 1;
     border: none;
     padding: 0.5em;
     font-size: var(--font-size--1);
-    border-radius: 0 16px 16px 0;
-    height: 32px;
+    border-radius: 0 1em 1em 0;
+    height: 3em;
     max-width: calc(329px - 74px);
 }
 .phoneNumber__input::placeholder {
@@ -240,6 +260,8 @@
 }
 .createAccount__terms{
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #terms{
     width: 22px;
@@ -247,6 +269,7 @@
 }
 .terms_text{
     padding-inline: 0.5em;
+    font-size: var(--font-size--1);
 }
 .terms__link{
     color: var(--clr-federal-blue);
@@ -254,12 +277,6 @@
 .createAccount__sendCode{
     background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
     color: var(--clr-ghost-white);
-}
-
-.createAccount__sendCode:hover, .createAccount__sendCode:active{
-    background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
-    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
-    transition-duration: 200ms;
 }
 .createAccount__codeText{
     color: #000;
@@ -271,11 +288,11 @@
 
 /* activation code page */
 .activationCode__input{
-    flex: 1;
     border: none;
     padding: 0.5em;
     font-size: var(--font-size--1);
-    border-radius: 8px;
+    border-radius: 0.5em;
+    height: 3em;
     width: 329px;
 }
 .activationCode__input::placeholder{
@@ -302,7 +319,7 @@ align-items: center;
     font-size: 1.5em;
     text-align: center;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 0.5em;
     margin-right: 0.5em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -347,10 +364,21 @@ input[type="number"] {
 .guide__logo{
     padding-bottom: 1em; /* Adds padding to Nærboks logo, only on the guide page */
 }
-.guide__pic{
+.guide__image{
     width: 100%;
 }
 .guide__text{
     text-align: center;
     padding: 1em;
+}
+@media (min-width: 768px) {
+    .body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .main{
+        width: 70svw;
+    }
 }

@@ -10,10 +10,12 @@
     <div class="hero">
         <img src="images/logo.png" alt="Nærboks logo" class="hero__logo">
         <img src="images/person-with-parcel.png" alt="En kvinde med sin telefon omringet af forskellige pakker" class="hero__image">
-        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
-        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
-        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
-        <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
+        <div class="hero__clouds">
+            <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
+            <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
+            <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
+            <img src="images/cloud.png" alt="En sky i baggrunden" class="hero__cloud">
+        </div>
     </div>
     <main class="main">
         <section class="section createAccount">
@@ -23,31 +25,35 @@
                 </svg>
             </a>
             <h2 class="title createAccount__title">Opret konto</h2>
-            <div class="createAccount__phoneNumber">
-                <select class="phoneNumber__countryCode">
-                    <option value="+45">+45</option>
-                    <option value="+46">+46</option>
-                    <option value="+47">+47</option>
-                    <option value="+358">+358</option>
-                    <option value="+44">+44</option>
-                    <option value="+49">+49</option>
-                    <option value="+354">+354</option>
-                    <option value="+32">+32</option>
-                    <option value="+48">+48</option>
-                </select>
-                <input type="number" class="phoneNumber__input" placeholder="Telefonnumer">
-            </div>
-            <div class="createAccount__terms">
-                <input type="checkbox" id="terms">
-                <label for="terms" class="terms_text">Jeg accepterer Nærboks
-                    <span class="terms__span">
-                        <a href="#" class="terms__link">betingelser</a>
-                    </span>
-                </label>
-            </div>
-            <a href="activationCode.html" class="button createAccount__sendCode">
-                Send aktiveringskode
-            </a>
+            <form action="activationCode.html" method="GET" class="createAccount__form">
+                <div class="createAccount__phoneNumber">
+                    <label for="countryCode" class="phoneNumber__label">Vælg landekode</label>
+                    <select id="countryCode" class="phoneNumber__countryCode" aria-label="Country code">
+                        <option value="+45">+45</option>
+                        <option value="+46">+46</option>
+                        <option value="+47">+47</option>
+                        <option value="+358">+358</option>
+                        <option value="+44">+44</option>
+                        <option value="+49">+49</option>
+                        <option value="+354">+354</option>
+                        <option value="+32">+32</option>
+                        <option value="+48">+48</option>
+                    </select>
+                    <label for="phoneNumber" class="phoneNumber__label">Indtast telefonnummer</label>
+                    <input type="number" id="phoneNumber" class="phoneNumber__input" placeholder="Telefonnumer" aria-label="Phone number">
+                </div>
+                <div class="createAccount__terms">
+                    <input type="checkbox" id="terms" aria-labelledby="termsLabel">
+                    <label id="termsLabel" for="terms" class="terms_text">Jeg accepterer Nærboks
+                        <span class="terms__span">
+                            <a href="#" class="terms__link">betingelser</a>
+                        </span>
+                    </label>
+                </div>
+                <button type="submit" class="button createAccount__sendCode">
+                    Send aktiveringskode
+                </button>
+            </form>
             <p class="createAccount__codeText">Din aktiveringskode bliver sendt med SMS</p>
         </section>
     </main>
