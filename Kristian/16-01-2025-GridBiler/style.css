@@ -1,0 +1,34 @@
+.intro__title{
+   
+}
+
+.carList{
+
+}
+
+.car{
+    display: grid;
+    grid-template-columns: 1fr, 2fr;
+    align-items: center;
+    border: solid rgba(255, 0, 0, 0);
+    border-radius: 50px;
+    box-shadow: 10px 10px 50px rgb(31, 31, 31);
+}
+
+.car__img{
+    grid-column: 1;
+    width: 200px;
+    height: auto;
+    border-radius: 20%;
+    object-fit: cover;
+}
+
+.car__title{
+    grid-column-start: 2;
+}
+
+.car__description{
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
