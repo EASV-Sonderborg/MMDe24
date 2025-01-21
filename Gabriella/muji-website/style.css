@@ -85,6 +85,9 @@
   color: #818181;
   margin: 2rem;
 }
+.mujiRed {
+  color: #7f0019;
+}
 .cards {
   display: grid;
   width: auto;
@@ -219,5 +222,14 @@
 @media only screen and (min-width: 425px) and (max-width: 481px) {
   .cards {
     margin-left: 5rem;
+  }
+  .hero__header {
+    width: 250px;
+    height: auto;
+    margin-left: 3.5rem;
+  }
+  .hero__header--sub {
+    width: 300px;
+    height: auto;
   }
 }
