@@ -10,6 +10,7 @@
     <header class="header">
         <img class="header__logo" src="media/sentinels.svg" alt="Sentinels Logo">
         <nav class="nav">
+            <section class="hamburger" onclick="toggleMenu()">☰</section>
             <ul class="navList">
                 <li class="navList__item">
                     <a class="navList__link" href="#">
@@ -53,11 +54,10 @@
     <main class="main">
         <section class="hero">
             <section class="products">
-                <section class="buttonArea">
-                    <button class="button" id="prevButton"><</button>
-                    <button class="button" id="nextButton">></button>
-                </section>
                 <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/skylineHoodieBack.webp" alt="Sen black hoodie">
+                    </section>
                     <section class="product__text">
                         <h1 class="product__header">
                             Sen City Hoodie
@@ -66,11 +66,11 @@
                             $55.00
                         </p>  
                     </section>
-                    <section class="productImage__box">
-                        <img class="product__image" src="media/skylineHoodieBack.webp" alt="Sen black hoodie">
-                    </section>
                 </section>
                 <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/store_Jersey.webp" alt="Sen player jersey">
+                    </section>
                     <section class="product__text">
                         <h1 class="product__header">
                             Sen City Player Jersey
@@ -79,11 +79,11 @@
                             $69.99
                         </p>  
                     </section>
-                    <section class="productImage__box">
-                        <img class="product__image" src="media/store_Jersey.webp" alt="Sen player jersey">
-                    </section>
                 </section>
                 <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/2024ChampionsJacketFront.webp" alt="2024 Champions Jacket">
+                    </section>
                     <section class="product__text">
                         <h1 class="product__header">
                             2024 Champions Jacket
@@ -92,11 +92,11 @@
                             $110.00
                         </p>  
                     </section>
-                    <section class="productImage__box">
-                        <img class="product__image" src="media/2024ChampionsJacketFront.webp" alt="2024 Champions Jacket">
-                    </section>
                 </section>
                 <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/storeJerseyBlackFront.webp" alt="Sentinels Limited Edition Blackout Jersey">
+                    </section>
                     <section class="product__text">
                         <h1 class="product__header">
                             Sentinels Limited Edition Blackout Jersey
@@ -105,11 +105,11 @@
                             $75.00
                         </p>  
                     </section>
-                    <section class="productImage__box">
-                        <img class="product__image" src="media/storeJerseyBlackFront.webp" alt="Sentinels Limited Edition Blackout Jersey">
-                    </section>
                 </section>
                 <section class="product">
+                    <section class="productImage__box">
+                        <img class="product__image" src="media/senCargoPants.webp" alt="Champs Cargo Pants">
+                    </section>
                     <section class="product__text">
                         <h1 class="product__header">
                             Champs Cargo Pants
@@ -118,9 +118,10 @@
                             $69.99
                         </p>  
                     </section>
-                    <section class="productImage__box">
-                        <img class="product__image" src="media/senCargoPants.webp" alt="Champs Cargo Pants">
-                    </section>
+                </section>
+                <section class="buttonArea">
+                    <button class="button" id="prevButton"><</button>
+                    <button class="button" id="nextButton">></button>
                 </section>
             </section>
         </section>

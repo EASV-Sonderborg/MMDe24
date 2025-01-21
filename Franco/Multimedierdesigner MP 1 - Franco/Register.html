@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="first-launch">
+      <header class="beginner-interface__top-bar">
+        <article class="dropdown">
+          <button class="language-selection">
+            <img src="img/languageIcon.png" alt="App Icon" class="app-icon" />
+          </button>
+          <ul class="dropdown-menu">
+            <li class="language-specific">Dansk</li>
+            <li class="language-specific">Engelsk</li>
+            <li class="language-specific">Spansk</li>
+          </ul>
+        </article>
+        <span class="language-name">Dansk</span>
+      </header>
+
+      <section class="app-title">
+        <img
+          src="img/NærboksTitle.png"
+          alt="Nærboks Title"
+          class="app-title-image"
+        />
+      </section>
+
+      <section class="user-input">
+        <input
+          type="tel"
+          class="input-field phone-number-box"
+          placeholder="Indtast Telefonnummer"
+        />
+        <p class="pin-code-requirement-text">
+          Vælg en PIN-kode på 4-8 cifre for god sikkerhed.
+        </p>
+        <input
+          type="tel"
+          class="input-field pin-code-box"
+          placeholder="Opret PIN kode"
+        />
+        <input
+          type="tel"
+          class="input-field pin-code-box"
+          placeholder="Bækreft PIN kode"
+        />
+        <a href="fingerAd.html" class="beginner-button app-button-register"
+          >Opret Konto</a
+        >
+      </section>
+
+      <section class="divider">
+        <p class="alternative-text">Eller</p>
+      </section>
+
+      <section class="button-container">
+        <button class="register-social-option">
+          <img src="img/iconFacebook.png" alt="Logo 1" class="button-icon" />
+          Facebook
+        </button>
+        <button class="register-social-option">
+          <img src="img/iconGoogle.png" alt="Logo 2" class="button-icon" />
+          Google
+        </button>
+        <button class="register-social-option">
+          <img src="img/iconMail.png" alt="Logo 3" class="button-icon" />
+          Mail
+        </button>
+      </section>
+    </main>
+    <script>
+      document
+        .querySelector(".language-selection")
+        .addEventListener("click", () => {
+          document.querySelector(".dropdown-menu").classList.toggle("show");
+        });
+    </script>
+    <link rel="stylesheet" href="script.js" />
+  </body>
+</html>

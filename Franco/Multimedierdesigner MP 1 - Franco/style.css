@@ -1,0 +1,298 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ababab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.quick-retrieve-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scanner-main{
+    background-color: #E4ECF9;
+}
+main{
+    background-color: #DDF8FF;
+    width: 350px;
+    height: 600px;
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+} 
+header{
+    display: flex;
+    justify-content: flex-start;
+}
+header.app-inteface__top-bar{
+    background-color: #7DD7F9;
+    border-radius: 38px;
+    padding: 10px;
+    
+}
+.hamburger-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 19em;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+.dropdown-menu__hamburger{
+    display: none; /* Hidden menu */
+    position: absolute;
+    list-style: none;
+    background: #DDF8FF;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.dropdown-menu__hamburger.show{
+    display: block;
+}
+.language-selection{
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .safety-image{
+    margin-bottom: 20px;
+  }
+  .quick-retrieve{
+    margin-bottom: 40px;
+  }
+.app-icon{
+    height: 30px;
+    width: auto;
+    opacity: 0.4;
+}
+.app-home-icon{
+    height: 34px;
+    width: auto;
+}
+.language-name{
+    padding-top: 7px;
+    color: #77868A;
+}
+.dropdown-menu {
+    display: none; /* Hidden menu */
+    position: absolute;
+    list-style: none;
+    background: #DDF8FF;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+li{
+    margin-bottom: 7px;
+}
+.dropdown-menu.show {
+    display: block; /* Show when toggled */
+}
+.app-title-image {
+    width: auto; 
+    max-width: 300px; 
+    margin-top: 40px;
+  }
+.airplane-background{
+    width: 350px;         
+    height: auto;         
+    transform: scaleX(-1); /* Nice little trick to flip image */
+    margin: 0 auto;       
+    display: block;
+    padding-top: 20px;
+    margin-right: 20px;
+}
+.airplane-background-login{
+    width: 250px;         
+    height: auto;         
+    transform: scaleX(-1); 
+    margin: 0 auto;       
+    display: block;
+    padding-top: 20px;
+}
+.app-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto; /* For some reason, this pushes the buttons to the bottom of the main */
+    padding-bottom: 50px;
+}
+
+.beginner-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #12A0D6;
+    color: white;
+    cursor: pointer;
+    width: 50%; 
+    border-radius: 78px;  
+    margin: 13px 0; /* Nice space between buttons! */
+    border: 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 1px 1px 4px 0px rgba(0, 0, 0, 0.25) inset;    
+}
+.beginner-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+.user-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px; /
+}
+.input-field{
+    display: block; 
+    margin: 0 auto; 
+    width: 200px; 
+    padding: 10px; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    margin: 13px 0;
+    text-align: center;
+    outline: none;
+    border: 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 1px 1px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+.alternative-text{
+    color: #a2a3a3;
+}
+.social-icons{
+    padding-bottom: 30px;
+}
+.social-mail{
+    width: 48px;
+    height: auto;
+}
+.social-buttons{
+    border: 0;
+    background: none;
+}
+.social-logo:active{
+    transform: scale(0.95); 
+}
+a{
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Matches the text color to its parent */
+}
+.parcel-button-container{
+    background-color: white;
+    height: 400px;
+    max-width: 100%;
+    border-radius: 50px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+.parcel-button{
+    background-color: #7DD7F9;
+    margin-top: 34px;
+    padding: 30px;
+}
+.pin-code-requirement-text{
+    font-size: small;
+    margin: 5px;
+    margin-top: 30px;
+}
+.register-social-option{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #CFEEFA;
+    color: rgb(73, 73, 73);
+    cursor: pointer;
+    width: 30%; 
+    border-radius: 78px;  
+    margin: 13px 0; /* Nice space between buttons! */
+    border: 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 1px 1px 4px 0px rgba(0, 0, 0, 0.25) inset; 
+}
+.button-icon{
+    height: 40px;
+    width: auto;
+}
+.register-social-option:active{
+    transform: scale(0.95); 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+h1{
+    font-size: large;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.offer-text-highlight{
+    font-weight: bold;
+    color: #6060FF;
+}
+.fingerprint-display{
+    height: 160px;
+    width: 180px;
+}
+.scanning-finger{
+    margin-top: 140px;
+    height: 250px;
+    width: auto;
+}
+.welcome-sign{
+    height: 150px;
+    width: auto;
+    margin: auto;
+}
+.point-system-display{
+    height: 150px;
+    width: auto;
+}
+.flash-retrieve{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgb(158, 158, 158);
+}
+.alternative-option{
+    padding-top: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #817fea;
+}
+.sms-retrieval-icon{
+    height: 50px;
+    width: auto;
+}
+.pin-container {
+    display: flex;
+    gap: 10px; /* Space between the boxes */
+  }
+  
+  .pin-box {
+    width: 40px;         /* Width of each box */
+    height: 50px;        /* Height of each box */
+    text-align: center;  /* Centers text in the box */
+    font-size: 24px;     /* Makes text large and clear */
+    border: 2px solid #ccc; /* Border styling */
+    border-radius: 5px;  /* Rounded corners */
+    outline: none;       /* Removes default outline */
+  }
+  
+  .pin-box:focus {
+    border-color: #007BFF; /* Highlight color when focused */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow on focus */
+  }
+  .instruction-text{
+   color: #515455;
+   font-size: 20px;
+  }
+  .forgot-bold{
+    font-weight: bold;
+  }
+  .forgot-text{
+    font-size: small;
+  }
+  .instruction-text-reminder{
+    font-size: 10px;
+    text-decoration: underline;
+  }
