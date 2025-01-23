@@ -11,57 +11,25 @@
     --color-1: #0f0f0f;
     --accent-color: #ff7e5f;
 }
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 html {
     scroll-behavior: smooth;
-}
-img {
-    max-width: 100%;
 }
 body {
     background-color: lightgray;
 }
-main{
-    max-width: 1200px;
+.main{
+    max-width: 1600px;
     margin: auto;
 }
-h1, h2 {
-    font-weight: 800;
-    font-family: 'Josefin Sans';
-}
-h1{
-    text-align: center;
-    font-size: var(--step-4);
-}
-h2{
-    font-size: var(--step-2);
-    font-weight: 700;
-}
-p{
+.intro__text, .post__text, .footer__text{
     font-size: var(--step-0);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-section {
-    margin-top: 40px;
-    padding: 20px;
-}
-#capetown {
-    background-color: lightgreen;
-}
-#london {
-    background-color: yellow;
-}
-#newyork {
-    background-color: violet;
-}
-#paris {
-    background-color: orange;
-}
-#hanoi {
-    background-color: greenyellow;
-}
-footer p {
-    text-align: center;
-    font-size: var(--step--1);
+    margin: 0.5em;
 }
 /* Styling navigation */
 .menu{
@@ -74,7 +42,7 @@ footer p {
 	top: 0;
     left: 0;
     width: 100%;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.427);
+    box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.5);
 }
 .menu__links{
     display: flex;
@@ -100,8 +68,35 @@ footer p {
 .openSidebar, .closeSidebar{
     display: none; /* hides the open and close buttons on desktop */
 }
+.intro__title, .post__title {
+    font-family: 'Josefin Sans';
+}
+.intro__title{
+    text-align: center;
+    font-size: var(--step-4);
+}
+.intro, .blog {
+    margin-block: 2em;
+    padding: 1em;
+}
 .intro{
-    border-bottom: 1px solid rgba(128, 128, 128, 0.411);
+    margin-block-start: 5em;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.25)
+}
+#capetown {
+    background-color: lightgreen;
+}
+#london {
+    background-color: yellow;
+}
+#newyork {
+    background-color: violet;
+}
+#paris {
+    background-color: orange;
+}
+#hanoi {
+    background-color: greenyellow;
 }
 /* Styling the city blog */
 .blog{
@@ -111,12 +106,21 @@ footer p {
     container-type: inline-size;
 }
 .blog__post{
-    padding: 1em;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.427);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 1.5em;
+    box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.5);
+    border-radius: 8px;
+    gap: 0.5em;
 }
-.blog__post p{
-    padding: 0 0.5em;
-    margin: 0;
+.post__title{
+    font-size: var(--step-2);
+}
+.post__img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.25);
 }
 .cardsParis{
     grid-column: span 2;
@@ -132,17 +136,16 @@ footer p {
         align-items: flex-start;
         position: fixed;
         top: 0;
-        right: -100%; /* hides the menu container so that it can be animated */
+        right: -100%; /* hides the menu so that it can be animated */
         z-index: 2;
         background: #333;
         width: 60vw;
-        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+        box-shadow: -5px 0 5px hsla(0, 0%, 0%, 0.25);
         height: 100%;
         transition: 400ms ease-in-out;
     }
     .menu__link{
         color: white;
-        box-sizing: border-box;
         height: auto;
         width: 100%;
         padding: 1em 2em;
@@ -186,7 +189,10 @@ footer p {
     body {
         background: #1f1f1f;
     }
-    h1, .intro p, footer p {
+    .intro__title, 
+    .intro__text,
+    .intro__text--bottom, 
+    .footer__text {
         color: white
     }
 }
