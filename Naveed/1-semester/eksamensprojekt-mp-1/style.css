@@ -187,7 +187,7 @@
     padding: 0.5em;
 }
 .start__createAccount{ 
-    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);
     color: var(--clr-ghost-white);
 }
 .start__divider{
@@ -275,7 +275,7 @@
     color: var(--clr-federal-blue);
 }
 .createAccount__sendCode{
-    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);
     color: var(--clr-ghost-white);
     border: none;
     font: inherit;
@@ -302,7 +302,7 @@
     text-align: center;
 }
 .activationCode__sendCode{
-    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);
     color: var(--clr-ghost-white);
 }
 .activationCode__resend{
