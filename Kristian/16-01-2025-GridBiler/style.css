@@ -1,0 +1,41 @@
+.intro__title{
+   font-size: 3rem;
+}
+
+.carList{
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.car{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 20px 20px 40px rgb(31, 31, 31);
+    gap: 10px;
+}
+
+.car__img{
+    width: 12%;
+    height: auto;
+    border-radius: 20%;
+    object-fit: cover;
+}
+
+.car__title{
+    font-size: 1.5rem;
+}
+
+.car__description{
+    font-size: 1.3rem;
+}
+
+.car--right{
+   grid-column: 2/4;
+}
+
+.car--left{
+    grid-column: span 2;
+}

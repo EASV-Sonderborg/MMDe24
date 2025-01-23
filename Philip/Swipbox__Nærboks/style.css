@@ -370,6 +370,7 @@ a   {
 .openBoks__info     {
     font-family: var(--defaultPost-font);
     font-size: 0.75rem;
+    text-align: center;
 }
 
 .openBoks__guide    {
