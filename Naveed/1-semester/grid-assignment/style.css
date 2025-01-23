@@ -100,10 +100,10 @@ body {
 }
 /* Styling the city blog */
 .blog{
-    grid-template-columns: 1fr 1fr 1fr;
     display: grid;
-    gap: 1em;
-    container-type: inline-size;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 1.5em;
+    container: posts / inline-size;
 }
 .blog__post{
     display: flex;
@@ -125,7 +125,44 @@ body {
 .cardsParis{
     grid-column: span 2;
 }
-@media (width < 650px) {
+.footer__text {
+    text-align: center;
+    font-size: var(--step--1);
+    padding-block-end: 1em;
+}
+@container posts (65ch <= width <= 105ch) {
+    .blog__post{
+        display: grid;
+        grid-template-columns: auto minmax(25ch, 1fr);
+    }
+    .blog__post h2{
+        grid-column: 1 / -1;
+    }
+}
+@media screen and (width <= 950px) {
+    .cardsParis{
+        grid-column: span 1;
+    }
+}
+@media screen and (width <= 650px) {
+    .blog{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        column-gap: 0.5em;
+    }
+    .blog__post{
+        padding: 0.5em;
+    }
+    .post__title{
+        margin-block: 0.5em;
+    }
+    .intro{
+        margin-block: 4em 1em;
+    }
+    .blog{
+        margin: 0;
+        padding: 0.5em;
+    }
     /* place the menu icon to the right */
     .menu{
         justify-content: flex-end;
@@ -171,19 +208,6 @@ body {
         z-index: 1;
     }
 }
-@media (max-width: 1000px) {
-    .blog{
-        grid-template-columns: 1fr 1fr;
-    }
-}
-@media (max-width: 800px) {
-    .blog{
-        grid-template-columns: 1fr;
-    }
-    .cardsParis{
-        grid-column: span 1;
-    }
-}
 /* checks whether the user has their system set to dark mode and switches the theme accordingly */
 @media (prefers-color-scheme: dark) {
     body {
@@ -194,13 +218,5 @@ body {
     .intro__text--bottom, 
     .footer__text {
         color: white
-    }
-}
-@container (width < 45ch) {
-    .blog__post {
-        grid-template-columns: auto minmax(25ch, 1fr);
-    }
-    .blog__post h2{
-        grid-column: 1 / -1;
     }
 }
