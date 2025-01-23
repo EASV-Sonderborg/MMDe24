@@ -455,7 +455,7 @@ body    {
     height: 100%;
     z-index: 1;
     filter: brightness(0.5);
-    transition: transform 1s ease;
+    transition: transform 0.5s ease;
     transition: filter 0.5s ease;
 }
 
@@ -527,8 +527,8 @@ body    {
     height: 100%;
     z-index: 1;
     filter: brightness(0.5);
-    transition: filter 0.5s ease;
-    transition: transform 0.5s ease;
+    transition: filter 0.5s ease-in;
+    transition: transform 0.5s ease-in;
 }
 
 .videoMain:hover .mainVideoBackground,
@@ -536,7 +536,8 @@ body    {
     filter: brightness(1);
 }
 .videoMain:hover .mainVideoBackground   {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
 }
 .videoContainer__subVideo:hover .subVideoBackground {
     transform: scale(1.05);

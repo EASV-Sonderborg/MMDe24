@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nærboksEksamenLogin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header class="logo">
+            <img class="logoNærboksImg" src="images/0x0.png" alt="nærboksLogo">
+        </header>
+        <h1 class="logoSubTit">
+            login
+        </h1>
+            <section class="subTeksts" >   
+                <p class="subTekst" >
+                    Har du allerede en profil?</p>
+                <p class="subTekst" >
+                    Indtast bare dine oplysninger nedenfor</p>
+                <p class="subTekst" >
+                    Så kan vi komme igang!</p>
+            </section>
+        <!--Ikke <Form> Pga. Live Server test-->
+        <section class="formContainer">
+            <input class="formInputField" type="text" placeholder="Telefonnummer" name="uname" required>
+            <input class="formInputField" type="password" placeholder="Pinkode" name="psw" required>
+                <a href="loginDone.html"><button class="formSubmitButton" type="submit">Log på</button></a>
+
+                <label class="formCheckbox fontStyle__A">
+                    <input type="checkbox"checked="checked" name="remember"> Remember me
+                </label>    
+                    <span class="psw fontStyle__A">Forgot <a href="">password?</a>
+                    </span>
+        </section>
+        <h2 class="formSupTekst fontStyle__A">
+            Du er ny? <a href="regist.html">Registrer her</a>
+        </h2>
+        <footer class="supButtons">
+            <a class="supButton supButton__Help" href="">?</a>
+            <a class="supButton supButton__Back" href="index.html">←</a>
+        </footer>
+    </main>
+</body>
+</html>

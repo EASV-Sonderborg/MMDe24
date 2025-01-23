@@ -85,12 +85,16 @@
   color: #818181;
   margin: 2rem;
 }
+.mujiRed {
+  color: #7f0019;
+}
 .cards {
   display: grid;
   width: auto;
   gap: 2rem;
-  margin: 0 auto;
-  max-width: 80%;
+  margin: 5rem;
+  /* margin-left: 12rem; */
+  max-width: 100%;
   grid-template-columns: repeat(
     auto-fill,
     minmax(20rem, 1fr)
@@ -102,7 +106,7 @@
   font-family: "Noto Sans", serif;
   padding: 1rem;
   margin-bottom: 3rem;
-  width: 20rem;
+  width: 100%;
   height: auto;
   border-radius: 10px;
   align-items: center;
@@ -124,7 +128,7 @@
   font-weight: 400;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 440px) {
   /*most mobile devices*/
   .nav__list {
     display: none;
@@ -146,6 +150,7 @@
     text-align: center;
   }
   .cards {
+    margin-left: 10rem;
   }
 }
 @media only screen and (max-width: 380px) {
@@ -209,5 +214,22 @@
   }
   .hero {
     text-align: center;
+  }
+  .cards {
+    margin-left: 5rem;
+  }
+}
+@media only screen and (min-width: 425px) and (max-width: 481px) {
+  .cards {
+    margin-left: 5rem;
+  }
+  .hero__header {
+    width: 250px;
+    height: auto;
+    margin-left: 3.5rem;
+  }
+  .hero__header--sub {
+    width: 300px;
+    height: auto;
   }
 }
