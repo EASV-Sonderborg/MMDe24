@@ -22,6 +22,7 @@
     height: auto;
     border-radius: 20%;
     object-fit: cover;
+    min-width: 100px;
 }
 
 .car__title{

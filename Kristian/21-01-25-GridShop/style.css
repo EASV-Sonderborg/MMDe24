@@ -101,7 +101,8 @@ html{
 }
 
 .hero__img{
-    width: 500px;
+    width: 400px;
+    min-width: 250px;
 }
 
 .hero__title{
