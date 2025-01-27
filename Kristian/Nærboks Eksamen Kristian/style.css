@@ -18,17 +18,15 @@ body {
 }
 .logoNærboksImg {
     width: 85svw;
-    position: absolute; /* Placering relativt til nærmeste positionerede forælder */
 }
 
 .subTeksts--startScreen{
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 
 .logoPackage {
     width: 100svw;
-
 }
 
 
@@ -36,9 +34,11 @@ body {
 /* Startbillede styles */
 .startPackageImg {
     /*margin-top: 49vh;*/ 
-    width: 100svw;  
+    /*width: 100svw;*/
+    width: clamp(10px, 100svw, 370px); 
     position: fixed;
     bottom: 0;
+
 }
 
 /* Startknapper */
@@ -78,7 +78,7 @@ body {
 
 .regHead{
 display: flex;
-justify-content: space-between;
+justify-content: space-between; /* Tilføjet Flex for at */
 }
 
 
@@ -151,7 +151,6 @@ justify-content: space-between;
 
 /* Styling til containeren */
 .formContainer {
-    /*padding: clamp(0.7rem, 0.6rem + 1rem, 3rem);*/
     padding: 2rem;
     display: flex;
     flex-direction: column;
