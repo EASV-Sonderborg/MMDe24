@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opgraderingsspil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1><span id="moneyDisplay">0</span></h1>
+    </header>
+
+    <section>
+      <button id="clickButton" class="clickButton button" aria-label="Klik for at tjene penge">Klik her!</button>
+    </section>
+
+    <section class="upgradeSection">
+      <h2>Opgraderinger</h2>
+      <article id="upgradeArea">
+        <button id="clickUpgradeButton" class="upgradeButton button" aria-label="Opgrader indkomst pr. klik">
+          <span class="leftSide">
+            <span class="upgradeText button">Opgrader Klik</span>
+            <span class="priceDifference button" id="clickPriceDifference">Før: 1, Efter: 2</span>
+          </span>
+          <span class="rightSide">
+            <span class="upgradePrice" id="clickUpgradePrice">10 Credits</span>
+            <span class="maxInfo" id="clickMaxInfo">Max: 5</span>
+          </span>
+        </button>
+        <button id="autoIncomeUpgradeButton" class="upgradeButton button" aria-label="Opgrader automatisk indkomst">
+          <span class="leftSide">
+            <span class="upgradeText">Opgrader Automatisk Indkomst</span>
+            <span class="priceDifference" id="autoIncomePriceDifference">Før: 0, Efter: 1</span>
+          </span>
+          <span class="rightSide">
+            <span class="upgradePrice" id="autoIncomeUpgradePrice">10 Credits</span>
+            <span class="maxInfo" id="autoIncomeMaxInfo">Max: 3</span>
+          </span>
+        </button>
+      </article>
+      <nav class="toggleUpgrades  button">
+        <button id="toggleUpgradesButton" class="levelButton button" aria-label="Vis eller skjul opgraderinger">Skjul/Vis Opgraderinger</button>
+      </nav>
+    </section>
+
+    <section>
+      <h2>Købsindstillinger</h2>
+      <nav class="levelButtons" aria-label="Vælg antal opgraderinger">
+        <button id="buy1x" class="levelButton active  button" aria-label="Køb 1 niveau">1x</button>
+        <button id="buy10x" class="levelButton button" aria-label="Køb 10 niveauer">10x</button>
+        <button id="buyNext" class="levelButton button" aria-label="Køb næste milepæl">Næste</button>
+        <button id="buyMax" class="levelButton button" aria-label="Køb maksimalt antal niveauer">Maks</button>
+      </nav>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0d1b2a;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+
+/* Klik-knappen */
+.clickButton {
+  display: block;
+  margin: 2em auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.5em;
+  border: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Opgraderingsknapper */
+.upgradeButton {
+  width: 400px;
+  height: 120px; /* Gør knapperne højere */
+  margin: 2rem 0;
+  border-radius: 5px;
+  border: none;
+  background-color: #212121;
+  color: white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 75% 25%;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.upgradeButton:hover {
+  background-color: #0056b3;
+}
+
+/* Venstre del af knappen (Tekst og pris før/efter) */
+.leftSide {
+  background-color: aqua;
+  grid-area: 1 / 1 / 2 / 2;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.upgradeText {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.priceDifference {
+  font-size: 0.8em;
+  color: #f0f0f0;
+}
+
+/* Højre del af knappen (Pris på opgradering) */
+.rightSide {
+  grid-area: 1 / 2 / 2 / 3;
+  background-color: #4CAF50; /* Grøn farve */
+  color: white;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Max og næste info */
+.maxInfo {
+  font-size: 0.7em;
+  color: #f0f0f0;
+  margin-top: 5px;
+}
+
+/* Aktiv knap */
+.levelButton.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.levelButton {
+  display: inline-block;
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #ddd;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.levelButton:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.upgradeItem {
+  margin: 20px 0;
+}
+
+
+.button:hover  {
+  transition: transform 0.2s ease;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.button:active  {
+  transition: transform 0.2s ease;
+  transform: translateY(2px) scale(0.98);
+}
