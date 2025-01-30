@@ -48,7 +48,7 @@ const apiKey = "bc2505d602eb97adc888acdb2c24cf3d";
             document.querySelector(".error").style.display = "none";
             }
 
-            var data = await response.json();
+            //var data = await response.json();
 
             document.querySelector(".city").innerHTML = data.name;
             document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
