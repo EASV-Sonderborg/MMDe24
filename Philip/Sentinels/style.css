@@ -28,6 +28,7 @@ body    {
 .header__logo   {
     width: clamp(200px, 10vw, 400px);
     padding: 1rem;
+    padding-left: 2rem;
     border-right: 1px solid var(--textgrey-color);
 }
 
@@ -208,7 +209,7 @@ body    {
 .product__image {
     max-width: 100%;
     height: auto;
-    max-height: 90%;
+    max-height: 50%;
     margin-bottom: 1rem;
     object-fit: contain;
 }
@@ -528,7 +529,7 @@ body    {
     z-index: 1;
     filter: brightness(0.5);
     transition: filter 0.5s ease-in;
-    transition: transform 0.5s ease-in;
+    transition: transform 0.3s ease-in;
 }
 
 .videoMain:hover .mainVideoBackground,
@@ -536,11 +537,11 @@ body    {
     filter: brightness(1);
 }
 .videoMain:hover .mainVideoBackground   {
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: transform 0.5s ease;
 }
 .videoContainer__subVideo:hover .subVideoBackground {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 .videoTopLeft {
