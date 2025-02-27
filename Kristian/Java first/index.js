@@ -86,7 +86,35 @@ function increment4() {
 
 
 
-function update() {
+function updateBog() {
+    let nbrValue = parseInt(document.getElementById("nbr").value); // Get the number from input
+    if (!isNaN(nbrValue)) { // Ensure it's a valid number
+        kogeBogAntal += nbrValue;
+        kurvPris += nbrValue * kogeBogPris;
+
+        console.log("------------------------------");
+        console.log("kogebog antal:", kogeBogAntal);
+        console.log("Ny samlet pris:", kurvPris);
+    } else {
+        console.log("Indtast venligst et gyldigt tal!");
+    }
+}
+
+function updateKniv() {
+    let nbrValue = parseInt(document.getElementById("nbr1").value); // Get the number from input
+    if (!isNaN(nbrValue)) { // Ensure it's a valid number
+        kokkenKnivAntal += nbrValue;
+        kurvPris += nbrValue * kokkenKnivPris;
+
+        console.log("------------------------------");
+        console.log("Kniv antal:", kokkenKnivAntal);
+        console.log("Ny samlet pris:", kurvPris);
+    } else {
+        console.log("Indtast venligst et gyldigt tal!");
+    }
+}
+
+/*function update() {
     document.getElementById("nbr")
     kogeBogAntal = kogeBogAntal + nbr
     kurvPris = kurvPris + 70
@@ -95,7 +123,7 @@ function update() {
     console.log("------------------------------")
     console.log("kogebog antal:", kogeBogAntal)
     console.log("Ny samlet pris:", kurvPris)
-}
+}*/
 
 
 /* -------------------- */
@@ -109,3 +137,6 @@ function update() {
 }
 
 countdown() */
+
+
+
