@@ -1,0 +1,13 @@
+.body{
+    background-color: rgb(139, 255, 226);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    
+}
+
+
