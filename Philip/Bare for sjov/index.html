@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="product__card">
+        <h1 class="product__title">Chet Holmgren</h1>
+        <img src="Media/Chet_Holmgren_Space_card_game.png" alt="Chet Holmgren">
+        
+        <section class="rating__countainer">
+            <section class="rating__box">
+                <button id="dislike" class="button" onclick="disliked()">dislike</button>
+                <button id="like" class="button" onclick="liked()">Like</button>
+            </section>
+            <section class="rating__score">
+                <p id="dislikeScore" class="dislike__score">0</p>
+                <p id="likeScore" class="like__score">0</p>
+            </section>
+        </section>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
