@@ -13,16 +13,28 @@ const products = [
 
 const tShirt = document.querySelector(".productContainer")
 
+let showUnavailable = false
+
+
+function check() {
 for (let tShirts of products) {
-
-    tShirt.innerHTML += "<section class='product'><h2>"+ tShirts.name + "</h2> <img src='images/" + tShirts.image + "' alt='" + tShirts.name + "'><p>" + tShirts.price + "kr.</p></section>" 
+    tShirt.innerHTML += "<section class='product'><h2>"+ tShirts.name + "</h2> <img src='images/" + tShirts.image + "' alt='" + tShirts.name + "'><p>" + tShirts.price + "kr.</p></section>"
 }
 
-let harry = document.querySelector('.sort')
+if (showUnavailable = false) {
+    check() tShirt.available = false + (tShirt.available.display = "none")
+} 
+
+}
+
+check()
 
 
-function filter() {
-if (tShirt.available === false) {
+/*function filter() {
+
+   for (const Hello of products) {
+    tShirt.available = false 
     tShirt.style.display = "none"
-}
-}
+   }
+
+}*/
