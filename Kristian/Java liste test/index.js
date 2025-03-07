@@ -5,16 +5,24 @@ const products = [
     {name: "Product 4", price: 10, image: "black-front.png", available: false },
     {name: "Product 5", price: 5, image: "white-front.png", available: true },
     {name: "Product 6", price: 30, image: "black-front.png", available: true },
+    {name: "Product 7", price: 20, image: "white-front.png", available: true },
+    {name: "Product 8", price: 20, image: "white-front.png", available: false },
+    {name: "Product 9", price: 20, image: "black-front.png", available: true },
+    {name: "Product 10", price: 2000, image: "black-side.png", available: true },
 ]
 
-const tShirt = document.querySelector(".product")
-
+const tShirt = document.querySelector(".productContainer")
 
 for (let tShirts of products) {
-    tShirt.innerHTML = "<h2>"+ tShirts.name + "</h2> <img src= images/" + tShirts.image + "<p>" + tShirts.price + "kr.</p> <style> display: flex; flex-direction: column; justify-self: center;align-items: center; </style>"
 
+    tShirt.innerHTML += "<section class='product'><h2>"+ tShirts.name + "</h2> <img src='images/" + tShirts.image + "' alt='" + tShirts.name + "'><p>" + tShirts.price + "kr.</p></section>" 
 }
 
+let harry = document.querySelector('.sort')
 
-if (tShirt <= 6) {
+
+function filter() {
+if (tShirt.available === false) {
+    tShirt.style.display = "none"
+}
 }

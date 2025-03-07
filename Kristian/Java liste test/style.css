@@ -1,10 +1,19 @@
+.productContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 1rem;
+    margin: 5rem;
+}
+
 .product{
     display: flex;
     flex-direction: column;
     justify-self: center;
     align-items: center;
-    width: 20%;
     padding: 1rem;
     border: solid;
-    border-radius: 20px;
+    border-radius: 20px;   
+    margin-bottom: 2rem;
+    box-shadow: 10px 10px 10px rgb(86, 85, 81);
 }
