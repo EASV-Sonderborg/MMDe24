@@ -13,18 +13,22 @@ const products = [
 
 const tShirt = document.querySelector(".productContainer")
 
-let showUnavailable = false
+let showUnavailable = true
+
+
 
 
 function check() {
-for (let tShirts of products) {
-    tShirt.innerHTML += "<section class='product'><h2>"+ tShirts.name + "</h2> <img src='images/" + tShirts.image + "' alt='" + tShirts.name + "'><p>" + tShirts.price + "kr.</p></section>"
+tShirts.innerHTML = ""
+
+
+for (let tShirt of tShirts) {
+    if (showUnavailable == true && tShirt.available == true || showUnavailable == false) {
+    tShirt.innerHTML += products;
 }
 
-if (showUnavailable = false) {
-    check() tShirt.available = false + (tShirt.available.display = "none")
-} 
-
+}
+    tShirt.innerHTML += "<section class='product'><h2>"+ tShirts.name + "</h2> <img src='images/" + tShirts.image + "' alt='" + tShirts.name + "'><p>" + tShirts.price + "kr.</p></section>"
 }
 
 check()
