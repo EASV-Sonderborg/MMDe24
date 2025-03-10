@@ -1,6 +1,5 @@
 
 //array med billeder
-
 let garages = [
     "images/Collector.png" ,
     "images/DarkStealth.png",
@@ -15,30 +14,33 @@ let garages = [
 
 
 // definere mine variabler
-
 let showGarage = document.querySelector('.productImg img')
 
 let nextBtn = document.querySelector('.nextBtn')
 
 let backBtn = document.querySelector('.backBtn')
 
-let counter = 0
+//Får item fra local storage
+let counter = Number(localStorage.getItem('counter'))
+showGarage.src = garages[counter]
 
 // functions
-
+// Knapper:
 // Lægger 1 til counter når der trykkes på Next Design
-
-
 function nextDesign(){
-    if (counter <= 9) {
+    if (counter < garages.length - 1) {
     counter += 1
-    showGarage.src = garages[counter] 
-    } else{
-        counter = counter
+    showGarage.src = garages[counter]
+    localStorage.setItem('counter', counter)
     }
 }
 
-function previousDesign() {
+function previousDesign(){
+    if (counter > 0) {
     counter -= 1
     showGarage.src = garages[counter] 
+   localStorage.setItem('counter', counter)
+    }
 }
+
+
