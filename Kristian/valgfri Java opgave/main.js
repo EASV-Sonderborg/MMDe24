@@ -2,15 +2,15 @@
 //array med billeder
 
 let garages = [
-    "images/Collector" ,
-    "images/DarkStealth",
-    "images/Drifter",
-    "images/Future",
-    "images/Industrial",
-    "images/Racer",
-    "images/Showroom",
-    "images/Vintage",
-    "images/WhiteMinimalist"
+    "images/Collector.png" ,
+    "images/DarkStealth.png",
+    "images/Drifter.png",
+    "images/Future.png",
+    "images/Industrial.png",
+    "images/Racer.png",
+    "images/Showroom.png",
+    "images/Vintage.png",
+    "images/WhiteMinimalist.png"
 ]
 
 
@@ -22,13 +22,23 @@ let nextBtn = document.querySelector('.nextBtn')
 
 let backBtn = document.querySelector('.backBtn')
 
+let counter = 0
 
 // functions
 
+// Lægger 1 til counter når der trykkes på Next Design
+
+
 function nextDesign(){
-    showGarage.src = garages[3]
+    if (counter <= 9) {
+    counter += 1
+    showGarage.src = garages[counter] 
+    } else{
+        counter = counter
+    }
 }
 
 function previousDesign() {
-    showGarage.src = garages[3]
+    counter -= 1
+    showGarage.src = garages[counter] 
 }
