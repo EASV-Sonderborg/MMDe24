@@ -43,4 +43,9 @@ function previousDesign(){
     }
 }
 
+// laver et input felt til idéer af garage designs
 
+function getIdea() {
+    let writeIdeas = document.querySelector(".ideas").value;
+    document.querySelector(".myIdea").innerHTML = writeIdeas
+}
