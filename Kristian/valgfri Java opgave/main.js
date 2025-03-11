@@ -12,6 +12,18 @@ let garages = [
     "images/WhiteMinimalist.png"
 ]
 
+//array med nuværende designs
+let garageThemes = [
+    "Collector",
+    "Dark Stealth", 
+    "Drifter", 
+    "Future", 
+    "Industrial", 
+    "Racer", 
+    "Showroom", 
+    "Vintage", 
+    "White Minimalism"
+]
 
 // definere mine variabler
 let showGarage = document.querySelector('.productImg img')
@@ -43,9 +55,18 @@ function previousDesign(){
     }
 }
 
-// laver et input felt til idéer af garage designs
+// laver liste over nuværende designs
 
+
+// laver et input felt til idéer af garage designs
 function getIdea() {
     let writeIdeas = document.querySelector(".ideas").value;
     document.querySelector(".myIdea").innerHTML = writeIdeas
+}
+
+
+// Laver et loop for at vise alt I array med garage themes
+for (const TodayDesigns of garageThemes) {
+    let writeThemes = document.querySelector(".currentDesigns");
+    writeThemes = TodayDesigns.innerHTML
 }
