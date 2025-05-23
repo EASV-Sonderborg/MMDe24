@@ -5,7 +5,7 @@ var familyStats = [
     0,      //chill
     0,      //organized
     0,      //sporty
-    0,       //geeky
+    0,      //geeky
 ];      
 
 var currentQuestion = 0;
@@ -38,7 +38,7 @@ var answerText = [
     "Indendørs",
     "Hjemme er bedst",
     "Begge dele",
-    "Udendørs og være aktiv ",
+    "Sport og være aktiv ",
     "Online"],
 
     ["Gå på eventyr",
@@ -123,7 +123,10 @@ function showQuestion() {
     });
 
     document.getElementById("answers").innerHTML = answersHTML;
-    
+    console.log(question)
+
+
+
 }
 
 function selectAnswer(index) {
@@ -131,6 +134,9 @@ function selectAnswer(index) {
     let values = answerValues[currentQuestion][index];
     for (let i = 0; i < familyStats.length; i++) {
         familyStats[i] += values[i];
+
+        console.log(index)
+
     }
 
     document.querySelectorAll("#answers button").forEach(btn => btn.disabled = true);
