@@ -17,7 +17,7 @@ console.log("Rema1000 KURV:")
 
 console.log("Produkter:")
 
-console.log("Koge bog", kogeBogPris, "Kr." )
+console.log("Koge bog", kogeBogPris, "Kr.")
 
 console.log("Antal:", kogeBogAntal, "stk.")
 

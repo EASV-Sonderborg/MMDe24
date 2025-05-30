@@ -1,0 +1,16 @@
+/* Make the parent container a flexbox */
+.dailyGums {
+    display: flex;
+    align-items: flex-start; 
+}
+
+.ingredients {
+    display: flex; /* Stack the items vertically */
+    flex-direction: column; /* Stack the children vertically */
+    gap: 10px; /* Adds space between the items */
+}
+
+.result {
+    margin-left: 20px; 
+    align-self: center;
+}

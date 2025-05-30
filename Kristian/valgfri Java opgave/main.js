@@ -22,7 +22,7 @@ let garageThemes = [
     "Racer", 
     "Showroom", 
     "Vintage", 
-    "White Minimalism"
+    "White Minimalism",
 ]
 
 // definere mine variabler
@@ -59,14 +59,49 @@ function previousDesign(){
 
 
 // laver et input felt til idéer af garage designs
+
+/*function getIdea() {
+    let writeIdeas = document.querySelector(".ideas").value;
+    let displayIdeas = document.querySelector(".myIdea");
+
+    displayIdeas.innerHTML += "<p>" + writeIdeas + "</p>" 
+
+    localStorage.setItem("allIdeas", JSON.stringify(garageThemes))
+    let rememberIdeas = JSON.parse(localStorage.getItem(allIdeas))
+}*/
+
+
+//GPT version!
 function getIdea() {
     let writeIdeas = document.querySelector(".ideas").value;
-    document.querySelector(".myIdea").innerHTML = writeIdeas
+    let displayIdeas = document.querySelector(".myIdea");
+
+    if (writeIdeas.trim() !== "") { // Prevents empty input
+        displayIdeas.innerHTML += "<p>" + writeIdeas + "</p>";
+
+        // Get existing ideas from localStorage or start with an empty array
+        let ideasList = JSON.parse(localStorage.getItem("allIdeas")) || [];
+
+        // Add the new idea
+        ideasList.push(writeIdeas);
+
+        // Save updated list
+        localStorage.setItem("allIdeas", JSON.stringify(ideasList));
+
+        // Clear input field after adding idea
+        document.querySelector(".ideas").value = "";
+    }
 }
+
+
 
 
 // Laver et loop for at vise alt I array med garage themes
+function displaythemes() {
 for (const TodayDesigns of garageThemes) {
     let writeThemes = document.querySelector(".currentDesigns");
-    writeThemes = TodayDesigns.innerHTML
+    writeThemes.innerHTML += "<li>" + TodayDesigns + "</li>"
 }
+}
+displaythemes()
+

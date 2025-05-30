@@ -1,0 +1,20 @@
+.productImg, .buttons{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+Img{
+    width: 40%
+}
+
+.currentDesigns{
+    display: flex;
+    flex-direction: column;
+}
+
+.designsTitle, .input-ideas{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
