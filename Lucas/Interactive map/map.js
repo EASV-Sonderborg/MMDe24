@@ -11,7 +11,7 @@ const icons = {
         iconUrl: 'images/FoodPin.png',
         iconSize: [50, 60],
         iconAnchor: [25, 60],
-        popupAnchor: [0, -60]
+        
       }),
       Shopping: L.icon({
         iconUrl: 'images/ShoppingPin.png',
@@ -27,9 +27,10 @@ const icons = {
       }),
       Vandretur: L.icon({
         iconUrl: 'images/ShoePin.png',
-        iconSize: [50, 60],
-        iconAnchor: [25, 60],
-        popupAnchor: [0, -60]
+        iconSize: [32, 46],
+        iconAnchor: [16, 46],
+        popupAnchor: [0, -46]
+        
       }),
       Cykelture: L.icon({
         iconUrl: 'images/BikePin.png',
@@ -39,7 +40,7 @@ const icons = {
       }),
       Kultur: L.icon({
         iconUrl: 'images/Culture Pin.png',
-        iconSize: [50, 60],
+        iconSize: [64, 92],
         iconAnchor: [25, 60],
         popupAnchor: [0, -60]
       })
@@ -69,8 +70,8 @@ const activities = [
     name: "Universe Science Park",
     lat: 55.040003388197164,
     lng: 9.809624519985336,
-    image: "images/slot.jpg",
-    description: "Historic castle with museum.",
+    image: "images/universe.jpg",
+    description: "Historic castle with gdggfdgfgdfdgfdgffdgdmuseum.",
     link: "https://museumsyd.dk",
     category: "Aktivt"
   },
@@ -84,7 +85,17 @@ const activities = [
     description: "Historic castle surrounded by scenic nature.",
     link: "https://nordborg-slot.dk",
     category: "Kultur"
-  }
+  },
+
+  {
+    name: "Gendarmstien",
+    lat: 54.88219728698097, 
+    lng: 9.989857506519867,
+    image: "https://example.com/nordborg.jpg",
+    description: "Historic castle surrounded by scenic nature.",
+    link: "https://nordborg-slot.dk",
+    category: "Vandretur"
+  },
 ];
 
 // Add markers with popups
