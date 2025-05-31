@@ -107,6 +107,14 @@ var answerValues = [
     [0,1,1,0,0,4]]
 ];
 
+let reTry = document.getElementById("reTry")
+
+let quizContainer = document.getElementById("quizContainer")
+let result = document.getElementById("result")
+let personality = document.getElementById("personality")
+
+
+
 function showQuestion() {
 
     document.getElementById("result").style.display = "none";
@@ -124,6 +132,7 @@ function showQuestion() {
 
     document.getElementById("answers").innerHTML = answersHTML;
     console.log(question)
+
 
 
 
@@ -166,10 +175,44 @@ function showResult() {
 
     let maxIndex = familyStats.indexOf(Math.max(...familyStats));
 
-    document.getElementById("quiz-container").style.display = "none";
-    document.getElementById("result").style.display = "block";
-    document.getElementById("personality").innerText = types[maxIndex];
+    quizContainer.style.display = "none";
+    result.style.display = "block";
+    personality.innerText = types[maxIndex];
+
+    reTry.style.display = "block";
+    console.log(types[maxIndex])
+    
+    fetchData()
 }
 
-    
+function reset(){
+        if (currentQuestion > 0){
+        currentQuestion = 0 
+            var familyStats = [
+            0,      // adventurous
+            0,      //creative
+            0,      //chill
+            0,      //organized
+            0,      //sporty
+            0,      //geeky
+            ];
+
+    }
+        reTry.style.display = "none";
+        quizContainer.style.display = "block";
+
+        console.log(familyStats)
+}
+async function fetchData() {
+    const response = await fetch(`http://kristian-frederichsen.dk/wp-json/wp/v2/posts`)
+    const data = await response.json();
+    console.log(data)
+    for (const CardProdukt of data){
+
+    }
+}
+
+
+
+
 showQuestion(); // Start quizzen
