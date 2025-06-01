@@ -108,11 +108,10 @@ var answerValues = [
 ];
 
 let reTry = document.getElementById("reTry")
-
 let quizContainer = document.getElementById("quizContainer")
 let result = document.getElementById("result")
 let personality = document.getElementById("personality")
-
+let recSection = document.getElementById("recSection")
 
 
 function showQuestion() {
@@ -164,55 +163,92 @@ function nextQuestion() {
     console.log(familyStats)
 }
 
+showQuestion(); // Start quizzen
+
+let types = ["Eventyrlysten", 
+            "Kreativ", 
+            "Chill", 
+            "Organiseret", 
+            "Sporty", 
+            "Nørdet"];
+
+let maxIndex;
+let dominantType = "";
+
 function showResult() {
-
-    let types = ["Eventyrlysten", 
-                "Kreativ", 
-                "Chill", 
-                "Organiseret", 
-                "Sporty", 
-                "Nørdet"];
-
-    let maxIndex = familyStats.indexOf(Math.max(...familyStats));
+    maxIndex = familyStats.indexOf(Math.max(...familyStats));
+    dominantType = types[maxIndex];
 
     quizContainer.style.display = "none";
     result.style.display = "block";
-    personality.innerText = types[maxIndex];
+    personality.innerText = dominantType;
 
     reTry.style.display = "block";
-    console.log(types[maxIndex])
-    
-    fetchData()
+    console.log(dominantType);
+
+    fetchData(dominantType); // Send tag-navn til fetch
 }
 
-function reset(){
-        if (currentQuestion > 0){
-        currentQuestion = 0 
-            var familyStats = [
-            0,      // adventurous
-            0,      //creative
-            0,      //chill
-            0,      //organized
-            0,      //sporty
-            0,      //geeky
-            ];
+function reset() {
+    if (currentQuestion > 0){
 
+        currentQuestion = 0;
+
+        familyStats = [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0];
     }
-        reTry.style.display = "none";
-        quizContainer.style.display = "block";
 
-        console.log(familyStats)
+    recSection.innerHTML = '';
+
+    reTry.style.display = "none";
+    quizContainer.style.display = "block";
+
+    console.log(familyStats);
 }
-async function fetchData() {
-    const response = await fetch(`http://kristian-frederichsen.dk/wp-json/wp/v2/posts`)
-    const data = await response.json();
-    console.log(data)
-    for (const CardProdukt of data){
 
+async function fetchData(tagName) {
+    try {
+        // 1. Hent alle tags for at finde ID på det ønskede tagnavn
+        const tagResponse = await fetch(`http://kristian-frederichsen.dk/wp-json/wp/v2/tags`);
+        const tagData = await tagResponse.json();
+
+        const tagObj = tagData.find(tag => tag.name.toLowerCase() === tagName.toLowerCase());
+
+        if (!tagObj) {
+            console.log(`Ingen tag fundet for: ${tagName}`);
+            return;
+        }
+
+        // 2. Brug tag-ID til at hente filtrerede posts
+        const postsResponse = await fetch(`http://kristian-frederichsen.dk/wp-json/wp/v2/posts?tags=${tagObj.id}`);
+        const posts = await postsResponse.json();
+
+        // 3. Loop og vis resultater
+        for (const post of posts) {
+            
+            console.log(`Titel: ${post.title.rendered}`);
+            console.log(`Indhold: ${post.excerpt.rendered}`);
+
+            recSection.innerHTML +=`
+
+            <div class="post">
+                <div class="title">${post.title.rendered}</div>
+
+                <div class="postText">${post.excerpt.rendered}</div>
+            </div>
+            `
+
+            
+        }
+
+    } catch (error) {
+        console.error("Fejl ved hentning af data:", error);
     }
 }
-
-
-
 
 showQuestion(); // Start quizzen
