@@ -148,6 +148,8 @@ li {
 }
 
 .leaflet-popup-content {
+    max-width: 100%;
+    height: auto;
     margin: 8px 12px;
     font-family: "Montserrat", sans-serif;
     font-size: 0.85rem;
