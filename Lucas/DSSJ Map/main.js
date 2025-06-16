@@ -300,6 +300,8 @@ function hideScrollNotification() {
     }
 }
 
+
+// Function til at vise post data fra wordpress via Fetch
 async function fetchPostAndShowPopup(marker, slug) {
     try {
         const response = await fetch(`http://lucasbeltoft.dk/wp-json/wp/v2/posts/${slug}`);
@@ -408,16 +410,30 @@ function toggleLocation(locationId) {
     }
 }
 
+// Function til at vise alle mad lokationer i sidemenu
 async function loadFoodLocations() {
     try {
-        const response = await fetch('http://lucasbeltoft.dk/wp-json/wp/v2/posts/');
-        const data = await response.json();
+        // Get the actual category with slug "mad"
+        const categoryResponse = await fetch('http://lucasbeltoft.dk/wp-json/wp/v2/categories?slug=mad');
+        const categories = await categoryResponse.json();
+
+        if (!categories.length) {
+            console.error('Kategori "mad" ikke fundet');
+            return;
+        }
+
+        const madCategoryId = categories[0].id;
+
+        // Fetch posts in the "mad" category
+        const postsResponse = await fetch(`http://lucasbeltoft.dk/wp-json/wp/v2/posts?categories=${madCategoryId}`);
+        const posts = await postsResponse.json();
 
         const madCategoryContent = document.getElementById('mad-content');
+        madCategoryContent.innerHTML = '';
 
-        data.forEach((place, index) => {
+        posts.forEach((post, index) => {
             const placeId = `mad-${index + 1}`;
-            const title = place.title.rendered;
+            const title = post.title.rendered;
 
             const location = document.createElement('div');
             location.className = 'location';
@@ -434,6 +450,10 @@ async function loadFoodLocations() {
         console.error('Fejl ved indlæsning af madsteder:', error);
     }
 }
+
+// Make sure this runs once the DOM is ready
+window.addEventListener('DOMContentLoaded', loadFoodLocations);
+
 
 
 
