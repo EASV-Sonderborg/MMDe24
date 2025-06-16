@@ -1,0 +1,166 @@
+body{
+    margin: 0px;
+    width: 100%;
+}
+
+.containerNext{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.buttonAnswers{
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+}
+.buttonAnswers:hover{
+    background: #FC9797;
+}
+
+.buttonNext{
+    border-radius: 4px;
+    background: #D33D44;
+    width: 200px;
+    height: 40px;
+    font-size: medium;
+    font-style: normal;
+    color: white;
+    border: none;
+}
+
+.buttonNext:active{
+    background: #60393b;
+}
+
+.question{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    max-width:90%;
+    display: flex;
+    overflow-y:auto;
+}
+.title{
+    padding-top: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.answers{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.titleMain{
+    color: #000000;
+    font-size: 1.7rem;
+}
+.titleSub{
+    color: #020202;
+    font-size: 1rem;
+
+}
+.quizSection{
+    border-radius: 15px;
+    background: #FFF;
+    width: 60%;
+    min-height: 300px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin: auto;
+
+
+}
+.reTry{
+    border-radius: 4px;
+    background: #D33D44;
+    width: 200px;
+    height: 40px;
+    font-size: medium;
+    font-style: normal;
+    color: white;
+    border: none;
+}
+.recSection{
+    background: #D33D44;
+    margin-top: 50px;
+    display: flex;
+    overflow-y:auto;
+}
+.post{
+
+    border-radius: 4px;
+    background: #ffffff;
+    margin: 5px;
+    width: 22%;
+    height: 70%;
+}
+
+.postText{
+    padding-top: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: white;
+    padding: 20px;
+    max-width: 600px;
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
+    border-radius: 8px;
+    position: relative;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.buttonBook{
+    border-radius: 4px;
+    background: #D33D44;
+    width: 200px;
+    height: 40px;
+    font-size: medium;
+    font-style: normal;
+    color: white;
+    border: none;
+}
+.buttonBook:hover{
+    background: #FC9797;
+}
