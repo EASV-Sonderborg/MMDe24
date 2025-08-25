@@ -1,0 +1,17 @@
+.hero   {
+    padding: 2rem;
+    margin: 5rem;
+}
+
+.hero__content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero__subtitle {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: 200;
+    letter-spacing: var(--display-ls);
+}

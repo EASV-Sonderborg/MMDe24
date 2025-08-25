@@ -1,66 +1,100 @@
-.navbar__links  {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  margin: 0 auto;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
   padding: 0;
-  max-width: 600px;
-}
-
--navbar__links li {
-  margin: 0 10px;
-}
-.navbar__links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-.navbar__links a:hover {
-  border-bottom: 2px solid #333;
-} 
-
-
-.navbar__logo a {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-  padding: 0.5rem;
-}
-.navbar__logo  a:hover {
-  border-bottom: 2px solid #333;
-}
-
-.card {
-  background-color: #d1d1d1;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  margin: 1rem;
-  max-width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-.card img {
+  background: linear-gradient(90deg,rgba(4, 0, 24, 1) 0%, rgba(19, 7, 72, 1) 50%, rgba(4, 0, 24, 1) 100%);
+  color: white;
+  height: 100%;
   width: 100%;
-  height: auto;
-  border-radius: 8px;
 }
-.card h3 {     
-  font-size: 1.5rem;
-  margin: 10px 0;
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12px) brightness(1.1);
+  -webkit-backdrop-filter: blur(12px) brightness(1.1);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(121,157,255,0.3) 100%);
 }
-.card p {
-  font-size: 1rem;
-  color: #000000;
+
+:root {
+  --font-main: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+
+  --display-size: clamp(2.75rem, 1.35rem + 3.5vw, 4rem);
+  --display-lh: 1.10;
+  --display-ls: -0.02em;
+
+  --title-size: clamp(2rem, 1.1rem + 2vw, 2.5rem);
+  --title-lh: 1.20;
+  --title-ls: -0.01em;
+
+  --subtitle-size: clamp(1.5rem, 1rem + 1.1vw, 1.875rem);
+  --subtitle-lh: 1.30;
+  --subtitle-ls: -0.005em;
+
+  --card-title-size: clamp(1.25rem, 0.95rem + 0.8vw, 1.5rem);
+  --card-title-lh: 1.35;
+  --card-title-ls: 0em;
+
+  --text-size: 1rem;
+  --text-lh: 1.60;
+  --text-ls: 0em;
+
+  --label-size: 0.875rem; 
+  --label-lh: 1.45;
+  --label-ls: 0.01em;
 }
-.card a {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
+
+.text__display {
+  font-family: var(--font-main);
+  font-size: var(--display-size);
+  line-height: var(--display-lh);
+  letter-spacing: var(--display-ls);
+  font-weight: var(--weight-bold);
+}
+
+.text__title {
+  font-family: var(--font-main);
+  font-size: var(--title-size);
+  line-height: var(--title-lh);
+  letter-spacing: var(--title-ls);
+  font-weight: var(--weight-semibold);
+}
+
+.text__subtitle {
+  font-family: var(--font-main);
+  font-size: var(--subtitle-size);
+  line-height: var(--subtitle-lh);
+  letter-spacing: var(--subtitle-ls);
+  font-weight: var(--weight-medium);
+}
+
+.text__cardTitle {
+  font-family: var(--font-main);
+  font-size: var(--card-title-size);
+  line-height: var(--card-title-lh);
+  letter-spacing: var(--card-title-ls);
+  font-weight: var(--weight-semibold);
+}
+
+.text__body {
+  font-family: var(--font-main);
+  font-size: var(--text-size);
+  line-height: var(--text-lh);
+  letter-spacing: var(--text-ls);
+  font-weight: var(--weight-regular);
+}
+
+.text__label {
+  font-family: var(--font-main);
+  font-size: var(--label-size);
+  line-height: var(--label-lh);
+  letter-spacing: var(--label-ls);
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
 }
