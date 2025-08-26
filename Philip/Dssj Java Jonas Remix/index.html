@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="quizSection">
+
+    <h1 class="title titleMain" >...og ind det du søger</h1>
+
+    <h2 class="title titleSub" >SÅ PRØV VORES QUIZ GUIDE:</h2>
+
+
+    <div class="container" id="quizContainer">
+        <p class="question" id="question"></p>
+        <div class="answers" id="answers"></div>
+        <div class="containerNext">  
+            <button class="buttonNext" onclick="nextQuestion()">Næste Spørgsmål</button>
+        </div>
+    </div>
+    <div id="result" style="display:none;">
+        <h2 class="title" >Din familietype er:<span id="personality">   </span></h2>
+    </div>
+    <div class="containerNext">
+        <button class="reTry" id="reTry" style="display: none;" onclick="showQuestion(), reset()">Prøv Igen</button>
+    </div>
+</div>
+
+<div id="recSection" class="quizSection recSection">
+
+</div>
+
+<script src="java.js"></script>
+</body>
+</html>

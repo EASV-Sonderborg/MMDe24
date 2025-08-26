@@ -1,0 +1,136 @@
+body{
+    margin: 2rem;
+    background: #F5F5F5;
+    width: 100%;
+}
+
+.containerNext{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.buttonAnswers{
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    width: 100%;
+    text-align: left;
+    background-color: #d8d8d8;
+    color: black;
+}
+.buttonAnswers:not(.active):hover {
+  background: #FC9797;
+}
+
+.buttonAnswers.active {
+  background: #D33D44;
+  color: #fff;
+}
+
+.buttonNext{
+    border-radius: 4px;
+    background: #D33D44;
+    width: 200px;
+    height: 40px;
+    font-size: medium;
+    font-style: normal;
+    color: white;
+    border: none;
+}
+
+.buttonNext:active{
+    background: #60393b;
+}
+
+.buttonNext:disabled{
+    background: grey;
+    cursor: not-allowed;
+}
+
+.buttonNext:not(:disabled):hover {
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+.question{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title{
+    padding-top: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.answers{
+    padding:  2rem 2rem 0 2rem;
+    display: flex;
+    margin: 0  auto;
+    flex-direction: column;
+    max-width: 600px;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleMain{
+    color: #000000;
+    font-size: 1.7rem;
+}
+.titleSub{
+    color: #020202;
+    font-size: 1rem;
+}
+.containerNext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quizSection{
+    border-radius: 15px;
+    background: #ffffff;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin: auto;
+
+}
+.reTry{
+    border-radius: 4px;
+    background: #D33D44;
+    width: 200px;
+    height: 40px;
+    font-size: medium;
+    font-style: normal;
+    color: white;
+    border: none;
+}
+.recSection{
+    background: #D33D44;
+    margin-top: 50px;
+    display: flex
+}
+.post{
+
+    border-radius: 4px;
+    background: #ffffff;
+    margin: 5px;
+    width: 22%;
+    height: 70%;
+}
+
+.postText{
+    padding-top: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
