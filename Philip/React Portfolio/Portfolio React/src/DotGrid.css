@@ -1,0 +1,37 @@
+.dot-grid {
+  position: fixed;   /* så den altid fylder skærmen */
+  inset: 0;          /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  z-index: -2;       /* bag alt indhold */
+  opacity: 20%;
+}
+
+.dot-grid::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(0,0,0,0) 0%,
+      rgba(5,7,20,0.15) 55%,
+      rgba(5,7,20,0.35) 100%
+    );
+  z-index:-1; /* over canvas men under indhold hvis canvas har -2 */
+}
+
+.dot-grid__wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.dot-grid__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}

@@ -4,7 +4,6 @@
 }
 
 .hero__content {
-    max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
@@ -14,4 +13,44 @@
     font-size: 1.25rem;
     font-weight: 200;
     letter-spacing: var(--display-ls);
+}
+
+.hero__skillset {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+}
+
+.hero__skillset img {
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+  cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.hero__skillset img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.hero__contact {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.contact__link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    color: white;
+    text-decoration: none;
+    background: var(--gradient-blue);
+}
+
+.contact__link:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 12px rgba(15, 8, 102, 0.603));
 }
