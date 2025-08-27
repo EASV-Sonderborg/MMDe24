@@ -38,7 +38,7 @@ createRoot(document.getElementById('root')).render(
         <p className='text__body'>Denne nysgerrighed driver mig til at hele tiden udforske nye ideer og teknologier, så jeg kan udvikle mig både fagligt og kreativt.</p>
       </Container>
   
-      <Card title="Project 1" description="This is a description of project 1." imageUrl="https://via.placeholder.com/150" />
+      {/* <Card title="Project 1" description="This is a description of project 1." imageUrl="https://via.placeholder.com/150" /> */}
     </StrictMode>
 
 )
