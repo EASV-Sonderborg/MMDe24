@@ -1,7 +1,7 @@
-import logo__html from './assets/logo__html.png';
-import logo__css from './assets/logo__css.png';
-import logo__js from './assets/logo__js.png';
-import logo__react from './assets/logo__react.png';
+import logo__html from '../assets/logo__html.svg';
+import logo__css from '../assets/logo__css.svg';
+import logo__js from '../assets/logo__js.svg';
+import logo__react from '../assets/logo__react.svg';
 
 function Hero() {
   return (

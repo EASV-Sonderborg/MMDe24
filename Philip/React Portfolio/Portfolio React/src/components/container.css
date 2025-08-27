@@ -1,7 +1,8 @@
 .container  {
     border-radius: 0.5rem;
     max-width: 900px;
-    margin: 2rem auto;
+    margin: 4rem auto;
+    margin-bottom: 10rem;
     padding: 1rem 2rem;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(40px);

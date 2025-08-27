@@ -1,16 +1,18 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import './navbar.css'
-import './card.css'
-import './hero.css'
-import './container.css'
+import './components/navbar.css'
+import './components/card.css'
+import './components/hero.css'
+import './components/container.css'
+import './components/skills.css'
 
-import NavBar from './NavBar.jsx'
-import Card from './Card.jsx'
-import Hero from './Hero.jsx'
-import DotGrid from './DotGrid.jsx';
-import Container from './Container.jsx';
+import NavBar from './components/NavBar.jsx';
+import Card from './components/Card.jsx';
+import Hero from './components/Hero.jsx';
+import DotGrid from './components/DotGrid.jsx';
+import Container from './components/Container.jsx';
+import Skills from './components/Skills.jsx';
 
 
 createRoot(document.getElementById('root')).render(
@@ -37,6 +39,7 @@ createRoot(document.getElementById('root')).render(
         <p className='text__body'>Jeg brænder for at udvikle hjemmesider, der kombinerer godt design med funktionalitet. Jeg motiveres af at finde kreative løsninger, som både ser flotte ud men også fungerer.</p>
         <p className='text__body'>Denne nysgerrighed driver mig til at hele tiden udforske nye ideer og teknologier, så jeg kan udvikle mig både fagligt og kreativt.</p>
       </Container>
+      <Skills />
   
       {/* <Card title="Project 1" description="This is a description of project 1." imageUrl="https://via.placeholder.com/150" /> */}
     </StrictMode>

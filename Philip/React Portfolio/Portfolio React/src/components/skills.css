@@ -1,0 +1,127 @@
+/* Sektion */
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.25rem;
+  margin: 4rem auto;
+  max-width: 900px;
+}
+
+.skills__group { margin-inline: auto; }
+.skills__group > .text__subtitle {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+/* Grid */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+/* Kort (grundstil) */
+.skillCard {
+  width: 260px;
+  height: 200px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(4, 16, 70, 0.651);
+  box-shadow: 0 6px 22px rgba(0,0,0,.28);
+  cursor: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  /* spotlight-variabler (opdateres af JS) */
+  --mx: -1000px;
+  --my: -1000px;
+  --intensity: 0.5;         /* 0..1 */
+  --ringRadius: 300px;    /* max radius for “hul” */
+}
+
+/* Temaer (baggrunde + ring-farve hvis du vil bruge den senere) */
+.skillCard--blue  { background: linear-gradient(180deg,#0b1033 0%,#121a45 60%,#0d143a 100%); }
+.skillCard--green { background: linear-gradient(180deg,#0b2f27 0%,#135041 60%,#0f3d31 100%); }
+
+/* Indholdsstak over baggrund, men under overlay */
+.skillCard > * { 
+    position: relative; 
+    z-index: 2; 
+}
+
+/* Header med ikon og lille kode-grafik */
+.skillCard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.skillCard__head img { width: 22px; height: 22px; }
+.skillCard__code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: .9rem;
+  opacity: .45;
+}
+
+/* Body */
+.skillCard__body h4 { margin: 8px 0 10px; }
+
+/* Dots */
+.skill__dots { 
+    display: inline-flex; 
+    gap: 6px; 
+}
+
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.22);
+  outline: 1px solid rgba(255,255,255,.18);
+  outline-offset: -1px;
+}
+.dot--filled { 
+    background: rgba(255,255,255,.95); 
+    outline: none; 
+}
+
+/* --- Reveal-effekt: mørkning + masket “hul” der følger musen --- */
+.skillCard::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index: 1;
+
+  /* Mørklæg kortet globalt */
+  background: rgba(0,0,0,.38);
+
+  /* Mask = gennemsigtigt hul ved musen, opak udenfor (Safari + øvrige) */
+  -webkit-mask: radial-gradient(
+    circle calc(var(--ringRadius) * var(--intensity) + 1px) at var(--mx) var(--my),
+    transparent 0%,
+    black 60%
+  );
+          mask: radial-gradient(
+    circle calc(var(--ringRadius) * var(--intensity) + 1px) at var(--mx) var(--my),
+    transparent 0%,
+    black 60%
+  );
+
+  /* Blid fade hvis intensity går mod 0 */
+  transition: opacity 140ms ease-out;
+  opacity: 1; /* selve “hullets” størrelse styres af masken */
+}
+
+/* Små skærme: 1 kolonne */
+@media (max-width: 520px) {
+  .skills__grid { grid-template-columns: 1fr; }
+  .skillCard { width: 100%; }
+}
+
+/* Nulstil margin på h-tags inde i kort, hvis global stil arver */
+.skillCard h4 { margin: 0; }
