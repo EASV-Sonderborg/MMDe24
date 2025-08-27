@@ -23,7 +23,7 @@ function hexToRgb(hex) {
   if (!m) return { r: 0, g: 0, b: 0 };
   return {
     r: parseInt(m[1], 16),
-    g: parseInt(m[2], 16),
+    g: parseInt(m[2], 16), 
     b: parseInt(m[3], 16),
   };
 }

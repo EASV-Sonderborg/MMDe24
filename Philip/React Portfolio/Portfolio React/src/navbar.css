@@ -5,6 +5,7 @@
   display: flex;
   max-width: 900px;
   border-radius: 2rem;
+  position: sticky;
 }
 
 .navbar__links  {

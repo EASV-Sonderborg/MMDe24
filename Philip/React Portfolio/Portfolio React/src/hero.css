@@ -1,6 +1,10 @@
 .hero   {
     padding: 2rem;
-    margin: 5rem;
+    margin: 5rem 0 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero__content {
@@ -8,12 +12,6 @@
     text-align: center;
 }
 
-.hero__subtitle {
-    margin-top: 1rem;
-    font-size: 1.25rem;
-    font-weight: 200;
-    letter-spacing: var(--display-ls);
-}
 
 .hero__skillset {
     margin-top: 2rem;
@@ -53,4 +51,37 @@
 .contact__link:hover {
   transform: scale(1.05);
   filter: drop-shadow(0 4px 12px rgba(15, 8, 102, 0.603));
+}
+
+#about{ scroll-margin-top: 96px; }
+
+
+.hero__scroll {
+  position: relative;
+  margin-top: 6rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #e6ebff;
+}
+
+.hero__chevron svg  {
+    width: 4rem;
+    height: 4rem;
+  color: #e6ebff;
+  filter: drop-shadow 0 8px 28px rgba(0,0,0,.35);
+  transition: filter .2s ease, transform .2s ease, background-color .2s ease;
+  z-index: 2;
+  animation: chevronFloat 2.4s ease-in-out infinite;
+}
+
+
+.hero__chevron svg:hover{
+  filter: brightness(1.15);
+}
+@keyframes chevronFloat{
+  0%,100%{ transform: translateX(0%) translateY(0);}
+  50%{     transform: translateX(0%) translateY(6px);}
 }
