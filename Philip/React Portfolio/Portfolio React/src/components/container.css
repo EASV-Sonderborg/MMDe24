@@ -1,12 +1,19 @@
 .container  {
     border-radius: 0.5rem;
-    max-width: 900px;
-    margin: 4rem auto;
-    margin-bottom: 10rem;
-    padding: 1rem 2rem;
+    width: min(90%, 80ch);
+    margin: 1rem  auto 10rem;
+    padding: 1rem 2rem 2rem;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(40px);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(94%, 80ch);
+    margin: 1rem auto 6rem;
+    padding: 1rem 1rem 1.5rem;
+  }
 }

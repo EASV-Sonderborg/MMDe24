@@ -18,6 +18,7 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
+    flex-wrap: wrap; /* allow icons to wrap on small screens */
 
 }
 
@@ -58,7 +59,7 @@
 
 .hero__scroll {
   position: relative;
-  margin-top: 6rem;
+  margin-top: 4rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -84,4 +85,25 @@
 @keyframes chevronFloat{
   0%,100%{ transform: translateX(0%) translateY(0);}
   50%{     transform: translateX(0%) translateY(6px);}
+}
+
+/* Small screens: reduce spacing and icon sizes */
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.25rem;
+    margin: 3rem 0 8rem;
+  }
+  .hero__skillset {
+    gap: 1rem;
+  }
+  .hero__skillset img {
+    max-height: 40px;
+  }
+  .hero__contact {
+    margin-top: 2.5rem;
+  }
+  .hero__chevron svg {
+    width: 3rem;
+    height: 3rem;
+  }
 }

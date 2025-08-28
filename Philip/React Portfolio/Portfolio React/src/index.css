@@ -3,8 +3,7 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
+  margin: 0 auto;
   background: linear-gradient(69deg,
     hsl(250, 50%, 10%),
     hsl(245, 80%, 15%),
@@ -21,6 +20,17 @@ body {
   width: 100%;
   background-size: 1200% 1200%;
   animation: gradientMove 64s linear infinite;
+}
+
+/* Layout helpers */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+}
+
+img, svg { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
 }
 
 @keyframes gradientMove {
@@ -147,6 +157,7 @@ body {
   line-height: var(--title-lh);
   letter-spacing: var(--title-ls);
   font-weight: var(--weight-semibold);
+  margin: 0 auto;
 }
 
 .text__subtitle {

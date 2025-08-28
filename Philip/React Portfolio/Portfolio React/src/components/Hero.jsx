@@ -18,7 +18,7 @@ function Hero() {
       </div>
       <div className='hero__contact'>
         <p className='text__body'>Skal vi arbejde sammen? Skriv til mig her</p>
-        <a className='contact__link glass' href="mailto: philip-brinck@hotmail.dk">Philip-brinck@hotmail.dk</a>
+        <a className='contact__link glass text__title' href="mailto: philip-brinck@hotmail.dk">Philip-brinck@hotmail.dk</a>
       </div>
       <div className='hero__scroll'>
         <p className='text__body'>Scroll for at læse mere</p>

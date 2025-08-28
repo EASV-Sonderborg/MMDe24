@@ -124,5 +124,9 @@
   .skillCard { width: 100%; }
 }
 
+@media (max-width: 640px) {
+  .skills { padding: 0 1rem; }
+}
+
 /* Nulstil margin på h-tags inde i kort, hvis global stil arver */
 .skillCard h4 { margin: 0; }
