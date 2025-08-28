@@ -42,7 +42,7 @@
   /* spotlight-variabler (opdateres af JS) */
   --mx: -1000px;
   --my: -1000px;
-  --intensity: 0.5;         /* 0..1 */
+  --intensity: 1;         /* 0..1 */
   --ringRadius: 300px;    /* max radius for “hul” */
 }
 
@@ -62,7 +62,8 @@
   align-items: center;
   justify-content: space-between;
 }
-.skillCard__head img { width: 22px; height: 22px; }
+.skillCard__head img { 
+  height: 30px; }
 .skillCard__code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: .9rem;

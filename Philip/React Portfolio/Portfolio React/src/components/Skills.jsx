@@ -54,7 +54,7 @@ export default function Skills() {
     };
 
     const onLeave = () => {
-      cardRefs.current.forEach((el) => el?.style.setProperty("--intensity", "0"));
+      cardRefs.current.forEach((el) => el?.style.setProperty("--intensity", "0.2"));
     };
 
     // lyt bredt for stabilitet

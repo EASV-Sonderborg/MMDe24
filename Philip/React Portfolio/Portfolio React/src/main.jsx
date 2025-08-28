@@ -6,6 +6,7 @@ import './components/card.css'
 import './components/hero.css'
 import './components/container.css'
 import './components/skills.css'
+import './components/contact.css'
 
 import NavBar from './components/NavBar.jsx';
 import Card from './components/Card.jsx';
