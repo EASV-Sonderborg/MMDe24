@@ -1,0 +1,179 @@
+[
+    {
+        "id": "track__WhereDidYouGo",
+        "title": "Where Did You Go",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": ["Dance"],
+        "releaseDate": "2025-06-02",
+        "duration": null,
+        "bpm" : null,
+        "scale": 
+        {
+            "key": null, 
+            "mode": null
+        },
+        "audio": 
+        {
+            "src": "/src/assets/tracks/Where Did You Go - Tac.wav",
+            "format": "wav"
+        },
+        "cover": 
+        {
+            "src": "/src/assets/covers/Where Did You Go - Tac.jpg",
+            "format": "jpg"
+        }
+
+    },
+
+    {
+        "id": "track__NightRider",
+        "title": "Night Rider",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": ["House"],
+        "releaseDate": "2025-05-15",
+        "duration": null,
+        "bpm" : null,
+        "scale": 
+        {
+            "key": null, 
+            "mode": null
+        },
+        "audio": 
+        {
+            "src": "/src/assets/tracks/2d racing house gmin.mp3",
+            "format": "mp3"
+        },
+        "cover": {
+            "src": "/src/assets/covers/2d-racing-house.jpg",
+            "format": "jpg"
+        }
+
+    },
+
+    {
+        "id": "trk-so-am-i",
+        "title": "So Am I",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": ["Dance"],
+        "releaseDate": "2025-04-20",
+        "duration": null,
+        "bpm": null,
+        "scale": 
+        { 
+            "key": null, 
+            "mode": null 
+        },
+        "audio": 
+        {
+            "src": "/src/assets/tracks/So am i.mp3",
+            "format": "mp3"
+        },
+        "cover": 
+        {
+            "src": "/src/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },
+
+    {
+        "id": "trk-lidt-aw-gmin",
+        "title": "Lidt AW på den",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": ["Electronic"],
+        "releaseDate": "2025-03-12",
+        "duration": null,
+        "bpm": null,
+        "scale": 
+        { 
+            "key": "G", 
+            "mode": "minor" 
+        },
+        "audio": 
+        {
+            "src": "/src/assets/tracks/Lidt AW på den Gmin.mp3",
+            "format": "mp3"
+        },
+        "cover": 
+        {
+            "src": "/src/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },
+
+    {
+        "id": "trk-lidt-i-dnb-remix",
+        "title": "Lidt i DNB (Remix)",
+        "artist": "Tac",
+        "album": "Remixes",
+        "genres": ["Drum & Bass"],
+        "releaseDate": "2025-02-10",
+        "duration": null,
+        "bpm": null,
+        "scale": { 
+            "key": null, 
+            "mode": null 
+        },
+        "audio": {
+            "src": "/src/assets/tracks/Lidt i DNB Remix.mp3",
+            "format": "mp3"
+        },
+        "cover": {
+            "src": "/src/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },
+    {
+        "id": "trk-fadklubben-v2-gmaj",
+        "title": "Fadklubben v2",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": ["Pop"],
+        "releaseDate": "2025-01-22",
+        "duration": null,
+        "bpm": null,
+        "scale": 
+        { 
+            "key": "G", 
+            "mode": "major" 
+        },
+        "audio": 
+        {
+            "src": "/src/assets/tracks/fadklubben v2 Gmaj.mp3",
+            "format": "mp3"
+        },
+        "cover": 
+        {
+            "src": "/src/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },
+    {
+        "id": "trk-message-in-a-club-asharp-min",
+        "title": "Message in a Club",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": ["Club"],
+        "releaseDate": "2024-12-05",
+        "duration": null,
+        "bpm": null,
+        "scale": 
+        { 
+            "key": "A#", 
+            "mode": "minor" 
+        },
+        "audio": 
+        {
+            "src": "/src/assets/tracks/message in a club A#min.mp3",
+            "format": "mp3"
+        },
+        "cover": 
+        {
+            "src": "/src/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    }
+]

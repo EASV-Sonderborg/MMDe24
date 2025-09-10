@@ -1,0 +1,66 @@
+.audioPlayer    {
+    position: fixed; 
+    left: 0; 
+    right: 0;
+    bottom: 0; 
+    border-top: 1px solid #eee;
+    background: #fff;
+    padding: 16px;
+}
+
+.audioPlayer__Container {
+    display: grid; 
+    grid-template-columns: auto 1fr auto; 
+    gap: 16px; 
+    align-items: center;
+}
+
+.audioCoverData {
+    display: flex; 
+    align-items: center; 
+    gap: 16px;
+}
+
+.cover {
+    border-radius: 8px; 
+    object-fit: cover;
+    width: 64px;
+    height: 64px;
+    background: #ddd;
+}
+
+.trackInfo {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start;
+}
+
+.title {
+    font-weight: 700;
+    color: #212121;
+    font-size: 1rem;
+}
+
+.artist {
+    font-size: 1rem;
+    font-weight: 400; 
+    color: #0F1557;
+}
+
+.progress {
+    height: 8px; 
+    background: #eee; 
+    border-radius: 999px; 
+    position: relative; 
+    cursor: pointer;
+    max-width: 60%;
+}
+
+.progressBar {
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    background: #0F1557; 
+    border-radius: 999px;
+}

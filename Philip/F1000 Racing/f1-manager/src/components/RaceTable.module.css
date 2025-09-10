@@ -1,0 +1,13 @@
+@keyframes glowUp {
+  0% { box-shadow: 0 0 0 rgba(39,192,147,0); }
+  50% { box-shadow: 0 0 12px rgba(39,192,147,0.7); }
+  100% { box-shadow: 0 0 0 rgba(39,192,147,0); }
+}
+@keyframes glowDown {
+  0% { box-shadow: 0 0 0 rgba(255,84,112,0); }
+  50% { box-shadow: 0 0 12px rgba(255,84,112,0.7); }
+  100% { box-shadow: 0 0 0 rgba(255,84,112,0); }
+}
+.movedUp { animation: glowUp 0.35s ease; }
+.movedDown { animation: glowDown 0.35s ease; }
+
