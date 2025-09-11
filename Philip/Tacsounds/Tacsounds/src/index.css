@@ -1,63 +1,104 @@
+/* ===========================
+   Global foundation / tokens
+   =========================== */
+
 :root {
-  font-family: inter, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Brand */
+  --color-primary: #0F1557;
+  --color-primary-2: #1F2BAD;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Text & surfaces */
+  --color-text: #212121;
+  --color-text-muted: #6B7280;
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F6F6F6;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  /* UI accents */
+  --color-stroke: #E5E7EB;
+  --color-accent: #D8D8D8;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(90deg, var(--color-primary), var(--color-primary-2));
+
+  /* Type & sizing */
+  --font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Spacing scale (8-pt) */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(16, 24, 40, .08);
+  --shadow-md: 0 8px 20px rgba(16, 24, 40, .12);
+
+  color-scheme: light;
+}
+
+/* Typography & base */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--color-primary);
+  text-decoration: none;
 }
-a:hover {
-  color: #535bf2;
-}
+a:hover { text-decoration: underline; }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+img { display: block; max-width: 100%; }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  font-size: 2em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  -webkit-tap-highlight-color: transparent;
+  border: 0;
+  background: transparent;
+  padding: 0;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  transform: scale(1.05);
+  font: inherit;
+  color: inherit;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+input, select { font: inherit; }
+
+/* Headings */
+h1, h2, h3 { margin: 0 0 var(--space-3); line-height: 1.2; }
+h1 { font-size: clamp(28px, 3.2vw, 40px); }
+h2 { font-size: clamp(22px, 2.4vw, 28px); }
+h3 { font-size: clamp(18px, 2vw, 22px); }
+
+/* Layout helpers (små, men nyttige) */
+.container {
+  width: min(1200px, 92vw);
+  margin-inline: auto;
 }
+
+/* Muted text / small */
+.textMuted { color: var(--color-text-muted); }
+.small { font-size: 0.9rem; }
+
+/* Light mode already set – dark mode opt-in hvis du vil senere */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    /* Behold dine brandfarver i mørkt tema – tilpas hvis nødvendigt */
+/*   }
+} */
