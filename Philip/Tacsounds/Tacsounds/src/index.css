@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: inter, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -38,8 +38,7 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: 2em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
@@ -47,11 +46,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transform: scale(1.05);
 }
 
 @media (prefers-color-scheme: light) {

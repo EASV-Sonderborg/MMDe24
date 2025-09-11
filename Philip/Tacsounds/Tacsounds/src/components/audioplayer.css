@@ -1,18 +1,30 @@
+:root {
+    --color-primary: #0F1557;
+    --color-light-primary:  #1F2BAD;
+    --color-secondary: #666666;
+    --color-accent: #D8D8D8;
+    --color-background: #F6F6F6;
+    --color-text: #212121;
+    --font-family: 'inter', sans-serif;
+}
+
+
+
 .audioPlayer    {
     position: fixed; 
     left: 0; 
     right: 0;
     bottom: 0; 
-    border-top: 1px solid #eee;
     background: #fff;
-    padding: 16px;
+    padding: 2rem 1rem;
 }
 
 .audioPlayer__Container {
     display: grid; 
-    grid-template-columns: auto 1fr auto; 
+    grid-template-columns: 30% 1fr 30%; 
     gap: 16px; 
     align-items: center;
+    padding: 0 min(8vw, 32px);
 }
 
 .audioCoverData {
@@ -22,45 +34,169 @@
 }
 
 .cover {
-    border-radius: 8px; 
+    border-radius: 0.75rem; 
     object-fit: cover;
     width: 64px;
     height: 64px;
-    background: #ddd;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
 }
 
 .trackInfo {
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start;
+    display: grid; 
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    height: 64px;
 }
 
 .title {
     font-weight: 700;
-    color: #212121;
-    font-size: 1rem;
+    color: var(--color-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 100%;
+    width: fit-content;
 }
 
 .artist {
     font-size: 1rem;
-    font-weight: 400; 
-    color: #0F1557;
+    font-weight: 500; 
+    color: var(--color-primary);
+    cursor: pointer;
+    line-height: 100%;
+    text-align: left;
+    width: fit-content;
+}
+
+.title:hover,  .artist:hover {
+    border-bottom: 2px solid var(--color-light-primary);
+    padding-bottom: 2px;
+}
+
+.audioControlProgress__container {
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.audioControl__container {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    gap: 2rem;
 }
 
 .progress {
-    height: 8px; 
-    background: #eee; 
-    border-radius: 999px; 
-    position: relative; 
-    cursor: pointer;
-    max-width: 60%;
+  height: 0.5rem;
+  background: var(--color-accent);
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
 }
 
 .progressBar {
-    position: absolute; 
-    top: 0; 
-    bottom: 0; 
-    left: 0; 
-    background: #0F1557; 
-    border-radius: 999px;
+  position: absolute;
+  inset: 0 auto 0 0;         /* top:0; right:auto; bottom:0; left:0 */
+  background: linear-gradient(90deg, var(--color-primary), var(--color-light-primary));
+  border-radius: 999px;
+  /* width sættes via inline style i JSX */
+}
+
+.timeRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  margin-top: 6px;
+  user-select: none;
+}
+
+
+
+.button {
+    background-color: transparent;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--color-primary);
+    border: none;
+    padding: 0;
+}
+
+.buttonSkip img {
+    height: 2rem;
+}
+
+.buttonPlay  img {
+    height: 2.5rem;
+}
+
+.volume {
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    justify-content: flex-end;
+    max-width: 200px;
+    margin-left: auto;
+}
+
+.volumeIcon {
+    width: 1.5rem;
+    height: 1.5rem; 
+}
+
+
+/* Slider base */
+.range {
+  appearance: none;
+  width: 100%;
+  height: 12px; /* juster højden */
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg,  var(--color-primary), var(--color-light-primary)) 0/var(--progress,0%) 100% no-repeat,
+    var(--color-accent);
+  cursor: pointer;
+}
+
+/* WebKit */
+.range::-webkit-slider-runnable-track {
+  height: 12px;
+  border-radius: 999px;
+  background: transparent;
+}
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 0; /* skjul thumb */
+  height: 0;
+}
+
+/* Firefox */
+.range::-moz-range-track {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-accent);
+}
+.range::-moz-range-progress {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+.range::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  border: none;
+}
+
+
+
+.muteToggle {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
