@@ -176,54 +176,82 @@
 
 /* ---------- MINI variant ---------- */
 
-.audioPlayer.audioPlayer--mini {
-  padding: 8px 12px 18px;
-  width: 50%;
-  padding: 2rem;
+/* MINI – ren gridplacering, ingen absolute */
+.audioPlayer.audioPlayer--mini{
+  padding: 8px 12px 14px;
 }
-.audioPlayer.audioPlayer--mini .audioPlayer__Container {
+
+.audioPlayer.audioPlayer--mini .audioPlayer__Container{
+  display: grid;
+  width: 40%;
+  /* [play+vol] [cover+info] [spacer] [expand]  */
   grid-template-columns: 1fr 1fr 4fr;
-  grid-template-rows: 1fr 1fr; /* [miniControls] [cover+info] [spacer] [windowButtons] */
-  gap: var(--space-3);
+  /* række 1: indhold  – række 2: progress-linje */
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 12px;
+  position: relative; /* ikke strengt nødvendigt, men fint at beholde */
 }
 
-/* Venstre blok (play + volume-ikon) */
-.miniControls { display: flex; align-items: center; gap: 12px; grid-column: 1 / 3;}
-.audioPlayer.audioPlayer--mini .volume { display: none; grid-column: 1 / 2;} /* mini bruger vertical variant */
-.audioPlayer.audioPlayer--mini .cover { width: 40px; height: 40px; }
-.audioPlayer.audioPlayer--mini .title { font-size: 1rem; }
-.audioPlayer.audioPlayer--mini .artist { font-size: .85rem; }
 
-/* Skjul transport + tider i mini (men behold container til progress) */
-.audioPlayer.audioPlayer--mini .audioControl__container { display: none; }
-.audioPlayer.audioPlayer--mini .timeRow { display: none; }
+.audioPlayer.audioPlayer--mini .cover{ width: 40px; height: 40px; }
+.audioPlayer.audioPlayer--mini .title{ font-size: 1rem; }
+.audioPlayer.audioPlayer--mini .artist{ font-size: .85rem; }
 
-/* mini: bund-border progress (klikbar) */
-.audioPlayer.audioPlayer--mini .progress {
-  position: absolute;
-  left: 12px; right: 12px; bottom: 6px;
-  height: 6px; border-radius: var(--radius-pill);
+
+
+/* Skjul centerknapper/tider i mini, men behold containeren */
+.audioPlayer.audioPlayer--mini .audioControl__container{ display: none; }
+.audioPlayer.audioPlayer--mini .timeRow{ display: none; }
+
+/* venstre (play + volumeikon) */
+.audioPlayer.audioPlayer--mini .miniControls{ 
+  grid-column: 1; 
+  grid-row: 1; 
+  display:flex; align-items:center; gap:12px; 
+}
+
+/* midten (cover + titel/kunstner) */
+.audioPlayer.audioPlayer--mini .audioCoverData{ 
+  grid-column: 2 / 4; /* dækker col 2-3 */
+  grid-row: 1; 
+}
+
+/* højre (expand-knap) */
+.audioPlayer.audioPlayer--mini .windowButtons{ 
+  grid-column: 4; 
+  grid-row: 1; 
+  justify-self: end; 
+}
+
+/* progress = nederste række, over hele gridet */
+.audioPlayer.audioPlayer--mini .progress{
+  grid-column: 1 / -1;   /* span ALT */
+  grid-row: 2;
+  height: 6px;
+  border-radius: 999px;
   background: var(--color-accent);
+  position: relative;
+  cursor: pointer;
 }
-.audioPlayer.audioPlayer--mini .progressBar { background: var(--gradient-primary); }
+.audioPlayer.audioPlayer--mini .progressBar{
+  background: var(--gradient-primary);
+  height: 6px;
+  position: absolute; inset: 0 auto 0 0;
+  pointer-events: none;
+}
 
-/* Vertikal volume på hover */
-.volumeMini { position: relative; display: inline-flex; align-items: center; }
-.rangeVertical {
-  position: absolute;
-  left: 50%; bottom: 52px;
-  transform: translateX(-50%) rotate(-90deg);
-  width: 140px;
-  opacity: 0; pointer-events: none;
-  transition: opacity .15s ease;
-  z-index: 5;
+/* Vertikal volume på hover (som før) */
+.volumeMini{ position: relative; display:inline-flex; align-items:center; }
+.rangeVertical{
+  position:absolute;
+  left:50%; bottom:52px;
+  transform:translateX(-50%) rotate(-90deg);
+  width:140px; opacity:0; pointer-events:none; transition:opacity .15s ease; z-index:5;
 }
 .volumeMini:hover .rangeVertical,
-.volumeMini:focus-within .rangeVertical {
-  opacity: 1; pointer-events: auto;
-}
-.rangeVertical::-webkit-slider-runnable-track,
-.rangeVertical::-moz-range-track { box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.volumeMini:focus-within .rangeVertical{ opacity:1; pointer-events:auto; }
+
 
 /* ---------- FULL variant ---------- */
 
