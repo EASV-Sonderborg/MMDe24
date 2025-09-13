@@ -44,7 +44,11 @@
   border-radius: 12px;
   object-fit: cover;
   box-shadow: var(--shadow-md);
-  background: #ddd;
+  background: #ffffff;
+}
+
+.cover:hover  {
+  transform: scale(1.05);
 }
 
 .trackInfo {
@@ -60,6 +64,7 @@
   color: var(--color-text);
   line-height: 1.1;
   width: fit-content;
+  cursor: pointer;
 }
 .artist {
   font-weight: 500;
@@ -67,6 +72,7 @@
   color: var(--color-primary);
   line-height: 1.1;
   width: fit-content;
+  cursor: pointer;  
 }
 
 /* underline på hover uden layout-jump */
@@ -113,6 +119,11 @@
   position: relative;
   cursor: pointer;
 }
+
+.progress.isDragging { 
+  cursor: grabbing; 
+}
+
 .progressBar {
   position: absolute; inset: 0 auto 0 0;
   background: var(--gradient-primary);
@@ -183,10 +194,8 @@
 
 .audioPlayer.audioPlayer--mini .audioPlayer__Container{
   display: grid;
-  width: 40%;
-  /* [play+vol] [cover+info] [spacer] [expand]  */
-  grid-template-columns: 1fr 1fr 4fr;
-  /* række 1: indhold  – række 2: progress-linje */
+  width: 30%;
+  grid-template-columns: auto auto 1fr  auto;  /* række 1: indhold  – række 2: progress-linje */
   grid-template-rows: auto auto;
   align-items: center;
   gap: 12px;
@@ -194,7 +203,7 @@
 }
 
 
-.audioPlayer.audioPlayer--mini .cover{ width: 40px; height: 40px; }
+.audioPlayer.audioPlayer--mini .cover{ width: 56px; height: 56px; }
 .audioPlayer.audioPlayer--mini .title{ font-size: 1rem; }
 .audioPlayer.audioPlayer--mini .artist{ font-size: .85rem; }
 
@@ -208,7 +217,9 @@
 .audioPlayer.audioPlayer--mini .miniControls{ 
   grid-column: 1; 
   grid-row: 1; 
-  display:flex; align-items:center; gap:12px; 
+  display: flex; 
+  align-items:center;
+  gap:12px; 
 }
 
 /* midten (cover + titel/kunstner) */
@@ -220,14 +231,21 @@
 /* højre (expand-knap) */
 .audioPlayer.audioPlayer--mini .windowButtons{ 
   grid-column: 4; 
-  grid-row: 1; 
+  grid-row: 2; 
   justify-self: end; 
 }
 
+.audioPlayer.audioPlayer--mini .audioControlProgress__container{
+  grid-column: 1 / 4; /* dækker alle 4 col */
+  grid-row: 2; 
+  width: 100%;
+  margin: 0; /* fjern auto-margin fra full */
+}
+
+
+
 /* progress = nederste række, over hele gridet */
 .audioPlayer.audioPlayer--mini .progress{
-  grid-column: 1 / -1;   /* span ALT */
-  grid-row: 2;
   height: 6px;
   border-radius: 999px;
   background: var(--color-accent);
@@ -235,19 +253,21 @@
   cursor: pointer;
 }
 .audioPlayer.audioPlayer--mini .progressBar{
-  background: var(--gradient-primary);
+  position: absolute;
+  inset: 0 auto 0 0;
   height: 6px;
-  position: absolute; inset: 0 auto 0 0;
-  pointer-events: none;
+  background: var(--gradient-primary);
+  border-radius: inherit;
+  pointer-events: none; /* klik rammer forælderen (.progress) */
 }
 
 /* Vertikal volume på hover (som før) */
 .volumeMini{ position: relative; display:inline-flex; align-items:center; }
 .rangeVertical{
   position:absolute;
-  left:50%; bottom:52px;
+  left: 45%; bottom:95px;
   transform:translateX(-50%) rotate(-90deg);
-  width:140px; opacity:0; pointer-events:none; transition:opacity .15s ease; z-index:5;
+  width:140px; opacity:0; pointer-events:none; transition:opacity .3s ease; z-index:5;
 }
 .volumeMini:hover .rangeVertical,
 .volumeMini:focus-within .rangeVertical{ opacity:1; pointer-events:auto; }

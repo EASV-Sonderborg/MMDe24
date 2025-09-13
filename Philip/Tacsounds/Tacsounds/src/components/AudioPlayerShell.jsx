@@ -8,8 +8,8 @@ import volumeLow from "../assets/icons/volumeLow.svg";
 import volumeMid from "../assets/icons/volumeMid.svg";
 import volumeHigh from "../assets/icons/volumeHigh.svg";
 
-export default function AudioPlayerShell(){
-  const ctrl = useAudioController();
+export default function AudioPlayerShell({ controller }) {
+  const ctrl = controller ?? useAudioController(); // <- brug delt controller hvis givet
 
   const volumeIcon = (v, muted) => {
     if (muted || v === 0) return volumeMute;

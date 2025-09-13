@@ -1,0 +1,109 @@
+/* Container for stage + arrows (center everything together) */
+.featured {
+  display: grid;
+  place-items: center;
+  margin: 16px auto 48px;
+}
+.featured__frame {
+  position: relative;
+  width: min(1200px, 92vw);
+}
+
+/* Stage */
+.featured__stage {
+  position: relative;
+  height: clamp(260px, 42vw, 400px);
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  perspective: 1200px;
+}
+
+/* Cards */
+.featured__card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), opacity .28s ease, filter .28s ease;
+  outline: none;
+  display: grid;
+  place-items: center;
+}
+.featured__card:is(:hover, :focus-visible) { filter: brightness(1.02); }
+
+/* White background behind image (for PNG covers) */
+.featured__coverWrap {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.20);
+}
+.featured__cover {
+  width: clamp(200px, 34vw, 340px);
+  height: clamp(200px, 34vw, 340px);
+  object-fit: cover;
+  border-radius: 18px;
+  display: block; 
+}
+
+/* Play overlay only on center + hover/focus */
+.featured__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: white;
+  opacity: 0;
+  transition: opacity .2s ease;
+  background: radial-gradient(transparent 75%, rgba(0,0,0,.28));
+  pointer-events: none;
+  border-radius: 18px;
+}
+.featured__card.isCenter:hover .featured__overlay,
+.featured__card.isCenter:focus-visible .featured__overlay { opacity: 1; }
+
+/* Meta – push further down and add spacing */
+.featured__meta {
+  position: absolute;
+  bottom: -64px;                /* further down than before */
+  width: 100%;
+  text-align: center;
+  color: var(--color-text);
+  pointer-events: none;
+}
+.featured__title  { font-weight: 700; margin-bottom: 6px; opacity: 0;}
+.featured__artist { font-weight: 500; opacity: 0; color: var(--color-primary); }
+
+.featured__card.isCenter .featured__title,
+.featured__card.isCenter .featured__artist {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Arrows – now positioned inside the same frame */
+.featured__nav {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.featured__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  width: 46px; height: 46px;
+  border-radius: 999px;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background: #fff;
+  display: grid; place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.10);
+  z-index: 5;
+}
+.featured__arrow:first-of-type { left: -10px; }
+.featured__arrow:last-of-type  { right: -10px; }
+.featured__arrow:hover { background: #f7f7ff; }

@@ -52,8 +52,8 @@ export default function PlayerMini({
         </div>
 
         {/* bund-progress som border */}
-        <div className="progress progress--miniBorder">
-          <div className="progressBar" style={{ width: `${progressPct}%` }} />
+        <div className="audioControlProgress__container">
+          <ProgressBar percent={progressPct} onSeek={seekToRatio} className="progress--miniBorder" />
         </div>
       </div>
     </div>
