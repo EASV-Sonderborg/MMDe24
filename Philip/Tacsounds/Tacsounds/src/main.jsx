@@ -11,9 +11,7 @@ import AudioPlayerShell from './components/AudioPlayerShell.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     
-    <Home>
-    <AudioPlayerShell/>
-    </Home>
+    <Home />
 
   </StrictMode>,
 )

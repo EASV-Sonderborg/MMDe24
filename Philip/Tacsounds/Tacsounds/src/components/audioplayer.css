@@ -148,6 +148,13 @@
   gap: var(--space-4);
 }
 
+.RightControls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
 .volume {
   display: flex;
   align-items: center;

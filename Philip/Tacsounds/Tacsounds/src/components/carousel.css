@@ -2,8 +2,9 @@
 .featured {
   display: grid;
   place-items: center;
-  margin: 16px auto 48px;
+  margin: 0;                 /* <- fjern top/bund-skub */
 }
+
 .featured__frame {
   position: relative;
   width: min(1200px, 92vw);
@@ -37,6 +38,7 @@
 
 /* White background behind image (for PNG covers) */
 .featured__coverWrap {
+  position: relative;
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 12px 32px rgba(0,0,0,.20);
@@ -49,32 +51,43 @@
   display: block; 
 }
 
-/* Play overlay only on center + hover/focus */
+/* --- OVERLAY: visible when center+playing, otherwise only on hover --- */
 .featured__overlay {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: white;
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  color: #fff;
   opacity: 0;
   transition: opacity .2s ease;
-  background: radial-gradient(transparent 75%, rgba(0,0,0,.28));
-  pointer-events: none;
+  background: radial-gradient(rgba(0,0,0,.48) 10%, rgba(0,0,0,.1) 40%, transparent 60%);
+  pointer-events: none;         /* click håndteres af clickArea */
   border-radius: 18px;
+  z-index: 4;
 }
-.featured__card.isCenter:hover .featured__overlay,
-.featured__card.isCenter:focus-visible .featured__overlay { opacity: 1; }
+
+.featured__coverWrap:hover .featured__overlay,
+.featured__coverWrap:focus-within .featured__overlay { opacity: 1; }
+
+/* Hvis center+spiller: vis altid pause-ikon */
+.featured__overlay.isVisible { opacity: 1; }
 
 /* Meta – push further down and add spacing */
 .featured__meta {
-  position: absolute;
-  bottom: -64px;                /* further down than before */
-  width: 100%;
-  text-align: center;
-  color: var(--color-text);
-  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* vigtig: de må få klik! */
+  padding-top: 2rem;
 }
-.featured__title  { font-weight: 700; margin-bottom: 6px; opacity: 0;}
+.featured__title,
+.featured__artist {
+  display: inline-block;
+  margin: 4px 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.featured__artist { color: var(--color-primary); }
+
+.featured__title  { font-weight: 700; margin-bottom: 6px; opacity: 0; font-size: 1.25rem;}
 .featured__artist { font-weight: 500; opacity: 0; color: var(--color-primary); }
 
 .featured__card.isCenter .featured__title,
@@ -89,10 +102,12 @@
   inset: 0;
   pointer-events: none;
 }
+
+/* --- ARROWS: scale on hover, no 20px nudge --- */
 .featured__arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%);       /* base transform */
   pointer-events: auto;
   width: 46px; height: 46px;
   border-radius: 999px;
@@ -103,7 +118,14 @@
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,.10);
   z-index: 5;
+  transition: transform .18s ease;   /* animate scale only */
 }
+
 .featured__arrow:first-of-type { left: -10px; }
 .featured__arrow:last-of-type  { right: -10px; }
-.featured__arrow:hover { background: #f7f7ff; }
+
+/* Hover just scales (and keeps translateY) */
+.featured__arrow:hover { transform: translateY(-50%) scale(1.05); }
+
+.featured__stage { cursor: grab; }
+.featured__stage:active { cursor: grabbing; }

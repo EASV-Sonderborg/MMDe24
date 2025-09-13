@@ -1,0 +1,70 @@
+:root {
+  --gradient: linear-gradient(90deg, #044FDB 0%, #FD3877 50%, #FD7E24 100%);
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  height: 60px;
+  cursor: pointer;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.navLinks {
+  list-style: none;
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks a {
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+/* Active state: gradient text + gradient bottom border */
+.navLinks a.active {
+  -webkit-text-fill-color: transparent;
+  background: var(--gradient);
+  background-clip: text;
+}
+
+.navLinks a.active::after {
+  content: "";
+  display: block;
+  height: 4px;
+  border-radius: 1rem;
+  background: var(--gradient);
+}
+
+/* Hover state: gradient background + white text */
+.navLinks a:hover {
+  background: var(--gradient);
+  color: white;
+  -webkit-text-fill-color: white;
+}

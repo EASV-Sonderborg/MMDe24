@@ -35,7 +35,11 @@ export default function PlayerStandard({
           <div className="timeRow"><span>{fmt(progress)}</span><span>{fmt(duration)}</span></div>
         </div>
 
-        <div className="volume">
+        <div className="RightControls">
+          <div className="windowButtons">
+            <button className="button sizeBtn" onClick={shrinkVariant} aria-label="Gør mindre"><img src={iconMinimize} /></button>
+            <button className="button sizeBtn" onClick={growVariant} aria-label="Gør større"><img src={iconExpand} /></button>
+          </div>
           <VolumeControl
             volume={volume}
             isMuted={isMuted}
@@ -43,10 +47,6 @@ export default function PlayerStandard({
             onToggleMute={toggleMute}
             onChange={onVolumeChange}
           />
-          <div className="windowButtons">
-            <button className="button sizeBtn" onClick={shrinkVariant} aria-label="Gør mindre"><img src={iconMinimize} /></button>
-            <button className="button sizeBtn" onClick={growVariant} aria-label="Gør større"><img src={iconExpand} /></button>
-          </div>
         </div>
       </div>
     </div>
