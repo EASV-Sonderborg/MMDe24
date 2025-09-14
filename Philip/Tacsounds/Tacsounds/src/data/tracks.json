@@ -15,12 +15,12 @@
         },
         "audio": 
         {
-            "src": "/src/assets/tracks/Where Did You Go - Tac.wav",
+            "src": "/assets/tracks/Where did you go - Tac.wav",
             "format": "wav"
         },
         "cover": 
         {
-            "src": "/src/assets/covers/Where Did You Go - Tac.png",
+            "src": "/assets/covers/Where did you go - Tac.png",
             "format": "png"
         }
 
@@ -42,11 +42,11 @@
         },
         "audio": 
         {
-            "src": "/src/assets/tracks/2d racing house gmin.mp3",
+            "src": "/assets/tracks/2d racing house gmin.mp3",
             "format": "mp3"
         },
         "cover": {
-            "src": "/src/assets/covers/nightRider.png",
+            "src": "/assets/covers/nightRider.png",
             "format": "png"
         }
 
@@ -68,12 +68,12 @@
         },
         "audio": 
         {
-            "src": "/src/assets/tracks/So am i.mp3",
+            "src": "/assets/tracks/So am i.mp3",
             "format": "mp3"
         },
         "cover": 
         {
-            "src": "/src/assets/covers/tacStandard.png",
+            "src": "/assets/covers/tacStandard.png",
             "format": "png"
         }
     },
@@ -94,12 +94,12 @@
         },
         "audio": 
         {
-            "src": "/src/assets/tracks/Lidt AW på den Gmin.mp3",
+            "src": "/assets/tracks/Lidt AW på den Gmin.mp3",
             "format": "mp3"
         },
         "cover": 
         {
-            "src": "/src/assets/covers/tacStandard.png",
+            "src": "/assets/covers/tacStandard.png",
             "format": "png"
         }
     },
@@ -118,11 +118,11 @@
             "mode": null 
         },
         "audio": {
-            "src": "/src/assets/tracks/Lidt i DNB Remix.mp3",
+            "src": "/assets/tracks/Lidt i DNB Remix.mp3",
             "format": "mp3"
         },
         "cover": {
-            "src": "/src/assets/covers/tacStandard.png",
+            "src": "/assets/covers/tacStandard.png",
             "format": "png"
         }
     },
@@ -142,12 +142,12 @@
         },
         "audio": 
         {
-            "src": "/src/assets/tracks/fadklubben v2 Gmaj.mp3",
+            "src": "/assets/tracks/fadklubben v2 Gmaj.mp3",
             "format": "mp3"
         },
         "cover": 
         {
-            "src": "/src/assets/covers/tacStandard.png",
+            "src": "/assets/covers/tacStandard.png",
             "format": "png"
         }
     },
@@ -167,12 +167,12 @@
         },
         "audio": 
         {
-            "src": "/src/assets/tracks/message in a club.mp3",
+            "src": "/assets/tracks/message in a club.mp3",
             "format": "mp3"
         },
         "cover": 
         {
-            "src": "/src/assets/covers/tacStandard.png",
+            "src": "/assets/covers/tacStandard.png",
             "format": "png"
         }
     }

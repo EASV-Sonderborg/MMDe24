@@ -17,6 +17,7 @@ export default function AudioPlayerShell({ controller }) {
     if (v <= 0.66) return volumeMid;
     return volumeHigh;
   };
+  
 
   const shared = {
     current: ctrl.current,
