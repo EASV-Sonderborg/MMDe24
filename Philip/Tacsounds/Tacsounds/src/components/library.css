@@ -1,0 +1,167 @@
+/* ============== Layout ============== */
+.library {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+.library__header {
+  margin-bottom: 16px;
+}
+
+.filtersRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+@media (min-width: 860px) {
+  .filtersRow {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+/* ============== Search ============== */
+.searchBox input {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 16px;
+  outline: none;
+}
+.searchBox input:focus {
+  border-color: #1F2BAD40;
+  box-shadow: 0 0 0 3px #1F2BAD1a;
+}
+
+/* ============== Genre chips ============== */
+.genreChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.chip {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.chip.isActive {
+  border-color: #1F2BAD;
+  color: #1F2BAD;
+  box-shadow: 0 0 0 3px #1F2BAD1a;
+}
+
+/* ============== Toggle tech ============== */
+.toggleTech {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: end;
+  white-space: nowrap;
+}
+
+/* ============== Table (desktop) ============== */
+.tableWrap { overflow: auto; background: #fff; border-radius: 12px; border: 1px solid #e5e7eb; }
+.trackTable { width: 100%; border-collapse: collapse; min-width: 860px; }
+.trackTable th, .trackTable td { padding: 10px 12px; border-bottom: 1px solid #f1f2f6; text-align: left; }
+.trackTable thead th {
+  font-weight: 700; font-size: 14px; color: #4b5563; user-select: none; cursor: pointer;
+}
+.trackTable thead th[aria-label] { cursor: default; } /* cover/info columns */
+
+.thIcon { width: 14px; opacity: .35; margin-left: 6px; vertical-align: middle; }
+.sortBadge { margin-left: 6px; color: #111827; }
+
+.trackTable tbody tr.isPlaying { background: #f8faff; }
+.trackTable tbody tr:hover { background: #fafafa; }
+
+/* cover button */
+.coverBtn {
+  position: relative;
+  border: none; background: transparent; padding: 0; cursor: pointer;
+}
+.coverImg { width: 54px; height: 54px; border-radius: 8px; object-fit: cover; display: block; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.coverOverlay {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  opacity: 0; transition: opacity .15s ease; background: radial-gradient(transparent 60%, rgba(0,0,0,.25));
+  border-radius: 8px;
+}
+.coverBtn:hover .coverOverlay { opacity: 1; }
+.coverOverlay img { width: 26px; height: 26px; filter: drop-shadow(0 2px 4px rgba(0,0,0,.35)); }
+
+.cellTitle { font-weight: 700; }
+.cellArtist { color: #1F2BAD; font-weight: 600; }
+.cellInfo { text-align: right; }
+
+.infoBtn { border: none; background: #fff; width: 34px; height: 34px; border-radius: 999px; display: grid; place-items: center; box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+.infoBtn:hover { background: #f6f7ff; }
+.infoBtn img { width: 16px; }
+
+/* ============== Mobile list ============== */
+.showOnMobile { display: none; }
+.hideOnMobile { display: block; }
+
+@media (max-width: 859px) {
+  .showOnMobile { display: block; }
+  .hideOnMobile { display: none; }
+}
+
+.mobileList { display: grid; gap: 10px; }
+.mobileCard {
+  display: grid; grid-template-columns: auto 1fr; gap: 12px;
+  align-items: center; padding: 10px; border: 1px solid #e5e7eb; border-radius: 12px; background: #fff;
+}
+.mobileCard.isPlaying { background: #f8faff; }
+.mobileCard .coverImg { width: 56px; height: 56px; }
+
+.mobileCard .meta .title { font-weight: 700; margin-bottom: 2px; }
+.mobileCard .meta .artist { color: #1F2BAD; font-weight: 600; margin-bottom: 8px; }
+.mobileCard .subRow { display: flex; align-items: center; gap: 10px; color: #6b7280; }
+.mobileCard .subRow .infoBtn { margin-left: auto; }
+
+/* ============== Modal ============== */
+.modalBackdrop {
+  position: fixed; inset: 0; background: rgba(10,12,16,.6);
+  display: grid; place-items: center; z-index: 60;
+}
+.modalCard {
+  width: min(900px, 92vw); background: #fff; border-radius: 14px; padding: 16px 16px 20px; position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.modalClose { position: absolute; top: 10px; right: 10px; border: none; background: #fff; width: 36px; height: 36px; border-radius: 999px; display: grid; place-items: center; box-shadow: 0 1px 6px rgba(0,0,0,.1); }
+.modalClose img { width: 16px; }
+
+.modalGrid { display: grid; grid-template-columns: 200px 1fr; gap: 16px; }
+.modalCover { width: 200px; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.1); }
+.modalMeta h2 { margin: 0 0 4px; }
+.modalArtist { color: #1F2BAD; font-weight: 600; margin-bottom: 10px; }
+.modalList { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; }
+.modalList span { color: #6b7280; }
+
+.modalDesc { margin-top: 12px; color: #374151; line-height: 1.5; }
+
+@media (max-width: 640px) {
+  .modalGrid { grid-template-columns: 1fr; }
+  .modalCover { width: 100%; height: auto; }
+}
+
+/* ============== Page grid helpers (henter fra din Home) ============== */
+.pageGrid {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.siteMain {
+  display: grid;
+  padding: clamp(12px, 3vw, 32px);
+  padding-bottom: calc(140px + env(safe-area-inset-bottom));
+}
+
+.siteFooter { position: relative; z-index: 20; }

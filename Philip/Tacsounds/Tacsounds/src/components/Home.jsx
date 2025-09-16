@@ -4,6 +4,8 @@ import useAudioController from "../components/useAudioController";
 import AudioPlayerShell from "../components/AudioPlayerShell";
 import FeaturedCarousel from "../components/FeaturedCarousel";
 import NavBar from "./NavBar"; // ret stien hvis din NavBar ligger et andet sted
+import Library from "../components/Library.jsx";
+
 
 export default function Home() {
   const ctrl = useAudioController();
@@ -28,6 +30,7 @@ export default function Home() {
       <NavBar className="siteHeader" />
 
       <main className="siteMain">
+        <Library controller={ctrl} className="librarySection" />
         <FeaturedCarousel
           tracks={ctrl.tracks}
           viewIndex={viewIndex}

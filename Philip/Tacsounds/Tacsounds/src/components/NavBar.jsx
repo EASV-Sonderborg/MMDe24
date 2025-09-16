@@ -6,7 +6,7 @@ const NavBar = () => {
     <nav className="navBar">
       <a href="/" className="logoLink">
         <img
-          src="/src/assets/covers/tacStandard.png"
+          src="/assets/covers/tacStandard.png"
           alt="Tac Logo"
           className="logo"
         />
