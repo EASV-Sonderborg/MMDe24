@@ -1,0 +1,27 @@
+/* Home page shell layout (matches the classes used in Home.jsx) */
+
+.pageGrid {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.home {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: #FFFFFF;
+}
+
+/* keep navbar above content if it has shadows, etc. */
+.siteHeader { position: relative; z-index: 10; }
+
+/* center the main view (carousel or library) and leave room for the player */
+.siteMain {
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 32px);
+  padding-bottom: calc(140px + env(safe-area-inset-bottom));
+}
+
+/* player sits in normal flow; AudioPlayerShell already handles sticky inside itself */
+.siteFooter { position: relative; z-index: 20; }

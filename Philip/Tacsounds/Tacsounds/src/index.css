@@ -63,35 +63,10 @@ html, body {
 /* Fulde højde på app */
 html, body, #root {
   height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* 3-række grid: header | main | footer */
-.pageGrid {
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-
-/* Header – placer din egen navbar-styling her */
-.siteHeader {
-  position: relative;
-  z-index: 10;
-}
-
-/* Main – centrer carousel horisontalt/vertikalt og giv luft nederst til player */
-.siteMain {
-  display: grid;
-  place-items: center;
-  padding: clamp(12px, 3vw, 32px);
-  /* plads til player (justér hvis din player er højere/lavere) */
-  padding-bottom: calc(140px + env(safe-area-inset-bottom));
-}
-
-/* Footer – du kan holde den “flow”, spillerens shell er allerede sticky */
-.siteFooter {
-  position: relative;
-  z-index: 20;
-}
 
 
 a {

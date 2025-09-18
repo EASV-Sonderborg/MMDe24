@@ -1,131 +1,96 @@
-/* Container for stage + arrows (center everything together) */
-.featured {
-  display: grid;
-  place-items: center;
-  margin: 0;                 /* <- fjern top/bund-skub */
+/* Center the whole carousel area */
+.featured { display:grid; place-items:center; z-index: 1; }
+
+.featured__frame{
+  position:relative;
+  width:min(1200px, 100%);
+  display:grid;
+  place-items:center;
 }
 
-.featured__frame {
-  position: relative;
-  width: min(1200px, 92vw);
+/* Stage holds the positioned cards */
+.featured__stage{
+  position:relative;
+  height:420px;             /* room for meta under cover */
+  overflow:visible;         /* cards can spill visually */
+  touch-action:pan-y;       /* horizontal drag only */
+}
+.featured__stage:active{ cursor:grabbing; }
+
+/* Arrows are part of the same frame so they stay centered with stage */
+.featured__nav{ position:absolute; inset:0; pointer-events:none; }
+.featured__arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  pointer-events:auto;
+  width:46px; height:46px; border-radius:999px;
+  border:2px solid var(--color-primary);
+  color:var(--color-primary); background:#fff;
+  display:grid; place-items:center; cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.10); z-index:5;
+  transition:transform .18s ease;
+}
+.featured__arrow:first-of-type{ left:-10px; }
+.featured__arrow:last-of-type{ right:-10px; }
+.featured__arrow:hover{ transform:translateY(-50%) scale(1.05); }
+
+/* Card */
+.featured__card{
+  position:absolute;
+  left:50%;
+  top:0;
+  transform-origin:center center;
+  transition:transform .18s ease, opacity .18s ease;
+  cursor:pointer;
+  width:260px; height:320px;
+  display:grid; grid-template-rows:auto auto;
+  justify-items:center;
 }
 
-/* Stage */
-.featured__stage {
-  position: relative;
-  height: clamp(260px, 42vw, 400px);
-  display: grid;
-  place-items: center;
-  overflow: visible;
-  perspective: 1200px;
+/* Cover + overlay */
+.featured__coverWrap{ position:relative; width:260px; height:260px; }
+.featured__cover{
+  position:relative; width:100%; height:100%;
+  border-radius:20px; overflow:hidden; box-shadow:0 12px 32px rgba(0,0,0,.20);
+}
+.featured__cover img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  -webkit-user-drag: none; user-select:none;
+}
+/* White backing so transparent PNGs don’t show the page */
+.coverBg{
+  position:absolute; inset:0; background:white; z-index:-1;
 }
 
-/* Cards */
-.featured__card {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  transition: transform .35s cubic-bezier(.2,.7,.2,1), opacity .28s ease, filter .28s ease;
-  outline: none;
-  display: grid;
-  place-items: center;
+/* Play/Pause overlay */
+.featured__overlay{
+  position:absolute; inset:0; display:grid; place-items:center;
+  color:#fff; opacity:0; pointer-events:none;
+  background:radial-gradient(rgba(0,0,0,.45) 10%, rgba(0,0,0,.12) 40%, transparent 65%);
+  transition:opacity .2s ease;
 }
-.featured__card:is(:hover, :focus-visible) { filter: brightness(1.02); }
+.featured__overlay.showOnHover:hover{ opacity:1; }
+.featured__overlay.isVisible{ opacity:1; } /* when centered + playing */
+.overlayIcon{ width:44px; height:44px; fill:#fff; }
 
-/* White background behind image (for PNG covers) */
-.featured__coverWrap {
-  position: relative;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(0,0,0,.20);
+/* Meta under the cover (more breathing room) */
+.featured__meta{
+  display:flex; flex-direction:column; align-items:center;
+  padding-top:18px; gap:6px;
 }
-.featured__cover {
-  width: clamp(200px, 34vw, 340px);
-  height: clamp(200px, 34vw, 340px);
-  object-fit: cover;
-  border-radius: 18px;
-  display: block; 
+.title, .artist{
+  display:inline-block; text-decoration:none;
+  font-weight:600; color:var(--color-text);
+}
+.title{ font-weight:700; font-size:1.1rem; }
+.artist{ color:var(--color-primary); font-weight:500; }
+
+/* Hover polish */
+.featured__card:is(:hover, :focus-visible){
+  filter:brightness(1.02); transform:scale(1.06);
 }
 
-/* --- OVERLAY: visible when center+playing, otherwise only on hover --- */
-.featured__overlay {
-  position: absolute; inset: 0;
-  display: grid; place-items: center;
-  color: #fff;
-  opacity: 0;
-  transition: opacity .2s ease;
-  background: radial-gradient(rgba(0,0,0,.48) 10%, rgba(0,0,0,.1) 40%, transparent 60%);
-  pointer-events: none;         /* click håndteres af clickArea */
-  border-radius: 18px;
-  z-index: 4;
+/* “Loading…” */
+.featured__empty{
+  position:absolute; inset:0; display:grid; place-items:center;
+  color:var(--color-muted, #888);
 }
-
-.featured__coverWrap:hover .featured__overlay,
-.featured__coverWrap:focus-within .featured__overlay { opacity: 1; }
-
-/* Hvis center+spiller: vis altid pause-ikon */
-.featured__overlay.isVisible { opacity: 1; }
-
-/* Meta – push further down and add spacing */
-.featured__meta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* vigtig: de må få klik! */
-  padding-top: 2rem;
-}
-.featured__title,
-.featured__artist {
-  display: inline-block;
-  margin: 4px 8px;
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--color-text);
-}
-.featured__artist { color: var(--color-primary); }
-
-.featured__title  { font-weight: 700; margin-bottom: 6px; opacity: 0; font-size: 1.25rem;}
-.featured__artist { font-weight: 500; opacity: 0; color: var(--color-primary); }
-
-.featured__card.isCenter .featured__title,
-.featured__card.isCenter .featured__artist {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Arrows – now positioned inside the same frame */
-.featured__nav {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* --- ARROWS: scale on hover, no 20px nudge --- */
-.featured__arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);       /* base transform */
-  pointer-events: auto;
-  width: 46px; height: 46px;
-  border-radius: 999px;
-  border: 2px solid var(--color-primary);
-  color: var(--color-primary);
-  background: #fff;
-  display: grid; place-items: center;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,.10);
-  z-index: 5;
-  transition: transform .18s ease;   /* animate scale only */
-}
-
-.featured__arrow:first-of-type { left: -10px; }
-.featured__arrow:last-of-type  { right: -10px; }
-
-/* Hover just scales (and keeps translateY) */
-.featured__arrow:hover { transform: translateY(-50%) scale(1.05); }
-
-.featured__stage { cursor: grab; }
-.featured__stage:active { cursor: grabbing; }

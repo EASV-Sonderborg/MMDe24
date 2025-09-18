@@ -33,7 +33,7 @@
   align-items: center;
 }
 
-.navLinks a {
+.navLinks button {
   font-weight: 700;
   font-size: 1.25rem;
   text-decoration: none;
@@ -48,13 +48,13 @@
 }
 
 /* Active state: gradient text + gradient bottom border */
-.navLinks a.active {
+.navLinks button.active {
   -webkit-text-fill-color: transparent;
   background: var(--gradient);
   background-clip: text;
 }
 
-.navLinks a.active::after {
+.navLinks button.active::after {
   content: "";
   display: block;
   height: 4px;
@@ -63,7 +63,7 @@
 }
 
 /* Hover state: gradient background + white text */
-.navLinks a:hover {
+.navLinks button:hover {
   background: var(--gradient);
   color: white;
   -webkit-text-fill-color: white;

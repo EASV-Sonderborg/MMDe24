@@ -1,24 +1,47 @@
+// NavBar.jsx
 import React from "react";
 import "./navBar.css";
 
-const NavBar = () => {
+export default function NavBar({ currentView, onNavigate }) {
+  const is = (v) => currentView === v;
+
   return (
     <nav className="navBar">
-      <a href="/" className="logoLink">
+      <button
+        type="button"
+        className="logoLink"
+        onClick={() => onNavigate("carousel")}
+        aria-label="Forside"
+      >
         <img
           src="/assets/covers/tacStandard.png"
           alt="Tac Logo"
           className="logo"
         />
-      </a>
+      </button>
+
       <ul className="navLinks">
-        <li><a href="/" className="active">Forside</a></li>
-        <li><a href="/bibliotek">Bibliotek</a></li>
-        <li><a href="/om-mig">Om Mig</a></li>
-        <li><a href="/kontakt">Kontakt</a></li>
+        <li>
+          <button
+            type="button"
+            className={`navBtn ${is("carousel") ? "isActive" : ""}`}
+            onClick={() => onNavigate("carousel")}
+          >
+            Forside
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            className={`navBtn ${is("library") ? "isActive" : ""}`}
+            onClick={() => onNavigate("library")}
+          >
+            Bibliotek
+          </button>
+        </li>
+        <li><button type="button" className="navBtn" disabled>Om Mig</button></li>
+        <li><button type="button" className="navBtn" disabled>Kontakt</button></li>
       </ul>
     </nav>
   );
-};
-
-export default NavBar;
+}

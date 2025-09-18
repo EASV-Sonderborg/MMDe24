@@ -1,48 +1,35 @@
-// src/pages/Home.jsx (eller hvor din Home ligger)
 import React, { useState } from "react";
-import useAudioController from "../components/useAudioController";
-import AudioPlayerShell from "../components/AudioPlayerShell";
-import FeaturedCarousel from "../components/FeaturedCarousel";
-import NavBar from "./NavBar"; // ret stien hvis din NavBar ligger et andet sted
-import Library from "../components/Library.jsx";
-
+import useAudioController from "./useAudioController";
+import AudioPlayerShell from "./AudioPlayerShell";
+import NavBar from "./NavBar";
+import FeaturedCarousel from "./FeaturedCarousel";
+import Library from "./Library";
+import "./home.css";
 
 export default function Home() {
-  const ctrl = useAudioController();
-
-  // carouselens visuelle index (styrer IKKE afspilning i sig selv)
-  const [viewIndex, setViewIndex] = useState(0);
-
-  // Klik på overlay (play/pause) på det centrerede kort:
-  // - hvis det er samme track som spiller: toggle play/pause
-  // - ellers: skift til det track og start
-  const handlePlayToggleAtIndex = (i) => {
-    if (ctrl.index === i) {
-      ctrl.togglePlay();
-    } else {
-      ctrl.setIndex(i);
-      if (!ctrl.isPlaying) ctrl.togglePlay();
-    }
-  };
+  const controller = useAudioController();
+  const [siteMain, setSiteMain] = useState("carousel");
 
   return (
-    <div className="pageGrid">
-      <NavBar className="siteHeader" />
+    <div className="site">
+      <header className="siteHeader">
+        <NavBar
+          active={siteMain}
+          onNavigate={(key) => setSiteMain(key)}
+          onLogoClick={() => setSiteMain("carousel")}
+        />
+      </header>
 
       <main className="siteMain">
-        <Library controller={ctrl} className="librarySection" />
-        <FeaturedCarousel
-          tracks={ctrl.tracks}
-          viewIndex={viewIndex}
-          setViewIndex={setViewIndex}
-          playingIndex={ctrl.index}
-          isPlaying={ctrl.isPlaying}
-          onPlayToggleAtIndex={handlePlayToggleAtIndex}
-        />
+        {siteMain === "carousel" ? (
+          <FeaturedCarousel controller={controller} />
+        ) : (
+          <Library controller={controller} />
+        )}
       </main>
 
       <footer className="siteFooter">
-        <AudioPlayerShell controller={ctrl} />
+        <AudioPlayerShell controller={controller} />
       </footer>
     </div>
   );

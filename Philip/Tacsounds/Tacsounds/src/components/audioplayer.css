@@ -18,7 +18,7 @@
   background: #fff;
   padding: var(--space-6) var(--space-4);
   box-shadow: var(--shadow-sm);
-  z-index: 30;
+  z-index: 99;
 }
 
 /* CSS grid – 3 kolonner: [cover+info] [controls+progress] [volume+windowButtons] */

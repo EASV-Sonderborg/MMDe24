@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+// useAudioController.js
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import tracksData from "../data/tracks.json";
 
 const VARIANTS = { mini: "mini", standard: "standard", full: "full" };
@@ -28,6 +29,7 @@ const normalize = (items) =>
 
 export default function useAudioController() {
   const tracks = useMemo(() => normalize(tracksData), []);
+
   const [index, setIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -45,7 +47,7 @@ export default function useAudioController() {
   const duration = audioRef.current?.duration ?? current?.duration ?? 0;
   const progressPct = duration ? Math.min(100, (progress / duration) * 100) : 0;
 
-  // load track
+  // load/attach events når track skifter
   useEffect(() => {
     if (!current) return;
     const audio = audioRef.current;
@@ -74,12 +76,14 @@ export default function useAudioController() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, current?.audio?.src]);
 
+  // play/pause når isPlaying ændres
   useEffect(() => {
     const a = audioRef.current;
     if (isPlaying) a.play().catch(() => setIsPlaying(false));
     else a.pause();
   }, [isPlaying]);
 
+  // volume/mute
   useEffect(() => {
     audioRef.current.volume = isMuted ? 0 : volume;
   }, [volume, isMuted]);
@@ -113,7 +117,7 @@ export default function useAudioController() {
     else if (v > 0 && isMuted) setIsMuted(false);
   }
 
-  // keyboard: Space/M/F (cyklus)
+  // keyboard: Space / M / F
   const order = [VARIANTS.mini, VARIANTS.standard, VARIANTS.full];
   const cycleVariant = () =>
     setVariant((v) => order[(order.indexOf(v) + 1) % order.length]);
@@ -134,6 +138,30 @@ export default function useAudioController() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // === FIX: simple, definerede helpers til play efter id/indeks ===
+  const playById = useCallback((id) => {
+    const idx = tracks.findIndex((t) => t.id === id);
+    if (idx === -1) return;
+    if (idx === index) {
+      // samme track -> toggle
+      setIsPlaying((p) => !p);
+    } else {
+      // skift track og start
+      setIndex(idx);
+      setIsPlaying(true);
+    }
+  }, [tracks, index]);
+
+  const playAtIndex = useCallback((idx) => {
+    if (idx < 0 || idx >= tracks.length) return;
+    if (idx === index) {
+      setIsPlaying((p) => !p);
+    } else {
+      setIndex(idx);
+      setIsPlaying(true);
+    }
+  }, [tracks.length, index]);
+
   return {
     // data
     tracks, current, index,
@@ -150,5 +178,8 @@ export default function useAudioController() {
     toggleMute, onVolumeChange,
     setVariant, growVariant, shrinkVariant, cycleVariant,
     fmt,
+
+    // helpers
+    playById, playAtIndex,
   };
 }

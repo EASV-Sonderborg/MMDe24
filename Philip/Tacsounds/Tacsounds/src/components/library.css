@@ -8,6 +8,16 @@
   margin-bottom: 16px;
 }
 
+tbody::-webkit-scrollbar {
+  height: 8px;
+}
+
+tbody   {
+  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-width: thin;
+  overflow-x: scroll;
+}
+
 .filtersRow {
   display: grid;
   grid-template-columns: 1fr;
