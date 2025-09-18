@@ -54,17 +54,16 @@
   background-clip: text;
 }
 
-.navLinks button.active::after {
-  content: "";
-  display: block;
-  height: 4px;
-  border-radius: 1rem;
-  background: var(--gradient);
+.navLink::after{
+  content:""; position:absolute; left:10px; right:10px; bottom:-8px;
+  height:6px; border-radius:6px;
+  background: transparent; transition: .18s ease;
 }
-
-/* Hover state: gradient background + white text */
-.navLinks button:hover {
-  background: var(--gradient);
-  color: white;
-  -webkit-text-fill-color: white;
+.navLink.isActive::after{
+  background: linear-gradient(90deg,#044FDB 0%,#FD3877 50%,#FD7E24 100%);
+}
+.navLink:hover{
+  color:#fff; -webkit-text-fill-color:#fff;
+  background: linear-gradient(90deg,#044FDB 0%,#FD3877 50%,#FD7E24 100%);
+  border-radius:8px; padding:8px 10px;
 }

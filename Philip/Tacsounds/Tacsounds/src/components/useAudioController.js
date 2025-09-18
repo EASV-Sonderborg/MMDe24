@@ -1,9 +1,17 @@
-// useAudioController.js
+// /src/components/useAudioController.js
 import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import tracksData from "../data/tracks.json";
 
-const VARIANTS = { mini: "mini", standard: "standard", full: "full" };
-export { VARIANTS };
+export const VARIANTS = { mini: "mini", standard: "standard", full: "full" };
+
+// Robust “true-ish”
+function trueish(val) {
+  if (val === undefined || val === null) return false;
+  if (typeof val === "boolean") return val;
+  if (typeof val === "number") return val > 0;
+  const s = String(val).trim().toLowerCase();
+  return s === "true" || s === "1" || s === "yes" || s === "y";
+}
 
 const fmt = (secs = 0) => {
   if (!Number.isFinite(secs)) return "0:00";
@@ -12,23 +20,27 @@ const fmt = (secs = 0) => {
   return `${m}:${s.toString().padStart(2, "0")}`;
 };
 
-const normalize = (items) =>
-  (items || []).map((t, i) => ({
-    id: t.id || `trk-${i}`,
-    title: t.title || "Unknown Title",
-    artist: t.artist || "Unknown Artist",
-    album: t.album || "",
-    genres: Array.isArray(t.genres) ? t.genres : [],
-    releaseDate: t.releaseDate ?? null,
-    duration: t.duration ?? null,
-    bpm: t.bpm ?? null,
-    scale: t.scale ?? { key: null, mode: null },
-    audio: t.audio ?? { src: "", format: null },
-    cover: t.cover ?? { src: "", format: null },
-  }));
+const norm = (t, i) => ({
+  id: t.id || `trk-${i}`,
+  title: t.title || "Unknown Title",
+  artist: t.artist || "Unknown Artist",
+  album: t.album || "",
+  genres: Array.isArray(t.genres) ? t.genres : [],
+  releaseDate: t.releaseDate ?? null,
+  featured: trueish(t?.featured ?? t?.meta?.featured), // <-- FIX
+  duration: t.duration ?? null,
+  bpm: t.bpm ?? null,
+  scale: t.scale ?? { key: null, mode: null },
+  audio: t.audio ?? { src: "", format: null },
+  cover: t.cover ?? { src: "", format: null },
+});
 
 export default function useAudioController() {
-  const tracks = useMemo(() => normalize(tracksData), []);
+  // En memoiseret, normaliseret liste – ingen setTracks/json her
+  const tracks = useMemo(
+    () => (tracksData || []).map(norm),
+    []
+  );
 
   const [index, setIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -138,28 +150,18 @@ export default function useAudioController() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // === FIX: simple, definerede helpers til play efter id/indeks ===
+  // Hjælpere til at starte bestemt sang
   const playById = useCallback((id) => {
     const idx = tracks.findIndex((t) => t.id === id);
     if (idx === -1) return;
-    if (idx === index) {
-      // samme track -> toggle
-      setIsPlaying((p) => !p);
-    } else {
-      // skift track og start
-      setIndex(idx);
-      setIsPlaying(true);
-    }
+    if (idx === index) setIsPlaying((p) => !p);
+    else { setIndex(idx); setIsPlaying(true); }
   }, [tracks, index]);
 
   const playAtIndex = useCallback((idx) => {
     if (idx < 0 || idx >= tracks.length) return;
-    if (idx === index) {
-      setIsPlaying((p) => !p);
-    } else {
-      setIndex(idx);
-      setIsPlaying(true);
-    }
+    if (idx === index) setIsPlaying((p) => !p);
+    else { setIndex(idx); setIsPlaying(true); }
   }, [tracks.length, index]);
 
   return {

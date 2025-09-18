@@ -5,7 +5,8 @@
         "artist": "Tac",
         "album": "Single",
         "genres": ["Drum & Bass"],
-        "releaseDate": "2024-09-18",
+        "releaseDate": "2025-09-18",
+        "featured": true,
         "duration": null,
         "bpm": null,
         "scale": 
@@ -31,6 +32,7 @@
         "album": "Single",
         "genres": ["Dance"],
         "releaseDate": "2025-06-02",
+        "featured": true,
         "duration": null,
         "bpm" : null,
         "scale": 
@@ -58,6 +60,7 @@
         "album": "Single",
         "genres": ["House"],
         "releaseDate": "2025-05-15",
+        "featured": true,
         "duration": null,
         "bpm" : null,
         "scale": 
@@ -84,6 +87,7 @@
         "album": "Single",
         "genres": ["Dance"],
         "releaseDate": "2025-04-20",
+        "featured": true,
         "duration": null,
         "bpm": null,
         "scale": 
@@ -110,6 +114,7 @@
         "album": "Single",
         "genres": ["Electronic"],
         "releaseDate": "2025-03-12",
+        "featured": true,
         "duration": null,
         "bpm": null,
         "scale": 
@@ -136,6 +141,7 @@
         "album": "Remixes",
         "genres": ["Drum & Bass"],
         "releaseDate": "2025-02-10",
+        "featured": true,
         "duration": null,
         "bpm": null,
         "scale": { 
@@ -158,6 +164,7 @@
         "album": "Single",
         "genres": ["Pop"],
         "releaseDate": "2025-01-22",
+        "featured": true,
         "duration": null,
         "bpm": null,
         "scale": 
@@ -183,6 +190,7 @@
         "album": "Single",
         "genres": ["Club"],
         "releaseDate": "2024-12-05",
+        "featured": true,
         "duration": null,
         "bpm": null,
         "scale": 

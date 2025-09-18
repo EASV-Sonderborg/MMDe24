@@ -9,6 +9,7 @@ import "./home.css";
 export default function Home() {
   const controller = useAudioController();
   const [siteMain, setSiteMain] = useState("carousel");
+  
 
   return (
     <div className="site">

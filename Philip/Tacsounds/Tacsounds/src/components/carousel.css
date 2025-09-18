@@ -39,15 +39,15 @@
   left:50%;
   top:0;
   transform-origin:center center;
-  transition:transform .18s ease, opacity .18s ease;
+  transition:transform .1s ease, opacity .18s ease;
   cursor:pointer;
-  width:260px; height:320px;
+  width:400px; height:400px;
   display:grid; grid-template-rows:auto auto;
   justify-items:center;
 }
 
 /* Cover + overlay */
-.featured__coverWrap{ position:relative; width:260px; height:260px; }
+.featured__coverWrap{ position:relative; width:400px; height:400px; }
 .featured__cover{
   position:relative; width:100%; height:100%;
   border-radius:20px; overflow:hidden; box-shadow:0 12px 32px rgba(0,0,0,.20);
