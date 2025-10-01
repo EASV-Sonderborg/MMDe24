@@ -54,15 +54,16 @@
   background-clip: text;
 }
 
-.navLink::after{
+.navBtn::after{
   content:""; position:absolute; left:10px; right:10px; bottom:-8px;
   height:6px; border-radius:6px;
   background: transparent; transition: .18s ease;
 }
-.navLink.isActive::after{
+.navBtn.isActive::after{
   background: linear-gradient(90deg,#044FDB 0%,#FD3877 50%,#FD7E24 100%);
 }
-.navLink:hover{
+
+.navBtn:hover{
   color:#fff; -webkit-text-fill-color:#fff;
   background: linear-gradient(90deg,#044FDB 0%,#FD3877 50%,#FD7E24 100%);
   border-radius:8px; padding:8px 10px;

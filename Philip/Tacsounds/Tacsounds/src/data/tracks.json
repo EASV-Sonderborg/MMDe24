@@ -4,16 +4,11 @@
         "title": "Sunset Skates (DNB)",
         "artist": "Tac",
         "album": "Single",
-        "genres": ["Drum & Bass"],
+        "genres": "Drum & Bass",
         "releaseDate": "2025-09-18",
         "featured": true,
         "duration": null,
         "bpm": null,
-        "scale": 
-        { 
-            "key": "F", 
-            "mode": "minor" 
-        },
         "audio": 
         {
             "src": "/assets/tracks/sunset-skates-fmin.wav",
@@ -30,16 +25,11 @@
         "title": "Where Did You Go",
         "artist": "Tac",
         "album": "Single",
-        "genres": ["Dance"],
+        "genres": "Dance",
         "releaseDate": "2025-06-02",
         "featured": true,
         "duration": null,
         "bpm" : null,
-        "scale": 
-        {
-            "key": null, 
-            "mode": null
-        },
         "audio": 
         {
             "src": "/assets/tracks/Where did you go - Tac.wav",
@@ -58,16 +48,11 @@
         "title": "Night Rider",
         "artist": "Tac",
         "album": "Single",
-        "genres": ["House"],
+        "genres": "House",
         "releaseDate": "2025-05-15",
         "featured": true,
         "duration": null,
         "bpm" : null,
-        "scale": 
-        {
-            "key": null, 
-            "mode": null
-        },
         "audio": 
         {
             "src": "/assets/tracks/2d racing house gmin.mp3",
@@ -85,16 +70,11 @@
         "title": "So Am I",
         "artist": "Tac",
         "album": "Single",
-        "genres": ["Dance"],
+        "genres": "Dance",
         "releaseDate": "2025-04-20",
         "featured": true,
         "duration": null,
         "bpm": null,
-        "scale": 
-        { 
-            "key": null, 
-            "mode": null 
-        },
         "audio": 
         {
             "src": "/assets/tracks/So am i.mp3",
@@ -112,16 +92,11 @@
         "title": "Lidt AW på den",
         "artist": "Tac",
         "album": "Single",
-        "genres": ["Electronic"],
+        "genres": "Electronic",
         "releaseDate": "2025-03-12",
         "featured": true,
         "duration": null,
         "bpm": null,
-        "scale": 
-        { 
-            "key": "G", 
-            "mode": "minor" 
-        },
         "audio": 
         {
             "src": "/assets/tracks/Lidt AW på den Gmin.mp3",
@@ -139,15 +114,11 @@
         "title": "Lidt i DNB (Remix)",
         "artist": "Tac",
         "album": "Remixes",
-        "genres": ["Drum & Bass"],
+        "genres": "Drum & Bass",
         "releaseDate": "2025-02-10",
         "featured": true,
         "duration": null,
         "bpm": null,
-        "scale": { 
-            "key": null, 
-            "mode": null 
-        },
         "audio": {
             "src": "/assets/tracks/Lidt i DNB Remix.mp3",
             "format": "mp3"
@@ -162,16 +133,11 @@
         "title": "Fadklubben v2",
         "artist": "Tac",
         "album": "Single",
-        "genres": ["Pop"],
+        "genres": "Pop",
         "releaseDate": "2025-01-22",
         "featured": true,
         "duration": null,
         "bpm": null,
-        "scale": 
-        { 
-            "key": "G", 
-            "mode": "major" 
-        },
         "audio": 
         {
             "src": "/assets/tracks/fadklubben v2 Gmaj.mp3",
@@ -188,16 +154,11 @@
         "title": "Message in a Club",
         "artist": "Tac",
         "album": "Single",
-        "genres": ["Club"],
+        "genres": "Club",
         "releaseDate": "2024-12-05",
         "featured": true,
         "duration": null,
         "bpm": null,
-        "scale": 
-        { 
-            "key": "A#", 
-            "mode": "minor" 
-        },
         "audio": 
         {
             "src": "/assets/tracks/message in a club.mp3",
