@@ -1,90 +1,276 @@
-// src/components/AudioPlayerShell.jsx
-import useAudioController, { VARIANTS } from "./useAudioController";
+import React, { useEffect, useMemo, useState } from "react";
 
-// Desktop players
-import PlayerMini from "./PlayerMini";
-import PlayerStandard from "./PlayerStandard";
-import PlayerFull from "./PlayerFull";
+import PlayerMini from "./PlayerMini.jsx";
+import PlayerStandard from "./PlayerStandard.jsx";
+import PlayerFull from "./PlayerFull.jsx";
+import MobilePlayerMini from "./MobilePlayerMini.jsx";
+import MobilePlayerFull from "./MobilePlayerFull.jsx";
+import QueueModal from "./QueueModal.jsx";
+import TrackDetailsModal from "./TrackDetailsModal.jsx";
 
-// Mobile players (skal findes – ellers kommentér de to linjer + mobil-grenen)
-import MobilePlayerFull from "./MobilePlayerFull";
-import MobilePlayerMini from "./MobilePlayerMini";
+import "./audioplayer.css";
+import "./mobile-player.css";
 
-// Ikoner til volumeindikator
-import volumeMute from "../assets/icons/volumeMute.svg";
-import volumeLow from "../assets/icons/volumeLow.svg";
-import volumeMid from "../assets/icons/volumeMid.svg";
-import volumeHigh from "../assets/icons/volumeHigh.svg";
+function useIsMobile(breakpoint = 768) {
+  const mql = useMemo(() => {
+    if (typeof window === "undefined") return null;
+    return window.matchMedia(`(max-width:${breakpoint}px)`);
+  }, [breakpoint]);
 
-// Lille helper – brugt til at afgøre mobil/desktop
-function isMobile() {
-  if (typeof window === "undefined" || typeof window.matchMedia !== "function") return false;
-  return window.matchMedia("(max-width: 768px)").matches;
+  const [isMobile, setIsMobile] = useState(() => (mql ? mql.matches : false));
+
+  useEffect(() => {
+    if (!mql) return;
+    const handler = (event) => setIsMobile(event.matches);
+    if (mql.addEventListener) mql.addEventListener("change", handler);
+    else mql.addListener?.(handler);
+    return () => {
+      if (mql.removeEventListener) mql.removeEventListener("change", handler);
+      else mql.removeListener?.(handler);
+    };
+  }, [mql]);
+
+  return isMobile;
 }
 
-// Optional props:
-// - controller: del en allerede oprettet controller (ellers laves en internt)
-// - forceVariant: 'mini' | 'standard' | 'full' (overstyr controllerens variant)
-// - forceMobile: boolean (overstyr auto-detektion af mobil/desktop)
-export default function AudioPlayerShell({
-  controller,
-  forceVariant,
-  forceMobile,
-}) {
-  // Brug delt controller hvis givet, ellers opret lokalt
-  const ctrl = controller ?? useAudioController();
+const normalizeGenres = (track) => {
+  if (!track) return [];
+  if (Array.isArray(track.genres)) {
+    return track.genres.filter(Boolean).map((genre) => String(genre).trim());
+  }
+  if (Array.isArray(track.genre)) {
+    return track.genre.filter(Boolean).map((genre) => String(genre).trim());
+  }
+  if (typeof track.genres === "string") {
+    return track.genres
+      .split(/[,|]/)
+      .map((genre) => genre.trim())
+      .filter(Boolean);
+  }
+  if (typeof track.genre === "string") {
+    return track.genre
+      .split(/[,|]/)
+      .map((genre) => genre.trim())
+      .filter(Boolean);
+  }
+  return [];
+};
 
-  // Ikon ud fra volume
-  const volumeIcon = (v, muted) => {
-    if (muted || v === 0) return volumeMute;
-    if (v <= 0.33) return volumeLow;
-    if (v <= 0.66) return volumeMid;
-    return volumeHigh;
-  };
+const fmtDate = (iso) => {
+  if (!iso) return "--";
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "--";
+  return date.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+};
 
-  // Fælles props til alle player-komponenter
-  const shared = {
-    // track + afspilning
-    current: ctrl.current,
-    isPlaying: ctrl.isPlaying,
-    togglePlay: ctrl.togglePlay,
-    prev: ctrl.prev,
-    next: ctrl.next,
-
-    // tid / seek
-    progressPct: ctrl.progressPct,
-    progress: ctrl.progress,
-    duration: ctrl.duration,
-    fmt: ctrl.fmt,
-    seekToRatio: ctrl.seekToRatio,
-
-    // volume
-    volume: ctrl.volume,
-    isMuted: ctrl.isMuted,
-    toggleMute: ctrl.toggleMute,
-    onVolumeChange: ctrl.onVolumeChange,
-    volumeIcon,
-
-    // varianter (bruges af knapper/keyboard)
-    growVariant: ctrl.growVariant,
-    shrinkVariant: ctrl.shrinkVariant,
-  };
-
-  // Hvilken variant skal vises?
-  const variant = forceVariant ?? ctrl.variant;
-
-  // Mobil/desktop?
-  const mobile = typeof forceMobile === "boolean" ? forceMobile : isMobile();
-
-  // Mobil: kun mini/full
-  if (mobile) {
-    if (variant === VARIANTS.full) return <MobilePlayerFull {...shared} />;
-    // både 'mini' og 'standard' vises som mobil-mini
-    return <MobilePlayerMini {...shared} />;
+export default function AudioPlayerShell({ controller }) {
+  if (!controller) {
+    console.error("[AudioPlayerShell] Mangler 'controller' prop.");
+    return null;
   }
 
-  // Desktop
-  if (variant === VARIANTS.mini) return <PlayerMini {...shared} />;
-  if (variant === VARIANTS.full) return <PlayerFull {...shared} />;
-  return <PlayerStandard {...shared} />;
+  const isMobile = useIsMobile(768);
+
+  const [desktopVariant, setDesktopVariant] = useState("standard");
+  const [mobileVariant, setMobileVariant] = useState("mini");
+  const [isQueueOpen, setQueueOpen] = useState(false);
+  const [detailsTrack, setDetailsTrack] = useState(null);
+
+  const {
+    current,
+    isPlaying,
+    togglePlay,
+    next,
+    prev,
+    progressPct,
+    progress,
+    duration,
+    fmt,
+    seekToRatio,
+    volume,
+    isMuted,
+    toggleMute,
+    onVolumeChange,
+    volumeIcon,
+    playById,
+    addToQueue,
+    playNext,
+  } = controller ?? {};
+
+  if (!current) return null;
+
+  const trackActions = useMemo(() => {
+    if (!current) return [];
+    return [
+      {
+        label: "View info",
+        onSelect: () => setDetailsTrack(current),
+      },
+      playById && {
+        label: isPlaying ? "Pause" : "Play",
+        onSelect: () => playById(current.id),
+      },
+      playNext && {
+        label: "Play next",
+        onSelect: () => playNext(current.id),
+      },
+      addToQueue && {
+        label: "Add to queue",
+        onSelect: () => addToQueue(current.id),
+      },
+    ].filter(Boolean);
+  }, [current, isPlaying, playById, playNext, addToQueue]);
+
+  const playerNode = useMemo(() => {
+    if (isMobile) {
+      if (mobileVariant === "mini") {
+        return (
+          <MobilePlayerMini
+            current={current}
+            isPlaying={isPlaying}
+            togglePlay={togglePlay}
+            next={next}
+            prev={prev}
+            progressPct={progressPct}
+            growVariant={() => setMobileVariant("full")}
+          />
+        );
+      }
+
+      return (
+        <MobilePlayerFull
+          current={current}
+          isPlaying={isPlaying}
+          togglePlay={togglePlay}
+          next={next}
+          prev={prev}
+          progressPct={progressPct}
+          progress={progress}
+          duration={duration}
+          fmt={fmt}
+          shrinkVariant={() => setMobileVariant("mini")}
+          onOpenQueue={() => setQueueOpen(true)}
+          trackActions={trackActions}
+        />
+      );
+    }
+
+    if (desktopVariant === "full") {
+      return (
+        <PlayerFull
+          current={current}
+          isPlaying={isPlaying}
+          togglePlay={togglePlay}
+          next={next}
+          prev={prev}
+          progressPct={progressPct}
+          progress={progress}
+          duration={duration}
+          fmt={fmt}
+          seekToRatio={seekToRatio}
+          shrinkVariant={() => setDesktopVariant("standard")}
+          growVariant={() => setDesktopVariant("full")}
+          volume={volume}
+          isMuted={isMuted}
+          toggleMute={toggleMute}
+          onVolumeChange={onVolumeChange}
+          volumeIcon={volumeIcon}
+          onOpenQueue={() => setQueueOpen(true)}
+          trackActions={trackActions}
+        />
+      );
+    }
+
+    if (desktopVariant === "mini") {
+      return (
+        <PlayerMini
+          current={current}
+          isPlaying={isPlaying}
+          togglePlay={togglePlay}
+          progressPct={progressPct}
+          seekToRatio={seekToRatio}
+          growVariant={() => setDesktopVariant("standard")}
+          volume={volume}
+          isMuted={isMuted}
+          volumeIcon={volumeIcon}
+          toggleMute={toggleMute}
+          onVolumeChange={onVolumeChange}
+        />
+      );
+    }
+
+    return (
+      <PlayerStandard
+        current={current}
+        isPlaying={isPlaying}
+        togglePlay={togglePlay}
+        next={next}
+        prev={prev}
+        progressPct={progressPct}
+        progress={progress}
+        duration={duration}
+        fmt={fmt}
+        seekToRatio={seekToRatio}
+        shrinkVariant={() => setDesktopVariant("mini")}
+        growVariant={() => setDesktopVariant("full")}
+        volume={volume}
+        isMuted={isMuted}
+        toggleMute={toggleMute}
+        onVolumeChange={onVolumeChange}
+        volumeIcon={volumeIcon}
+        onOpenQueue={() => setQueueOpen(true)}
+        trackActions={trackActions}
+      />
+    );
+  }, [
+    addToQueue,
+    current,
+    desktopVariant,
+    duration,
+    fmt,
+    isMobile,
+    isMuted,
+    isPlaying,
+    mobileVariant,
+    next,
+    onVolumeChange,
+    prev,
+    progress,
+    progressPct,
+    seekToRatio,
+    toggleMute,
+    togglePlay,
+    trackActions,
+    volume,
+    volumeIcon,
+  ]);
+
+  const detailsDurationLabel = useMemo(() => {
+    if (!detailsTrack) return undefined;
+    if (detailsTrack.length) return detailsTrack.length;
+    if (detailsTrack.duration != null && fmt) return fmt(detailsTrack.duration);
+    return undefined;
+  }, [detailsTrack, fmt]);
+
+  return (
+    <>
+      {playerNode}
+      <QueueModal
+        isOpen={isQueueOpen}
+        onClose={() => setQueueOpen(false)}
+        controller={controller}
+      />
+      <TrackDetailsModal
+        track={detailsTrack}
+        onClose={() => setDetailsTrack(null)}
+        durationLabel={detailsDurationLabel}
+        normalizeGenres={normalizeGenres}
+        fmtDate={fmtDate}
+      />
+    </>
+  );
 }

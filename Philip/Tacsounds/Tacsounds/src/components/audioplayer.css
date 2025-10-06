@@ -14,7 +14,9 @@
 
 .audioPlayer {
   position: fixed;
-  left: 0; right: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: #fff;
   padding: var(--space-6) var(--space-4);
   box-shadow: var(--shadow-sm);
@@ -40,14 +42,15 @@
 }
 
 .cover {
-  width: 64px; height: 64px;
+  width: 64px;
+  height: 64px;
   border-radius: 12px;
   object-fit: cover;
   box-shadow: var(--shadow-md);
   background: #ffffff;
 }
 
-.cover:hover  {
+.cover:hover {
   transform: scale(1.05);
 }
 
@@ -72,17 +75,22 @@
   color: var(--color-primary);
   line-height: 1.1;
   width: fit-content;
-  cursor: pointer;  
+  cursor: pointer;
 }
 
 /* underline på hover uden layout-jump */
-.title, .artist { background-image: linear-gradient(currentColor, currentColor);
+.title,
+.artist {
+  background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
   background-position: 0 100%;
   background-size: 0 2px;
-  transition: background-size .18s ease;
+  transition: background-size 0.18s ease;
 }
-.title:hover, .artist:hover { background-size: 100% 2px; }
+.title:hover,
+.artist:hover {
+  background-size: 100% 2px;
+}
 
 /* ---------- Midt: transport + progress ---------- */
 
@@ -108,8 +116,12 @@
   background: transparent;
   padding: 0;
 }
-.buttonSkip img { height: 2rem; }
-.buttonPlay img { height: 2.5rem; }
+.buttonSkip img {
+  height: 2rem;
+}
+.buttonPlay img {
+  height: 2.5rem;
+}
 
 /* Progress */
 .progress {
@@ -120,12 +132,13 @@
   cursor: pointer;
 }
 
-.progress.isDragging { 
-  cursor: grabbing; 
+.progress.isDragging {
+  cursor: grabbing;
 }
 
 .progressBar {
-  position: absolute; inset: 0 auto 0 0;
+  position: absolute;
+  inset: 0 auto 0 0;
   background: var(--gradient-primary);
   border-radius: inherit;
   /* width styres inline fra JSX */
@@ -134,7 +147,7 @@
 .timeRow {
   display: flex;
   justify-content: space-between;
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
   user-select: none;
 }
@@ -163,11 +176,16 @@
   max-width: 220px;
   margin-left: auto;
 }
-.volumeIcon { width: 24px; height: 24px; }
+.volumeIcon {
+  width: 24px;
+  height: 24px;
+}
 
 .muteToggle {
-  width: 32px; height: 32px;
-  display: grid; place-items: center;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
   cursor: pointer;
 }
 
@@ -178,88 +196,125 @@
   height: 12px;
   border-radius: var(--radius-pill);
   background:
-    var(--gradient-primary) 0/var(--progress,0%) 100% no-repeat,
+    var(--gradient-primary) 0 / var(--progress, 0%) 100% no-repeat,
     var(--color-accent);
   cursor: pointer;
 }
-.range::-webkit-slider-runnable-track { height: 12px; border-radius: var(--radius-pill); background: transparent; }
-.range::-webkit-slider-thumb { appearance: none; width: 0; height: 0; }
-.range::-moz-range-track { height: 12px; border-radius: var(--radius-pill); background: var(--color-accent); }
-.range::-moz-range-progress { height: 12px; border-radius: var(--radius-pill); background: var(--color-primary); }
-.range::-moz-range-thumb { width: 0; height: 0; border: none; }
+.range::-webkit-slider-runnable-track {
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+}
+.range::-webkit-slider-thumb {
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+.range::-moz-range-track {
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+.range::-moz-range-progress {
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+}
+.range::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  border: none;
+}
 
 /* Window-knapper (min/max) */
-.windowButtons { display: flex; gap: var(--space-3); align-items: center; }
-.windowButtons .sizeBtn img { width: 24px; height: 24px; display: block; }
+.windowButtons {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+
+
+.windowButtons .sizeBtn img {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
 
 /* ---------- MINI variant ---------- */
 
 /* MINI – ren gridplacering, ingen absolute */
-.audioPlayer.audioPlayer--mini{
+.audioPlayer.audioPlayer--mini {
   padding: 8px 12px 14px;
 }
 
-.audioPlayer.audioPlayer--mini .audioPlayer__Container{
+.audioPlayer.audioPlayer--mini .audioPlayer__Container {
   display: grid;
   width: 30%;
-  grid-template-columns: auto auto 1fr  auto;  /* række 1: indhold  – række 2: progress-linje */
+  grid-template-columns: auto auto 1fr auto; /* række 1: indhold  – række 2: progress-linje */
   grid-template-rows: auto auto;
   align-items: center;
   gap: 12px;
   position: relative; /* ikke strengt nødvendigt, men fint at beholde */
 }
 
-
-.audioPlayer.audioPlayer--mini .cover{ width: 56px; height: 56px; }
-.audioPlayer.audioPlayer--mini .title{ font-size: 1rem; }
-.audioPlayer.audioPlayer--mini .artist{ font-size: .85rem; }
-
-
+.audioPlayer.audioPlayer--mini .cover {
+  width: 56px;
+  height: 56px;
+}
+.audioPlayer.audioPlayer--mini .title {
+  font-size: 1rem;
+}
+.audioPlayer.audioPlayer--mini .artist {
+  font-size: 0.85rem;
+}
 
 /* Skjul centerknapper/tider i mini, men behold containeren */
-.audioPlayer.audioPlayer--mini .audioControl__container{ display: none; }
-.audioPlayer.audioPlayer--mini .timeRow{ display: none; }
+.audioPlayer.audioPlayer--mini .audioControl__container {
+  display: none;
+}
+.audioPlayer.audioPlayer--mini .timeRow {
+  display: none;
+}
 
 /* venstre (play + volumeikon) */
-.audioPlayer.audioPlayer--mini .miniControls{ 
-  grid-column: 1; 
-  grid-row: 1; 
-  display: flex; 
-  align-items:center;
-  gap:12px; 
+.audioPlayer.audioPlayer--mini .miniControls {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 /* midten (cover + titel/kunstner) */
-.audioPlayer.audioPlayer--mini .audioCoverData{ 
+.audioPlayer.audioPlayer--mini .audioCoverData {
   grid-column: 2 / 4; /* dækker col 2-3 */
-  grid-row: 1; 
+  grid-row: 1;
 }
 
 /* højre (expand-knap) */
-.audioPlayer.audioPlayer--mini .windowButtons{ 
-  grid-column: 4; 
-  grid-row: 2; 
-  justify-self: end; 
+.audioPlayer.audioPlayer--mini .windowButtons {
+  grid-column: 4;
+  grid-row: 2;
+  justify-self: end;
 }
 
-.audioPlayer.audioPlayer--mini .audioControlProgress__container{
+.audioPlayer.audioPlayer--mini .audioControlProgress__container {
   grid-column: 1 / 4; /* dækker alle 4 col */
-  grid-row: 2; 
+  grid-row: 2;
   width: 100%;
   margin: 0; /* fjern auto-margin fra full */
 }
 
-
-
 /* progress = nederste række, over hele gridet */
-.audioPlayer.audioPlayer--mini .progress{
+.audioPlayer.audioPlayer--mini .progress {
   height: 6px;
   border-radius: 999px;
   background: var(--color-accent);
   position: relative;
   cursor: pointer;
 }
-.audioPlayer.audioPlayer--mini .progressBar{
+.audioPlayer.audioPlayer--mini .progressBar {
   position: absolute;
   inset: 0 auto 0 0;
   height: 6px;
@@ -269,28 +324,43 @@
 }
 
 /* Vertikal volume på hover (som før) */
-.volumeMini{ position: relative; display:inline-flex; align-items:center; }
-.rangeVertical{
-  position:absolute;
-  left: 45%; bottom:95px;
-  transform:translateX(-50%) rotate(-90deg);
-  width:140px; opacity:0; pointer-events:none; transition:opacity .3s ease; z-index:5;
+.volumeMini {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.rangeVertical {
+  position: absolute;
+  left: 45%;
+  bottom: 95px;
+  transform: translateX(-50%) rotate(-90deg);
+  width: 140px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 5;
 }
 .volumeMini:hover .rangeVertical,
-.volumeMini:focus-within .rangeVertical{ opacity:1; pointer-events:auto; }
-
+.volumeMini:focus-within .rangeVertical {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* ---------- FULL variant ---------- */
 
 .audioPlayer.audioPlayer--full {
-  position: fixed; inset: 0; z-index: 50;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
   background: var(--color-background);
   padding: 24px 16px 32px;
   border-top: 0;
 }
 .audioPlayer__overlayBackdrop {
-  position: fixed; inset: 0; z-index: 49;
-  background: rgba(10,12,16,.65);
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: rgba(10, 12, 16, 0.65);
   backdrop-filter: saturate(120%) blur(4px);
 }
 
@@ -311,20 +381,28 @@
   margin-top: var(--space-4);
 }
 
-.audioPlayer.audioPlayer--full .trackInfo { 
-    grid-template-rows: auto auto;
-    text-align: center;
-    height: auto;
-    justify-items: center;
-    gap: var(--space-3);
- }
+.audioPlayer.audioPlayer--full .trackInfo {
+  grid-template-rows: auto auto;
+  text-align: center;
+  height: auto;
+  justify-items: center;
+  gap: var(--space-3);
+}
 
 .audioPlayer.audioPlayer--full .cover {
-  width: 420px; height: 420px;
-  border-radius: 14px; object-fit: cover;
+  width: 420px;
+  height: 420px;
+  border-radius: 14px;
+  object-fit: cover;
 }
-.audioPlayer.audioPlayer--full .title { font-size: 1.25rem; cursor: pointer; }
-.audioPlayer.audioPlayer--full .artist { opacity: .85; cursor: pointer; }
+.audioPlayer.audioPlayer--full .title {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.audioPlayer.audioPlayer--full .artist {
+  opacity: 0.85;
+  cursor: pointer;
+}
 
 /* centrer den lange progress/tid i full */
 .audioPlayer.audioPlayer--full .progress,
@@ -333,4 +411,52 @@
   margin-inline: auto;
 }
 
+.playerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
+.buttonQueue {
+
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s ease;
+}
+
+.buttonQueue img {
+  width: 32px;
+  height: 32px;
+}
+
+.buttonQueue:hover,
+.buttonQueue:focus-visible {
+  transform: scale(1.05);
+}
+
+.playerActions .trackMenu__trigger {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.2s ease;
+}
+
+.playerActions .trackMenu__trigger:hover,
+.playerActions .trackMenu__trigger:focus-visible {
+  transform: scale(1.05);
+}
+
+.audioPlayer.audioPlayer--full .playerActions {
+  justify-content: center;
+  gap: 18px;
+}
+
+.audioPlayer.audioPlayer--full .buttonQueue,
+.audioPlayer.audioPlayer--full .playerActions .trackMenu__trigger {
+  width: 52px;
+  height: 52px;
+}
+
+.audioPlayer.audioPlayer--full .buttonQueue img {
+  width: 26px;
+  height: 26px;
+}

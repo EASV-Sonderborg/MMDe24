@@ -9,24 +9,27 @@ import "./home.css";
 export default function Home() {
   const controller = useAudioController();
   const [siteMain, setSiteMain] = useState("carousel");
-  
+
+  const handleNavigate = (key) => setSiteMain(key);
 
   return (
     <div className="site">
       <header className="siteHeader">
         <NavBar
           active={siteMain}
-          onNavigate={(key) => setSiteMain(key)}
+          onNavigate={handleNavigate}
           onLogoClick={() => setSiteMain("carousel")}
         />
       </header>
 
       <main className="siteMain">
-        {siteMain === "carousel" ? (
-          <FeaturedCarousel controller={controller} />
-        ) : (
-          <Library controller={controller} />
-        )}
+        <div className="siteMain__content">
+          {siteMain === "carousel" ? (
+            <FeaturedCarousel controller={controller} />
+          ) : (
+            <Library controller={controller} />
+          )}
+        </div>
       </main>
 
       <footer className="siteFooter">

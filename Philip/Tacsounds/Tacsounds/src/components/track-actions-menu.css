@@ -1,0 +1,92 @@
+.trackMenu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.trackMenu__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  transition: transform 0.2s ease;
+  padding: 0;
+
+}
+
+.trackMenu__trigger img {
+  width: 22px;
+  height: 22px;
+}
+
+.trackMenu__trigger:hover,
+.trackMenu__trigger:focus-visible {
+  transform: scale(1.05);
+}
+
+.trackMenu__sheet {
+  position: absolute;
+  min-width: 180px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(10, 12, 16, 0.18);
+  padding: 6px;
+  display: grid;
+  gap: 4px;
+  z-index: 120;
+}
+
+.trackMenu--right .trackMenu__sheet {
+  right: 0;
+  top: calc(100% - 200px);
+}
+
+.trackMenu--left .trackMenu__sheet {
+  left: 0;
+  top: calc(100% + 32px);
+}
+
+.trackMenu--md .trackMenu__trigger {
+  width: 40px;
+  height: 40px;
+}
+
+.trackMenu--sm .trackMenu__trigger {
+  width: 36px;
+  height: 36px;
+}
+
+.trackMenu__item {
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition:
+    color 0.15s ease;
+}
+
+.trackMenu__item:hover,
+.trackMenu__item:focus-visible {
+  background: transparent;
+}
+
+.trackMenu__item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.trackMenu--center .trackMenu__sheet {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 640px) {
+  .trackMenu__sheet {
+    min-width: 180px;
+  }
+}

@@ -1,99 +1,140 @@
-// src/components/Library.jsx
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import "./library.css";
 
-import infoIcon from "../assets/icons/info.svg";
 import playIcon from "../assets/icons/play.svg";
 import pauseIcon from "../assets/icons/pause.svg";
+import TrackActionsMenu from "./TrackActionsMenu.jsx";
+import TrackDetailsModal from "./TrackDetailsModal.jsx";
 
-const FALLBACK_COVER = "/assets/covers/tacStandard.png"; // ligger i /public/assets
+const FALLBACK_COVER = "/assets/covers/tacStandard.png";
+
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia(`(max-width:${breakpoint}px)`).matches;
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return () => {};
+    const mql = window.matchMedia(`(max-width:${breakpoint}px)`);
+    const handler = (event) => setIsMobile(event.matches);
+    if (mql.addEventListener) mql.addEventListener("change", handler);
+    else mql.addListener(handler);
+    return () => {
+      if (mql.removeEventListener) mql.removeEventListener("change", handler);
+      else mql.removeListener(handler);
+    };
+  }, [breakpoint]);
+
+  return isMobile;
+}
 
 export default function Library({
-  controller,          // kræves (kommer fra useAudioController i Home)
+  controller,
   initialQuery = "",
-  focusTrackId = null, // valgfrit: scroll til en bestemt række
+  focusTrackId = null,
 }) {
-  // Den liste vi viser i biblioteket (brug controllerens queue som sandhed)
   const tracks = controller?.tracks ?? [];
+  const { playById, playNext, addToQueue, isPlaying } = controller || {};
 
-  // ---------- søg / filtre / sort ----------
   const [query, setQuery] = useState(initialQuery);
-  const [activeGenre, setActiveGenre] = useState(""); // tom = alle
+  const [activeGenre, setActiveGenre] = useState("");
   const [sortKey, setSortKey] = useState("releaseDate");
   const [sortDir, setSortDir] = useState("desc");
-
-  useEffect(() => { setQuery(initialQuery || ""); }, [initialQuery]);
-
-  // ---------- for-indlæs længder (duration) ----------
-  // Map: { trackId -> "m:ss" }
   const [durations, setDurations] = useState({});
+  const [detailsOf, setDetailsOf] = useState(null);
+
+  const isMobile = useIsMobile(820);
+
+  useEffect(() => {
+    setQuery(initialQuery || "");
+  }, [initialQuery]);
+
   useEffect(() => {
     let cancelled = false;
-
-    // kun dem der mangler length og duration
     const pending = tracks.filter(
-      t => !t.length && !t.duration && t.src
+      (track) => !track.length && !track.duration && track.audio?.src,
     );
+    if (pending.length === 0) return () => {};
 
-    if (pending.length === 0) return;
-
-    pending.forEach(t => {
+    pending.forEach((track) => {
       const audio = new Audio();
       audio.preload = "metadata";
-      audio.src = t.src;
-
-      const onLoaded = () => {
-        if (cancelled) return;
-        const sec = Number.isFinite(audio.duration) ? audio.duration : 0;
-        setDurations(prev => ({
-          ...prev,
-          [t.id]: fmtTimeFromSeconds(sec),
-        }));
-        cleanup();
-      };
-      const onError = () => cleanup();
+      audio.src = track.audio?.src || "";
 
       const cleanup = () => {
         audio.removeEventListener("loadedmetadata", onLoaded);
         audio.removeEventListener("error", onError);
       };
 
+      const onLoaded = () => {
+        if (cancelled) return;
+        const sec = Number.isFinite(audio.duration) ? audio.duration : 0;
+        setDurations((prev) => ({
+          ...prev,
+          [track.id]: fmtTimeFromSeconds(sec),
+        }));
+        cleanup();
+      };
+
+      const onError = () => cleanup();
+
       audio.addEventListener("loadedmetadata", onLoaded);
       audio.addEventListener("error", onError);
-      // kick metadata indlæsning
       audio.load();
     });
 
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [tracks]);
 
-  // ---------- helpers ----------
-  const normalizeGenres = (track) => {
-    // du har ændret til string – men vi håndterer begge dele for fremtiden
-    if (Array.isArray(track.genre)) return track.genre.filter(Boolean);
-    if (typeof track.genre === "string" && track.genre.trim()) return [track.genre.trim()];
+  const normalizeGenres = useCallback((track) => {
+    if (!track) return [];
+    if (Array.isArray(track.genres))
+      return track.genres.filter(Boolean).map((g) => String(g).trim());
+    if (Array.isArray(track.genre))
+      return track.genre.filter(Boolean).map((g) => String(g).trim());
+    if (typeof track.genres === "string")
+      return track.genres
+        .split(/[,|]/)
+        .map((genre) => genre.trim())
+        .filter(Boolean);
+    if (typeof track.genre === "string")
+      return track.genre
+        .split(/[,|]/)
+        .map((genre) => genre.trim())
+        .filter(Boolean);
     return [];
-  };
+  }, []);
 
   const allGenres = useMemo(() => {
-    const s = new Set();
-    tracks.forEach(t => normalizeGenres(t).forEach(g => s.add(g)));
-    return [...s].sort((a,b)=>a.localeCompare(b));
-  }, [tracks]);
+    const set = new Set();
+    tracks.forEach((track) =>
+      normalizeGenres(track).forEach((genre) => set.add(genre)),
+    );
+    return [...set].sort((a, b) => a.localeCompare(b));
+  }, [tracks, normalizeGenres]);
 
   const filtered = useMemo(() => {
-    const term = (query || "").trim().toLowerCase();
-    return tracks.filter(t => {
+    const term = query.trim().toLowerCase();
+    return tracks.filter((track) => {
       const textHit =
         !term ||
-        t.title?.toLowerCase().includes(term) ||
-        t.artist?.toLowerCase().includes(term) ||
-        t.album?.toLowerCase().includes(term);
-      const g = normalizeGenres(t);
-      const genreHit = !activeGenre || g.includes(activeGenre);
+        track.title?.toLowerCase().includes(term) ||
+        track.artist?.toLowerCase().includes(term) ||
+        track.album?.toLowerCase().includes(term);
+      const genreHit =
+        !activeGenre || normalizeGenres(track).includes(activeGenre);
       return textHit && genreHit;
     });
-  }, [tracks, query, activeGenre]);
+  }, [tracks, query, activeGenre, normalizeGenres]);
 
   const sorted = useMemo(() => {
     const arr = [...filtered];
@@ -102,9 +143,11 @@ export default function Library({
       switch (sortKey) {
         case "title":
         case "artist":
-        case "album": {
-          return String(a[sortKey] || "").localeCompare(String(b[sortKey] || "")) * dir;
-        }
+        case "album":
+          return (
+            String(a[sortKey] || "").localeCompare(String(b[sortKey] || "")) *
+            dir
+          );
         case "genre": {
           const aa = normalizeGenres(a).join(", ");
           const bb = normalizeGenres(b).join(", ");
@@ -119,9 +162,8 @@ export default function Library({
       }
     });
     return arr;
-  }, [filtered, sortKey, sortDir]);
+  }, [filtered, sortKey, sortDir, normalizeGenres]);
 
-  // ---------- scroll til bestemt række ----------
   const rowRefs = useRef(new Map());
   useEffect(() => {
     if (!focusTrackId) return;
@@ -129,166 +171,259 @@ export default function Library({
     if (el) el.scrollIntoView({ block: "center", behavior: "smooth" });
   }, [focusTrackId, sorted]);
 
-  // ---------- modal ----------
-  const [detailsOf, setDetailsOf] = useState(null);
+  const isCurrent = useCallback(
+    () => controller?.tracks?.[controller.index],
+    [controller],
+  );
 
-  // ---------- play/pause helpers ----------
-  const isCurrent = (track) => controller.index >= 0 && controller.tracks[controller.index]?.id === track.id;
-  const isPlayingHere = (track) => isCurrent(track) && controller.isPlaying;
+  const isPlayingHere = useCallback(
+    (track) => isCurrent()?.id === track.id && isPlaying,
+    [isCurrent, isPlaying],
+  );
 
   const onSort = (key) => {
-    if (key === sortKey) setSortDir(d => (d === "asc" ? "desc" : "asc"));
-    else {
+    if (key === sortKey) {
+      setSortDir((dir) => (dir === "asc" ? "desc" : "asc"));
+    } else {
       setSortKey(key);
       setSortDir(key === "releaseDate" ? "desc" : "asc");
     }
   };
 
+  const buildActions = useCallback(
+    (track) => {
+      if (!track) return [];
+      return [
+        {
+          label: "View info",
+          onSelect: () => setDetailsOf(track),
+        },
+        {
+          label: "Play",
+          onSelect: () => playById?.(track.id),
+        },
+        {
+          label: "Play next",
+          onSelect: () => playNext?.(track.id),
+        },
+        {
+          label: "View album",
+          onSelect: () => {
+            if (!track.album) return;
+            setQuery(track.album);
+            setActiveGenre("");
+          },
+          disabled: !track.album,
+        },
+        {
+          label: "View artist",
+          onSelect: () => {
+            if (!track.artist) return;
+            setQuery(track.artist);
+            setActiveGenre("");
+          },
+          disabled: !track.artist,
+        },
+        {
+          label: "Add to queue",
+          onSelect: () => addToQueue?.(track.id),
+        },
+      ].filter(Boolean);
+    },
+    [addToQueue, playById, playNext],
+  );
+
+  const durationLabelFor = useCallback(
+    (track) => track.length || track.duration || durations[track.id] || "--",
+    [durations],
+  );
+
   return (
     <section className="library">
-      <div className="library__header">
-        <h1>Bibliotek</h1>
+      <div className="library__content">
+        <div className="library__header">
+          <h1>Library</h1>
 
-        <div className="filtersRow">
-          <div className="searchBox">
-            <input
-              type="text"
-              placeholder="Søg efter titel, kunstner eller album…"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              aria-label="Søg i bibliotek"
-            />
-          </div>
-
-          <div className="genreChips">
-            <button
-              className={`chip ${!activeGenre ? "isActive" : ""}`}
-              onClick={() => setActiveGenre("")}
-            >
-              Alle
-            </button>
-            {allGenres.map(g => (
-              <button
-                key={g}
-                className={`chip ${activeGenre === g ? "isActive" : ""}`}
-                onClick={() => setActiveGenre(g)}
-              >
-                {g}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="tableWrap">
-        <table className="trackTable">
-          <thead>
-            <tr>
-              <th aria-label="Cover" />
-              <th onClick={() => onSort("title")}>Titel {sortKey === "title" && <SortArrow dir={sortDir} />}</th>
-              <th onClick={() => onSort("artist")}>Kunstner {sortKey === "artist" && <SortArrow dir={sortDir} />}</th>
-              <th onClick={() => onSort("album")}>Album {sortKey === "album" && <SortArrow dir={sortDir} />}</th>
-              <th onClick={() => onSort("genre")}>Genre {sortKey === "genre" && <SortArrow dir={sortDir} />}</th>
-              <th onClick={() => onSort("releaseDate")}>Udgivet {sortKey === "releaseDate" && <SortArrow dir={sortDir} />}</th>
-              <th>Længde</th>
-              <th aria-label="Info" />
-            </tr>
-          </thead>
-
-          <tbody>
-            {sorted.map(t => {
-              const playing = isPlayingHere(t);
-              const coverSrc = t.cover?.src || FALLBACK_COVER;
-              const lengthStr = t.length || t.duration || durations[t.id] || "—";
-              return (
-                <tr
-                  key={t.id}
-                  ref={el => rowRefs.current.set(t.id, el)}
-                  className={playing ? "isPlaying" : ""}
-                >
-                  <td>
-                    <button
-                      className="coverBtn"
-                      onClick={() => controller.playById(t.id)}
-                      aria-label={playing ? "Pause" : "Afspil"}
-                      title={playing ? "Pause" : "Afspil"}
-                    >
-                      <img className="coverImg" src={coverSrc} alt="" />
-                      <span className="coverOverlay">
-                        <img src={playing ? pauseIcon : playIcon} alt="" />
-                      </span>
-                    </button>
-                  </td>
-
-                  <td className="cellTitle">{t.title}</td>
-                  <td className="cellArtist">{t.artist}</td>
-                  <td>{t.album || "—"}</td>
-                  <td>{normalizeGenres(t).join(", ") || "—"}</td>
-                  <td>{fmtDate(t.releaseDate)}</td>
-                  <td>{lengthStr}</td>
-
-                  <td className="cellInfo">
-                    <button className="infoBtn" onClick={() => setDetailsOf(t)}>
-                      <img src={infoIcon} alt="" />
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-
-      {detailsOf && (
-        <div className="modalBackdrop" onClick={() => setDetailsOf(null)}>
-          <div className="modalCard" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="modalClose"
-              onClick={() => setDetailsOf(null)}
-              aria-label="Luk"
-            >
-              ×
-            </button>
-
-            <div className="modalGrid">
-              <img
-                className="modalCover"
-                src={detailsOf.cover?.src || FALLBACK_COVER}
-                alt=""
+          <div className="filtersRow">
+            <div className="searchBox">
+              <input
+                type="text"
+                placeholder="Search by title, artist or album"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                aria-label="Search library"
               />
-              <div className="modalMeta">
-                <h2>{detailsOf.title}</h2>
-                <div className="modalArtist">{detailsOf.artist}</div>
+            </div>
 
-                <div className="modalList">
-                  <div><span>Album:</span> {detailsOf.album || "—"}</div>
-                  <div><span>Genre:</span> {normalizeGenres(detailsOf).join(", ") || "—"}</div>
-                  <div><span>Udgivet:</span> {fmtDate(detailsOf.releaseDate)}</div>
-                  <div>
-                    <span>Længde:</span>{" "}
-                    {detailsOf.length || detailsOf.duration || durations[detailsOf.id] || "—"}
-                  </div>
-                  <div><span>BPM:</span> {detailsOf.bpm || "—"}</div>
-                </div>
-              </div>
+            <div className="genreChips">
+              <button
+                className={`chip ${!activeGenre ? "isActive" : ""}`}
+                onClick={() => setActiveGenre("")}
+              >
+                All
+              </button>
+              {allGenres.map((genre) => (
+                <button
+                  key={genre}
+                  className={`chip ${activeGenre === genre ? "isActive" : ""}`}
+                  onClick={() => setActiveGenre(genre)}
+                >
+                  {genre}
+                </button>
+              ))}
             </div>
           </div>
         </div>
-      )}
+
+        {isMobile ? (
+          <div className="library__mobileList">
+            {sorted.map((track) => {
+              const playing = isPlayingHere(track);
+              return (
+                <div
+                  key={track.id}
+                  ref={(el) => rowRefs.current.set(track.id, el)}
+                  className={`libCard ${playing ? "isPlaying" : ""}`}
+                >
+                  <button
+                    type="button"
+                    className="libCard__coverBtn"
+                    onClick={() => playById?.(track.id)}
+                    aria-label={playing ? "Pause" : "Play"}
+                  >
+                    {track.cover?.src ? (
+                      <img
+                        className="libCard__cover"
+                        src={track.cover.src}
+                        alt=""
+                      />
+                    ) : (
+                      <div className="libCard__cover libCard__cover--placeholder" />
+                    )}
+                    <span className="libCard__overlay">
+                      <img src={playing ? pauseIcon : playIcon} alt="" />
+                    </span>
+                  </button>
+
+                  <div className="libCard__meta">
+                    <div className="libCard__title">{track.title}</div>
+                    <div className="libCard__artist">{track.artist}</div>
+                    <div className="libCard__genres">
+                      {normalizeGenres(track).join(", ")}
+                    </div>
+                  </div>
+
+                  <TrackActionsMenu
+                    track={track}
+                    actions={buildActions(track)}
+                    triggerClassName="libCard__more"
+                    size="sm"
+                    align="left"
+                  />
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="tableWrap">
+            <table className="trackTable">
+              <thead>
+                <tr>
+                  <th aria-label="Cover" />
+                  <th onClick={() => onSort("title")}>
+                    Title {sortKey === "title" && <SortArrow dir={sortDir} />}
+                  </th>
+                  <th onClick={() => onSort("artist")}>
+                    Artist {sortKey === "artist" && <SortArrow dir={sortDir} />}
+                  </th>
+                  <th onClick={() => onSort("album")}>
+                    Album {sortKey === "album" && <SortArrow dir={sortDir} />}
+                  </th>
+                  <th onClick={() => onSort("genre")}>
+                    Genre {sortKey === "genre" && <SortArrow dir={sortDir} />}
+                  </th>
+                  <th onClick={() => onSort("releaseDate")}>
+                    Released{" "}
+                    {sortKey === "releaseDate" && <SortArrow dir={sortDir} />}
+                  </th>
+                  <th>Length</th>
+                  <th aria-label="Actions" />
+                </tr>
+              </thead>
+
+              <tbody>
+                {sorted.map((track) => {
+                  const playing = isPlayingHere(track);
+                  const coverSrc = track.cover?.src || FALLBACK_COVER;
+                  const lengthStr = durationLabelFor(track);
+                  return (
+                    <tr
+                      key={track.id}
+                      ref={(el) => rowRefs.current.set(track.id, el)}
+                      className={playing ? "isPlaying" : ""}
+                    >
+                      <td>
+                        <button
+                          className="coverBtn"
+                          onClick={() => playById?.(track.id)}
+                          aria-label={playing ? "Pause" : "Play"}
+                          title={playing ? "Pause" : "Play"}
+                        >
+                          <img className="coverImg" src={coverSrc} alt="" />
+                          <span className="coverOverlay">
+                            <img src={playing ? pauseIcon : playIcon} alt="" />
+                          </span>
+                        </button>
+                      </td>
+
+                      <td className="cellTitle">{track.title}</td>
+                      <td className="cellArtist">{track.artist}</td>
+                      <td>{track.album || "--"}</td>
+                      <td>{normalizeGenres(track).join(", ") || "--"}</td>
+                      <td>{fmtDate(track.releaseDate)}</td>
+                      <td>{lengthStr}</td>
+
+                      <td className="cellInfo">
+                        <TrackActionsMenu
+                          track={track}
+                          actions={buildActions(track)}
+                          triggerClassName="cellInfo__trigger"
+                          size="sm"
+                        />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+
+      <TrackDetailsModal
+        track={detailsOf}
+        onClose={() => setDetailsOf(null)}
+        durationLabel={detailsOf ? durationLabelFor(detailsOf) : undefined}
+        normalizeGenres={normalizeGenres}
+        fmtDate={fmtDate}
+      />
     </section>
   );
 }
 
-/* ---------- små UI helpers ---------- */
 function SortArrow({ dir }) {
-  return <span className="sortBadge">{dir === "asc" ? "↑" : "↓"}</span>;
+  return <span className="sortBadge">{dir === "asc" ? "^" : "v"}</span>;
 }
 
 function fmtDate(iso) {
-  if (!iso) return "—";
+  if (!iso) return "--";
   const d = new Date(iso);
-  if (Number.isNaN(+d)) return "—";
-  return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+  if (Number.isNaN(+d)) return "--";
+  return d.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 }
 
 function fmtTimeFromSeconds(totalSec) {

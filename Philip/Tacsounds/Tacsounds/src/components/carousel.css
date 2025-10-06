@@ -1,96 +1,232 @@
 /* Center the whole carousel area */
-.featured { display:grid; place-items:center; z-index: 1; }
+.featured {
+  display: grid;
+  place-items: center;
+  z-index: 1;
+  --featured-card-size: 400px;
+  --featured-card-gap: 16px;
+}
 
-.featured__frame{
-  position:relative;
-  width:min(1200px, 100%);
-  display:grid;
-  place-items:center;
+.featured__frame {
+  position: relative;
+  width: min(1200px, 100%);
+  display: grid;
+  place-items: center;
 }
 
 /* Stage holds the positioned cards */
-.featured__stage{
-  position:relative;
-  height:420px;             /* room for meta under cover */
-  overflow:visible;         /* cards can spill visually */
-  touch-action:pan-y;       /* horizontal drag only */
+.featured__stage {
+  position: relative;
+  height: calc(var(--featured-card-size, 400px) + 120px);
+  overflow: visible;         /* cards can spill visually */
+  touch-action: pan-y;       /* horizontal drag only */
+  user-select: none;
+  cursor: grab;
 }
-.featured__stage:active{ cursor:grabbing; }
+
+.featured__stage:active {
+  cursor: grabbing;
+}
 
 /* Arrows are part of the same frame so they stay centered with stage */
-.featured__nav{ position:absolute; inset:0; pointer-events:none; }
-.featured__arrow{
-  position:absolute; top:50%; transform:translateY(-50%);
-  pointer-events:auto;
-  width:46px; height:46px; border-radius:999px;
-  border:2px solid var(--color-primary);
-  color:var(--color-primary); background:#fff;
-  display:grid; place-items:center; cursor:pointer;
-  box-shadow:0 4px 12px rgba(0,0,0,.10); z-index:5;
-  transition:transform .18s ease;
+.featured__nav {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
-.featured__arrow:first-of-type{ left:-10px; }
-.featured__arrow:last-of-type{ right:-10px; }
-.featured__arrow:hover{ transform:translateY(-50%) scale(1.05); }
+
+.featured__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.18s ease;
+}
+
+.featured__arrow:first-of-type {
+  left: -10px;
+}
+
+.featured__arrow:last-of-type {
+  right: -10px;
+}
+
+.featured__arrow:hover {
+  transform: translateY(-50%) scale(1.05);
+}
 
 /* Card */
-.featured__card{
-  position:absolute;
-  left:50%;
-  top:0;
-  transform-origin:center center;
-  transition:transform .1s ease, opacity .18s ease;
-  cursor:pointer;
-  width:400px; height:400px;
-  display:grid; grid-template-rows:auto auto;
-  justify-items:center;
+.featured__card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+  transition: transform 0.18s ease, opacity 0.18s ease, visibility 0.18s ease;
+  cursor: pointer;
+  width: var(--featured-card-size, 400px);
+  min-height: var(--featured-card-size, 400px);
+  height: auto;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: center;
+  align-content: start;
+}
+
+.featured__card.isHidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.featured__card.isPeek:not(.isCenter) .featured__cover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 /* Cover + overlay */
-.featured__coverWrap{ position:relative; width:400px; height:400px; }
-.featured__cover{
-  position:relative; width:100%; height:100%;
-  border-radius:20px; overflow:hidden; box-shadow:0 12px 32px rgba(0,0,0,.20);
+.featured__coverWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
 }
-.featured__cover img{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-  -webkit-user-drag: none; user-select:none;
+
+.featured__cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
-/* White backing so transparent PNGs don’t show the page */
-.coverBg{
-  position:absolute; inset:0; background:white; z-index:-1;
+
+.featured__cover img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* White backing so transparent PNGs do not show the page */
+.coverBg {
+  position: absolute;
+  inset: 0;
+  background: white;
+  z-index: -1;
 }
 
 /* Play/Pause overlay */
-.featured__overlay{
-  position:absolute; inset:0; display:grid; place-items:center;
-  color:#fff; opacity:0; pointer-events:none;
-  background:radial-gradient(rgba(0,0,0,.45) 10%, rgba(0,0,0,.12) 40%, transparent 65%);
-  transition:opacity .2s ease;
+.featured__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(rgba(0, 0, 0, 0.45) 10%, rgba(0, 0, 0, 0.12) 40%, transparent 65%);
+  transition: opacity 0.2s ease;
 }
-.featured__overlay.showOnHover:hover{ opacity:1; }
-.featured__overlay.isVisible{ opacity:1; } /* when centered + playing */
-.overlayIcon{ width:44px; height:44px; fill:#fff; }
+
+.featured__overlay.showOnHover:hover,
+.featured__overlay.showOnHover:focus-visible {
+  opacity: 1;
+}
+
+.featured__overlay.isVisible {
+  opacity: 1;
+}
+
+.featured__card.isPlaying .featured__overlay {
+  opacity: 1;
+}
+
+.overlayIcon {
+  width: 44px;
+  height: 44px;
+  fill: #fff;
+}
 
 /* Meta under the cover (more breathing room) */
-.featured__meta{
-  display:flex; flex-direction:column; align-items:center;
-  padding-top:18px; gap:6px;
+.featured__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18px;
+  gap: 6px;
 }
-.title, .artist{
-  display:inline-block; text-decoration:none;
-  font-weight:600; color:var(--color-text);
+
+.title,
+.artist {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-text);
 }
-.title{ font-weight:700; font-size:1.1rem; }
-.artist{ color:var(--color-primary); font-weight:500; }
+
+.title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.artist {
+  color: var(--color-primary);
+  font-weight: 500;
+}
 
 /* Hover polish */
-.featured__card:is(:hover, :focus-visible){
-  filter:brightness(1.02); transform:scale(1.06);
+.featured__card:is(:hover, :focus-visible) {
+  filter: brightness(1.02);
+  transform: scale(1.06);
 }
 
-/* “Loading…” */
-.featured__empty{
-  position:absolute; inset:0; display:grid; place-items:center;
-  color:var(--color-muted, #888);
+/* Loading */
+.featured__empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-muted, #888);
+}
+
+/* Mobile refinements */
+.featured--mobile {
+  --featured-card-size: clamp(240px, 78vw, 320px);
+  --featured-card-gap: clamp(16px, 8vw, 32px);
+}
+
+.featured--mobile .featured__frame {
+  width: 100vw;
+  max-width: 100%;
+  padding-inline: var(--featured-card-peek, clamp(12px, 6vw, 24px));
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.featured--mobile .featured__nav {
+  display: none;
+}
+
+.featured--mobile .featured__stage {
+  width: 100%;
+  height: calc(var(--featured-card-size, 280px) + 110px);
+  margin: 0 auto;
+}
+
+.featured--mobile .featured__meta {
+  padding-top: 14px;
+}
+
+.featured--mobile .featured__card:is(:hover, :focus-visible) {
+  transform: scale(1.03);
 }

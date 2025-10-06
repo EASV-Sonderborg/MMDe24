@@ -1,27 +1,40 @@
-/* Home page shell layout (matches the classes used in Home.jsx) */
-
-.pageGrid {
-  min-height: 100%;
+.site {
+  height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
-}
-.home {
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    background-color: #FFFFFF;
+  background: var(--color-bg, #ffffff);
+  color: var(--color-text, #212121);
 }
 
-/* keep navbar above content if it has shadows, etc. */
-.siteHeader { position: relative; z-index: 10; }
+.siteHeader {
+  position: relative;
+  z-index: 40;
+}
 
-/* center the main view (carousel or library) and leave room for the player */
 .siteMain {
-  display: grid;
-  place-items: center;
-  padding: clamp(12px, 3vw, 32px);
-  padding-bottom: calc(140px + env(safe-area-inset-bottom));
+  min-height: 0;
+  overflow: hidden;
+  background: var(--color-bg, #ffffff);
+  height: 100%;
 }
 
-/* player sits in normal flow; AudioPlayerShell already handles sticky inside itself */
-.siteFooter { position: relative; z-index: 20; }
+.siteMain__content {
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  padding: clamp(16px, 3vw, 32px) clamp(20px, 6vw, 48px);
+  padding-bottom: clamp(20px, 5vw, 56px);
+  padding-top: 0px;
+}
+
+.siteFooter {
+  position: relative;
+  z-index: 50;
+}
+
+@media (max-width: 768px) {
+  .siteMain__content {
+    padding: clamp(12px, 4vw, 20px) clamp(12px, 5vw, 24px);
+    padding-bottom: clamp(18px, 8vw, 64px);
+  }
+}
