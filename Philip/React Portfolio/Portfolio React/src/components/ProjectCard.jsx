@@ -47,7 +47,7 @@ export default function ProjectCard({ project, flip = false }) {
               {project.role.map(r => (
                 <span
                   key={r}
-                  className={` text__label pill ${r.toLowerCase()==='design' ? 'pill--design' : 'pill--dev'}`}
+                  className={` pill text__label ${r.toLowerCase()==='design' ? 'pill--design' : 'pill--dev'}`}
                 >
                   {r}
                 </span>

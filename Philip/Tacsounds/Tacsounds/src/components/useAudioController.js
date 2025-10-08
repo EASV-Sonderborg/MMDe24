@@ -131,9 +131,9 @@ export default function useAudioController() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queueIndex]);
-    });
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queueIndex]);const volumeIcon = useCallback((v, muted) => {
+   [queueIndex];const volumeIcon = useCallback((v, muted) => {
     if (muted || v === 0) return volumeMute;
     if (v <= 0.33) return volumeLow;
     if (v <= 0.66) return volumeMid;
@@ -399,7 +399,7 @@ export default function useAudioController() {
     removeFromQueue,
     moveInQueue,
   };
-}
+
 
 
 

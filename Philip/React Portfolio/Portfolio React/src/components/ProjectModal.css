@@ -1,0 +1,197 @@
+.no-scroll { overflow: hidden; }
+
+/* Overlay */
+.pm__overlay{
+  position: fixed; inset: 0; z-index: 1000;
+  display: grid; place-items: center;
+  background: radial-gradient(1200px 1200px at 50% 20%, rgba(2,6,23,.75), rgba(2,6,23,.92));
+  backdrop-filter: blur(4px);
+}
+
+/* Dialog */
+.pm__dialog{
+  width: min(1100px, 92vw);
+  max-height: 92vh;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 24px 80px rgba(0,0,0,.45);
+  display: grid;
+  grid-template-rows: auto 1fr; /* media | bottom */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Luk */
+.pm__close{
+  position: absolute; top: 10px; right: 10px;
+  width: 36px; height: 36px; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 999px;
+  background: rgba(0,0,0,.35); color: rgb(255, 255, 255);
+  z-index: 1001;
+  display: grid; place-items: center;
+  cursor: pointer;
+}
+
+/* MEDIA – samme højde, ingen zoom af portrait */
+.pm__media{ padding: 12px 12px 0; }
+.pm__stage{
+  height: 40vh; max-height: 54vh;
+  border-radius: 12px;
+  background: rgba(0,0,0,.35);        /* letterbox/pillarbox toner */
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.pm__stage img{
+  height: 100%;                /* styr højden */
+  width: auto;                 /* bevar proportioner */
+  object-fit: contain;         /* ingen cropping */
+  display: block;
+}
+
+/* Thumbs */
+.pm__thumbs{
+  margin-top: 8px;
+  display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px;
+}
+.pm__thumb{
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.25); border-radius: 8px; padding: 2px;
+  cursor: pointer;
+}
+.pm__thumb img{
+  width: 96px; height: 64px;
+  object-fit: cover; border-radius: 6px; display: block;
+}
+.pm__thumb.is-active{ outline: 2px solid rgba(255,255,255,.6); }
+
+/* Caption under billedet */
+.pm__caption{
+  margin-top: 10px;
+  padding: 8px;
+  text-align: left;
+  color: #fff;
+}
+.pm__imgTitle{
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.pm__imgDesc{
+  margin: 2px 0 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+/* BUND – to kolonner */
+.pm__bottom{
+  padding: 12px 16px 16px;
+  display: grid;
+  grid-template-columns: 1.35fr .9fr; /* venstre | højre */
+  gap: 1.25rem;
+  min-height: 200px;
+}
+
+/* Venstre side */
+.pm__left{ display: grid; gap: .55rem; align-content: start; }
+.pm__title{ margin: 0 0 2px; font-size: clamp(1.2rem, .9rem + 1.2vw, 1.75rem); }
+.pm__subtitle{ opacity: .85; margin: 0 0 .2rem; }
+.pm__desc{ margin: .2rem 0 .4rem; line-height: 1.6; }
+.pm__h4{ margin: .4rem 0 .2rem; font-size: 1rem; opacity: .9; }
+.pm__process{
+  margin: 0; padding: .7rem .9rem; border-radius: 12px;
+  background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.15);
+  white-space: pre-wrap; line-height: 1.5;
+}
+
+/* Højre side */
+.pm__right{ display: grid; align-content: space-evenly; justify-content: end; }
+.pm__meta{ display: grid; gap: 1rem; width: max-content; }
+.pm__row{ display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.pm__key{ opacity: .8; min-width: 72px; }
+.pm__chips{ display: inline-flex; gap: .5rem; flex-wrap: wrap; }
+
+/* Tools */
+.pm__tools{ display: inline-flex; gap: .5rem; }
+.pm__tools img{
+  width: 20px; height: 20px; border-radius: 3px;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,.35));
+}
+
+/* Glass pills (samme stil som kort) */
+.pill{
+  display:inline-flex; align-items:center; padding:.28rem .6rem;
+  border-radius:999px; font-size:.85rem; line-height:1;
+  border:1px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px) brightness(1.05);
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+.pill--design{
+  background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(121,255,157,.25));
+  border-color: rgba(121,255,157,.35);
+}
+.pill--dev{
+  background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(121,157,255,.25));
+  border-color: rgba(121,157,255,.35);
+}
+.pill--date{
+  background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.18));
+  border-color: rgba(255,255,255,.28);
+}
+
+/* Actions */
+.pm__actions{ display: flex; gap: .6rem; width: max-content; margin: 0 auto }
+.btn    { padding: .45rem .8rem; border-radius: 10px; text-decoration: none; }
+.btn--light{ background: rgba(255,255,255,.92); color: #0e1025; }
+.btn--ghost{ background: rgba(255,255,255,.08); color: #fff; }
+
+/* Sidepile */
+.pm__nav{
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(0,0,0,.4); color:#fff;
+  display:grid; place-items:center; z-index: 1001;
+}
+.pm__nav--prev{ left: max(12px, 4vw); }
+.pm__nav--next{ right: max(12px, 4vw); }
+
+/* Mobil */
+@media (max-width: 760px){
+  .pm__stage{ height: 42vh; max-height: 42vh; }
+  .pm__bottom{
+    grid-template-columns: 1fr; /* stack */
+  }
+  .pm__right{ order: 2; }
+}
+
+/* Indre galleri-navigation */
+.pm__imgNav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  font-size: 1.4rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background .2s ease, opacity .2s ease;
+  opacity: 0.75;
+  z-index: 5;
+}
+.pm__imgNav:hover{
+  background: rgba(255,255,255,.15);
+  opacity: 1;
+}
+.pm__imgNav--prev{ left: 10px; }
+.pm__imgNav--next{ right: 10px; }
+.pm__stage{ position: relative; }
