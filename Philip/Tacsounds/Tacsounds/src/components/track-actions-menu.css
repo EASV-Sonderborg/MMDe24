@@ -28,6 +28,13 @@
   transform: scale(1.05);
 }
 
+/* When open, highlight the trigger with a white circular background */
+.trackMenu.isOpen .trackMenu__trigger {
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(10, 12, 16, 0.14);
+}
+
 .trackMenu__sheet {
   position: absolute;
   min-width: 180px;
@@ -37,17 +44,25 @@
   padding: 6px;
   display: grid;
   gap: 4px;
-  z-index: 120;
+  z-index: 800; /* ensure above player and app chrome */
 }
 
 .trackMenu--right .trackMenu__sheet {
   right: 0;
-  top: calc(100% - 200px);
+  top: calc(100% + 8px);
 }
 
 .trackMenu--left .trackMenu__sheet {
   left: 0;
-  top: calc(100% + 32px);
+  top: calc(100% + 8px);
+}
+
+/* Mobile refinements */
+@media screen and (max-width: 768px) {
+  /* Prevent overflow; keep sheet within viewport width */
+  .trackMenu__sheet {
+    max-width: min(92vw, 320px);
+  }
 }
 
 .trackMenu--md .trackMenu__trigger {
@@ -83,6 +98,12 @@
 .trackMenu--center .trackMenu__sheet {
   left: 50%;
   transform: translateX(-50%);
+  top: calc(100% + 10px);
+}
+
+/* Allow sheet to drop upwards when needed (set via inline style/class) */
+.trackMenu__sheet.isDropUp {
+  top: auto;
 }
 
 @media (max-width: 640px) {

@@ -5,7 +5,7 @@ import PlayerStandard from "./PlayerStandard.jsx";
 import PlayerFull from "./PlayerFull.jsx";
 import MobilePlayerMini from "./MobilePlayerMini.jsx";
 import MobilePlayerFull from "./MobilePlayerFull.jsx";
-import QueueModal from "./QueueModal.jsx";
+import QueueModal from "./QueueModal2.jsx";
 import TrackDetailsModal from "./TrackDetailsModal.jsx";
 
 import "./audioplayer.css";
@@ -79,6 +79,7 @@ export default function AudioPlayerShell({ controller }) {
   const [mobileVariant, setMobileVariant] = useState("mini");
   const [isQueueOpen, setQueueOpen] = useState(false);
   const [detailsTrack, setDetailsTrack] = useState(null);
+  
 
   const {
     current,
@@ -99,16 +100,64 @@ export default function AudioPlayerShell({ controller }) {
     playById,
     addToQueue,
     playNext,
+    queueTracks,
+    index,
   } = controller ?? {};
 
   if (!current) return null;
+
+  // Media Session API: lock screen metadata + controls (safe: uses defined `current`)
+  useEffect(() => {
+    const ms = navigator?.mediaSession;
+    if (!ms || !current) return;
+    try {
+      const artwork = current.cover?.src
+        ? [
+            { src: current.cover.src, sizes: '96x96', type: 'image/png' },
+            { src: current.cover.src, sizes: '192x192', type: 'image/png' },
+            { src: current.cover.src, sizes: '512x512', type: 'image/png' },
+          ]
+        : [];
+      ms.metadata = new window.MediaMetadata({
+        title: current.title || '',
+        artist: current.artist || '',
+        album: current.album || '',
+        artwork,
+      });
+      ms.setActionHandler?.('play', () => controller?.togglePlay?.());
+      ms.setActionHandler?.('pause', () => controller?.togglePlay?.());
+      ms.setActionHandler?.('previoustrack', () => controller?.prev?.());
+      ms.setActionHandler?.('nexttrack', () => controller?.next?.());
+      ms.setActionHandler?.('seekbackward', null);
+      ms.setActionHandler?.('seekforward', null);
+      ms.setActionHandler?.('seekto', (details) => {
+        if (details?.seekTime != null && controller?.audioRef?.current) {
+          const el = controller.audioRef.current;
+          el.currentTime = Math.max(0, Math.min(details.seekTime, el.duration || 0));
+        }
+      });
+      const el = controller?.audioRef?.current;
+      const updatePos = () => {
+        try {
+          ms.setPositionState?.({ duration: el?.duration || 0, playbackRate: 1, position: el?.currentTime || 0 });
+        } catch {}
+      };
+      el?.addEventListener?.('timeupdate', updatePos);
+      updatePos();
+      return () => el?.removeEventListener?.('timeupdate', updatePos);
+    } catch {}
+  }, [controller, current]);
 
   const trackActions = useMemo(() => {
     if (!current) return [];
     return [
       {
         label: "View info",
-        onSelect: () => setDetailsTrack(current),
+        onSelect: () => {
+          if (isMobile) setMobileVariant("mini");
+          setQueueOpen(false);
+          setDetailsTrack(current);
+        },
       },
       playById && {
         label: isPlaying ? "Pause" : "Play",
@@ -123,7 +172,19 @@ export default function AudioPlayerShell({ controller }) {
         onSelect: () => addToQueue(current.id),
       },
     ].filter(Boolean);
-  }, [current, isPlaying, playById, playNext, addToQueue]);
+  }, [current, isPlaying, playById, playNext, addToQueue, isMobile]);
+
+  const prevTrack = useMemo(
+    () => (queueTracks && typeof index === "number" && index > 0 ? queueTracks[index - 1] : null),
+    [queueTracks, index],
+  );
+  const nextTrackMeta = useMemo(
+    () =>
+      queueTracks && typeof index === "number" && index < (queueTracks?.length || 0) - 1
+        ? queueTracks[index + 1]
+        : null,
+    [queueTracks, index],
+  );
 
   const playerNode = useMemo(() => {
     if (isMobile) {
@@ -136,7 +197,10 @@ export default function AudioPlayerShell({ controller }) {
             next={next}
             prev={prev}
             progressPct={progressPct}
+            seekToRatio={seekToRatio}
             growVariant={() => setMobileVariant("full")}
+            prevTrack={prevTrack}
+            nextTrack={nextTrackMeta}
           />
         );
       }
@@ -152,8 +216,15 @@ export default function AudioPlayerShell({ controller }) {
           progress={progress}
           duration={duration}
           fmt={fmt}
+          seekToRatio={seekToRatio}
           shrinkVariant={() => setMobileVariant("mini")}
-          onOpenQueue={() => setQueueOpen(true)}
+          onOpenQueue={() => {
+            if (isMobile) setMobileVariant("mini");
+            setDetailsTrack(null);
+            setQueueOpen(true);
+          }}
+          prevTrack={prevTrack}
+          nextTrack={nextTrackMeta}
           trackActions={trackActions}
         />
       );
@@ -274,3 +345,8 @@ export default function AudioPlayerShell({ controller }) {
     </>
   );
 }
+
+
+
+
+

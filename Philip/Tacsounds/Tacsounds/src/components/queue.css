@@ -4,7 +4,7 @@
   background: rgba(10, 12, 16, 0.55);
   display: grid;
   place-items: center;
-  z-index: 160;
+  z-index: 700; /* above mobile player (500) */
   padding: 24px;
 }
 
@@ -34,12 +34,17 @@
 
 .queueModal__close {
   border: none;
-  background: rgba(15, 21, 87, 0.08);
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  font-size: 20px;
+  background: transparent; /* remove circular background */
+  width: auto;
+  height: auto;
+  padding: 4px 6px;
   line-height: 1;
+  font-size: 0; /* hide original text if any */
+}
+.queueModal__close::before {
+  content: '×';
+  color: #e11d48; /* red X */
+  font-size: 22px;
 }
 
 .queueModal__list {
@@ -48,6 +53,7 @@
   padding: 12px 18px 18px;
   display: grid;
   gap: 12px;
+  counter-reset: queue;
 }
 
 .queueModal__empty {
@@ -63,11 +69,31 @@
   padding: 10px 12px;
   border-radius: 12px;
   background: rgba(15, 21, 87, 0.04);
+  position: relative; /* for index number */
+  padding-left: 34px; /* room for index number */
 }
 
 .queueItem.isCurrent {
   background: rgba(31, 43, 173, 0.12);
   outline: 1px solid rgba(31, 43, 173, 0.25);
+}
+
+/* Index number on the left */
+.queueItem::before {
+  counter-increment: queue;
+  content: counter(queue);
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  text-align: right;
+  color: #6b7280;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.queueItem.isCurrent::before {
+  color: var(--color-primary, #1f2bad);
 }
 
 .queueItem__cover {
@@ -107,16 +133,39 @@
 .queueItem__actions {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .queueItem__actions button {
   border: none;
-  background: rgba(15, 21, 87, 0.08);
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  font-size: 16px;
+  background: transparent; /* remove circular background */
+  width: auto;
+  height: auto;
+  padding: 6px;
+  line-height: 1;
+}
+
+/* Icon sizing */
+.queueBtn img {
+  width: 20px;
+  height: 20px;
+}
+.queueBtn svg {
+  width: 18px;
+  height: 18px;
+}
+.queueBtn--play img {
+  width: 22px;
+  height: 22px;
+}
+.queueBtn--remove {
+  color: transparent; /* hide fallback char */
+  font-size: 0;
+}
+.queueBtn--remove::before {
+  content: '×';
+  color: #e11d48;
+  font-size: 20px;
   line-height: 1;
 }
 
@@ -132,12 +181,11 @@
   }
 
   .queueItem__actions {
-    gap: 4px;
+    gap: 6px;
   }
 
   .queueItem__actions button {
-    width: 28px;
-    height: 28px;
+    padding: 4px;
   }
 }
 

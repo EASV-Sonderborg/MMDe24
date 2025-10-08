@@ -6,7 +6,10 @@
   bottom: 0;
   background: var(--surface, #fff);
   box-shadow: 0 -10px 24px rgba(0, 0, 0, 0.12);
-  z-index: 50;
+  z-index: 500;
+  /* Force its own compositing layer to avoid mobile stacking bugs */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* MINI */
@@ -49,7 +52,10 @@
   background: transparent;
   padding: 0;
   text-align: left;
+  transform: translateX(var(--drag-x, 0px));
+  transition: transform 160ms ease;
 }
+.mMini__info.isDragging { transition: none; }
 
 .mMini__cover {
   width: 48px;
@@ -104,15 +110,20 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(2px);
-  z-index: 45;
+  /* Place the backdrop just beneath the player card */
+  z-index: 499;
+  /* Promote to its own layer to ensure correct stacking on mobile */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .mPlayer--full {
   left: 10px;
   right: 10px;
   bottom: 10px;
+  top: auto;
   border-radius: 18px;
-  overflow: hidden;
+  overflow: hidden;  max-height: 86vh;
 }
 
 .mFull__chev {
@@ -125,20 +136,27 @@
   border-radius: 999px;
   border: none;
   background: rgba(0, 0, 0, 0.06);
+  z-index: 6;
 }
 
-.mFull__content {
-  padding: 36px 18px 16px;
-  display: grid;
-  gap: 36px;
-  justify-items: center;
-  touch-action: pan-y;
-  height: 80%;
+.mFull__content { padding: 56px 18px 18px; display: grid; gap: 28px; justify-items: center; align-content: center; grid-template-rows: auto auto auto; touch-action: pan-y; height: 100%; }
+
+.mFull__content.isDragging { transition: none; }
+.mFull__content.isSwipe-left { animation: mFull-swipe-left 220ms ease; }
+.mFull__content.isSwipe-right { animation: mFull-swipe-right 220ms ease; }
+
+@keyframes mFull-swipe-left {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-20%); opacity: 0.92; }
+}
+@keyframes mFull-swipe-right {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(20%); opacity: 0.92; }
 }
 
 .mFull__cover {
-  width: min(78vw, 320px);
-  height: min(78vw, 320px);
+  width: min(340px, 70vw, 38vh);
+  height: min(340px, 70vw, 38vh);
   border-radius: 16px;
   margin-top: 1rem;
   background: #fff;
@@ -172,7 +190,7 @@
 
 .mFull__queue {
   border: none;
-  background: rgba(15, 21, 87, 0.08);
+  background: transparent; /* no circular background */
   width: 44px;
   height: 44px;
   border-radius: 999px;
@@ -187,19 +205,19 @@
 
 .mFull__queue:focus-visible,
 .mFull__queue:hover {
-  background: rgba(15, 21, 87, 0.16);
+  background: transparent;
 }
 
 .mFull__more .trackMenu__trigger {
   width: 44px;
   height: 44px;
-  background: rgba(15, 21, 87, 0.08);
+  background: transparent; /* remove circular background */
   border-radius: 999px;
 }
 
 .mFull__more .trackMenu__trigger:focus-visible,
 .mFull__more .trackMenu__trigger:hover {
-  background: rgba(15, 21, 87, 0.16);
+  background: transparent;
 }
 
 .mBtn {
@@ -236,3 +254,36 @@
   justify-content: space-between;
   color: #6a6a75;
 }
+
+
+
+/* Only move the hero (cover + text), not the controls */
+.mFull__hero { position: relative; width: 100%; display: grid; justify-items: center; }
+.mFull__heroTrack--current { transform: translateX(var(--drag-x, 0px)); transition: transform 180ms ease; }
+.mFull__heroTrack { display: grid; justify-items: center; gap: 14px; }
+.mFull__heroTrack--prev,
+.mFull__heroTrack--next { position: absolute; left: 0; right: 0; pointer-events: none; opacity: 0; }
+.mFull__heroTrack--prev { transform: translateX(calc(-100% + var(--drag-x, 0px))); }
+.mFull__heroTrack--next { transform: translateX(calc(100% + var(--drag-x, 0px))); }
+.mFull__content.isDragging .mFull__heroTrack--current { transition: none; }
+.mFull__content.isSwipe-left .mFull__heroTrack--current { animation: mFull-swipe-left 220ms ease; }
+.mFull__content.isSwipe-right .mFull__heroTrack--current { animation: mFull-swipe-right 220ms ease; }
+
+
+/* Mini: move only the info (not play button) */
+.mMini__hero { position: relative; flex: 1; }
+.mMini__track--current { transform: translateX(var(--drag-x, 0px)); transition: transform 160ms ease; display: flex; align-items: center; gap: 12px; }
+.mMini__track--prev,
+.mMini__track--next { position: absolute; left: 0; right: 0; pointer-events: none; opacity: 0; display: flex; align-items: center; gap: 12px; }
+.mMini__track--prev { transform: translateX(calc(-100% + var(--drag-x, 0px))); }
+.mMini__track--next { transform: translateX(calc(100% + var(--drag-x, 0px))); }
+.mMini__hero.isDragging .mMini__track--current { transition: none; }
+.mMini__hero.isDragging .mMini__track--prev,
+.mMini__hero.isDragging .mMini__track--next { opacity: 0.9; }
+
+
+
+
+
+
+

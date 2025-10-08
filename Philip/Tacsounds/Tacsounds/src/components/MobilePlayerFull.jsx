@@ -1,10 +1,57 @@
-﻿import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";import ProgressBar from "./ProgressBar";
 import TrackActionsMenu from "./TrackActionsMenu.jsx";
 import controlNext from "../assets/icons/next.svg";
 import controlPrev from "../assets/icons/prev.svg";
 import controlPlay from "../assets/icons/play.svg";
 import controlPause from "../assets/icons/pause.svg";
 import queueIcon from "../assets/icons/queue.svg";
+
+// Drag-aware swipe with live transform
+function useDragSwipe(onLeft, onRight, threshold = 28) {
+  const start = useRef({ x: 0, y: 0, active: false, fired: false });
+  const [dragX, setDragX] = useState(0);
+  const [dragging, setDragging] = useState(false);
+
+  const onPointerDown = (event) => {
+    const x = event.clientX ?? event.touches?.[0]?.clientX ?? 0;
+    const y = event.clientY ?? event.touches?.[0]?.clientY ?? 0;
+    start.current = { x, y, active: true, fired: false };
+    setDragging(true);
+    setDragX(0);
+  };
+  const onPointerMove = (event) => {
+    if (!start.current.active) return;
+    const x = event.clientX ?? event.touches?.[0]?.clientX ?? start.current.x;
+    const y = event.clientY ?? event.touches?.[0]?.clientY ?? start.current.y;
+    const dx = x - start.current.x;
+    const dy = y - start.current.y;
+    if (Math.abs(dx) < Math.abs(dy)) return; // ignore vertical scroll
+    setDragX(dx);
+    if (!start.current.fired && Math.abs(dx) >= threshold) {
+      start.current.fired = true;
+      if (dx < 0) onLeft?.();
+      else onRight?.();
+    }
+  };
+  const onPointerUp = () => {
+    if (!start.current.active) return;
+    start.current.active = false;
+    setDragging(false);
+    setDragX(0);
+  };
+  return {
+    dragX,
+    dragging,
+    handlers: {
+      onPointerDown,
+      onPointerMove,
+      onPointerUp,
+      onTouchStart: onPointerDown,
+      onTouchMove: onPointerMove,
+      onTouchEnd: onPointerUp,
+    },
+  };
+}
 
 function useSwipe(onLeft, onRight, threshold = 28) {
   const start = useRef({ x: 0, y: 0 });
@@ -41,12 +88,14 @@ export default function MobilePlayerFull({
   progress,
   duration,
   fmt,
-  shrinkVariant,
+  seekToRatio, shrinkVariant,
   onOpenQueue,
+  prevTrack,
+  nextTrack,
   trackActions = [],
 }) {
   const [swipeDir, setSwipeDir] = useState(null);
-  const swipe = useSwipe(
+  const drag = useDragSwipe(
     () => {
       setSwipeDir("left");
       next?.();
@@ -69,21 +118,47 @@ export default function MobilePlayerFull({
       <div className="mPlayer__backdrop" onClick={shrinkVariant} />
       <div className="mPlayer mPlayer--full">
         <button className="mFull__chev" onClick={shrinkVariant} aria-label="Minimize">
-          v
+          ⬇
         </button>
 
         <div
-          className={`mFull__content ${swipeDir ? `isSwipe-${swipeDir}` : ""}`}
-          {...swipe}
+          className={`mFull__content ${drag.dragging ? "isDragging" : ""} ${swipeDir ? `isSwipe-${swipeDir}` : ""}`}
         >
-          {current.cover?.src ? (
-            <img className="mFull__cover" src={current.cover.src} alt="" />
-          ) : (
-            <div className="mFull__cover" />
-          )}
+          <div className="mFull__hero" style={{ "--drag-x": `${drag.dragX || 0}px` }} {...drag.handlers}>
+            {prevTrack && (
+              <div className="mFull__heroTrack mFull__heroTrack--prev" aria-hidden>
+                {prevTrack.cover?.src ? (
+                  <img className="mFull__cover" src={prevTrack.cover.src} alt="" />
+                ) : (
+                  <div className="mFull__cover" />
+                )}
+                <div className="mFull__title">{prevTrack.title}</div>
+                <div className="mFull__artist">{prevTrack.artist}</div>
+              </div>
+            )}
 
-          <div className="mFull__title">{current.title}</div>
-          <div className="mFull__artist">{current.artist}</div>
+            <div className="mFull__heroTrack mFull__heroTrack--current">
+              {current.cover?.src ? (
+                <img className="mFull__cover" src={current.cover.src} alt="" />
+              ) : (
+                <div className="mFull__cover" />
+              )}
+              <div className="mFull__title">{current.title}</div>
+              <div className="mFull__artist">{current.artist}</div>
+            </div>
+
+            {nextTrack && (
+              <div className="mFull__heroTrack mFull__heroTrack--next" aria-hidden>
+                {nextTrack.cover?.src ? (
+                  <img className="mFull__cover" src={nextTrack.cover.src} alt="" />
+                ) : (
+                  <div className="mFull__cover" />
+                )}
+                <div className="mFull__title">{nextTrack.title}</div>
+                <div className="mFull__artist">{nextTrack.artist}</div>
+              </div>
+            )}
+          </div>
 
           <div className="mFull__controls">
             <button
@@ -96,7 +171,7 @@ export default function MobilePlayerFull({
             </button>
 
             <div className="mFull__transport">
-              <button className="mBtn mBtn--skip" onClick={prev} aria-label="Previous">
+              <button className="mBtn mBtn--skip" onClick={() => { prev?.(); }} aria-label="Previous">
                 <img src={controlPrev} alt="Previous" />
               </button>
               <button
@@ -106,7 +181,7 @@ export default function MobilePlayerFull({
               >
                 <img src={isPlaying ? controlPause : controlPlay} alt={isPlaying ? "Pause" : "Play"} />
               </button>
-              <button className="mBtn mBtn--skip" onClick={next} aria-label="Next">
+              <button className="mBtn mBtn--skip" onClick={() => { next?.(); }} aria-label="Next">
                 <img src={controlNext} alt="Next" />
               </button>
             </div>
@@ -120,9 +195,7 @@ export default function MobilePlayerFull({
             />
           </div>
 
-          <div className="mFull__progress">
-            <div className="mFull__progressFill" style={{ width: `${progressPct}%` }} />
-          </div>
+          <ProgressBar percent={progressPct} onSeek={seekToRatio} className="mFull__progress" />
           <div className="mFull__time">
             <span>{fmt(progress)}</span>
             <span>{fmt(duration)}</span>
@@ -132,3 +205,9 @@ export default function MobilePlayerFull({
     </>
   );
 }
+
+
+
+
+
+

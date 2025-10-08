@@ -1,5 +1,6 @@
 import React from "react";
 import controlPlay from "../assets/icons/play.svg";
+import controlPause from "../assets/icons/pause.svg";
 import "./queue.css";
 
 const ArrowUpIcon = () => (
@@ -14,12 +15,21 @@ const ArrowDownIcon = () => (
   </svg>
 );
 
+// (optional) kept if you want to show a note somewhere else later
+const NoteIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden>
+    <path d="M9 3v10.55A4 4 0 1 0 11 17V7h7V3H9z" fill="currentColor" />
+  </svg>
+);
+
 export default function QueueModal({ isOpen, onClose, controller }) {
   if (!isOpen) return null;
 
   const {
     queueTracks = [],
     queueIndex = 0,
+    isPlaying,
+    togglePlay,
     playById,
     moveInQueue,
     removeFromQueue,
@@ -35,9 +45,7 @@ export default function QueueModal({ isOpen, onClose, controller }) {
             className="queueModal__close"
             onClick={onClose}
             aria-label="Close queue"
-          >
-            ×
-          </button>
+          />
         </header>
 
         <div className="queueModal__list">
@@ -45,7 +53,8 @@ export default function QueueModal({ isOpen, onClose, controller }) {
             <p className="queueModal__empty">Queue is empty.</p>
           ) : (
             queueTracks.map((track, index) => {
-              const isCurrent = index === queueIndex;
+              const isCurrent = index === 0;
+              const isFirstAndPlaying = index === 0 && isPlaying;
               return (
                 <div
                   key={track.id}
@@ -66,11 +75,18 @@ export default function QueueModal({ isOpen, onClose, controller }) {
                     <button
                       type="button"
                       className="queueBtn queueBtn--play"
-                      onClick={() => playById?.(track.id)}
-                      title="Play"
-                      aria-label="Play this track"
+                      onClick={() => (index === 0 ? togglePlay?.() : playById?.(track.id))}
+                      title={index === 0 ? (isPlaying ? "Pause" : "Play") : "Play"}
+                      aria-label={index === 0 ? (isPlaying ? "Pause" : "Play") : "Play this track"}
                     >
-                      <img src={controlPlay} alt="" />
+                      {index === 0 ? (
+                        <img
+                          src={isPlaying ? controlPause : controlPlay}
+                          alt={isPlaying ? "Pause" : "Play"}
+                        />
+                      ) : (
+                        <img src={controlPlay} alt="Play" />
+                      )}
                     </button>
                     <button
                       type="button"
@@ -82,16 +98,18 @@ export default function QueueModal({ isOpen, onClose, controller }) {
                     >
                       <ArrowUpIcon />
                     </button>
-                    <button
-                      type="button"
-                      className="queueBtn"
-                      onClick={() => moveInQueue?.(track.id, "down")}
-                      disabled={index === queueTracks.length - 1}
-                      title="Move down"
-                      aria-label="Move track down"
-                    >
-                      <ArrowDownIcon />
-                    </button>
+                    {index !== 0 && (
+                      <button
+                        type="button"
+                        className="queueBtn"
+                        onClick={() => moveInQueue?.(track.id, "down")}
+                        disabled={index === queueTracks.length - 1}
+                        title="Move down"
+                        aria-label="Move track down"
+                      >
+                        <ArrowDownIcon />
+                      </button>
+                    )}
                     <button
                       type="button"
                       className="queueBtn queueBtn--remove"
@@ -99,9 +117,7 @@ export default function QueueModal({ isOpen, onClose, controller }) {
                       disabled={queueTracks.length <= 1}
                       title="Remove from queue"
                       aria-label="Remove track from queue"
-                    >
-                      ×
-                    </button>
+                    />
                   </div>
                 </div>
               );

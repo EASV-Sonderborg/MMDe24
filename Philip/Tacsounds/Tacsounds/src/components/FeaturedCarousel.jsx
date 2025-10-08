@@ -15,8 +15,10 @@ function trueish(val) {
 const isFeatured = (track) => trueish(track?.featured ?? track?.meta?.featured);
 
 export default function FeaturedCarousel({ controller }) {
-  const { tracks = [], isPlaying, playById, current } = controller || {};
-  const items = useMemo(() => (tracks || []).filter(isFeatured), [tracks]);
+  const { catalog = [], tracks = [], isPlaying, playById, current } = controller || {};
+  // Use the static catalog order so queue changes do not affect carousel order
+  const source = catalog && catalog.length ? catalog : tracks;
+  const items = useMemo(() => (source || []).filter(isFeatured), [source]);
   const n = items.length;
 
   const [viewportWidth, setViewportWidth] = useState(() =>
@@ -253,6 +255,8 @@ export default function FeaturedCarousel({ controller }) {
       }
     : undefined;
 
+
+
   return (
     <section className={sectionClassName} style={sectionStyle}>
       <div className="featured__frame" style={{ height: stageHeight }}>
@@ -262,14 +266,14 @@ export default function FeaturedCarousel({ controller }) {
             onClick={() => setCenter((c) => wrap(c - 1, n))}
             aria-label="Previous"
           >
-            ???
+            ←
           </button>
           <button
             className="featured__arrow featured__arrow--next"
             onClick={() => setCenter((c) => wrap(c + 1, n))}
             aria-label="Next"
           >
-            ???
+            →
           </button>
         </div>
 

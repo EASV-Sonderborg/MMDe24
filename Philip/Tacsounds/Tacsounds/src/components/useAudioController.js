@@ -25,15 +25,11 @@ const fmt = (secs = 0) => {
 const norm = (t, i) => {
   const rawGenres = t.genres ?? t.genre ?? [];
   const genres = Array.isArray(rawGenres)
-    ? rawGenres
-        .filter(Boolean)
-        .map((g) => String(g).trim())
-        .filter(Boolean)
+    ? rawGenres.filter(Boolean).map((g) => String(g).trim()).filter(Boolean)
     : String(rawGenres)
         .split(/[,|]/)
         .map((g) => g.trim())
         .filter(Boolean);
-
   return {
     id: t.id || `trk-${i}`,
     title: t.title || "Unknown Title",
@@ -124,7 +120,20 @@ export default function useAudioController() {
   const duration = audioRef.current?.duration ?? current?.duration ?? 0;
   const progressPct = duration ? Math.min(100, (progress / duration) * 100) : 0;
 
-  const volumeIcon = useCallback((v, muted) => {
+  // Ensure the currently playing track is always first in the queue
+  useEffect(() => {
+    setQueueSafe((prevQueue) => {
+      const arr = Array.isArray(prevQueue) ? prevQueue : prevQueue?.queue;
+      if (!arr || arr.length === 0) return prevQueue;
+      if (queueIndex <= 0 || queueIndex >= arr.length) return prevQueue;
+      const rotated = [...arr.slice(queueIndex), ...arr.slice(0, queueIndex)];
+      return { queue: rotated, index: 0 };
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queueIndex]);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queueIndex]);const volumeIcon = useCallback((v, muted) => {
     if (muted || v === 0) return volumeMute;
     if (v <= 0.33) return volumeLow;
     if (v <= 0.66) return volumeMid;
@@ -302,7 +311,7 @@ export default function useAudioController() {
           id,
           ...filtered.slice(insertIndex),
         ];
-        return { queue: nextQueue, index: queueIndex };
+  return { queue: nextQueue, index: queueIndex };
       });
     },
     [queueIndex, setQueueSafe, trackMap],
@@ -321,7 +330,7 @@ export default function useAudioController() {
         } else if (idx < queueIndex) {
           nextIndex = Math.max(0, queueIndex - 1);
         }
-        return { queue: nextQueue, index: nextIndex };
+  return { queue: nextQueue, index: nextIndex };
       });
     },
     [queueIndex, setQueueSafe],
@@ -342,14 +351,20 @@ export default function useAudioController() {
         let nextIndex = queueIndex;
         if (queueIndex === idx) nextIndex = target;
         else if (queueIndex === target) nextIndex = idx;
-        return { queue: nextQueue, index: nextIndex };
+        // If a track is moved to the top (index 0) while playing, switch playback to it
+        if (isPlaying && target === 0) {
+          nextIndex = 0;
+        }
+  return { queue: nextQueue, index: nextIndex };
       });
     },
-    [queueIndex, setQueueSafe],
+    [queueIndex, setQueueSafe, isPlaying],
   );
-
   return {
+    // Queue-ordered list used by the player
     tracks,
+    // Catalog in original/static order for UI components (e.g., carousel, library)
+    catalog: baseTracks,
     queue,
     queueIndex,
     queueTracks: tracks,
@@ -385,3 +400,11 @@ export default function useAudioController() {
     moveInQueue,
   };
 }
+
+
+
+
+
+
+
+

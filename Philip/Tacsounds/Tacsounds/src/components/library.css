@@ -66,6 +66,17 @@
   gap: 8px;
 }
 
+/* Toggle + active summary row */
+.genreControls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* .genreToggle {
+  visually same as chips, but can be emphasized later
+} */
+
 .chip {
   border: 1px solid #e5e7eb;
   background: #fff;
@@ -319,8 +330,9 @@
   background: rgba(10, 12, 16, 0.6);
   display: grid;
   place-items: center;
-  z-index: 160;
+  z-index: 700; /* above mobile player */
   padding: 16px;
+  backdrop-filter: saturate(120%) blur(2px);
 }
 
 .modalCard {
@@ -382,6 +394,59 @@
   color: #6b7280;
 }
 
+/* Desktop enhancement: use more space and larger visuals */
+@media (min-width: 860px) {
+  .modalCard {
+    width: min(1080px, 92vw);
+    padding: 24px 24px 28px;
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  .modalGrid {
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .modalCover {
+    width: 320px;
+    height: 320px;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  }
+
+  .modalMeta h2 {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+
+  .modalArtist {
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+  }
+
+  .modalList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+    font-size: 0.98rem;
+  }
+
+  .modalList div {
+    padding: 8px 10px;
+    border: 1px solid #eef2f7;
+    border-radius: 10px;
+    background: #f9fafb;
+  }
+
+  .modalList span {
+    display: inline-block;
+    min-width: 88px;
+    color: #64748b; /* slightly softer on desktop */
+    font-weight: 600;
+  }
+}
+
 @media (max-width: 640px) {
   .modalGrid {
     grid-template-columns: 1fr;
@@ -399,4 +464,3 @@
 .libCard.isPlaying .libCard__overlay {
   opacity: 1;
 }
-

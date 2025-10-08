@@ -49,6 +49,7 @@ export default function Library({
   const [sortDir, setSortDir] = useState("desc");
   const [durations, setDurations] = useState({});
   const [detailsOf, setDetailsOf] = useState(null);
+  const [showGenres, setShowGenres] = useState(false);
 
   const isMobile = useIsMobile(820);
 
@@ -248,30 +249,54 @@ export default function Library({
             <div className="searchBox">
               <input
                 type="text"
-                placeholder="Search by title, artist or album"
+                placeholder="Search by Title, Artist or Album"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 aria-label="Search library"
               />
             </div>
 
-            <div className="genreChips">
+            <div className="genreControls">
               <button
-                className={`chip ${!activeGenre ? "isActive" : ""}`}
-                onClick={() => setActiveGenre("")}
+                type="button"
+                className="chip genreToggle"
+                aria-expanded={showGenres}
+                aria-controls="genreChips"
+                onClick={() => setShowGenres((v) => !v)}
               >
-                All
+                {showGenres ? "Hide genres" : "Genres"}
               </button>
-              {allGenres.map((genre) => (
+              {activeGenre ? (
                 <button
-                  key={genre}
-                  className={`chip ${activeGenre === genre ? "isActive" : ""}`}
-                  onClick={() => setActiveGenre(genre)}
+                  type="button"
+                  className="chip isActive"
+                  title="Clear genre filter"
+                  onClick={() => setActiveGenre("")}
                 >
-                  {genre}
+                  {activeGenre} ×
                 </button>
-              ))}
+              ) : null}
             </div>
+
+            {showGenres ? (
+              <div className="genreChips" id="genreChips">
+                <button
+                  className={`chip ${!activeGenre ? "isActive" : ""}`}
+                  onClick={() => setActiveGenre("")}
+                >
+                  All
+                </button>
+                {allGenres.map((genre) => (
+                  <button
+                    key={genre}
+                    className={`chip ${activeGenre === genre ? "isActive" : ""}`}
+                    onClick={() => setActiveGenre(genre)}
+                  >
+                    {genre}
+                  </button>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
 
@@ -318,7 +343,7 @@ export default function Library({
                     actions={buildActions(track)}
                     triggerClassName="libCard__more"
                     size="sm"
-                    align="left"
+                    align="right"
                   />
                 </div>
               );
@@ -412,7 +437,7 @@ export default function Library({
 }
 
 function SortArrow({ dir }) {
-  return <span className="sortBadge">{dir === "asc" ? "^" : "v"}</span>;
+  return <span className="sortBadge">{dir === "asc" ? "↑" : "↓"}</span>;
 }
 
 function fmtDate(iso) {

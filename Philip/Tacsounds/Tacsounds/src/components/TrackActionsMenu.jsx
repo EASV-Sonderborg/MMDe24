@@ -15,6 +15,8 @@ export default function TrackActionsMenu({
 }) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
+  const sheetRef = useRef(null);
+  const [dropUp, setDropUp] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window === "undefined" ? VIEWPORT_FALLBACK : window.innerWidth
   );
@@ -26,10 +28,40 @@ export default function TrackActionsMenu({
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const computedAlign = useMemo(() => {
-    if (viewportWidth <= 640) return "center";
-    return align;
-  }, [align, viewportWidth]);
+  const computedAlign = useMemo(() => align, [align]);
+
+  // Decide whether to drop above or below based on available space
+  useEffect(() => {
+    if (!open) return;
+    const measure = () => {
+      try {
+        const vpH = typeof window !== "undefined" ? window.innerHeight : 0;
+        const triggerRect = containerRef.current?.getBoundingClientRect();
+        const sheetEl = sheetRef.current;
+        const sheetH = sheetEl ? sheetEl.offsetHeight : 220; // fallback
+        if (!triggerRect || !vpH) return;
+        const margin = 12;
+        const spaceBelow = Math.max(0, vpH - triggerRect.bottom);
+        const spaceAbove = Math.max(0, triggerRect.top);
+        // Prefer down if there's enough room; otherwise up if it fits better
+        const shouldDropUp = spaceBelow < Math.min(sheetH + margin, spaceAbove + 1) && spaceAbove > spaceBelow;
+        setDropUp(shouldDropUp);
+        // Also clamp max height to available space
+        if (sheetEl) {
+          const maxH = shouldDropUp ? Math.max(120, spaceAbove - margin) : Math.max(120, spaceBelow - margin);
+          sheetEl.style.maxHeight = `${maxH}px`;
+          sheetEl.style.overflowY = "auto";
+        }
+      } catch {}
+    };
+    const raf = requestAnimationFrame(measure);
+    const onResize = () => measure();
+    window.addEventListener("resize", onResize);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -76,7 +108,12 @@ export default function TrackActionsMenu({
       </button>
 
       {open && (
-        <div className="trackMenu__sheet" role="menu">
+        <div
+          ref={sheetRef}
+          className={`trackMenu__sheet ${dropUp ? "isDropUp" : "isDropDown"}`}
+          role="menu"
+          style={dropUp ? { bottom: "calc(100% + 10px)", top: "auto" } : { top: "calc(100% + 10px)", bottom: "auto" }}
+        >
           {actions.map((action) => (
             <button
               key={action.label}
