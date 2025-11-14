@@ -1,5 +1,26 @@
 [
     {
+        "id": "nightMightEnd",
+        "title": "Night Might End",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": "Pop",
+        "releaseDate": "2025-10-11",
+        "featured": true,
+        "duration": null,
+        "bpm": null,
+        "audio": 
+        {
+            "src": "/assets/tracks/nightMightEnd__Tacsounds--TheBride.wav",
+            "format": "wav"
+        },
+        "cover": 
+        {
+            "src": "/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },
+    {
         "id": "sunset-skates-fmin",
         "title": "Sunset Skates (DNB)",
         "artist": "Tac",

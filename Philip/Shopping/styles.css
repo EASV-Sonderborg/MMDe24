@@ -1,0 +1,98 @@
+:root {
+    --third: hsl(235, 50%, 8%);
+    --second: hsl(0, 0%, 15%);
+    --main: hsl(235, 50%, 30%);
+    --accent: hsl(235, 50%, 50%);
+    --text: white;
+}
+
+body    {
+    font-family: 'inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--third);
+}
+
+.todoContainer {
+    text-align: center;
+    color: var(--text);
+    font-size: 2rem;
+    margin-top: 20px;
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    margin-top: 4rem;
+}
+
+.inputContainer input {
+    height: 40px;
+    font-size: 1rem;
+    color: var(--text);
+    border: 2px solid var(--text);
+    flex-grow: 1;
+    padding: 0 1rem;
+    border-radius: 1rem;
+    background-color: var(--main);
+    font-family: 'inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.inputContainer button {
+    margin-left: 10px;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    border: 1px solid var(--text);
+    border-radius: 1rem;
+    background-color: var(--main);
+    color: white;
+    cursor: pointer;
+}
+
+.taskContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    min-height: 400px;
+    background-color: var(--second);
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+}
+
+.taskList {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 2rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    gap: 2rem;
+    margin: 0;
+}
+
+.taskItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    background-color: var(--accent);
+    list-style: none;
+    color: var(--text);
+    border-radius: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.deleteButton {
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+}

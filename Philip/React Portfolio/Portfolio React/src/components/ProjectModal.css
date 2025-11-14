@@ -97,35 +97,85 @@
 }
 
 /* Venstre side */
-.pm__left{ display: grid; gap: .55rem; align-content: start; }
-.pm__title{ margin: 0 0 2px; font-size: clamp(1.2rem, .9rem + 1.2vw, 1.75rem); }
-.pm__subtitle{ opacity: .85; margin: 0 0 .2rem; }
-.pm__desc{ margin: .2rem 0 .4rem; line-height: 1.6; }
-.pm__h4{ margin: .4rem 0 .2rem; font-size: 1rem; opacity: .9; }
+.pm__left   { 
+  display: grid; 
+  gap: .55rem; 
+  align-content: start; 
+}
+.pm__title    { 
+  margin: 0 0 2px; 
+  font-size: clamp(1.2rem, .9rem + 1.2vw, 1.75rem); 
+}
+.pm__subtitle   { 
+  opacity: .85; 
+  margin: 0 0 .2rem; 
+}
+.pm__desc   { 
+  margin: .2rem 0 .4rem; 
+  line-height: 1.6; 
+}
+.pm__h4   { 
+  margin: .4rem 0 .2rem; 
+  font-size: 1rem; 
+  opacity: .9; 
+}
 .pm__process{
-  margin: 0; padding: .7rem .9rem; border-radius: 12px;
-  background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.15);
-  white-space: pre-wrap; line-height: 1.5;
+  margin: 0; 
+  padding: .7rem .9rem; 
+  border-radius: 12px;
+  background: rgba(0,0,0,.35); 
+  border: 1px solid rgba(255,255,255,.15);
+  white-space: pre-wrap; 
+  line-height: 1.5;
 }
 
 /* Højre side */
-.pm__right{ display: grid; align-content: space-evenly; justify-content: end; }
-.pm__meta{ display: grid; gap: 1rem; width: max-content; }
-.pm__row{ display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-.pm__key{ opacity: .8; min-width: 72px; }
-.pm__chips{ display: inline-flex; gap: .5rem; flex-wrap: wrap; }
+.pm__right    { 
+  display: grid; 
+  align-content: space-evenly; 
+  justify-content: end; 
+}
+.pm__meta   { 
+  display: grid; 
+  gap: 1rem; 
+  width: max-content; 
+}
+.pm__row    { 
+  display: flex; 
+  align-items: center; 
+  gap: 2rem; 
+  flex-wrap: wrap; 
+}
+.pm__key    { 
+  opacity: .8; 
+  min-width: 72px; 
+}
+.pm__chips    { 
+  display: inline-flex; 
+  gap: .5rem; 
+  flex-wrap: wrap; 
+}
 
 /* Tools */
-.pm__tools{ display: inline-flex; gap: .5rem; }
-.pm__tools img{
-  width: 20px; height: 20px; border-radius: 3px;
+.pm__tools    { 
+  display: inline-flex; 
+  gap: .5rem; 
+}
+.pm__tools img    {
+  width: 20px; 
+  height: 20px; 
+  border-radius: 3px;
   filter: drop-shadow(0 0 2px rgba(0,0,0,.35));
 }
 
 /* Glass pills (samme stil som kort) */
 .pill{
-  display:inline-flex; align-items:center; padding:.28rem .6rem;
-  border-radius:999px; font-size:.85rem; line-height:1;
+  display:inline-flex; 
+  align-items:center; 
+  padding:.28rem .6rem;
+  border-radius:999px; 
+  font-size:.85rem; 
+  line-height:1;
   border:1px solid rgba(255,255,255,.28);
   background: rgba(255,255,255,.08);
   backdrop-filter: blur(10px) brightness(1.05);
@@ -145,29 +195,60 @@
 }
 
 /* Actions */
-.pm__actions{ display: flex; gap: .6rem; width: max-content; margin: 0 auto }
-.btn    { padding: .45rem .8rem; border-radius: 10px; text-decoration: none; }
-.btn--light{ background: rgba(255,255,255,.92); color: #0e1025; }
-.btn--ghost{ background: rgba(255,255,255,.08); color: #fff; }
+.pm__actions    { 
+  display: flex; 
+  gap: .6rem; 
+  width: max-content; 
+  margin: 0 auto 
+}
+.btn    { 
+  padding: .45rem .8rem; 
+  border-radius: 10px; 
+  text-decoration: none; 
+}
+.btn--light   { 
+  background: rgba(255,255,255,.92); 
+  color: #0e1025; 
+}
+.btn--ghost   { 
+  background: rgba(255,255,255,.08); 
+  color: #fff; 
+}
 
 /* Sidepile */
 .pm__nav{
-  position: fixed; top: 50%; transform: translateY(-50%);
-  width: 44px; height: 44px; border-radius: 50%;
+  position: fixed; 
+  top: 50%; 
+  transform: translateY(-50%);
+  width: 44px; 
+  height: 44px; 
+  border-radius: 50%;
   border: 1px solid rgba(255,255,255,.28);
-  background: rgba(0,0,0,.4); color:#fff;
-  display:grid; place-items:center; z-index: 1001;
+  background: rgba(0,0,0,.4); 
+  color:#fff;
+  display:grid; 
+  place-items:center; 
+  z-index: 1001;
 }
-.pm__nav--prev{ left: max(12px, 4vw); }
-.pm__nav--next{ right: max(12px, 4vw); }
+.pm__nav--prev{ 
+  left: max(12px, 4vw); 
+}
+.pm__nav--next{ 
+  right: max(12px, 4vw); 
+}
 
 /* Mobil */
 @media (max-width: 760px){
-  .pm__stage{ height: 42vh; max-height: 42vh; }
+  .pm__stage{ 
+    height: 42vh; 
+    max-height: 42vh; 
+  }
   .pm__bottom{
     grid-template-columns: 1fr; /* stack */
   }
-  .pm__right{ order: 2; }
+  .pm__right{ 
+    order: 2; 
+  }
 }
 
 /* Indre galleri-navigation */
