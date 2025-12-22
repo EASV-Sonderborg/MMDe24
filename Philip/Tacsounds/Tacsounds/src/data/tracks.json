@@ -1,5 +1,26 @@
 [
     {
+        "id": "oneOfThese",
+        "title": "One of these",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": "Pop",
+        "releaseDate": "2025-12-09",
+        "featured": true,
+        "duration": null,
+        "bpm": null,
+        "audio": 
+        {
+            "src": "/assets/tracks/One of these nights sample slow hiphop.wav",
+            "format": "wav"
+        },
+        "cover": 
+        {
+            "src": "/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },
+        {
         "id": "nightMightEnd",
         "title": "Night Might End",
         "artist": "Tac",
