@@ -1,9 +1,51 @@
 [
+        {
+        "id": "moneyshot",
+        "title": "Moneyshot",
+        "artist": "Tac",
+        "album": "Unannounced",
+        "genres": "Pop",
+        "releaseDate": "2025-12-23",
+        "featured": true,
+        "duration": null,
+        "bpm": null,
+        "audio": 
+        {
+            "src": "/assets/tracks/Moneyshot Gmin.wav",
+            "format": "wav"
+        },
+        "cover": 
+        {
+            "src": "/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },
+        {
+        "id": "salamander",
+        "title": "Salamander",
+        "artist": "Tac",
+        "album": "Unannounced",
+        "genres": "Pop",
+        "releaseDate": "2025-12-23",
+        "featured": true,
+        "duration": null,
+        "bpm": null,
+        "audio": 
+        {
+            "src": "/assets/tracks/Raptors in 5 D Maj.wav",
+            "format": "wav"
+        },
+        "cover": 
+        {
+            "src": "/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },    
     {
         "id": "oneOfThese",
         "title": "One of these",
         "artist": "Tac",
-        "album": "Single",
+        "album": "Unannounced",
         "genres": "Pop",
         "releaseDate": "2025-12-09",
         "featured": true,
@@ -24,7 +66,7 @@
         "id": "nightMightEnd",
         "title": "Night Might End",
         "artist": "Tac",
-        "album": "Single",
+        "album": "Unannounced",
         "genres": "Pop",
         "releaseDate": "2025-10-11",
         "featured": true,
