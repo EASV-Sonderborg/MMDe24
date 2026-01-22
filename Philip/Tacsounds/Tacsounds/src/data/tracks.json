@@ -1,9 +1,52 @@
 [
+
+    {
+        "id": "TheGoodTimes",
+        "title": "The Good Times",
+        "artist": "Tac",
+        "album": "Sunsets after Midnight",
+        "genres": "Pop",
+        "releaseDate": "2026-01-21",
+        "featured": true,
+        "duration": null,
+        "bpm": null,
+        "audio": 
         {
+            "src": "/assets/tracks/TheGoodTimesTac.wav",
+            "format": "wav"
+        },
+        "cover": 
+        {
+            "src": "/assets/covers/SunsetsafterMidnight.png",
+            "format": "png"
+        }
+    },
+            {
+        "id": "ShutDown",
+        "title": "Shut Down",
+        "artist": "Tac",
+        "album": "Sunsets after Midnight",
+        "genres": "Pop",
+        "releaseDate": "2026-01-19",
+        "featured": true,
+        "duration": null,
+        "bpm": null,
+        "audio": 
+        {
+            "src": "/assets/tracks/ShutDownTac.wav",
+            "format": "wav"
+        },
+        "cover": 
+        {
+            "src": "/assets/covers/SunsetsafterMidnight.png",
+            "format": "png"
+        }
+    },
+            {
         "id": "moneyshot",
         "title": "Moneyshot",
         "artist": "Tac",
-        "album": "Unannounced",
+        "album": "Sunsets after Midnight",
         "genres": "Pop",
         "releaseDate": "2025-12-23",
         "featured": true,
@@ -16,7 +59,7 @@
         },
         "cover": 
         {
-            "src": "/assets/covers/tacStandard.png",
+            "src": "/assets/covers/SunsetsafterMidnight.png",
             "format": "png"
         }
     },
@@ -24,7 +67,7 @@
         "id": "salamander",
         "title": "Salamander",
         "artist": "Tac",
-        "album": "Unannounced",
+        "album": "Sunsets after Midnight",
         "genres": "Pop",
         "releaseDate": "2025-12-23",
         "featured": true,
@@ -37,7 +80,7 @@
         },
         "cover": 
         {
-            "src": "/assets/covers/tacStandard.png",
+            "src": "/assets/covers/SunsetsafterMidnight.png",
             "format": "png"
         }
     },    
@@ -45,7 +88,7 @@
         "id": "oneOfThese",
         "title": "One of these",
         "artist": "Tac",
-        "album": "Unannounced",
+        "album": "Sunsets after Midnight",
         "genres": "Pop",
         "releaseDate": "2025-12-09",
         "featured": true,
@@ -58,7 +101,7 @@
         },
         "cover": 
         {
-            "src": "/assets/covers/tacStandard.png",
+            "src": "/assets/covers/SunsetsafterMidnight.png",
             "format": "png"
         }
     },
@@ -66,7 +109,7 @@
         "id": "nightMightEnd",
         "title": "Night Might End",
         "artist": "Tac",
-        "album": "Unannounced",
+        "album": "Sunsets after Midnight",
         "genres": "Pop",
         "releaseDate": "2025-10-11",
         "featured": true,
@@ -79,7 +122,7 @@
         },
         "cover": 
         {
-            "src": "/assets/covers/tacStandard.png",
+            "src": "/assets/covers/SunsetsafterMidnight.png",
             "format": "png"
         }
     },

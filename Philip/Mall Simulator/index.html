@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mall Simulator (Prototype v2)</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; color-scheme: dark; }
+    body { margin: 0; background: #0b0d10; color: #e9eef5; }
+    .topbar{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      padding: 12px 14px; border-bottom:1px solid #1c2633; background:#0a0f17;
+      position: sticky; top:0; z-index:10;
+    }
+    .pill{
+      background:#111722; border:1px solid #1c2633; border-radius:999px;
+      padding: 7px 10px; display:flex; gap:8px; align-items:baseline;
+    }
+    .pill b{ font-size: 12px; color:#a9b5c7; font-weight:600; }
+    .pill span{ font-size: 14px; }
+    .wrap{ padding: 12px; display:grid; grid-template-columns: 1fr 360px; gap: 12px; }
+    .panel{ background:#0f141d; border:1px solid #1c2633; border-radius:14px; padding: 12px; }
+    h2{ margin:0 0 10px; font-size: 16px; }
+    h3{ margin:0 0 8px; font-size: 14px; }
+    .subtle{ color:#a9b5c7; font-size:12px; line-height:1.4; }
+    .divider{ height:1px; background:#1c2633; margin: 10px 0; }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    button, input[type="number"]{
+      background:#121a26; color:#e9eef5; border:1px solid #253247; border-radius:10px;
+      padding: 8px 10px; font: inherit;
+    }
+    button:hover{ border-color:#3a506f; cursor:pointer; }
+    button:disabled{ opacity:0.5; cursor:not-allowed; }
+    .grid{
+      display:grid; grid-template-columns: repeat(6, 1fr); gap:6px;
+      padding:10px; background:#0c1119; border:1px solid #1c2633; border-radius:12px;
+      max-width: 640px;
+    }
+    .cell{
+      aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+      border:1px dashed #243246; border-radius:10px; background:#0b0f16;
+      font-size: 18px; user-select:none;
+    }
+    .cell.filled{ border-style:solid; }
+    .cell.selected{ outline:2px solid #5a7db0; }
+    .stack{ display:flex; flex-direction:column; gap:12px; }
+    .card{ background:#0c1119; border:1px solid #1c2633; border-radius:12px; padding:10px; }
+    .kpi{ display:grid; grid-template-columns: 1fr 1fr; gap:8px; }
+    .kpi .mini{ background:#0b0f16; border:1px solid #1c2633; border-radius:10px; padding:8px; }
+    .kpi .mini b{ display:block; font-size:12px; color:#a9b5c7; }
+    .kpi .mini span{ font-size:14px; }
+    .good{ color:#9ee6a6; }
+    .warn{ color:#f3d38a; }
+    .bad{ color:#ff9aa2; }
+    .muted{ color:#a9b5c7; }
+    .events{ max-height: 240px; overflow:auto; display:flex; flex-direction:column; gap:8px; }
+    .event{ padding:8px 10px; border-radius:10px; border:1px solid #1c2633; background:#0b0f16; font-size:12px; color:#d6deea; }
+    .event .t{ color:#a9b5c7; margin-right:8px; }
+    .event .tag{ color:#a9b5c7; }
+    .badge{
+      display:inline-flex; align-items:center; gap:6px; font-size:12px;
+      padding: 4px 8px; border:1px solid #253247; border-radius:999px; background:#0b0f16;
+      color:#a9b5c7;
+    }
+
+    /* Modal */
+    .modalOverlay{
+      position:fixed; inset:0; background: rgba(0,0,0,0.55);
+      display:none; align-items:center; justify-content:center; padding: 16px;
+      z-index: 999;
+    }
+    .modal{
+      width: min(900px, 100%);
+      background:#0f141d; border:1px solid #1c2633; border-radius:16px; padding: 12px;
+    }
+    .modalHead{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .shopGrid{
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;
+      margin-top: 10px;
+    }
+    .shopCard{
+      background:#0c1119; border:1px solid #1c2633; border-radius:14px; padding: 12px;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .shopCard.locked{ opacity:0.55; }
+    .shopCard h3{ display:flex; gap:10px; align-items:center; }
+    .shopCard .icon{ font-size: 22px; }
+    .shopCard .meta{ display:flex; gap:8px; flex-wrap:wrap; }
+    .shopCard .meta .badge{ font-size:11px; }
+    @media (max-width: 980px){
+      .wrap{ grid-template-columns: 1fr; }
+      .shopGrid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar" id="topbar"></div>
+
+<div class="wrap">
+  <!-- LEFT: Play surface -->
+  <section class="panel">
+    <div class="row" style="justify-content:space-between;">
+      <div>
+        <h2>Floor 1</h2>
+        <div class="subtle">Click a shop on the plan to manage it. Empty slots are available build spots.</div>
+      </div>
+      <div class="row">
+        <span class="badge" id="specialBadge">Special: none</span>
+        <button id="btnBuildCinema">Build 🎬 Cinema</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row" style="align-items:flex-start;">
+      <div class="grid" id="grid"></div>
+
+      <div style="min-width:300px; flex:1;">
+        <div class="card">
+          <h3>Selected Shop</h3>
+          <div id="selectedEmpty" class="subtle">No shop selected. Click a shop icon on the floor plan.</div>
+          <div id="selectedUI" style="display:none;"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="card">
+          <div class="row" style="justify-content:space-between;">
+            <h3 style="margin:0;">Events</h3>
+            <button id="btnClearEvents">Clear</button>
+          </div>
+          <div class="subtle">Only shows purchases and important milestones.</div>
+          <div class="divider"></div>
+          <div class="events" id="events"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT: Simple actions -->
+  <aside class="panel">
+    <h2>Actions</h2>
+    <div class="subtle">
+      You bought an abandoned mall. Restore it one shop at a time and bring back the glory days.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+      <button id="btnPause"></button>
+      <button id="btnTick">+1 Tick</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>Build</h2>
+    <div class="row">
+      <button id="btnOpenBuild">Open Shop Builder</button>
+    </div>
+    <div class="subtle" id="buildHint"></div>
+
+    <div class="divider"></div>
+
+    <h2>Save</h2>
+    <div class="row">
+      <button id="btnSave">Save</button>
+      <button id="btnReset" class="bad">Reset</button>
+    </div>
+  </aside>
+</div>
+
+<!-- MODAL: Build Shop -->
+<div class="modalOverlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modalHead">
+      <div>
+        <h2 style="margin:0;">Choose a Shop Type</h2>
+        <div class="subtle">New shop types unlock every 2 mall levels. Clothing is your starter shop.</div>
+      </div>
+      <div class="row">
+        <span class="badge" id="modalFloorInfo"></span>
+        <button id="btnCloseBuild">Close</button>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="shopGrid" id="shopPicker"></div>
+  </div>
+</div>
+
+<script>
+/* ------------------------------
+   DEFINITIONS
+--------------------------------*/
+
+// Unlock cadence: Clothing at Lv1, then one new shop every 2 levels
+// Index: 0 = clothing, 1 = coffee (Lv3), 2 = electronics (Lv5) ...
+const SHOP_ORDER = ["clothing", "coffee", "electronics"];
+
+const SHOP_TYPES = {
+  clothing: {
+    id:"clothing", name:"Clothing Store", icon:"👕",
+    baseBuildCost: 120,
+    items: [
+      { id:"tshirts", name:"T-Shirts", icon:"👕", buyCost: 6,  sellMin: 10, sellMax: 20, baseDemand: 0.35, unlockAtShopLevel: 1 },
+      { id:"hoodies", name:"Hoodies",  icon:"🧥", buyCost: 14, sellMin: 22, sellMax: 40, baseDemand: 0.22, unlockAtShopLevel: 1 },
+      { id:"jeans",   name:"Jeans",    icon:"👖", buyCost: 18, sellMin: 28, sellMax: 55, baseDemand: 0.18, unlockAtShopLevel: 2 },
+      { id:"shorts",  name:"Shorts",   icon:"🩳", buyCost: 10, sellMin: 16, sellMax: 30, baseDemand: 0.20, unlockAtShopLevel: 2 },
+    ],
+  },
+  coffee: {
+    id:"coffee", name:"Coffee Kiosk", icon:"☕",
+    baseBuildCost: 180,
+    items: [
+      { id:"espresso", name:"Espresso", icon:"☕", buyCost: 1, sellMin: 3,  sellMax: 7,  baseDemand: 0.55, unlockAtShopLevel: 1 },
+      { id:"latte",    name:"Latte",    icon:"🥛", buyCost: 2, sellMin: 5,  sellMax: 10, baseDemand: 0.40, unlockAtShopLevel: 1 },
+      { id:"muffin",   name:"Muffin",   icon:"🧁", buyCost: 1, sellMin: 3,  sellMax: 8,  baseDemand: 0.25, unlockAtShopLevel: 2 },
+      { id:"cookies",  name:"Cookies",  icon:"🍪", buyCost: 1, sellMin: 2,  sellMax: 6,  baseDemand: 0.28, unlockAtShopLevel: 2 },
+    ],
+  },
+  electronics: {
+    id:"electronics", name:"Electronics", icon:"📱",
+    baseBuildCost: 420,
+    items: [
+      { id:"chargers", name:"Chargers", icon:"🔌", buyCost: 6,  sellMin: 12, sellMax: 25, baseDemand: 0.24, unlockAtShopLevel: 1 },
+      { id:"earbuds",  name:"Earbuds",  icon:"🎧", buyCost: 18, sellMin: 30, sellMax: 70, baseDemand: 0.14, unlockAtShopLevel: 1 },
+      { id:"cases",    name:"Phone Cases", icon:"📱", buyCost: 5, sellMin: 10, sellMax: 22, baseDemand: 0.22, unlockAtShopLevel: 2 },
+      { id:"speakers", name:"Speakers", icon:"🔊", buyCost: 35, sellMin: 60, sellMax: 120, baseDemand: 0.08, unlockAtShopLevel: 3 },
+    ],
+  }
+};
+
+const SPECIAL_STORES = {
+  cinema: { id:"cinema", name:"Cinema", icon:"🎬", buildCost: 600, customerBoost: 0.25, passiveIncomePerTick: 8 }
+};
+
+const FLOOR_SLOTS = 18; // 6x3
+const TICK_MS = 900;
+
+const XP_PER_PROFIT = 0.35;
+const XP_TO_LEVEL_BASE = 140;
+
+/* ------------------------------
+   STATE
+--------------------------------*/
+
+function defaultState() {
+  return {
+    version: 2,
+    paused: false,
+    tick: 0,
+    events: [], // only important events + purchases
+    mall: {
+      cash: 200,
+      level: 1,
+      xp: 0,
+      floors: [
+        { id:1, name:"Floor 1", slots:FLOOR_SLOTS, shops:[], special:null }
+      ],
+      selectedFloorId: 1,
+      selectedShopId: null,
+      stats: { lifetimeRevenue: 0, lifetimeProfit: 0, totalCustomers: 0 }
+    }
+  };
+}
+
+let state = load() || defaultState();
+
+/* ------------------------------
+   UTIL
+--------------------------------*/
+
+function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+function money(n){ return n.toLocaleString(undefined, { maximumFractionDigits: 0 }); }
+function uid(){ return Math.random().toString(16).slice(2) + Date.now().toString(16); }
+function xpToNextLevel(level){ return Math.floor(XP_TO_LEVEL_BASE * Math.pow(1.15, level - 1)); }
+
+function getFloor(id){ return state.mall.floors.find(f=>f.id===id); }
+function floor(){ return getFloor(state.mall.selectedFloorId); }
+
+function allShops(){
+  return state.mall.floors.flatMap(f=>f.shops);
+}
+function getShopById(id){
+  for(const f of state.mall.floors){
+    const s = f.shops.find(x=>x.id===id);
+    if (s) return s;
+  }
+  return null;
+}
+
+function addEvent(type, text){
+  // type: "purchase" | "milestone"
+  state.events.unshift({ t: state.tick, type, text });
+  state.events = state.events.slice(0, 30);
+}
+
+function unlockedShopCountByMallLevel(mallLevel){
+  // Clothing at Lv1 => 1
+  // +1 every 2 levels: Lv3 => 2, Lv5 => 3, ...
+  // formula: 1 + floor((level-1)/2)
+  return 1 + Math.floor((mallLevel - 1) / 2);
+}
+
+function isShopTypeUnlocked(typeId){
+  const count = unlockedShopCountByMallLevel(state.mall.level);
+  const idx = SHOP_ORDER.indexOf(typeId);
+  return idx !== -1 && idx < count;
+}
+
+/* ------------------------------
+   BUILDING
+--------------------------------*/
+
+function buildCostForShop(typeId){
+  const t = SHOP_TYPES[typeId];
+  const total = allShops().length;
+  return Math.floor(t.baseBuildCost * (1 + 0.06*total) * (1 + 0.04*(state.mall.level-1)));
+}
+
+function canBuildShop(typeId){
+  if (!isShopTypeUnlocked(typeId)) return { ok:false, reason:"Locked by mall level." };
+  const f = floor();
+  if (f.shops.length >= f.slots) return { ok:false, reason:"No free slots on this floor." };
+  const cost = buildCostForShop(typeId);
+  if (state.mall.cash < cost) return { ok:false, reason:`Need ${cost} cash.` };
+  return { ok:true, reason:"" };
+}
+
+function createShop(typeId){
+  const type = SHOP_TYPES[typeId];
+  const shop = {
+    id: uid(),
+    typeId,
+    level: 1,
+    totalCapacity: 30,
+    autoRestock: false,
+    inventory: {},
+    lifetime: { revenue:0, profit:0, customers:0 }
+  };
+
+  const unlockedItems = type.items.filter(i=>i.unlockAtShopLevel<=1).slice(0,2);
+  for(const item of unlockedItems){
+    shop.inventory[item.id] = {
+      stock: 10,
+      capacity: 20,
+      price: item.sellMin + Math.floor((item.sellMax - item.sellMin)*0.5)
+    };
+  }
+  return shop;
+}
+
+function buildShop(typeId){
+  const chk = canBuildShop(typeId);
+  if (!chk.ok) return addEvent("milestone", `Build failed: ${chk.reason}`);
+
+  const cost = buildCostForShop(typeId);
+  state.mall.cash -= cost;
+
+  const s = createShop(typeId);
+  floor().shops.push(s);
+  state.mall.selectedShopId = s.id;
+
+  addEvent("milestone", `Built ${SHOP_TYPES[typeId].icon} ${SHOP_TYPES[typeId].name} for ${cost}.`);
+  render();
+}
+
+function canBuildCinema(){
+  const f = floor();
+  if (f.special?.id === "cinema") return { ok:false, reason:"Cinema already built." };
+  if (state.mall.cash < SPECIAL_STORES.cinema.buildCost) return { ok:false, reason:`Need ${SPECIAL_STORES.cinema.buildCost} cash.` };
+  return { ok:true, reason:"" };
+}
+
+function buildCinema(){
+  const chk = canBuildCinema();
+  if (!chk.ok) return addEvent("milestone", `Cinema failed: ${chk.reason}`);
+
+  state.mall.cash -= SPECIAL_STORES.cinema.buildCost;
+  floor().special = { id:"cinema", built:true };
+  addEvent("milestone", `Built 🎬 Cinema for ${SPECIAL_STORES.cinema.buildCost}. (+Customers, +Passive income)`);
+  render();
+}
+
+/* ------------------------------
+   UPGRADES (with visible rewards)
+--------------------------------*/
+
+function shopLevelUpCost(shop){
+  return Math.floor(90 * Math.pow(1.45, shop.level - 1));
+}
+
+function nextUnlockableItem(shop){
+  const type = SHOP_TYPES[shop.typeId];
+  return type.items
+    .filter(i=>i.unlockAtShopLevel<=shop.level+1)
+    .filter(i=>!shop.inventory[i.id])[0] || null;
+}
+
+function shopConversionBonus(shop){
+  // Simple visible reward: conversion improves with shop level
+  return 1 + 0.06*(shop.level-1);
+}
+
+function levelUpShop(shop){
+  const cost = shopLevelUpCost(shop);
+  if (state.mall.cash < cost) return addEvent("milestone", `Need ${cost} cash to level up.`);
+
+  state.mall.cash -= cost;
+  const prevLevel = shop.level;
+  shop.level += 1;
+
+  const item = nextUnlockableItem({ ...shop, level: shop.level-1 }); // from previous state perspective
+  // Actually unlock at new level if exists
+  const type = SHOP_TYPES[shop.typeId];
+  const unlockable = type.items
+    .filter(i=>i.unlockAtShopLevel<=shop.level)
+    .filter(i=>!shop.inventory[i.id]);
+
+  if (unlockable.length){
+    const it = unlockable[0];
+    shop.inventory[it.id] = { stock:0, capacity:10, price: it.sellMin + Math.floor((it.sellMax-it.sellMin)*0.55) };
+    addEvent("milestone", `${type.icon} ${type.name} reached Lv ${shop.level}. Unlocked ${it.icon} ${it.name}.`);
+  } else {
+    addEvent("milestone", `${type.icon} ${type.name} reached Lv ${shop.level}. (+Conversion)`);
+  }
+
+  render();
+}
+
+function totalCapacityUpgradeCost(shop){
+  return Math.floor(120 * Math.pow(1.35, Math.max(0, (shop.totalCapacity - 30)/10)));
+}
+
+function upgradeTotalCapacity(shop){
+  const cost = totalCapacityUpgradeCost(shop);
+  if (state.mall.cash < cost) return addEvent("milestone", `Need ${cost} cash to upgrade total capacity.`);
+  shop.totalCapacity += 10;
+  state.mall.cash -= cost;
+  addEvent("milestone", `Total shop capacity upgraded: ${shop.totalCapacity-10} → ${shop.totalCapacity}.`);
+  render();
+}
+
+function itemCapacityUpgradeCost(inv){
+  return Math.floor(25 * Math.pow(1.35, Math.max(0, (inv.capacity - 10)/10)));
+}
+
+function upgradeItemCapacity(shop, itemId){
+  const inv = shop.inventory[itemId];
+  const cost = itemCapacityUpgradeCost(inv);
+  if (state.mall.cash < cost) return addEvent("milestone", `Need ${cost} cash to upgrade item capacity.`);
+  inv.capacity += 10;
+  state.mall.cash -= cost;
+  addEvent("milestone", `Item capacity upgraded: ${inv.capacity-10} → ${inv.capacity}.`);
+  render();
+}
+
+function toggleAutoRestock(shop){
+  const enableCost = 260;
+  if (!shop.autoRestock){
+    if (state.mall.cash < enableCost) return addEvent("milestone", `Need ${enableCost} cash to enable auto-restock.`);
+    state.mall.cash -= enableCost;
+    shop.autoRestock = true;
+    addEvent("milestone", `Auto-restock enabled (keeps items around 50% stock).`);
+  } else {
+    shop.autoRestock = false;
+    addEvent("milestone", `Auto-restock disabled.`);
+  }
+  render();
+}
+
+function restockItem(shop, itemId, qty){
+  const type = SHOP_TYPES[shop.typeId];
+  const item = type.items.find(x=>x.id===itemId);
+  const inv = shop.inventory[itemId];
+  qty = Math.max(0, Math.floor(qty));
+  if (!qty) return;
+
+  const spaceItem = inv.capacity - inv.stock;
+  const totalStock = Object.values(shop.inventory).reduce((a,x)=>a+x.stock,0);
+  const spaceTotal = shop.totalCapacity - totalStock;
+  const finalQty = Math.min(qty, spaceItem, spaceTotal);
+  if (finalQty <= 0) return addEvent("milestone", `No capacity to restock ${item.name}.`);
+
+  const cost = finalQty * item.buyCost;
+  if (state.mall.cash < cost) return addEvent("milestone", `Need ${cost} cash to restock ${finalQty} ${item.name}.`);
+
+  state.mall.cash -= cost;
+  inv.stock += finalQty;
+  addEvent("milestone", `Restocked ${finalQty}x ${item.icon} ${item.name} for ${cost}.`);
+  render();
+}
+
+/* ------------------------------
+   SIMULATION
+--------------------------------*/
+
+let customerAccumulator = 0;
+
+function computeCustomersPerTick(){
+  const shops = allShops();
+  const count = shops.length;
+  const avgLvl = count ? shops.reduce((a,s)=>a+s.level,0)/count : 0;
+
+  let customers = 0.8 + 0.25*(state.mall.level-1) + 0.22*count + 0.18*avgLvl;
+
+  const hasCinema = state.mall.floors.some(f=>f.special?.id==="cinema");
+  if (hasCinema) customers *= (1 + SPECIAL_STORES.cinema.customerBoost);
+
+  return customers;
+}
+
+function pickShopVisits(numShops){
+  if (numShops<=0) return 0;
+  let visits = 1;
+  let p = clamp(0.40 + 0.03*(numShops-1), 0.40, 0.75);
+  while (visits < numShops && Math.random() < p){
+    visits += 1;
+    p *= 0.65;
+  }
+  return visits;
+}
+
+function chooseRandomDistinct(shops, k){
+  const picks = [];
+  const pool = shops.slice();
+  for(let i=0;i<k && pool.length;i++){
+    const totalW = pool.reduce((a,s)=>a+(1+0.12*s.level),0);
+    let r = Math.random()*totalW;
+    let idx=0;
+    for(; idx<pool.length; idx++){
+      r -= (1+0.12*pool[idx].level);
+      if (r<=0) break;
+    }
+    picks.push(pool[idx]);
+    pool.splice(idx,1);
+  }
+  return picks;
+}
+
+function autoRestockPass(shop){
+  if (!shop.autoRestock) return;
+  const type = SHOP_TYPES[shop.typeId];
+  for(const itemId of Object.keys(shop.inventory)){
+    const inv = shop.inventory[itemId];
+    const item = type.items.find(i=>i.id===itemId);
+    const target = Math.floor(inv.capacity*0.5);
+    if (inv.stock >= target) continue;
+
+    const want = target - inv.stock;
+    const maxAffordable = Math.floor(state.mall.cash / item.buyCost);
+    let qty = Math.min(want, maxAffordable);
+
+    const totalStock = Object.values(shop.inventory).reduce((a,x)=>a+x.stock,0);
+    const spaceTotal = shop.totalCapacity - totalStock;
+    qty = Math.min(qty, spaceTotal, inv.capacity - inv.stock);
+    if (qty<=0) continue;
+
+    state.mall.cash -= qty*item.buyCost;
+    inv.stock += qty;
+  }
+}
+
+function simulateShopVisit(shop){
+  const type = SHOP_TYPES[shop.typeId];
+  const itemIds = Object.keys(shop.inventory);
+  if (!itemIds.length) return { revenue:0, profit:0, purchased:null };
+
+  shop.lifetime.customers += 1;
+
+  const shuffled = itemIds.slice().sort(()=>Math.random()-0.5);
+  for(const itemId of shuffled){
+    const item = type.items.find(i=>i.id===itemId);
+    const inv = shop.inventory[itemId];
+    if (!item || inv.stock<=0) continue;
+
+    const price = inv.price;
+    const pricePos = (price - item.sellMin) / (item.sellMax - item.sellMin);
+    const priceFactor = 1.25 - 0.75 * clamp(pricePos,0,1);
+    const pBuy = clamp(item.baseDemand * priceFactor * shopConversionBonus(shop), 0.02, 0.95);
+
+    if (Math.random() < pBuy){
+      inv.stock -= 1;
+
+      const revenue = price;
+      const profit = price - item.buyCost;
+
+      shop.lifetime.revenue += revenue;
+      shop.lifetime.profit += profit;
+      state.mall.stats.lifetimeRevenue += revenue;
+      state.mall.stats.lifetimeProfit += profit;
+
+      return { revenue, profit, purchased: { item, price, profit, shopType:type } };
+    }
+  }
+  return { revenue:0, profit:0, purchased:null };
+}
+
+function tickOnce(){
+  state.tick += 1;
+
+  // Cinema passive income
+  if (state.mall.floors.some(f=>f.special?.id==="cinema")){
+    const add = SPECIAL_STORES.cinema.passiveIncomePerTick;
+    state.mall.cash += add;
+    state.mall.stats.lifetimeRevenue += add;
+    state.mall.stats.lifetimeProfit += add;
+  }
+
+  const shops = allShops();
+  const num = shops.length;
+
+  customerAccumulator += computeCustomersPerTick();
+  const customers = Math.floor(customerAccumulator);
+  customerAccumulator -= customers;
+
+  let tickProfit = 0;
+
+  for(let c=0;c<customers;c++){
+    state.mall.stats.totalCustomers += 1;
+    if (!num) continue;
+
+    const visits = pickShopVisits(num);
+    const chosen = chooseRandomDistinct(shops, visits);
+
+    for(const s of chosen){
+      const res = simulateShopVisit(s);
+      if (res.revenue){
+        state.mall.cash += res.revenue;
+        tickProfit += res.profit;
+
+        // Show ONLY purchases in the feed (plus milestones elsewhere)
+        const shopName = `${res.purchased.shopType.icon} ${res.purchased.shopType.name}`;
+        addEvent("purchase", `${shopName}: Sold ${res.purchased.item.icon} ${res.purchased.item.name} for ${res.purchased.price} (profit +${res.purchased.profit}).`);
+      }
+    }
+  }
+
+  // XP / Level
+  if (tickProfit > 0){
+    state.mall.xp += tickProfit * XP_PER_PROFIT;
+    while (state.mall.xp >= xpToNextLevel(state.mall.level)){
+      state.mall.xp -= xpToNextLevel(state.mall.level);
+      state.mall.level += 1;
+      addEvent("milestone", `Mall leveled up to Lv ${state.mall.level}.`);
+
+      // Check unlock milestone
+      const unlockedCount = unlockedShopCountByMallLevel(state.mall.level);
+      const newlyUnlocked = SHOP_ORDER[unlockedCount-1];
+      if (newlyUnlocked && unlockedCount <= SHOP_ORDER.length){
+        addEvent("milestone", `New shop type unlocked: ${SHOP_TYPES[newlyUnlocked].icon} ${SHOP_TYPES[newlyUnlocked].name}.`);
+      }
+    }
+  }
+
+  for(const s of shops) autoRestockPass(s);
+
+  render();
+}
+
+/* ------------------------------
+   UI
+--------------------------------*/
+
+function renderTopbar(){
+  const nextXp = xpToNextLevel(state.mall.level);
+  const custRate = computeCustomersPerTick();
+  const shops = allShops().length;
+
+  document.getElementById("topbar").innerHTML = `
+    <div class="pill"><b>Cash</b><span>${money(state.mall.cash)}</span></div>
+    <div class="pill"><b>Mall Lv</b><span>${state.mall.level}</span></div>
+    <div class="pill"><b>XP</b><span>${Math.floor(state.mall.xp)}/${nextXp}</span></div>
+    <div class="pill"><b>Shops</b><span>${shops}</span></div>
+    <div class="pill"><b>Customers/Tick</b><span>${custRate.toFixed(2)}</span></div>
+    <div class="pill"><b>Profit</b><span>${money(state.mall.stats.lifetimeProfit)}</span></div>
+  `;
+}
+
+function renderGrid(){
+  const f = floor();
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+
+  for(let i=0;i<f.slots;i++){
+    const shop = f.shops[i];
+    const div = document.createElement("div");
+    div.className = "cell" + (shop ? " filled" : "");
+    if (shop && shop.id === state.mall.selectedShopId) div.classList.add("selected");
+    div.textContent = shop ? SHOP_TYPES[shop.typeId].icon : "⬚";
+    div.title = shop ? `${SHOP_TYPES[shop.typeId].name} (Lv ${shop.level})` : "Empty slot";
+    div.onclick = () => {
+      if (shop) state.mall.selectedShopId = shop.id;
+      render();
+    };
+    grid.appendChild(div);
+  }
+}
+
+function renderSpecial(){
+  const f = floor();
+  const badge = document.getElementById("specialBadge");
+  const btn = document.getElementById("btnBuildCinema");
+  if (f.special?.id === "cinema"){
+    badge.textContent = `Special: 🎬 Cinema`;
+    btn.disabled = true;
+  } else {
+    badge.textContent = `Special: none`;
+    btn.disabled = !canBuildCinema().ok;
+  }
+}
+
+function renderEvents(){
+  const wrap = document.getElementById("events");
+  wrap.innerHTML = state.events.map(e => {
+    const tag = e.type === "purchase" ? "Purchase" : "Milestone";
+    return `<div class="event"><span class="t">T${e.t}</span><span class="tag">${tag}:</span> ${e.text}</div>`;
+  }).join("");
+}
+
+function renderActions(){
+  const btnPause = document.getElementById("btnPause");
+  btnPause.textContent = state.paused ? "Resume" : "Pause";
+  btnPause.onclick = () => { state.paused = !state.paused; addEvent("milestone", state.paused ? "Paused." : "Resumed."); render(); };
+
+  document.getElementById("btnTick").onclick = () => tickOnce();
+  document.getElementById("btnSave").onclick = () => save();
+  document.getElementById("btnReset").onclick = () => reset();
+  document.getElementById("btnBuildCinema").onclick = () => buildCinema();
+  document.getElementById("btnClearEvents").onclick = () => { state.events = []; render(); };
+
+  // Build hint (next unlock info)
+  const unlockedCount = unlockedShopCountByMallLevel(state.mall.level);
+  const nextIndex = unlockedCount; // next shop index to unlock
+  let hint = `Unlocked shop types: <b>${unlockedCount}/${SHOP_ORDER.length}</b>. `;
+  if (nextIndex < SHOP_ORDER.length){
+    const nextShop = SHOP_ORDER[nextIndex];
+    const nextLevel = 1 + nextIndex*2; // Lv1,3,5,...
+    hint += `Next unlock at Mall Lv <b>${nextLevel}</b>: ${SHOP_TYPES[nextShop].icon} ${SHOP_TYPES[nextShop].name}.`;
+  } else {
+    hint += `All current shop types unlocked.`;
+  }
+  document.getElementById("buildHint").innerHTML = hint;
+
+  // Modal controls
+  document.getElementById("btnOpenBuild").onclick = () => openBuildModal();
+  document.getElementById("btnCloseBuild").onclick = () => closeBuildModal();
+  document.getElementById("modalOverlay").onclick = (e) => {
+    if (e.target.id === "modalOverlay") closeBuildModal();
+  };
+}
+
+function renderSelectedShop(){
+  const shop = getShopById(state.mall.selectedShopId);
+  const empty = document.getElementById("selectedEmpty");
+  const ui = document.getElementById("selectedUI");
+
+  if (!shop){
+    empty.style.display = "block";
+    ui.style.display = "none";
+    ui.innerHTML = "";
+    return;
+  }
+
+  empty.style.display = "none";
+  ui.style.display = "block";
+
+  const type = SHOP_TYPES[shop.typeId];
+  const lvlCost = shopLevelUpCost(shop);
+  const capCost = totalCapacityUpgradeCost(shop);
+
+  // Visible rewards:
+  const nextItem = nextUnlockableItem(shop);
+  const convNow = shopConversionBonus(shop);
+  const convNext = 1 + 0.06*(shop.level); // next level conversion
+  const unlockText = nextItem
+    ? `Next level unlock: <b>${nextItem.icon} ${nextItem.name}</b>`
+    : `Next level: <b>+Conversion</b>`;
+
+  const totalStock = Object.values(shop.inventory).reduce((a,x)=>a+x.stock,0);
+
+  ui.innerHTML = `
+    <div class="row" style="justify-content:space-between;">
+      <div>
+        <h3 style="margin:0;">${type.icon} ${type.name} <span class="muted">(Lv ${shop.level})</span></h3>
+        <div class="subtle">${unlockText}<br/>Conversion bonus: <b>${convNow.toFixed(2)}x</b> → <b>${convNext.toFixed(2)}x</b></div>
+      </div>
+      <span class="badge">Used stock: ${totalStock}/${shop.totalCapacity}</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="kpi">
+      <div class="mini"><b>Shop Profit</b><span>${money(shop.lifetime.profit)}</span></div>
+      <div class="mini"><b>Customers</b><span>${shop.lifetime.customers}</span></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+      <button id="btnShopLevel">Level Up (Cost ${lvlCost})</button>
+      <button id="btnTotalCap">+10 Total Capacity (${shop.totalCapacity} → ${shop.totalCapacity+10}) (Cost ${capCost})</button>
+      <button id="btnAuto">${shop.autoRestock ? "Disable" : "Enable"} Auto-restock ${shop.autoRestock ? "" : "(Cost 260)"}</button>
+    </div>
+
+    <div class="divider"></div>
+    <div class="subtle"><b>Items</b> (price + restock + capacity upgrades)</div>
+    <div class="stack" id="itemsUI"></div>
+  `;
+
+  document.getElementById("btnShopLevel").onclick = () => levelUpShop(shop);
+  document.getElementById("btnTotalCap").onclick = () => upgradeTotalCapacity(shop);
+  document.getElementById("btnAuto").onclick = () => toggleAutoRestock(shop);
+
+  // Items
+  const itemsWrap = document.getElementById("itemsUI");
+  itemsWrap.innerHTML = "";
+
+  for(const itemId of Object.keys(shop.inventory)){
+    const item = type.items.find(i=>i.id===itemId);
+    const inv = shop.inventory[itemId];
+    const itemCapCost = itemCapacityUpgradeCost(inv);
+
+    // Visible buy chance estimation
+    const pricePos = (inv.price - item.sellMin) / (item.sellMax - item.sellMin);
+    const priceFactor = 1.25 - 0.75 * clamp(pricePos,0,1);
+    const pBuy = clamp(item.baseDemand * priceFactor * shopConversionBonus(shop), 0.02, 0.95);
+
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <div class="row" style="justify-content:space-between;">
+        <div>
+          <h3 style="margin:0;">${item.icon} ${item.name}</h3>
+          <div class="subtle">
+            Stock: <b>${inv.stock}</b> / ${inv.capacity} &nbsp;|&nbsp;
+            Buy: ${item.buyCost} &nbsp;|&nbsp; Sell: ${item.sellMin}–${item.sellMax}<br/>
+            Est. purchase chance: <b>${Math.round(pBuy*100)}%</b>
+          </div>
+        </div>
+        <span class="badge">Price: ${inv.price}</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row">
+        <span class="subtle">Set price</span>
+        <input type="number" id="price_${itemId}" value="${inv.price}" min="${item.sellMin}" max="${item.sellMax}" style="width:120px" />
+        <button id="setPrice_${itemId}">Set</button>
+      </div>
+
+      <div class="row">
+        <span class="subtle">Restock</span>
+        <input type="number" id="restock_${itemId}" value="10" min="0" style="width:120px" />
+        <button id="buy_${itemId}">Buy</button>
+        <button id="cap_${itemId}">+10 Item Capacity (${inv.capacity} → ${inv.capacity+10}) (Cost ${itemCapCost})</button>
+      </div>
+    `;
+    itemsWrap.appendChild(div);
+
+    div.querySelector(`#setPrice_${itemId}`).onclick = () => {
+      const v = Number(div.querySelector(`#price_${itemId}`).value);
+      inv.price = clamp(Math.floor(v), item.sellMin, item.sellMax);
+      addEvent("milestone", `Set price for ${item.icon} ${item.name} to ${inv.price}.`);
+      render();
+    };
+
+    div.querySelector(`#buy_${itemId}`).onclick = () => {
+      const qty = Number(div.querySelector(`#restock_${itemId}`).value);
+      restockItem(shop, itemId, qty);
+    };
+
+    div.querySelector(`#cap_${itemId}`).onclick = () => upgradeItemCapacity(shop, itemId);
+  }
+}
+
+function openBuildModal(){
+  const overlay = document.getElementById("modalOverlay");
+  overlay.style.display = "flex";
+  document.getElementById("modalFloorInfo").textContent = `${floor().name}: ${floor().shops.length}/${floor().slots} slots used`;
+  renderShopPicker();
+}
+
+function closeBuildModal(){
+  document.getElementById("modalOverlay").style.display = "none";
+}
+
+function renderShopPicker(){
+  const picker = document.getElementById("shopPicker");
+  picker.innerHTML = "";
+
+  // Render in defined order; you can add more types later
+  for(const typeId of SHOP_ORDER){
+    const t = SHOP_TYPES[typeId];
+    const unlocked = isShopTypeUnlocked(typeId);
+    const chk = canBuildShop(typeId);
+    const cost = buildCostForShop(typeId);
+
+    // Determine required level for this type by its index
+    const idx = SHOP_ORDER.indexOf(typeId);
+    const reqLevel = 1 + idx*2;
+
+    const div = document.createElement("div");
+    div.className = "shopCard" + (unlocked ? "" : " locked");
+    div.innerHTML = `
+      <h3><span class="icon">${t.icon}</span> ${t.name}</h3>
+      <div class="meta">
+        <span class="badge">Build cost: ${cost}</span>
+        ${unlocked ? `<span class="badge good">Unlocked</span>` : `<span class="badge warn">Unlock at Lv ${reqLevel}</span>`}
+      </div>
+      <div class="subtle">
+        Starter items: <b>${t.items.filter(i=>i.unlockAtShopLevel===1).slice(0,2).map(i=>`${i.icon} ${i.name}`).join(", ")}</b><br/>
+        More items unlock by leveling the shop.
+      </div>
+      <div class="row">
+        <button id="pick_${typeId}">${unlocked ? "Build" : "Locked"}</button>
+      </div>
+      <div class="subtle">${unlocked ? (chk.ok ? "Ready to build." : `<span class="warn">${chk.reason}</span>`) : ""}</div>
+    `;
+    picker.appendChild(div);
+
+    const btn = div.querySelector(`#pick_${typeId}`);
+    btn.disabled = !unlocked || !chk.ok;
+    btn.onclick = () => { buildShop(typeId); closeBuildModal(); };
+  }
+}
+
+function render(){
+  renderTopbar();
+  renderSpecial();
+  renderGrid();
+  renderSelectedShop();
+  renderEvents();
+  renderActions();
+}
+
+/* ------------------------------
+   SAVE / LOAD
+--------------------------------*/
+
+function save(){
+  localStorage.setItem("mall_sim_save_v2", JSON.stringify(state));
+  addEvent("milestone", "Saved.");
+  render();
+}
+function load(){
+  try{
+    const raw = localStorage.getItem("mall_sim_save_v2");
+    if (!raw) return null;
+    return JSON.parse(raw);
+  }catch{ return null; }
+}
+function reset(){
+  localStorage.removeItem("mall_sim_save_v2");
+  state = defaultState();
+  addEvent("milestone", "Reset complete.");
+  render();
+}
+
+/* ------------------------------
+   LOOP
+--------------------------------*/
+
+render();
+
+setInterval(()=>{
+  if (!state.paused) tickOnce();
+}, TICK_MS);
+</script>
+</body>
+</html>
