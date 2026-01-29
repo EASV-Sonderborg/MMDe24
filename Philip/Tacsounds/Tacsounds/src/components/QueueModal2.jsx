@@ -1,6 +1,8 @@
 import React from "react";
 import controlPlay from "../assets/icons/play.svg";
 import controlPause from "../assets/icons/pause.svg";
+import loopIcon from "../assets/icons/loop.svg";
+import loopOneIcon from "../assets/icons/loop-one.svg";
 import "./queue.css";
 
 const ArrowUpIcon = () => (
@@ -33,13 +35,33 @@ export default function QueueModal({ isOpen, onClose, controller }) {
     playById,
     moveInQueue,
     removeFromQueue,
+    loopMode = "off",
   } = controller || {};
+
+  const loopLabel =
+    loopMode === "one"
+      ? "Loop: Track"
+      : loopMode === "all"
+      ? "Loop: Queue"
+      : "Loop: Off";
 
   return (
     <div className="queueModal__backdrop" onClick={onClose}>
       <div className="queueModal" onClick={(event) => event.stopPropagation()}>
         <header className="queueModal__header">
-          <h2>Queue</h2>
+          <div className="queueModal__headerLeft">
+            <h2>Queue</h2>
+            <div
+              className={`queueModal__loopBadge ${
+                loopMode === "off" ? "isOff" : "isActive"
+              } ${loopMode === "one" ? "isRepeat" : ""}`.trim()}
+              aria-label={loopLabel}
+              title={loopLabel}
+            >
+              <img src={loopMode === "one" ? loopOneIcon : loopIcon} alt="" />
+              <span>{loopLabel}</span>
+            </div>
+          </div>
           <button
             type="button"
             className="queueModal__close"
@@ -72,6 +94,15 @@ export default function QueueModal({ isOpen, onClose, controller }) {
                   </div>
 
                   <div className="queueItem__actions">
+                    {index === 0 && loopMode === "one" ? (
+                      <span
+                        className="queueItem__loop isRepeat"
+                        aria-label="Repeat current track"
+                        title="Repeat current track"
+                      >
+                        <img src={loopOneIcon} alt="" />
+                      </span>
+                    ) : null}
                     <button
                       type="button"
                       className="queueBtn queueBtn--play"

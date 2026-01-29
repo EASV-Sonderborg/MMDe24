@@ -51,14 +51,55 @@ function useDragSwipe(onLeft, onRight, threshold = 24) {
   };
 }
 
-export default function MobilePlayerMini({ current,
+function useVerticalSwipe(onUp, onDown, threshold = 50) {
+  const start = useRef({ x: 0, y: 0, active: false, fired: false });
+  const onPointerDown = (e) => {
+    const x = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
+    const y = e.clientY ?? e.touches?.[0]?.clientY ?? 0;
+    start.current = { x, y, active: true, fired: false };
+  };
+  const onPointerMove = (e) => {
+    if (!start.current.active || start.current.fired) return;
+    const x = e.clientX ?? e.touches?.[0]?.clientX ?? start.current.x;
+    const y = e.clientY ?? e.touches?.[0]?.clientY ?? start.current.y;
+    const dx = x - start.current.x;
+    const dy = y - start.current.y;
+    if (Math.abs(dy) < Math.abs(dx)) return;
+    if (dy <= -threshold) {
+      start.current.fired = true;
+      onUp?.();
+    } else if (dy >= threshold) {
+      start.current.fired = true;
+      onDown?.();
+    }
+  };
+  const onPointerUp = () => {
+    start.current.active = false;
+  };
+  return {
+    onPointerDown,
+    onPointerMove,
+    onPointerUp,
+    onTouchStart: onPointerDown,
+    onTouchMove: onPointerMove,
+    onTouchEnd: onPointerUp,
+  };
+}
+
+export default function MobilePlayerMini({
+  current,
   isPlaying,
   togglePlay,
   next,
   prev,
   progressPct,
-  growVariant, seekToRatio }) {
+  growVariant,
+  seekToRatio,
+  onTitleClick,
+  onArtistClick,
+}) {
   const drag = useDragSwipe(next, prev, 44);
+  const verticalSwipe = useVerticalSwipe(() => growVariant?.(), null, 50);
   const topRef = useRef(null);
   const [topDragging, setTopDragging] = useState(false);
   const topRatioFromX = (clientX) => {
@@ -99,7 +140,7 @@ export default function MobilePlayerMini({ current,
         />
       </div>
 
-      <div className="mMini__body">
+      <div className="mMini__body" {...verticalSwipe}>
         <button
           className={`mMini__info ${drag.dragging ? "isDragging" : ""}`}
           style={{ "--drag-x": `${drag.dragX || 0}px` }}
@@ -116,8 +157,26 @@ export default function MobilePlayerMini({ current,
             <div className="mMini__cover" />
           )}
           <div className="mMini__text">
-            <div className="mMini__title">{current.title}</div>
-            <div className="mMini__artist">{current.artist}</div>
+            <button
+              type="button"
+              className="playerLink mMini__title"
+              onClick={(event) => {
+                event.stopPropagation();
+                onTitleClick?.();
+              }}
+            >
+              {current.title}
+            </button>
+            <button
+              type="button"
+              className="playerLink mMini__artist"
+              onClick={(event) => {
+                event.stopPropagation();
+                onArtistClick?.();
+              }}
+            >
+              {current.artist}
+            </button>
           </div>
         </button>
 

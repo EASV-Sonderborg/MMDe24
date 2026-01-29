@@ -1,4 +1,4 @@
-/* BASIS */
+﻿/* BASIS */
 .mPlayer {
   position: fixed;
   left: 0;
@@ -10,6 +10,7 @@
   /* Force its own compositing layer to avoid mobile stacking bugs */
   transform: translateZ(0);
   will-change: transform;
+  touch-action: none;
 }
 
 /* MINI */
@@ -54,6 +55,7 @@
   text-align: left;
   transform: translateX(var(--drag-x, 0px));
   transition: transform 160ms ease;
+  touch-action: none;
 }
 .mMini__info.isDragging { transition: none; }
 
@@ -123,7 +125,8 @@
   bottom: 10px;
   top: auto;
   border-radius: 18px;
-  overflow: hidden;  max-height: 86vh;
+  overflow: visible;
+  max-height: 86vh;
 }
 
 .mFull__chev {
@@ -137,13 +140,24 @@
   border: none;
   background: rgba(0, 0, 0, 0.06);
   z-index: 6;
+  display: grid;
+  place-items: center;
+  padding: 0;
 }
 
-.mFull__content { padding: 56px 18px 18px; display: grid; gap: 28px; justify-items: center; align-content: center; grid-template-rows: auto auto auto; touch-action: pan-y; height: 100%; }
+.mFull__chev img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
 
-.mFull__content.isDragging { transition: none; }
-.mFull__content.isSwipe-left { animation: mFull-swipe-left 220ms ease; }
-.mFull__content.isSwipe-right { animation: mFull-swipe-right 220ms ease; }
+.mFull__content { padding: 64px 22px 22px; display: grid; gap: 28px; justify-items: center; align-content: center; grid-template-rows: auto auto auto; touch-action: none; height: 100%; width: 100%; overflow: visible; }
+
+.mFull__hero.isDragging { transition: none; }
+.mFull__hero.isSwipe-left .mFull__heroTrack--current { animation: mFull-swipe-left 220ms ease; }
+.mFull__hero.isSwipe-right .mFull__heroTrack--current { animation: mFull-swipe-right 220ms ease; }
+.mFull__hero.isSwipe-left .mFull__heroTrack--next { opacity: 1; animation: mFull-swipe-in-right 220ms ease; }
+.mFull__hero.isSwipe-right .mFull__heroTrack--prev { opacity: 1; animation: mFull-swipe-in-left 220ms ease; }
 
 @keyframes mFull-swipe-left {
   from { transform: translateX(0); opacity: 1; }
@@ -153,10 +167,19 @@
   from { transform: translateX(0); opacity: 1; }
   to { transform: translateX(20%); opacity: 0.92; }
 }
+@keyframes mFull-swipe-in-right {
+  from { transform: translateX(20%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes mFull-swipe-in-left {
+  from { transform: translateX(-20%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
 
 .mFull__cover {
-  width: min(340px, 70vw, 38vh);
-  height: min(340px, 70vw, 38vh);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
   border-radius: 16px;
   margin-top: 1rem;
   background: #fff;
@@ -164,9 +187,33 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
+.mFull__titleRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
 .mFull__title {
   font-size: 20px;
   font-weight: 800;
+}
+
+.mFull__likeInline {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: 0;
+}
+
+.mFull__likeInline img {
+  width: 22px;
+  height: 22px;
 }
 
 .mFull__artist {
@@ -181,30 +228,137 @@
 }
 
 .mFull__controls {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 0;
+}
+
+.mFull__controls--aux {
+  grid-template-columns: 1fr 1fr;
+}
+
+.mFull__side {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
-  width: 100%;
+  gap: 12px;
+}
+
+.mFull__side--left {
+  justify-content: flex-start;
+}
+
+.mFull__side--right {
+  justify-content: flex-end;
 }
 
 .mFull__queue {
   border: none;
   background: transparent; /* no circular background */
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+}
+
+.mFull__loop {
+  border: none;
+  background: transparent;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+  position: relative;
+}
+
+.mFull__shuffle {
+  border: none;
+  background: transparent;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mFull__like {
+  border: none;
+  background: transparent;
+  width: 50px;
+  height: 50px;
   border-radius: 999px;
   display: grid;
   place-items: center;
 }
 
 .mFull__queue img {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
+}
+
+.mFull__loop img {
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+}
+
+.mFull__shuffle img {
+  width: 24px;
+  height: 24px;
+}
+
+.mFull__shuffle.isOff img {
+  opacity: 0.3;
+}
+
+.mFull__like img {
+  width: 24px;
+  height: 24px;
 }
 
 .mFull__queue:focus-visible,
 .mFull__queue:hover {
+  background: transparent;
+}
+
+.mFull__loop.isOff img {
+  opacity: 0.3;
+}
+
+.mFull__loop.isRepeat::after {
+  content: "1";
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #1f2bad;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+}
+
+.mFull__loop:focus-visible,
+.mFull__loop:hover {
+  transform: scale(1.05);
+}
+
+.mFull__shuffle:focus-visible,
+.mFull__shuffle:hover {
+  transform: scale(1.05);
+}
+
+.mFull__like:focus-visible,
+.mFull__like:hover {
   background: transparent;
 }
 
@@ -236,11 +390,23 @@
 }
 
 .mFull__progress {
-  width: 92%;
+  width: 100%;
   height: 10px;
   border-radius: 999px;
   background: #e9e9ef;
   overflow: hidden;
+}
+
+.mFull__progressRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.mFull__progressRow .mFull__progress {
+  width: 100%;
 }
 
 .mFull__progressFill {
@@ -249,7 +415,7 @@
 }
 
 .mFull__time {
-  width: 92%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   color: #6a6a75;
@@ -259,15 +425,17 @@
 
 /* Only move the hero (cover + text), not the controls */
 .mFull__hero { position: relative; width: 100%; display: grid; justify-items: center; }
-.mFull__heroTrack--current { transform: translateX(var(--drag-x, 0px)); transition: transform 180ms ease; }
-.mFull__heroTrack { display: grid; justify-items: center; gap: 14px; }
+.mFull__heroTrack--current { transform: translateX(var(--drag-x, 0px)); transition: transform 180ms ease; will-change: transform; }
+.mFull__heroTrack { display: grid; justify-items: center; gap: 14px; width: 100%; }
 .mFull__heroTrack--prev,
 .mFull__heroTrack--next { position: absolute; left: 0; right: 0; pointer-events: none; opacity: 0; }
-.mFull__heroTrack--prev { transform: translateX(calc(-100% + var(--drag-x, 0px))); }
-.mFull__heroTrack--next { transform: translateX(calc(100% + var(--drag-x, 0px))); }
-.mFull__content.isDragging .mFull__heroTrack--current { transition: none; }
-.mFull__content.isSwipe-left .mFull__heroTrack--current { animation: mFull-swipe-left 220ms ease; }
-.mFull__content.isSwipe-right .mFull__heroTrack--current { animation: mFull-swipe-right 220ms ease; }
+.mFull__heroTrack--prev { transform: translateX(calc(-120% + var(--drag-x, 0px))); }
+.mFull__heroTrack--next { transform: translateX(calc(120% + var(--drag-x, 0px))); }
+.mFull__hero.isDragging .mFull__heroTrack--current { transition: none; }
+.mFull__hero.isDragging .mFull__heroTrack--prev,
+.mFull__hero.isDragging .mFull__heroTrack--next {
+  opacity: 0.9;
+}
 
 
 /* Mini: move only the info (not play button) */
@@ -280,10 +448,4 @@
 .mMini__hero.isDragging .mMini__track--current { transition: none; }
 .mMini__hero.isDragging .mMini__track--prev,
 .mMini__hero.isDragging .mMini__track--next { opacity: 0.9; }
-
-
-
-
-
-
 

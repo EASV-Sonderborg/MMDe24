@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./carousel.css";
+import prevIcon from "../assets/icons/prev.svg";
+import nextIcon from "../assets/icons/next.svg";
 
 const FALLBACK_COVER = "/assets/covers/tacStandard.png";
 const wrap = (i, n) => ((i % n) + n) % n;
@@ -18,8 +20,29 @@ export default function FeaturedCarousel({ controller }) {
   const { catalog = [], tracks = [], isPlaying, playById, current } = controller || {};
   // Use the static catalog order so queue changes do not affect carousel order
   const source = catalog && catalog.length ? catalog : tracks;
-  const items = useMemo(() => (source || []).filter(isFeatured), [source]);
+  const items = useMemo(
+    () =>
+      [...(source || [])]
+        .filter(isFeatured)
+        .sort((a, b) => {
+          const ta = new Date(b.releaseDate || 0).getTime() || 0;
+          const tb = new Date(a.releaseDate || 0).getTime() || 0;
+          return ta - tb;
+        })
+        .slice(0, 6)
+        .sort((a, b) => {
+          const ta = new Date(a.releaseDate || 0).getTime() || 0;
+          const tb = new Date(b.releaseDate || 0).getTime() || 0;
+          return ta - tb;
+        }),
+    [source],
+  );
   const n = items.length;
+
+  const newestReleaseDate = useMemo(() => {
+    if (!items.length) return null;
+    return items[items.length - 1]?.releaseDate || null;
+  }, [items]);
 
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window === "undefined" ? 1024 : window.innerWidth,
@@ -54,11 +77,9 @@ export default function FeaturedCarousel({ controller }) {
   };
 
   const startIndex = useMemo(() => {
-    const index = items.findIndex((track) =>
-      String(track.title || "")
-        .toLowerCase()
-        .includes("sunset skates"),
-    );
+    if (!items.length) return 0;
+    const newest = items[items.length - 1];
+    const index = items.findIndex((track) => track.id === newest?.id);
     return index === -1 ? 0 : index;
   }, [items]);
 
@@ -259,21 +280,22 @@ export default function FeaturedCarousel({ controller }) {
 
   return (
     <section className={sectionClassName} style={sectionStyle}>
+      <div className="featured__header">
+        <div className="featured__title">New Releases</div>
+      </div>
       <div className="featured__frame" style={{ height: stageHeight }}>
         <div className="featured__nav">
           <button
             className="featured__arrow featured__arrow--prev"
             onClick={() => setCenter((c) => wrap(c - 1, n))}
-            aria-label="Previous"
-          >
-            ←
+            aria-label="Previous">
+            <img src={prevIcon} alt="" />
           </button>
           <button
             className="featured__arrow featured__arrow--next"
             onClick={() => setCenter((c) => wrap(c + 1, n))}
-            aria-label="Next"
-          >
-            →
+            aria-label="Next">
+            <img src={nextIcon} alt="" />
           </button>
         </div>
 
@@ -346,3 +368,18 @@ export default function FeaturedCarousel({ controller }) {
     </section>
   );
 }
+
+function fmtDate(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(+d)) return "";
+  return d.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+
+
+

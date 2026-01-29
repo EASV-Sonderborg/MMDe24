@@ -10,6 +10,27 @@
   overflow: hidden;
 }
 
+.featured__header {
+  width: min(1200px, 92vw);
+  margin: 0 auto 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.featured__title {
+  align-self: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text, #111827);
+}
+
+.featured__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-muted, #6b7280);
+}
+
 .featured__frame {
   position: relative;
   width: min(1200px, 100%);
@@ -67,6 +88,11 @@
 
 .featured__arrow:hover {
   transform: translateY(-50%) scale(1.05);
+}
+
+.featured__arrow img {
+  width: 18px;
+  height: 18px;
 }
 
 /* Card */

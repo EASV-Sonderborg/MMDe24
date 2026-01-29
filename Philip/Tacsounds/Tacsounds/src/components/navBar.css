@@ -5,9 +5,12 @@
 .navBar {
   width: min(1100px, 96vw);
   margin: 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 120;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: clamp(16px, 3vw, 24px) clamp(20px, 5vw, 48px);
   background: var(--color-bg, #fff);
   border-bottom: 1px solid rgba(15, 21, 87, 0.08);
@@ -27,7 +30,7 @@
 }
 
 .logo {
-  height: clamp(44px, 6vw, 60px);
+  height: clamp(52px, 7vw, 76px);
   transition: transform 0.2s ease;
 }
 
@@ -79,6 +82,81 @@
   padding: 0;
 }
 
+.navBar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navLinks__themeRow {
+  display: none;
+}
+
+.themeTabs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid rgba(15, 21, 87, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(15, 21, 87, 0.04);
+}
+
+.themeTab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-primary, #0f1557);
+  background: transparent;
+}
+
+.themeTab img {
+  width: 16px;
+  height: 16px;
+}
+
+.themeTab.isActive {
+  background: var(--color-primary-2, #1f2bad);
+  color: #fff;
+}
+
+.themeTab.isActive img {
+  filter: brightness(0) invert(1);
+}
+
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  background: rgba(15, 21, 87, 0.04);
+  color: #0f1557;
+  transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+}
+
+.themeToggle__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.themeToggle.isActive {
+  background: rgba(15, 21, 87, 0.12);
+  color: #ffffff;
+}
+
+@media (min-width: 769px) {
+  .navLinks__themeRow {
+    display: none !important;
+  }
+}
+
 .navLinks li {
   display: flex;
 }
@@ -121,8 +199,8 @@
   padding: 0.4rem 0.6rem;
 }
 
-.navBtn:hover .navBtn::after,
-.navBtn:focus-visible .navBtn::after {
+.navBtn:hover::after,
+.navBtn:focus-visible::after {
   opacity: 0;
   background-color: transparent;
 }
@@ -174,5 +252,30 @@
     width: 100%;
     text-align: left;
     padding: 0.5rem;
+  }
+
+  .navBar__actions {
+    display: none;
+  }
+
+  .navLinks__themeRow {
+    display: flex;
+  }
+
+  .navLinks.isOpen .navLinks__themeRow {
+    display: flex;
+  }
+
+  .themeTabs {
+    border-color: rgba(15, 21, 87, 0.2);
+    background: rgba(15, 21, 87, 0.08);
+  }
+
+  .themeTab {
+    color: #0f1557;
+  }
+
+  .themeTab img {
+    filter: none;
   }
 }

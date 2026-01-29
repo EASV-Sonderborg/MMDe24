@@ -6,6 +6,7 @@ import volumeMid from "../assets/icons/volumeMid.svg";
 import volumeHigh from "../assets/icons/volumeHigh.svg";
 
 export const VARIANTS = { mini: "mini", standard: "standard", full: "full" };
+export const LOOP_MODES = { off: "off", all: "all", one: "one" };
 
 function trueish(val) {
   if (val === undefined || val === null) return false;
@@ -59,6 +60,8 @@ export default function useAudioController() {
 
   const [queue, setQueue] = useState(() => baseTracks.map((track) => track.id));
   const [queueIndex, setQueueIndex] = useState(0);
+  const [sequenceActive, setSequenceActive] = useState(false);
+  const sequenceRef = useRef(null);
 
   const setQueueSafe = useCallback(
     (updater) => {
@@ -110,10 +113,28 @@ export default function useAudioController() {
   const [variant, setVariant] = useState(
     () => localStorage.getItem("playerVariant") || VARIANTS.standard,
   );
+  const [loopMode, setLoopMode] = useState(
+    () => localStorage.getItem("playerLoopMode") || LOOP_MODES.off,
+  );
+  const [shuffleEnabled, setShuffleEnabled] = useState(
+    () => localStorage.getItem("playerShuffle") === "true",
+  );
+  const autoAdvanceRef = useRef(false);
+  const playedCountRef = useRef(0);
+  const recentHistoryRef = useRef([]);
+  const shuffleCycleRef = useRef(0);
 
   useEffect(() => {
     localStorage.setItem("playerVariant", variant);
   }, [variant]);
+
+  useEffect(() => {
+    localStorage.setItem("playerLoopMode", loopMode);
+  }, [loopMode]);
+
+  useEffect(() => {
+    localStorage.setItem("playerShuffle", shuffleEnabled ? "true" : "false");
+  }, [shuffleEnabled]);
 
   const audioRef = useRef(new Audio());
   const current = tracks[queueIndex] ?? tracks[0] ?? null;
@@ -132,12 +153,35 @@ export default function useAudioController() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queueIndex]);
 
+  useEffect(() => {
+    if (autoAdvanceRef.current) {
+      autoAdvanceRef.current = false;
+      return;
+    }
+    playedCountRef.current = 0;
+    shuffleCycleRef.current = 0;
+  }, [current?.id]);
+
   const volumeIcon = useCallback((v, muted) => {
     if (muted || v === 0) return volumeMute;
     if (v <= 0.33) return volumeLow;
     if (v <= 0.66) return volumeMid;
     return volumeHigh;
   }, []);
+
+  const prev = useCallback(() => {
+    setQueueIndex((idx) => {
+      if (queue.length === 0) return 0;
+      return (idx - 1 + queue.length) % queue.length;
+    });
+  }, [queue.length]);
+
+  const next = useCallback(() => {
+    setQueueIndex((idx) => {
+      if (queue.length === 0) return 0;
+      return (idx + 1) % queue.length;
+    });
+  }, [queue.length]);
 
   useEffect(() => {
     if (!current) return;
@@ -157,7 +201,91 @@ export default function useAudioController() {
     };
 
     const onTime = () => setProgress(audio.currentTime || 0);
-    const onEnd = () => next();
+    const onEnd = () => {
+      if (current?.id) {
+        const recentLimit = Math.max(2, Math.floor(queue.length * 0.35));
+        recentHistoryRef.current = [
+          current.id,
+          ...recentHistoryRef.current.filter((id) => id !== current.id),
+        ].slice(0, recentLimit);
+      }
+      if (loopMode === LOOP_MODES.one) {
+        audio.currentTime = 0;
+        setProgress(0);
+        audio.play().catch(() => setIsPlaying(false));
+        return;
+      }
+      const seq = sequenceRef.current;
+      if (sequenceActive && seq?.endId && current?.id === seq.endId) {
+        setIsPlaying(false);
+        setSequenceActive(false);
+        if (seq.restoreQueue && seq.restoreQueue.length) {
+          setQueueSafe({ queue: seq.restoreQueue, index: seq.restoreIndex });
+        }
+        sequenceRef.current = null;
+        return;
+      }
+      if (loopMode === LOOP_MODES.off) {
+        if (queue.length <= 1) {
+          setIsPlaying(false);
+          return;
+        }
+        if (playedCountRef.current >= queue.length - 1) {
+          setIsPlaying(false);
+          playedCountRef.current = 0;
+          return;
+        }
+        playedCountRef.current += 1;
+        autoAdvanceRef.current = true;
+        next();
+        return;
+      }
+      if (shuffleEnabled && queue.length > 1) {
+        shuffleCycleRef.current += 1;
+        if (shuffleCycleRef.current >= queue.length - 1) {
+          shuffleCycleRef.current = 0;
+        const head = queue[0];
+        const rest = queue.slice(1);
+        const recentSet = new Set(recentHistoryRef.current);
+        const adjacent = new Set();
+        for (let i = 0; i < queue.length - 1; i += 1) {
+          adjacent.add(`${queue[i]}::${queue[i + 1]}`);
+        }
+        const fisherYates = (arr) => {
+          const nextArr = [...arr];
+          for (let i = nextArr.length - 1; i > 0; i -= 1) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [nextArr[i], nextArr[j]] = [nextArr[j], nextArr[i]];
+          }
+          return nextArr;
+        };
+        const score = (arr) => {
+          let conflicts = 0;
+          const avoidCount = Math.max(1, Math.floor(queue.length * 0.3));
+          for (let i = 0; i < arr.length - 1; i += 1) {
+            if (adjacent.has(`${arr[i]}::${arr[i + 1]}`)) conflicts += 1;
+            if (i < avoidCount && recentSet.has(arr[i])) conflicts += 2;
+          }
+          return conflicts;
+        };
+        let best = rest;
+        let bestScore = score(rest);
+        const attempts = Math.min(80, rest.length * 16);
+        for (let i = 0; i < attempts; i += 1) {
+          const candidate = fisherYates(rest);
+          const candidateScore = score(candidate);
+          if (candidateScore < bestScore) {
+            best = candidate;
+            bestScore = candidateScore;
+            if (bestScore === 0) break;
+          }
+        }
+        setQueueSafe({ queue: [head, ...best], index: 0 });
+        }
+      }
+      autoAdvanceRef.current = true;
+      next();
+    };
 
     audio.addEventListener("loadedmetadata", onLoaded);
     audio.addEventListener("timeupdate", onTime);
@@ -169,7 +297,17 @@ export default function useAudioController() {
       audio.removeEventListener("ended", onEnd);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [current?.id, current?.audio?.src]);
+  }, [
+    current?.id,
+    current?.audio?.src,
+    loopMode,
+    next,
+    queue,
+    queue.length,
+    shuffleEnabled,
+    sequenceActive,
+    setQueueSafe,
+  ]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -182,20 +320,6 @@ export default function useAudioController() {
   }, [volume, isMuted]);
 
   const togglePlay = () => setIsPlaying((prev) => !prev);
-
-  const prev = useCallback(() => {
-    setQueueIndex((idx) => {
-      if (queue.length === 0) return 0;
-      return (idx - 1 + queue.length) % queue.length;
-    });
-  }, [queue.length]);
-
-  const next = useCallback(() => {
-    setQueueIndex((idx) => {
-      if (queue.length === 0) return 0;
-      return (idx + 1) % queue.length;
-    });
-  }, [queue.length]);
 
   const setIndex = useCallback(
     (idx) => {
@@ -241,6 +365,9 @@ export default function useAudioController() {
     setVariant((v) => order[Math.min(order.indexOf(v) + 1, order.length - 1)]);
   const shrinkVariant = () =>
     setVariant((v) => order[Math.max(order.indexOf(v) - 1, 0)]);
+  const loopOrder = [LOOP_MODES.off, LOOP_MODES.all, LOOP_MODES.one];
+  const cycleLoopMode = () =>
+    setLoopMode((mode) => loopOrder[(loopOrder.indexOf(mode) + 1) % loopOrder.length]);
 
   useEffect(() => {
     const onKey = (event) => {
@@ -293,10 +420,19 @@ export default function useAudioController() {
       if (!trackMap.has(id)) return;
       setQueueSafe((prevQueue) => {
         const filtered = prevQueue.filter((item) => item !== id);
-        return [...filtered, id];
+        if (!shuffleEnabled) return [...filtered, id];
+        const insertIndex = Math.min(
+          Math.max(1, Math.floor(Math.random() * filtered.length) + 1),
+          filtered.length,
+        );
+        return [
+          ...filtered.slice(0, insertIndex),
+          id,
+          ...filtered.slice(insertIndex),
+        ];
       });
     },
-    [setQueueSafe, trackMap],
+    [setQueueSafe, shuffleEnabled, trackMap],
   );
 
   const playNext = useCallback(
@@ -315,6 +451,79 @@ export default function useAudioController() {
     },
     [queueIndex, setQueueSafe, trackMap],
   );
+
+  const playSequence = useCallback(
+    (ids) => {
+      const cleaned = (ids || []).filter((id) => trackMap.has(id));
+      if (!cleaned.length) return;
+      sequenceRef.current = {
+        endId: cleaned[cleaned.length - 1],
+        restoreQueue: queue,
+        restoreIndex: queueIndex,
+      };
+      setSequenceActive(true);
+      setQueueSafe({ queue: cleaned, index: 0 });
+      setIsPlaying(true);
+    },
+    [queue, queueIndex, setQueueSafe, trackMap],
+  );
+
+  const shuffleQueue = useCallback(() => {
+    if (!queue.length) return;
+    const head = queue[0];
+    const rest = queue.slice(1);
+    if (rest.length < 2) return;
+
+    const adjacent = new Set();
+    for (let i = 0; i < queue.length - 1; i += 1) {
+      adjacent.add(`${queue[i]}::${queue[i + 1]}`);
+    }
+    const recentSet = new Set(recentHistoryRef.current);
+
+    const fisherYates = (arr) => {
+      const next = [...arr];
+      for (let i = next.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [next[i], next[j]] = [next[j], next[i]];
+      }
+      return next;
+    };
+
+    const score = (arr) => {
+      let conflicts = 0;
+      const avoidCount = Math.max(1, Math.floor(queue.length * 0.3));
+      for (let i = 0; i < arr.length - 1; i += 1) {
+        if (adjacent.has(`${arr[i]}::${arr[i + 1]}`)) conflicts += 1;
+        if (i < avoidCount && recentSet.has(arr[i])) conflicts += 2;
+      }
+      return conflicts;
+    };
+
+    let best = rest;
+    let bestScore = score(rest);
+    const attempts = Math.min(60, rest.length * 12);
+    for (let i = 0; i < attempts; i += 1) {
+      const candidate = fisherYates(rest);
+      const candidateScore = score(candidate);
+      if (candidateScore < bestScore) {
+        best = candidate;
+        bestScore = candidateScore;
+        if (bestScore === 0) break;
+      }
+    }
+
+    setQueueSafe({ queue: [head, ...best], index: 0 });
+    shuffleCycleRef.current = 0;
+  }, [queue, setQueueSafe]);
+
+  const toggleShuffle = useCallback(() => {
+    setShuffleEnabled((prev) => {
+      const nextValue = !prev;
+      if (nextValue) shuffleQueue();
+      else shuffleCycleRef.current = 0;
+      return nextValue;
+    });
+  }, [shuffleQueue]);
 
   const removeFromQueue = useCallback(
     (id) => {
@@ -376,6 +585,11 @@ export default function useAudioController() {
     volume,
     isMuted,
     variant,
+    loopMode,
+    setLoopMode,
+    cycleLoopMode,
+    shuffleEnabled,
+    toggleShuffle,
     VARIANTS,
     audioRef,
     setIndex,
@@ -395,8 +609,10 @@ export default function useAudioController() {
     playAtIndex,
     addToQueue,
     playNext,
+    playSequence,
     removeFromQueue,
     moveInQueue,
+    shuffleQueue,
   };
 }
 

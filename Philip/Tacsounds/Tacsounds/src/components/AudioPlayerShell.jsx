@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import PlayerMini from "./PlayerMini.jsx";
 import PlayerStandard from "./PlayerStandard.jsx";
@@ -10,6 +10,12 @@ import TrackDetailsModal from "./TrackDetailsModal.jsx";
 
 import "./audioplayer.css";
 import "./mobile-player.css";
+import heartOutline from "../assets/icons/heart-outline.svg";
+import heartFilled from "../assets/icons/heart-filled.svg";
+
+const PLAYLIST_STORAGE_KEY = "tacsounds.playlists";
+const LIKED_PLAYLIST_ID = "liked-songs";
+const LIKED_PLAYLIST_NAME = "Liked Songs";
 
 function useIsMobile(breakpoint = 768) {
   const mql = useMemo(() => {
@@ -67,7 +73,7 @@ const fmtDate = (iso) => {
   });
 };
 
-export default function AudioPlayerShell({ controller }) {
+export default function AudioPlayerShell({ controller, onNavigateToLibrary }) {
   if (!controller) {
     console.error("[AudioPlayerShell] Mangler 'controller' prop.");
     return null;
@@ -79,6 +85,12 @@ export default function AudioPlayerShell({ controller }) {
   const [mobileVariant, setMobileVariant] = useState("mini");
   const [isQueueOpen, setQueueOpen] = useState(false);
   const [detailsTrack, setDetailsTrack] = useState(null);
+  const [playlists, setPlaylists] = useState(() =>
+    ensureLikedPlaylist(readStoredPlaylists(PLAYLIST_STORAGE_KEY)),
+  );
+  const lastSavedRef = useRef("");
+  const [playlistModalTrack, setPlaylistModalTrack] = useState(null);
+  const [playlistModalDraft, setPlaylistModalDraft] = useState("");
   
 
   const {
@@ -102,9 +114,39 @@ export default function AudioPlayerShell({ controller }) {
     playNext,
     queueTracks,
     index,
+    loopMode,
+    cycleLoopMode,
+    shuffleEnabled,
+    toggleShuffle,
   } = controller ?? {};
 
   if (!current) return null;
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const safe = ensureLikedPlaylist(playlists);
+      const serialized = JSON.stringify(safe);
+      if (serialized === lastSavedRef.current) return;
+      localStorage.setItem(PLAYLIST_STORAGE_KEY, serialized);
+      lastSavedRef.current = serialized;
+      window.dispatchEvent(new Event("playlists-updated"));
+    } catch {}
+  }, [playlists]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return () => {};
+    const onUpdate = () => {
+      const stored = readStoredPlaylists(PLAYLIST_STORAGE_KEY);
+      const safe = ensureLikedPlaylist(stored);
+      const serialized = JSON.stringify(safe);
+      if (serialized === lastSavedRef.current) return;
+      lastSavedRef.current = serialized;
+      setPlaylists(safe);
+    };
+    window.addEventListener("playlists-updated", onUpdate);
+    return () => window.removeEventListener("playlists-updated", onUpdate);
+  }, []);
 
   // Media Session API: lock screen metadata + controls (safe: uses defined `current`)
   useEffect(() => {
@@ -167,12 +209,101 @@ export default function AudioPlayerShell({ controller }) {
         label: "Play next",
         onSelect: () => playNext(current.id),
       },
+      {
+        id: "like",
+        label: (
+          <span className="trackMenu__itemLabel">
+            Like
+            <img
+              src={isLiked(playlists, current.id) ? heartFilled : heartOutline}
+              alt=""
+            />
+          </span>
+        ),
+        onSelect: () => toggleLikeTrack(setPlaylists, current.id),
+      },
+      {
+        label: "Add to playlist",
+        onSelect: () => setPlaylistModalTrack(current),
+      },
       addToQueue && {
         label: "Add to queue",
         onSelect: () => addToQueue(current.id),
       },
     ].filter(Boolean);
-  }, [current, isPlaying, playById, playNext, addToQueue, isMobile]);
+  }, [
+    current,
+    isPlaying,
+    playById,
+    playNext,
+    addToQueue,
+    isMobile,
+    playlists,
+    heartFilled,
+    heartOutline,
+  ]);
+
+  const isCurrentLiked = useMemo(
+    () => isLiked(playlists, current?.id),
+    [playlists, current?.id],
+  );
+
+  const toggleCurrentLike = useCallback(
+    () => toggleLikeTrack(setPlaylists, current?.id),
+    [current?.id],
+  );
+
+  const handleTitleClick = useCallback(() => {
+    if (!current?.id) return;
+    onNavigateToLibrary?.({ focusTrackId: current.id, query: "" });
+  }, [current?.id, onNavigateToLibrary]);
+
+  const handleArtistClick = useCallback(() => {
+    if (!current?.artist) return;
+    onNavigateToLibrary?.({ query: current.artist, focusTrackId: null });
+  }, [current?.artist, onNavigateToLibrary]);
+
+  const playlistItems = useMemo(() => {
+    const trackMap = new Map(
+      (controller?.catalog || controller?.tracks || []).map((track) => [
+        track.id,
+        track,
+      ]),
+    );
+    return ensureLikedPlaylist(playlists).map((playlist) => {
+      const tracksIn = (playlist.trackIds || [])
+        .map((id) => trackMap.get(id))
+        .filter(Boolean);
+      return {
+        ...playlist,
+        tracks: tracksIn,
+        trackCount: tracksIn.length,
+      };
+    });
+  }, [controller, playlists]);
+
+  const handleCreatePlaylist = (name) => {
+    const trimmed = String(name || "").trim();
+    if (!trimmed) return null;
+    const id = `pl-${slugify(trimmed)}-${Date.now()}`;
+    const createdAt = new Date().toISOString();
+    const newPlaylist = { id, name: trimmed, trackIds: [], createdAt };
+    setPlaylists((prev) => [newPlaylist, ...prev]);
+    return newPlaylist;
+  };
+
+  const addTrackToPlaylist = (playlistId, trackId) => {
+    if (!trackId) return;
+    setPlaylists((prev) =>
+      prev.map((playlist) => {
+        if (playlist.id !== playlistId) return playlist;
+        const nextIds = Array.from(
+          new Set([...(playlist.trackIds || []), trackId]),
+        );
+        return { ...playlist, trackIds: nextIds };
+      }),
+    );
+  };
 
   const prevTrack = useMemo(
     () => (queueTracks && typeof index === "number" && index > 0 ? queueTracks[index - 1] : null),
@@ -196,13 +327,15 @@ export default function AudioPlayerShell({ controller }) {
             togglePlay={togglePlay}
             next={next}
             prev={prev}
-            progressPct={progressPct}
-            seekToRatio={seekToRatio}
-            growVariant={() => setMobileVariant("full")}
-            prevTrack={prevTrack}
-            nextTrack={nextTrackMeta}
-          />
-        );
+          progressPct={progressPct}
+          seekToRatio={seekToRatio}
+          growVariant={() => setMobileVariant("full")}
+          prevTrack={prevTrack}
+          nextTrack={nextTrackMeta}
+          onTitleClick={handleTitleClick}
+          onArtistClick={handleArtistClick}
+        />
+      );
       }
 
       return (
@@ -226,6 +359,14 @@ export default function AudioPlayerShell({ controller }) {
           prevTrack={prevTrack}
           nextTrack={nextTrackMeta}
           trackActions={trackActions}
+          isLiked={isCurrentLiked}
+          onToggleLike={toggleCurrentLike}
+          onTitleClick={handleTitleClick}
+          onArtistClick={handleArtistClick}
+          loopMode={loopMode}
+          onCycleLoop={cycleLoopMode}
+          shuffleEnabled={shuffleEnabled}
+          onToggleShuffle={toggleShuffle}
         />
       );
     }
@@ -252,6 +393,16 @@ export default function AudioPlayerShell({ controller }) {
           volumeIcon={volumeIcon}
           onOpenQueue={() => setQueueOpen(true)}
           trackActions={trackActions}
+          isLiked={isCurrentLiked}
+          onToggleLike={toggleCurrentLike}
+          onTitleClick={handleTitleClick}
+          onArtistClick={handleArtistClick}
+          loopMode={loopMode}
+          onCycleLoop={cycleLoopMode}
+          shuffleEnabled={shuffleEnabled}
+          onToggleShuffle={toggleShuffle}
+          prevTrack={prevTrack}
+          nextTrack={nextTrackMeta}
         />
       );
     }
@@ -270,6 +421,15 @@ export default function AudioPlayerShell({ controller }) {
           volumeIcon={volumeIcon}
           toggleMute={toggleMute}
           onVolumeChange={onVolumeChange}
+          trackActions={trackActions}
+          isLiked={isCurrentLiked}
+          onToggleLike={toggleCurrentLike}
+          onTitleClick={handleTitleClick}
+          onArtistClick={handleArtistClick}
+          loopMode={loopMode}
+          onCycleLoop={cycleLoopMode}
+          shuffleEnabled={shuffleEnabled}
+          onToggleShuffle={toggleShuffle}
         />
       );
     }
@@ -292,9 +452,19 @@ export default function AudioPlayerShell({ controller }) {
         isMuted={isMuted}
         toggleMute={toggleMute}
         onVolumeChange={onVolumeChange}
-        volumeIcon={volumeIcon}
-        onOpenQueue={() => setQueueOpen(true)}
-        trackActions={trackActions}
+          volumeIcon={volumeIcon}
+          onOpenQueue={() => setQueueOpen(true)}
+          trackActions={trackActions}
+          isLiked={isCurrentLiked}
+          onToggleLike={toggleCurrentLike}
+        onTitleClick={handleTitleClick}
+        onArtistClick={handleArtistClick}
+        loopMode={loopMode}
+        onCycleLoop={cycleLoopMode}
+        shuffleEnabled={shuffleEnabled}
+        onToggleShuffle={toggleShuffle}
+        prevTrack={prevTrack}
+        nextTrack={nextTrackMeta}
       />
     );
   }, [
@@ -308,6 +478,10 @@ export default function AudioPlayerShell({ controller }) {
     isPlaying,
     mobileVariant,
     next,
+    loopMode,
+    cycleLoopMode,
+    shuffleEnabled,
+    toggleShuffle,
     onVolumeChange,
     prev,
     progress,
@@ -318,6 +492,8 @@ export default function AudioPlayerShell({ controller }) {
     trackActions,
     volume,
     volumeIcon,
+    isCurrentLiked,
+    toggleCurrentLike,
   ]);
 
   const detailsDurationLabel = useMemo(() => {
@@ -329,6 +505,12 @@ export default function AudioPlayerShell({ controller }) {
 
   return (
     <>
+      {!isMobile && desktopVariant === "full" ? (
+        <div
+          className="audioPlayer__overlayBackdrop audioPlayer__overlayBackdrop--desktop"
+          onClick={() => setDesktopVariant("standard")}
+        />
+      ) : null}
       {playerNode}
       <QueueModal
         isOpen={isQueueOpen}
@@ -342,8 +524,176 @@ export default function AudioPlayerShell({ controller }) {
         normalizeGenres={normalizeGenres}
         fmtDate={fmtDate}
       />
+      {playlistModalTrack ? (
+        <div className="modalBackdrop" role="dialog" aria-modal="true">
+          <div className="modalCard playlistModal">
+            <button
+              type="button"
+              className="modalClose"
+              onClick={() => {
+                setPlaylistModalTrack(null);
+                setPlaylistModalDraft("");
+              }}
+              aria-label="Close"
+            >
+              x
+            </button>
+            <div className="playlistModal__header">
+              <h2>Add to playlist</h2>
+              <p>{playlistModalTrack.title}</p>
+            </div>
+            <div className="playlistModal__body">
+              <div className="playlistModal__create">
+                <input
+                  type="text"
+                  placeholder="New playlist name"
+                  value={playlistModalDraft}
+                  onChange={(event) =>
+                    setPlaylistModalDraft(event.target.value)
+                  }
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      const created = handleCreatePlaylist(
+                        playlistModalDraft,
+                      );
+                      if (created) {
+                        addTrackToPlaylist(
+                          created.id,
+                          playlistModalTrack.id,
+                        );
+                        setPlaylistModalTrack(null);
+                        setPlaylistModalDraft("");
+                      }
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  className="chip isActive"
+                  onClick={() => {
+                    const created = handleCreatePlaylist(playlistModalDraft);
+                    if (created) {
+                      addTrackToPlaylist(created.id, playlistModalTrack.id);
+                      setPlaylistModalTrack(null);
+                      setPlaylistModalDraft("");
+                    }
+                  }}
+                >
+                  Create & Add
+                </button>
+              </div>
+              <div className="playlistModal__list">
+                {playlistItems.length ? (
+                  playlistItems.map((playlist) => (
+                    <button
+                      key={playlist.id}
+                      type="button"
+                      className="playlistPick"
+                      onClick={() => {
+                        addTrackToPlaylist(playlist.id, playlistModalTrack.id);
+                        setPlaylistModalTrack(null);
+                        setPlaylistModalDraft("");
+                      }}
+                    >
+                      <span>{playlist.name}</span>
+                      <span className="playlistPick__meta">
+                        {playlist.trackCount} tracks
+                      </span>
+                    </button>
+                  ))
+                ) : (
+                  <p className="playlistEmpty">No playlists yet.</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </>
   );
+}
+
+function readStoredPlaylists(key) {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed
+      .map((item) => ({
+        id: item.id,
+        name: item.name,
+        trackIds: Array.isArray(item.trackIds)
+          ? item.trackIds.map((id) => String(id))
+          : [],
+        createdAt: item.createdAt || new Date().toISOString(),
+      }))
+      .filter((item) => item.id && item.name);
+  } catch {
+    return [];
+  }
+}
+
+function ensureLikedPlaylist(playlists) {
+  const list = Array.isArray(playlists)
+    ? playlists.map((playlist) => ({
+        ...playlist,
+        trackIds: Array.isArray(playlist.trackIds)
+          ? playlist.trackIds.map((id) => String(id))
+          : [],
+      }))
+    : [];
+  const idx = list.findIndex((playlist) => playlist.id === LIKED_PLAYLIST_ID);
+  if (idx >= 0) {
+    const liked = list[idx];
+    list[idx] = {
+      ...liked,
+      name: LIKED_PLAYLIST_NAME,
+      createdAt: liked.createdAt || new Date().toISOString(),
+    };
+    return list;
+  }
+  return [
+    {
+      id: LIKED_PLAYLIST_ID,
+      name: LIKED_PLAYLIST_NAME,
+      trackIds: [],
+      createdAt: new Date().toISOString(),
+    },
+    ...list,
+  ];
+}
+
+function isLiked(playlists, trackId) {
+  const safeId = String(trackId || "");
+  if (!safeId) return false;
+  const liked = playlists.find((playlist) => playlist.id === LIKED_PLAYLIST_ID);
+  return !!liked?.trackIds?.includes(safeId);
+}
+
+function toggleLikeTrack(setPlaylists, trackId) {
+  const safeId = String(trackId || "");
+  if (!safeId) return;
+  setPlaylists((prev) =>
+    ensureLikedPlaylist(prev).map((playlist) => {
+      if (playlist.id !== LIKED_PLAYLIST_ID) return playlist;
+      const trackIds = (playlist.trackIds || []).map((id) => String(id));
+      const hasTrack = trackIds.includes(safeId);
+      const nextIds = hasTrack
+        ? trackIds.filter((id) => id !== safeId)
+        : [...trackIds, safeId];
+      return { ...playlist, trackIds: nextIds };
+    }),
+  );
+}
+
+function slugify(value) {
+  return String(value || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./navBar.css";
+import moonIcon from "../assets/icons/moon.svg";
+import sunIcon from "../assets/icons/sun.svg";
 
 const NAV_ITEMS = [
   { key: "carousel", label: "Forside", disabled: false },
@@ -13,6 +15,8 @@ export default function NavBar({
   currentView,
   onNavigate,
   onLogoClick,
+  theme = "light",
+  onToggleTheme,
 }) {
   const resolvedActive = active ?? currentView ?? "carousel";
   const [isOpen, setIsOpen] = useState(false);
@@ -75,7 +79,48 @@ export default function NavBar({
             </button>
           </li>
         ))}
+        <li className="navLinks__themeRow">
+          <div className="themeTabs" role="group" aria-label="Theme">
+            <button
+              type="button"
+              className={`themeTab ${theme === "light" ? "isActive" : ""}`}
+              onClick={() => theme !== "light" && onToggleTheme?.()}
+              aria-pressed={theme === "light"}
+            >
+              <img src={sunIcon} alt="" />
+              Light
+            </button>
+            <button
+              type="button"
+              className={`themeTab ${theme === "dark" ? "isActive" : ""}`}
+              onClick={() => theme !== "dark" && onToggleTheme?.()}
+              aria-pressed={theme === "dark"}
+            >
+              <img src={moonIcon} alt="" />
+              Dark
+            </button>
+          </div>
+        </li>
       </ul>
+
+      <div className="navBar__actions">
+        <button
+          type="button"
+          className={`themeToggle ${theme === "dark" ? "isActive" : ""}`}
+          onClick={onToggleTheme}
+          aria-pressed={theme === "dark"}
+          aria-label={
+            theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+          }
+          title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          <img
+            className="themeToggle__icon"
+            src={theme === "dark" ? sunIcon : moonIcon}
+            alt=""
+          />
+        </button>
+      </div>
     </nav>
   );
 }

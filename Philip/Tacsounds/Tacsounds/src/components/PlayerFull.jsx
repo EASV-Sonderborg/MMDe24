@@ -1,10 +1,6 @@
 import PlayerStandard from "./PlayerStandard";
 
-export default function PlayerFull(props){
-  // Genbrug markup fra standard – din CSS (audioPlayer--full) skalerer layoutet
-  return (
-    <div className="audioPlayer audioPlayer--full">
-      <PlayerStandard {...props} />
-    </div>
-  );
+export default function PlayerFull(props) {
+  // Reuse PlayerStandard markup; it handles the full variant class.
+  return <PlayerStandard {...props} variant="full" />;
 }

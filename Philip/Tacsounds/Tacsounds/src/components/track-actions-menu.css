@@ -29,7 +29,7 @@
 }
 
 /* When open, highlight the trigger with a white circular background */
-.trackMenu.isOpen .trackMenu__trigger {
+.trackMenu.isOpen.isFromTrigger .trackMenu__trigger {
   background: #fff;
   border-radius: 999px;
   box-shadow: 0 4px 14px rgba(10, 12, 16, 0.14);
@@ -84,6 +84,38 @@
   font-size: 0.95rem;
   transition:
     color 0.15s ease;
+}
+
+.trackMenu__itemLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trackMenu__itemLabel img {
+  width: 14px;
+  height: 14px;
+}
+
+.trackMenu__likeIcon.isActive {
+  animation: heartPop 0.4s ease;
+  transform-origin: center;
+  filter: drop-shadow(0 2px 6px rgba(255, 92, 138, 0.5));
+}
+
+@keyframes heartPop {
+  0% {
+    transform: scale(0.9);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .trackMenu__item:hover,
