@@ -1,6 +1,48 @@
 [
 
     {
+        "id": "Summer",
+        "title": "Summer",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": "Pop",
+        "releaseDate": "2026-05-04",
+        "featured": true,
+        "duration": null,
+        "bpm": null,
+        "audio": 
+        {
+            "src": "/assets/tracks/Summer.wav",
+            "format": "wav"
+        },
+        "cover": 
+        {
+            "src": "/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },
+    {
+        "id": "Recovery",
+        "title": "Recovery",
+        "artist": "Tac",
+        "album": "Single",
+        "genres": "HipHop",
+        "releaseDate": "2026-04-30",
+        "featured": true,
+        "duration": null,
+        "bpm": null,
+        "audio": 
+        {
+            "src": "/assets/tracks/Dont recover Gmaj.wav",
+            "format": "wav"
+        },
+        "cover": 
+        {
+            "src": "/assets/covers/tacStandard.png",
+            "format": "png"
+        }
+    },
+    {
         "id": "TheGoodTimes",
         "title": "The Good Times",
         "artist": "Tac",
@@ -219,7 +261,7 @@
         "title": "Lidt AW på den",
         "artist": "Tac",
         "album": "Single",
-        "genres": "Electronic",
+        "genres": "HipHop",
         "releaseDate": "2025-03-12",
         "featured": true,
         "duration": null,
