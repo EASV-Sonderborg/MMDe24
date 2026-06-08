@@ -1,4 +1,3 @@
-// src/components/ProjectCard.jsx
 import logo__html from '../assets/logo__html.svg';
 import logo__css from '../assets/logo__css.svg';
 import logo__js from '../assets/logo__js.svg';
@@ -17,64 +16,71 @@ const toolIcons = {
   wordpress: logo__wordpress,
 };
 
-export default function ProjectCard({ project, flip = false }) {
+const toolNames = {
+  html: 'HTML',
+  css: 'CSS',
+  js: 'JavaScript',
+  react: 'React',
+  photoshop: 'Photoshop',
+  figma: 'Figma',
+  wordpress: 'WordPress',
+};
+
+export default function ProjectCard({ project, index, flip = false, isActive, onOpen }) {
   return (
-    <article id='projects' className={`projectCard ${flip ? 'projectCard--flip' : ''}`}>
-      <div className="projectCard__media">
-        <img src={project.thumb} alt="" loading="lazy" />
-        <div className="projectCard__mediaOverlay">
-          {project.demoUrl && (
-            <a href={project.demoUrl} className="btn btn--light" target="_blank" rel="noreferrer">Demo</a>
-          )}
-          {project.repoUrl && (
-            <a href={project.repoUrl} className="btn btn--ghost" target="_blank" rel="noreferrer">GitHub</a>
-          )}
-        </div>
+    <article
+      className={`projectShowcase ${flip ? 'projectShowcase--flip' : ''} ${isActive ? 'is-active' : ''}`}
+      aria-labelledby={`project-title-${project.id}`}
+    >
+      <div className="projectShowcase__media">
+        <span className="projectShowcase__number" aria-hidden="true">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <img src={project.thumb} alt={`Forhåndsvisning af ${project.title}`} loading="lazy" />
       </div>
 
-      <div className="projectCard__body">
-        <h3 className="text__cardTitle">{project.title}</h3>
-        <p className="text__label">{project.subtitle}</p>
-        <p className="text__body projectCard__desc">{project.description}</p>
+      <div className="projectShowcase__content">
+        <div>
+          <p className="eyebrow">{project.subtitle} · {project.date}</p>
+          <h3 id={`project-title-${project.id}`}>{project.title}</h3>
+          <p className="projectShowcase__description">{project.description}</p>
+        </div>
 
-        <hr className="projectCard__rule" />
+        <div className="projectShowcase__details">
+          <div>
+            <span className="projectShowcase__label">Rolle</span>
+            <ul className="projectShowcase__tags" aria-label="Projektroller">
+              {project.role.map((role) => <li key={role}>{role}</li>)}
+            </ul>
+          </div>
 
-        {/* META BAR */}
-        <div className="projectMeta">
-          <div className="metaGroup">
-            <span className="metaLabel text__label">Rolle:</span>
-            <div className="chips">
-              {project.role.map(r => (
-                <span
-                  key={r}
-                  className={` pill text__label ${r.toLowerCase()==='design' ? 'pill--design' : 'pill--dev'}`}
-                >
-                  {r}
-                </span>
+          <div>
+            <span className="projectShowcase__label">Teknologier</span>
+            <ul className="projectShowcase__tools" aria-label="Projektteknologier">
+              {project.tools.map((key) => (
+                <li key={key}>
+                  <img src={toolIcons[key]} alt="" aria-hidden="true" />
+                  <span>{toolNames[key] || key}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
+        </div>
 
-          <div className="metaGroup">
-            <span className="metaLabel text__label">Værktøjer:</span>
-            <div className="toolsRow">
-              {project.tools.map(key => (
-                <img
-                  key={key}
-                  className="toolIcon"
-                  src={toolIcons[key]}
-                  alt={key}
-                  title={key}
-                  loading="lazy"
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="metaGroup metaGroup--date">
-            <span className="metaLabel text__label">Dato:</span>
-            <span className="pill pill--date  text__body">{project.date}</span>
-          </div>
+        <div className="projectShowcase__actions">
+          <button type="button" className="projectAction projectAction--primary" onClick={onOpen}>
+            View Case Study
+          </button>
+          {project.siteUrl && (
+            <a className="projectAction projectAction--secondary" href={project.siteUrl} target="_blank" rel="noreferrer">
+              Live Site
+            </a>
+          )}
+          {project.repoUrl && (
+            <a className="projectAction projectAction--secondary" href={project.repoUrl} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          )}
         </div>
       </div>
     </article>

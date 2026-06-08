@@ -1,109 +1,157 @@
-.hero   {
-    padding: 2rem;
-    margin: 5rem 0 20rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero__content {
-    margin: 0 auto;
-    text-align: center;
-}
-
-
-.hero__skillset {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap; /* allow icons to wrap on small screens */
-
-}
-
-.hero__skillset img {
-  filter: drop-shadow(0 4px 12px rgba(34, 15, 172, 0.4));
-  cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.hero__skillset img:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.4));
-}
-
-.hero__contact {
-    margin-top: 4rem;
-    text-align: center;
-}
-
-.contact__link {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-size: 1.25rem;
-    color: white;
-    text-decoration: none;
-    background: var(--gradient-blue);
-}
-
-.contact__link:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 4px 12px rgba(15, 8, 102, 0.603));
-}
-
-#about{ scroll-margin-top: 96px; }
-
-
-.hero__scroll {
-  position: relative;
-  margin-top: 4rem;
-  text-align: center;
+.hero {
+  min-height: calc(100svh - 5rem);
+  padding-block: clamp(6rem, 14vh, 10rem) 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #e6ebff;
+  text-align: center;
+  position: relative;
 }
 
-.hero__chevron svg  {
-    width: 4rem;
-    height: 4rem;
-  color: #e6ebff;
-  filter: drop-shadow 0 8px 28px rgba(0,0,0,.35);
-  transition: filter .2s ease, transform .2s ease, background-color .2s ease;
-  z-index: 2;
-  animation: chevronFloat 2.4s ease-in-out infinite;
+.hero::before {
+  content: "";
+  width: min(650px, 80vw);
+  aspect-ratio: 1;
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(48, 100, 255, .14), transparent 67%);
+  filter: blur(12px);
 }
 
-
-.hero__chevron svg:hover{
-  filter: brightness(1.15);
+.hero__status {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  margin-bottom: 2rem;
+  padding: .55rem .85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .025);
+  color: var(--text-muted);
+  font: 600 .65rem/1 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
-@keyframes chevronFloat{
-  0%,100%{ transform: translateX(0%) translateY(0);}
-  50%{     transform: translateX(0%) translateY(6px);}
+
+.hero__status span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #54e5b0;
+  box-shadow: 0 0 12px #54e5b0;
 }
 
-/* Small screens: reduce spacing and icon sizes */
-@media (max-width: 640px) {
+.hero__content {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  overflow: visible;
+}
+
+.hero__title {
+  max-width: 100%;
+  padding: .1em .08em .16em;
+  overflow: visible;
+}
+
+.hero__subtitle {
+  margin: 0;
+}
+
+.hero__intro {
+  max-width: 54ch;
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.hero__skillset {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.hero__skillset li {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .025);
+  color: var(--text-muted);
+  font-size: .72rem;
+}
+
+.hero__skillset img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.hero__actions {
+  margin-top: var(--space-5);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.hero__actions a {
+  padding: .8rem 1.1rem;
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 650;
+  font-size: .86rem;
+  transition: transform .2s ease, border-color .2s ease, background-color .2s ease;
+}
+
+.hero__actions a:hover {
+  transform: translateY(-2px);
+}
+
+.hero__cta {
+  background: linear-gradient(110deg, #3668ff, #7a55e8);
+  box-shadow: 0 12px 28px rgba(72, 85, 255, .25);
+}
+
+.hero__project-link {
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, .035);
+}
+
+.hero__scroll {
+  margin-top: clamp(3rem, 9vh, 6rem);
+  display: grid;
+  justify-items: center;
+  gap: .55rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font: 600 .64rem/1 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hero__scroll svg {
+  width: 27px;
+  height: 27px;
+}
+
+@media (max-width: 520px) {
   .hero {
-    padding: 1.25rem;
-    margin: 3rem 0 8rem;
+    padding-inline: 0;
   }
-  .hero__skillset {
-    gap: 1rem;
-  }
-  .hero__skillset img {
-    max-height: 40px;
-  }
-  .hero__contact {
-    margin-top: 2.5rem;
-  }
-  .hero__chevron svg {
-    width: 3rem;
-    height: 3rem;
+
+  .hero__title {
+    font-size: clamp(2.55rem, 15vw, 4.5rem);
+    letter-spacing: -.065em;
   }
 }

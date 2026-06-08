@@ -5,25 +5,15 @@ import logo__react from '../assets/logo__react.svg';
 import logo__photoshop from '../assets/logo__photoshop.svg';
 import logo__figma from '../assets/logo__figma.svg';
 import logo__wordpress from '../assets/logo__wordpress.svg';
+import logo__github from '../assets/logo__github.svg';
 
 export const skills = [
-  {
-    category: 'Web Development',
-    theme: "blue",
-    items: [
-      { name: 'HTML', icon: logo__html, level: 5 },
-      { name: 'CSS', icon: logo__css, level: 5 },
-      { name: 'JavaScript', icon: logo__js, level: 4 },
-      { name: 'React', icon: logo__react, level: 3 },
-    ],
-  },
-  {
-    category: 'Designværktøjer',
-    theme: "green",
-    items: [
-      { name: 'Adobe Photoshop', icon: logo__photoshop, level: 4 },
-      { name: 'Figma', icon: logo__figma, level: 5 },
-      { name: 'Wordpress', icon: logo__wordpress, level: 4 },
-    ],
-  },
+  { name: 'HTML', icon: logo__html },
+  { name: 'CSS', icon: logo__css },
+  { name: 'JavaScript', icon: logo__js },
+  { name: 'React', icon: logo__react },
+  { name: 'GitHub', icon: logo__github },
+  { name: 'Photoshop', icon: logo__photoshop },
+  { name: 'Figma', icon: logo__figma },
+  { name: 'WordPress', icon: logo__wordpress },
 ];

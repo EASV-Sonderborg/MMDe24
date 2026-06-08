@@ -18,8 +18,9 @@
   box-shadow: 0 24px 80px rgba(0,0,0,.45);
   display: grid;
   grid-template-rows: auto 1fr; /* media | bottom */
-  overflow: hidden;
+  overflow-y: auto;
   position: relative;
+  background: rgba(9, 13, 35, .94);
 }
 
 /* Luk */
@@ -239,16 +240,22 @@
 
 /* Mobil */
 @media (max-width: 760px){
+  .pm__dialog {
+    width: calc(100vw - 1rem);
+    padding: .5rem;
+  }
   .pm__stage{ 
-    height: 42vh; 
-    max-height: 42vh; 
+    height: 32vh;
+    max-height: 32vh;
   }
   .pm__bottom{
     grid-template-columns: 1fr; /* stack */
   }
   .pm__right{ 
     order: 2; 
+    justify-content: start;
   }
+  .pm__nav { display: none; }
 }
 
 /* Indre galleri-navigation */
